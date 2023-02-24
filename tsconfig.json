@@ -16,8 +16,11 @@
     "jsx": "react-jsx",
     "outDir": "dist",
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.esm.json" }]
+  "include": ["src"]
 }
