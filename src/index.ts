@@ -1,4 +1,32 @@
-import 'tailwindcss/tailwind.css'
+import { extend } from './configs'
+
+interface Config {
+  [prop: string]: any
+}
+
+//const content = ``
+
+export const sakuraConfig = (userConfig = {}) => {
+  const newConfig: Config = {
+    ...userConfig,
+    theme: {
+      extend: extend
+    }
+  }
+  /*
+  if (!newConfig.content) {
+    newConfig.content = [content]
+  } else if (Array.isArray(newConfig.content)) {
+    newConfig.content = [...newConfig.content, content]
+  } else if (newConfig.content.files) {
+    newConfig.content.files = [...newConfig.content.files, content]
+  } else if (!newConfig.content.files) {
+    newConfig.content.files = [content]
+  }
+   */
+
+  return newConfig
+}
 
 export {
   Button,

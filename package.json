@@ -1,7 +1,6 @@
 {
   "name": "@glassonion1/sakura-ui",
-  "version": "0.0.5",
-  "type": "module",
+  "version": "0.0.13",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -20,7 +19,8 @@
     "dev": "vite",
     "build": "run-p build:*",
     "build:scripts": "vite build",
-    "build:types": "tsc --emitDeclarationOnly && tsc-alias"
+    "build:types": "tsc --emitDeclarationOnly && tsc-alias",
+    "test": "jest"
   },
   "keywords": [],
   "author": "glassonion1",
@@ -36,16 +36,20 @@
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
+    "@types/jest": "^29.4.0",
     "@types/node": "^18.14.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "autoprefixer": "^10.4.13",
+    "jest": "^29.4.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.2.7",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.2",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
