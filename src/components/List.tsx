@@ -1,5 +1,5 @@
 import React from 'react'
-import clsx from 'clsx'
+import { cx } from '../utils'
 
 export type UlProps = React.ComponentProps<'ul'>
 
@@ -13,7 +13,7 @@ export const Ul = (props: UlProps) => {
     pl-4
   `
   return (
-    <ul className={clsx(style, className)} {...newprops}>
+    <ul className={cx(style, className)} {...newprops}>
       {children}
     </ul>
   )
@@ -31,7 +31,7 @@ export const Ol = (props: OlProps) => {
     pl-4
   `
   return (
-    <ol className={clsx(style, className)} {...newprops}>
+    <ol className={cx(style, className)} {...newprops}>
       {children}
     </ol>
   )

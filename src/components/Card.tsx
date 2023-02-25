@@ -1,10 +1,11 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type Props = React.ComponentProps<'div'>
 
 export const Card = (props: Props) => {
   const { className, children, ...newProps } = props
+
   const style = `
     bg-sumi-50
     border
@@ -14,7 +15,7 @@ export const Card = (props: Props) => {
     p-4
   `
   return (
-    <div className={clsx(style, props.className)} {...newProps}>
+    <div className={cx(style, props.className)} {...newProps}>
       {props.children}
     </div>
   )

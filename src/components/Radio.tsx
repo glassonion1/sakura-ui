@@ -1,9 +1,9 @@
-import clsx from 'clsx'
-import React, { ChangeEvent } from 'react'
+import React from 'react'
+import { cx } from '../utils'
 
 export type Props = React.ComponentProps<'input'> & {}
 
-export const Radio = (props: Props) => {
+export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { className, children, ...newProps } = props
 
   const style = `
@@ -30,10 +30,10 @@ export const Radio = (props: Props) => {
     peer-checked:bg-sea-600
   `
   return (
-    <label htmlFor={newProps.id} className={clsx(style, className)}>
-      <input className={styleInput} type="radio" {...newProps} />
+    <label htmlFor={newProps.id} className={cx(style, className)}>
+      <input className={styleInput} type="radio" {...newProps} ref={ref} />
       <span className={styleRadio}></span>
       {children}
     </label>
   )
-}
+})

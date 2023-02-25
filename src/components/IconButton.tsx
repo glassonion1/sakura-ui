@@ -1,21 +1,18 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type IconButtonProps = React.ComponentProps<'button'> & {
   variant?: 'primary' | 'secondary'
   icon: string
 }
 
-/*
- * リンク目的で利用しないこと。リンクする場合ははLinkButtonを利用すること
- */
-export const IconButton = (props: IconButtonProps) => {
-  // コンポーネントを使う側でclassNameを指定しても問題ないようにする
-  const { className, children, icon, variant, ...newProps } = props
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    const { className, children, icon, variant, ...newProps } = props
 
-  const align = 'center'
+    const align = 'center'
 
-  const style = `
+    const style = `
     inline-block
     p-4
     text-base
@@ -25,7 +22,7 @@ export const IconButton = (props: IconButtonProps) => {
     cursor-pointer
   `
 
-  const primary = `
+    const primary = `
     text-white-1000
     bg-sea-600
     hover:bg-sea-800
@@ -39,7 +36,7 @@ export const IconButton = (props: IconButtonProps) => {
     disabled:border-solid
     disabled:border-sumi-500
   `
-  const secondary = `
+    const secondary = `
     border
     border-solid
     border-sea-600
@@ -55,18 +52,20 @@ export const IconButton = (props: IconButtonProps) => {
     disabled:border-sumi-500
   `
 
-  const styles = {
-    primary: primary,
-    secondary: secondary
-  }
+    const styles = {
+      primary: primary,
+      secondary: secondary
+    }
 
-  return (
-    <button
-      className={clsx(style, styles[variant ?? 'primary'], className)}
-      {...newProps}
-    >
-      <img src={`/icons/${props.icon}.svg`} alt={props.icon} width="24" />
-      {children}
-    </button>
-  )
-}
+    return (
+      <button
+        className={cx(style, styles[variant ?? 'primary'], className)}
+        {...newProps}
+        ref={ref}
+      >
+        <img src={`/icons/${props.icon}.svg`} alt={props.icon} width="24" />
+        {children}
+      </button>
+    )
+  }
+)

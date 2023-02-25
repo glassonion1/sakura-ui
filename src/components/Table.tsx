@@ -1,5 +1,5 @@
 import React from 'react'
-import clsx from 'clsx'
+import { cx } from '../utils'
 
 export type TableProps = React.ComponentProps<'table'>
 
@@ -12,7 +12,7 @@ const styleBorder = `
 export const Table = (props: TableProps) => {
   const { className, children, ...newprops } = props
 
-  // break-allの設定がないとスマホのときにテーブルがはみ出す
+  // If there is no break-all setting, the table will protrude when using a smartphone
   const style = `
     w-full
     table-auto
@@ -20,7 +20,7 @@ export const Table = (props: TableProps) => {
   `
 
   return (
-    <table className={clsx(style, styleBorder, className)} {...newprops}>
+    <table className={cx(style, styleBorder, className)} {...newprops}>
       {children}
     </table>
   )
@@ -33,7 +33,7 @@ export const Caption = (props: CaptionProps) => {
 
   const style = `text-left`
   return (
-    <caption className={clsx(style, className)} {...newprops}>
+    <caption className={cx(style, className)} {...newprops}>
       {children}
     </caption>
   )
@@ -45,7 +45,7 @@ export const Thead = (props: TheadProps) => {
   const { className, children, ...newprops } = props
 
   return (
-    <thead className={clsx(className)} {...newprops}>
+    <thead className={cx(className)} {...newprops}>
       {children}
     </thead>
   )
@@ -57,7 +57,7 @@ export const Tbody = (props: TbodyProps) => {
   const { className, children, ...newprops } = props
 
   return (
-    <tbody className={clsx(className)} {...newprops}>
+    <tbody className={cx(className)} {...newprops}>
       {children}
     </tbody>
   )
@@ -74,7 +74,7 @@ export const Th = (props: ThProps) => {
     text-left
   `
   return (
-    <th className={clsx(style, styleBorder, className)} {...newprops}>
+    <th className={cx(style, styleBorder, className)} {...newprops}>
       {children}
     </th>
   )
@@ -88,7 +88,7 @@ export const Tr = (props: TrProps) => {
   const style = ``
 
   return (
-    <tr className={clsx(style, styleBorder, className)} {...newprops}>
+    <tr className={cx(style, styleBorder, className)} {...newprops}>
       {children}
     </tr>
   )
@@ -104,7 +104,7 @@ export const Td = (props: TdProps) => {
   `
 
   return (
-    <td className={clsx(style, styleBorder, className)} {...newprops}>
+    <td className={cx(style, styleBorder, className)} {...newprops}>
       {children}
     </td>
   )

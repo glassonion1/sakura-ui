@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type CodeProps = React.ComponentProps<'code'>
 
@@ -12,7 +12,7 @@ export const Code = (props: CodeProps) => {
   `
 
   return (
-    <code className={clsx(style, className)} {...newProps}>
+    <code className={cx(style, className)} {...newProps}>
       {children}
     </code>
   )

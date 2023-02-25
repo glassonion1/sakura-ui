@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type PreProps = React.ComponentProps<'pre'>
 
@@ -15,7 +15,7 @@ export const Pre = (props: PreProps) => {
   `
 
   return (
-    <pre className={clsx(style, className)} {...newProps}>
+    <pre className={cx(style, className)} {...newProps}>
       {children}
     </pre>
   )

@@ -1,11 +1,12 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type Props = React.ComponentPropsWithoutRef<'select'>
 
 export const Select = React.forwardRef<HTMLSelectElement, Props>(
-  ({ ...props }, ref) => {
+  (props, ref) => {
     const { className, children, ...newProps } = props
+
     const style = `
     block
     appearance-none
@@ -22,11 +23,7 @@ export const Select = React.forwardRef<HTMLSelectElement, Props>(
   `
     return (
       <div className="inline-block relative">
-        <select
-          className={clsx(style, props.className)}
-          {...newProps}
-          ref={ref}
-        >
+        <select className={cx(style, props.className)} {...newProps} ref={ref}>
           {props.children}
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">

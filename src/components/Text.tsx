@@ -1,11 +1,10 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type TextProps = React.ComponentPropsWithoutRef<'input'>
 
 export const Text = React.forwardRef<HTMLInputElement, TextProps>(
   ({ ...props }, ref) => {
-    // コンポーネントを使う側でclassNameを指定しても問題ないようにする
     const { className, ...newProps } = props
 
     const style = `
@@ -27,7 +26,7 @@ export const Text = React.forwardRef<HTMLInputElement, TextProps>(
     return (
       <input
         type="text"
-        className={clsx(style, className)}
+        className={cx(style, className)}
         {...newProps}
         ref={ref}
       />

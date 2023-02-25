@@ -1,13 +1,10 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type Props = React.ComponentProps<'div'> & {
   title?: string
 }
 
-/*
- * TODO: next/linkを使うと警告がでるのでReact.forwardRefが必要
- */
 export const InfoCard = (props: Props) => {
   const { className, children, ...newProps } = props
 
@@ -31,7 +28,7 @@ export const InfoCard = (props: Props) => {
   `
 
   return (
-    <div className={clsx(style, props.className)} {...newProps}>
+    <div className={cx(style, props.className)} {...newProps}>
       <h2 className={topStyle}>{props.title}</h2>
       <p className={bottmStyle}>{props.children}</p>
     </div>

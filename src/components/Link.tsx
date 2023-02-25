@@ -1,5 +1,5 @@
 import React from 'react'
-import clsx from 'clsx'
+import { cx } from '../utils'
 
 export type LinkProps = React.ComponentProps<'a'>
 
@@ -53,7 +53,7 @@ export const Link = (props: LinkProps) => {
   if (href.startsWith('http')) {
     return (
       <a
-        className={clsx(style, props.className)}
+        className={cx(style, props.className)}
         href={href}
         target="_blank"
         rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export const Link = (props: LinkProps) => {
     )
   }
   return (
-    <a className={clsx(style, props.className)} href={href} {...newProps}>
+    <a className={cx(style, props.className)} href={href} {...newProps}>
       {props.children}
       {fileType ? `（${fileType}）` : null}
     </a>

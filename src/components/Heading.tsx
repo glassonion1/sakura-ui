@@ -1,15 +1,13 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cx } from '../utils'
 
 export type HeadingProps = React.ComponentProps<'h1'>
 
-// 共通スタイル
 const common = `
     font-bold
 `
 
 export const H1 = (props: HeadingProps) => {
-  // コンポーネントを使う側でclassNameを指定しても問題ないようにする
   const { className, children, ...newProps } = props
 
   const style = `
@@ -19,7 +17,7 @@ export const H1 = (props: HeadingProps) => {
   `
 
   return (
-    <h1 className={clsx(common, style, props.className)} {...newProps}>
+    <h1 className={cx(common, style, props.className)} {...newProps}>
       {props.children}
     </h1>
   )
@@ -36,7 +34,7 @@ export const H2 = (props: HeadingProps) => {
   `
 
   return (
-    <h2 className={clsx(common, style, props.className)} {...newProps}>
+    <h2 className={cx(common, style, props.className)} {...newProps}>
       {props.children}
     </h2>
   )
@@ -53,7 +51,7 @@ export const H3 = (props: HeadingProps) => {
   `
 
   return (
-    <h3 className={clsx(common, style, props.className)} {...newProps}>
+    <h3 className={cx(common, style, props.className)} {...newProps}>
       {props.children}
     </h3>
   )
@@ -70,7 +68,7 @@ export const H4 = (props: HeadingProps) => {
   `
 
   return (
-    <h4 className={clsx(common, style, props.className)} {...newProps}>
+    <h4 className={cx(common, style, props.className)} {...newProps}>
       {props.children}
     </h4>
   )
@@ -87,7 +85,7 @@ export const H5 = (props: HeadingProps) => {
   `
 
   return (
-    <h5 className={clsx(common, style, props.className)} {...newProps}>
+    <h5 className={cx(common, style, props.className)} {...newProps}>
       {props.children}
     </h5>
   )
@@ -104,7 +102,7 @@ export const H6 = (props: HeadingProps) => {
   `
 
   return (
-    <h6 className={clsx(common, style, props.className)} {...newProps}>
+    <h6 className={cx(common, style, props.className)} {...newProps}>
       {props.children}
     </h6>
   )
