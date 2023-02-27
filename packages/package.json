@@ -1,0 +1,23 @@
+{
+  "name": "@sakura-ui/sakura-ui",
+  "version": "0.0.6",
+  "keywords": [],
+  "author": "glassonion1",
+  "homepage": "https://github.com/glassonion1/sakura-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git"
+  },
+  "license": "MIT",
+  "exports": {
+    "./package.json": "./package.json",
+    "./react": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.es.js"
+    },
+    "./config": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.es.js"
+    }
+  }
+}
