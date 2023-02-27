@@ -1,30 +1,3 @@
-# Sakura UI
-Sakura UI - UI components built with Tailwind CSS for React.
-
-## Install
-```
-$ npm install @sakura-ui/sakura-ui
-```
-or
-```
-$ yarn add @sakura-ui/sakura-ui
-```
-
-## Configuration
-tailwind.config.js
-```
-module.exports = {
-  mode: 'jit',
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@sakura-ui/react/**/*.{js,ts,jsx,tsx}'
-  ],
-  plugins: [require('@sakura-ui/config')]
-}
-```
-
-## Usage
-```ts
 import { useState } from 'react'
 import { H1, H2, H3, H4, H5, H6, Button } from '@sakura-ui/react'
 
@@ -55,30 +28,3 @@ const App = () => {
 }
 
 export default App
-```
-
-## Standard Components
-- H1-H6 Headings
-- Link
-- Card
-- InfoCard
-- Ol
-- Ul
-- Table
-- Caption
-- Thead
-- Tbody
-- Th
-- Tr
-- Td
-- Code
-- Pre
-
-## Form components
-- Button
-- IconButton
-- Radio
-- RadioGroup
-- Select
-- Text
-- Textarea
