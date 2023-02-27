@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/sakura-ui",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "keywords": [],
   "author": "glassonion1",
   "homepage": "https://github.com/glassonion1/sakura-ui",
@@ -13,14 +13,8 @@
     "dev": "pnpm  --parallel --filter \"./**\" dev",
     "build": "pnpm  --parallel --filter \"./**\" build"
   },
-  "exports": {
-    "./packages/react": {
-      "require": "./dist/index.cjs.js",
-      "import": "./dist/index.es.js"
-    },
-    "./packages/config": {
-      "require": "./dist/index.cjs.js",
-      "import": "./dist/index.es.js"
-    }
+  "dependencies": {
+    "react": "workspace:@sakura-ui/react@*",
+    "config": "workspace:@sakura-ui/config@*"
   }
 }
