@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/sakura-ui",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "keywords": [],
   "author": "glassonion1",
   "homepage": "https://github.com/glassonion1/sakura-ui",
@@ -14,7 +14,7 @@
     "build": "pnpm  --parallel --filter \"./**\" build"
   },
   "dependencies": {
-    "react": "workspace:*",
-    "config": "workspace:*"
+    "react": "workspace:@sakura-ui/react@*",
+    "config": "workspace:@sakura-ui/config@*"
   }
 }
