@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
-import { Button } from '../../src'
+import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Button>Test</Button>
+    <App />
   </React.StrictMode>
 )
