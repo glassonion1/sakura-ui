@@ -4,11 +4,11 @@ importers:
 
   .:
     specifiers:
-      config: workspace:@sakura-ui/config@*
-      react: workspace:@sakura-ui/react@*
+      '@sakura-ui/config': workspace:*
+      '@sakura-ui/react': workspace:*
     dependencies:
-      config: link:packages/config
-      react: link:packages/react
+      '@sakura-ui/config': link:packages/config
+      '@sakura-ui/react': link:packages/react
 
   packages/config:
     specifiers:
