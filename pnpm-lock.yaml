@@ -3,7 +3,12 @@ lockfileVersion: 5.4
 importers:
 
   .:
-    specifiers: {}
+    specifiers:
+      config: workspace:@sakura-ui/config@*
+      react: workspace:@sakura-ui/react@*
+    dependencies:
+      config: link:packages/config
+      react: link:packages/react
 
   packages/config:
     specifiers:
