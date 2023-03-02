@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type HeadingProps = React.ComponentProps<'h1'>
+export interface HeadingProps extends React.ComponentProps<'h1'> {}
 
 const common = `
     font-bold

@@ -1,9 +1,9 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type Props = React.ComponentProps<'div'>
+export interface CardProps extends React.ComponentProps<'div'> {}
 
-export const Card = (props: Props) => {
+export const Card = (props: CardProps) => {
   const { className, children, ...newProps } = props
 
   const style = `

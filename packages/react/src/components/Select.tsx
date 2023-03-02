@@ -1,9 +1,9 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type Props = React.ComponentPropsWithoutRef<'select'>
+export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {}
 
-export const Select = React.forwardRef<HTMLSelectElement, Props>(
+export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref) => {
     const { className, children, ...newProps } = props
 

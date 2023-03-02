@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type TableProps = React.ComponentProps<'table'>
+export interface TableProps extends React.ComponentProps<'table'> {}
 
 const styleBorder = `
     border
@@ -26,7 +26,7 @@ export const Table = (props: TableProps) => {
   )
 }
 
-export type CaptionProps = React.ComponentProps<'caption'>
+export interface CaptionProps extends React.ComponentProps<'caption'> {}
 
 export const Caption = (props: CaptionProps) => {
   const { className, children, ...newprops } = props
@@ -39,7 +39,7 @@ export const Caption = (props: CaptionProps) => {
   )
 }
 
-export type TheadProps = React.ComponentProps<'thead'>
+export interface TheadProps extends React.ComponentProps<'thead'> {}
 
 export const Thead = (props: TheadProps) => {
   const { className, children, ...newprops } = props
@@ -51,7 +51,7 @@ export const Thead = (props: TheadProps) => {
   )
 }
 
-export type TbodyProps = React.ComponentProps<'tbody'>
+export interface TbodyProps extends React.ComponentProps<'tbody'> {}
 
 export const Tbody = (props: TbodyProps) => {
   const { className, children, ...newprops } = props
@@ -63,7 +63,7 @@ export const Tbody = (props: TbodyProps) => {
   )
 }
 
-export type ThProps = React.ComponentProps<'th'>
+export interface ThProps extends React.ComponentProps<'th'> {}
 
 export const Th = (props: ThProps) => {
   const { className, children, ...newprops } = props
@@ -80,7 +80,7 @@ export const Th = (props: ThProps) => {
   )
 }
 
-export type TrProps = React.ComponentProps<'tr'>
+export interface TrProps extends React.ComponentProps<'tr'> {}
 
 export const Tr = (props: TrProps) => {
   const { className, children, ...newprops } = props
@@ -94,7 +94,7 @@ export const Tr = (props: TrProps) => {
   )
 }
 
-export type TdProps = React.ComponentProps<'td'>
+export interface TdProps extends React.ComponentProps<'td'> {}
 
 export const Td = (props: TdProps) => {
   const { className, children, ...newprops } = props

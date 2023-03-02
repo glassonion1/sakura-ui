@@ -1,10 +1,10 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type TextProps = React.ComponentPropsWithoutRef<'input'>
+export interface TextProps extends React.ComponentPropsWithoutRef<'input'> {}
 
 export const Text = React.forwardRef<HTMLInputElement, TextProps>(
-  ({ ...props }, ref) => {
+  (props, ref) => {
     const { className, ...newProps } = props
 
     const style = `

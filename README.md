@@ -16,8 +16,8 @@ tailwind.config.js
 module.exports = {
   mode: 'jit',
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@sakura-ui/sakura-ui/packages/react/**/*.{js,ts,jsx,tsx}'
+    './src/pages/**/*.{jsx,tsx}',
+    './node_modules/@sakura-ui/sakura-ui/packages/react/**/*.{jsx,tsx}'
   ],
   plugins: [require('@sakura-ui/config')]
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type Props = React.ComponentProps<'div'> & {
+export interface InfoCardProps extends React.ComponentProps<'div'> {
   title?: string
 }
 
-export const InfoCard = (props: Props) => {
+export const InfoCard = (props: InfoCardProps) => {
   const { className, children, ...newProps } = props
 
   const style = `

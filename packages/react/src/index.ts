@@ -1,6 +1,7 @@
 export {
   Button,
   Card,
+  Checkbox,
   Code,
   H1,
   H2,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type UlProps = React.ComponentProps<'ul'>
+export interface UlProps extends React.ComponentProps<'ul'> {}
 
 export const Ul = (props: UlProps) => {
   const { className, children, ...newprops } = props
@@ -19,7 +19,7 @@ export const Ul = (props: UlProps) => {
   )
 }
 
-export type OlProps = React.ComponentProps<'ol'>
+export interface OlProps extends React.ComponentProps<'ol'> {}
 
 export const Ol = (props: OlProps) => {
   const { className, children, ...newprops } = props

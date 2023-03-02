@@ -1,5 +1,6 @@
 export { Button } from './Button'
 export { Card } from './Card'
+export { Checkbox } from './Checkbox'
 export { Code } from './Code'
 export { H1, H2, H3, H4, H5, H6 } from './Heading'
 export { IconButton } from './IconButton'

@@ -1,10 +1,11 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type TextareaProps = React.ComponentPropsWithoutRef<'textarea'>
+export interface TextareaProps
+  extends React.ComponentPropsWithoutRef<'textarea'> {}
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ ...props }, ref) => {
+  (props, ref) => {
     const { className, children, ...newProps } = props
 
     const style = `

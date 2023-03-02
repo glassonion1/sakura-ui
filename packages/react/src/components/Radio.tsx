@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type Props = React.ComponentProps<'input'> & {}
+export interface Props extends React.ComponentProps<'input'> {}
 
 export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { className, children, ...newProps } = props
@@ -11,6 +11,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     items-center
     text-sm
     cursor-pointer
+    py-2
   `
   const styleInput = `
     hidden
@@ -21,6 +22,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     inline-block
     bg-clip-content
     w-6 h-6
+    ml-1
     mr-2
     p-1
     rounded-full
@@ -28,6 +30,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     border-solid
     border-sumi-900
     peer-checked:bg-sea-600
+    peer-checked:border-sea-600
   `
   return (
     <label htmlFor={newProps.id} className={cx(style, className)}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export type LinkProps = React.ComponentProps<'a'>
+export interface LinkProps extends React.ComponentProps<'a'> {}
 
 const getFileType = (url: string) => {
   const converted = url.toLowerCase()
