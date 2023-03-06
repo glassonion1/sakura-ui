@@ -8,10 +8,10 @@ import {
   H6,
   Button,
   Checkbox,
-  Radio,
-  Text,
-  Textarea
-} from '../../packages/react/src'
+  Radio
+} from '@sakura-ui/react'
+import { Icon, IconButton } from '@sakura-ui/icons'
+import '@sakura-ui/icons/dist/style.css'
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -44,10 +44,14 @@ const App = () => {
         >
           count is {count}
         </Button>
+        <IconButton icon="face">Face</IconButton>
         <Radio name="sample">ラジオ1</Radio>
         <Radio name="sample">ラジオ2</Radio>
         <Checkbox>選択肢1</Checkbox>
         <Checkbox>選択肢2</Checkbox>
+        <Icon icon="keyboard_arrow_down" className="text-sea-600" />
+        <IconButton icon="keyboard_arrow_down" />
+        <IconButton icon="face" variant="secondary" />
       </div>
     </div>
   )

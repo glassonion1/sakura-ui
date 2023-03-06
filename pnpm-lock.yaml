@@ -5,9 +5,11 @@ importers:
   .:
     specifiers:
       '@sakura-ui/config': workspace:*
+      '@sakura-ui/icons': workspace:*
       '@sakura-ui/react': workspace:*
     dependencies:
       '@sakura-ui/config': link:packages/config
+      '@sakura-ui/icons': link:packages/icons
       '@sakura-ui/react': link:packages/react
 
   packages/config:
@@ -33,6 +35,44 @@ importers:
       tailwindcss: 3.2.7_aesdjsunmf4wiehhujt67my7tu
       ts-jest: 29.0.5_orzzknleilowtsz34rkaotjvzm
       ts-node: 10.9.1_ellgaeuoqnti3hful2ny2iugba
+      typescript: 4.9.5
+      vite: 4.1.4_@types+node@18.14.2
+
+  packages/icons:
+    specifiers:
+      '@types/jest': ^29.4.0
+      '@types/node': ^18.14.1
+      '@types/react': ^18.0.27
+      '@types/react-dom': ^18.0.10
+      '@vitejs/plugin-react-swc': ^3.0.0
+      autoprefixer: ^10.4.13
+      jest: ^29.4.3
+      npm-run-all: ^4.1.5
+      postcss: ^8.4.21
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      tailwindcss: ^3.2.7
+      ts-jest: ^29.0.5
+      ts-node: ^10.9.1
+      tsc-alias: ^1.8.2
+      typescript: ^4.9.3
+      vite: ^4.1.0
+    devDependencies:
+      '@types/jest': 29.4.0
+      '@types/node': 18.14.2
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      '@vitejs/plugin-react-swc': 3.2.0_vite@4.1.4
+      autoprefixer: 10.4.13_postcss@8.4.21
+      jest: 29.4.3_jboh4c3iv3wxuja4m36ecyac7e
+      npm-run-all: 4.1.5
+      postcss: 8.4.21
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tailwindcss: 3.2.7_aesdjsunmf4wiehhujt67my7tu
+      ts-jest: 29.0.5_orzzknleilowtsz34rkaotjvzm
+      ts-node: 10.9.1_ellgaeuoqnti3hful2ny2iugba
+      tsc-alias: 1.8.2
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.14.2
 
