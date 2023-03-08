@@ -68,9 +68,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         ref={ref}
       >
         <div className="flex">
-          <span className={cx("block font-['Material Symbols Outlined']")}>
-            {icon}
-          </span>
+          <span className={cx('block font-icon')}>{icon}</span>
           <span className="ml-1">{children}</span>
         </div>
       </button>

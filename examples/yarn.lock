@@ -138,17 +138,17 @@
   resolved "https://registry.yarnpkg.com/@sakura-ui/config/-/config-0.0.2.tgz#b84969b56e9938a308265981e875e6b910cb8e97"
   integrity sha512-jv/x6kGwK7OI2fF5nzz3PApP7ez/XtAoJov8KF8K4cK5KptdnrRiTuRUgMjTpT30+EPX6ZBoDt3ZxBxW9Oh33w==
 
-"@sakura-ui/config@workspace:^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@sakura-ui/config/-/config-0.0.4.tgz#dc796be590ded05d600d30b69726393022878710"
-  integrity sha512-/7gJv27AyXKE2g/AILxs7vp9EEMkw1Q0CytLIKVD4eVoIlxRn6zLnNDWDxis9IEn1sosrrJwieLWCP4UBfwJlw==
+"@sakura-ui/config@workspace:0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@sakura-ui/config/-/config-0.0.5.tgz#caf28806ce5b7ed05d548b2691a4a1c2450ba54d"
+  integrity sha512-4ROITRoutkk/kOLLfQyqI88xEspSR1mnvFthrh8tLQmDDNZIHlRqVhhyRygG+ieExquboWxbsB1eepyU1OR7GQ==
 
 "@sakura-ui/react@0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@sakura-ui/react/-/react-0.0.2.tgz#b9fca0b01561d3525ca1df497a459815a985bd2b"
   integrity sha512-9e+homuPBLZ3+6fHANr/VZkz74DIKs0e1if3tM308BxeosjGGl6PP7/neETgLMoA/TZKHh6AsQ9yyKujTHT4xw==
 
-"@sakura-ui/sakura-ui@workspace:^0.0.11":
+"@sakura-ui/sakura-ui@workspace:0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@sakura-ui/sakura-ui/-/sakura-ui-0.0.11.tgz#2e706b83ff2d0a6a49574c212e0d72909942c7cf"
   integrity sha512-VubJZepkN/dCvUVrEaPbdhY7cCQXBHR1UbBE9xztOkAR3UtpCRrrsTq9ASzLk93T1EK9P4/5A0/3U14RHCw5pA==

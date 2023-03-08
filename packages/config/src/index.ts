@@ -102,7 +102,8 @@ const sakuraPlugin = plugin(
             'meiryo',
             'sans-serif'
           ],
-          code: ['Monaco', 'Menlo', 'Consolas', 'Courier New', 'monospace']
+          code: ['Monaco', 'Menlo', 'Consolas', 'Courier New', 'monospace'],
+          icon: ['Material Symbols Outlined']
         }
       }
     }
