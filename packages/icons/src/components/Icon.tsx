@@ -10,7 +10,10 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
 
   return (
     <span
-      className={cx('inline-block material-symbols-outlined', className)}
+      className={cx(
+        "inline-block font-['Material Symbols Outlined']",
+        className
+      )}
       {...newProps}
       ref={ref}
     >
