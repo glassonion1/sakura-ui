@@ -9,6 +9,9 @@
     "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git"
   },
   "license": "MIT",
+  "files": [
+    "packages"
+  ],
   "scripts": {
     "dev": "pnpm  --parallel --filter \"./**\" dev",
     "build": "pnpm  --parallel --filter \"./**\" build"

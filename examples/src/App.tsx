@@ -11,7 +11,6 @@ import {
   Radio
 } from '@sakura-ui/react'
 import { Icon, IconButton } from '@sakura-ui/icons'
-import '@sakura-ui/icons/dist/style.css'
 
 const App = () => {
   const [count, setCount] = useState(0)
