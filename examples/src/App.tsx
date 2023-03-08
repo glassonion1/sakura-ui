@@ -52,6 +52,7 @@ const App = () => {
         <IconButton icon="keyboard_arrow_down" />
         <IconButton icon="face" variant="secondary" />
       </div>
+      <span className="material-symbols-outlined">keyboard_arrow_down</span>
     </div>
   )
 }
