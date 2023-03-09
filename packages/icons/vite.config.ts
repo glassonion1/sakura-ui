@@ -1,11 +1,11 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
-import path from 'path'
+import react from '@vitejs/plugin-react-swc'
 import { peerDependencies } from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
@@ -22,15 +22,5 @@ export default defineConfig({
     },
     target: 'esnext',
     sourcemap: true
-  },
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: path.resolve(__dirname, './fonts') + '/[!.]*',
-          dest: './'
-        }
-      ]
-    })
-  ]
+  }
 })
