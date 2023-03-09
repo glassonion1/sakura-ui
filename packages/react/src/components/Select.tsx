@@ -14,7 +14,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     bg-white-100
     border
     border-solid
-    border-sea-600
+    border-sumi-900
     py-4 px-4 pr-8
     rounded-[4px]
     focus:outline
