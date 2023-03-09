@@ -9,8 +9,7 @@
     ".": {
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
-    },
-    "./dist/style.css": "./dist/style.css"
+    }
   },
   "sideEffects": false,
   "files": [

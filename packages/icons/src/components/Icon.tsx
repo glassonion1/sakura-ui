@@ -10,11 +10,13 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
 
   const style = `
   inline-block
+  align-middle
   font-icon
   text-2xl
   font-light
   leading-none
   antialiased
+  mb-1
   `
 
   return (

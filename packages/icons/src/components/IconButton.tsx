@@ -3,12 +3,16 @@ import { cx } from '../utils'
 
 export interface IconButtonProps extends React.ComponentProps<'button'> {
   variant?: 'primary' | 'secondary'
+  iconLayout?: 'left' | 'right'
   icon: string
 }
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
-    const { className, children, icon, variant, ...newProps } = props
+    const { className, children, variant, icon, iconLayout, ...newProps } =
+      props
+
+    const layout = iconLayout ?? 'left'
 
     const align = 'center'
 
@@ -66,11 +70,13 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 
     const iconStyle = `
     inline-block
+    align-middle
     font-icon
     text-2xl
     font-light
-    leading-5
+    leading-4
     antialiased
+    mb-1
     `
 
     return (
@@ -79,8 +85,9 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         {...newProps}
         ref={ref}
       >
-        <span className={cx(iconStyle)}>{icon}</span>
-        <span className="ml-1">{children}</span>
+        {layout == 'left' && <span className={cx(iconStyle)}>{icon}</span>}
+        {children && <span className="mx-1 inline-block">{children}</span>}
+        {layout == 'right' && <span className={cx(iconStyle)}>{icon}</span>}
       </button>
     )
   }

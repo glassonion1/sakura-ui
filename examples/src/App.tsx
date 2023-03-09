@@ -23,6 +23,15 @@ const App = () => {
       <H4>SakuraUI Heading4</H4>
       <H5>SakuraUI Heading5</H5>
       <H6>SakuraUI Heading6</H6>
+      <p>
+        <Icon icon="home" className="text-sea-600" />
+        test1,test2,test3
+      </p>
+      <p>
+        test1,test2,
+        <Icon icon="shopping_cart" className="text-sea-600" />
+        test3
+      </p>
       <div>
         <IconButton icon="face">Face</IconButton>
         <Button onClick={() => setCount((count) => count + 1)}>
@@ -45,15 +54,17 @@ const App = () => {
           count is {count}
         </Button>
         <IconButton icon="face">Face</IconButton>
+        <IconButton icon="face" iconLayout="right" variant="secondary">
+          Face
+        </IconButton>
+
+        <IconButton icon="keyboard_arrow_down" />
+        <IconButton icon="face" variant="secondary" />
         <Radio name="sample">ラジオ1</Radio>
         <Radio name="sample">ラジオ2</Radio>
         <Checkbox>選択肢1</Checkbox>
         <Checkbox>選択肢2</Checkbox>
-        <Icon icon="keyboard_arrow_down" className="text-sea-600" />
-        <IconButton icon="keyboard_arrow_down" />
-        <IconButton icon="face" variant="secondary" />
       </div>
-      <span className="font-icon">keyboard_arrow_down</span>
     </div>
   )
 }
