@@ -1,17 +1,20 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+export interface IconButtonProps extends React.ComponentProps<'button'> {
   variant?: 'primary' | 'secondary'
-  textAlign?: 'left' | 'right' | 'center'
+  iconLayout?: 'left' | 'right'
+  icon: string
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
-    // Make sure that there is no problem even if className is specified on the side that uses the component
-    const { className, children, textAlign, variant, ...newProps } = props
+    const { className, children, variant, icon, iconLayout, ...newProps } =
+      props
 
-    const align = textAlign ?? 'center'
+    const layout = iconLayout ?? 'left'
+
+    const align = 'center'
 
     const style = `
     inline-block
@@ -65,13 +68,26 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       secondary: secondary
     }
 
+    const iconStyle = `
+    inline-block
+    align-middle
+    font-icon
+    text-2xl
+    font-light
+    leading-4
+    antialiased
+    mb-1
+    `
+
     return (
       <button
         className={cx(style, styles[variant ?? 'primary'], className)}
         {...newProps}
         ref={ref}
       >
-        {children}
+        {layout == 'left' && <span className={cx(iconStyle)}>{icon}</span>}
+        {children && <span className="mx-1 inline-block">{children}</span>}
+        {layout == 'right' && <span className={cx(iconStyle)}>{icon}</span>}
       </button>
     )
   }
