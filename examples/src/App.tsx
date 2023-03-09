@@ -8,7 +8,8 @@ import {
   H6,
   Button,
   Checkbox,
-  Radio
+  Radio,
+  Select
 } from '@sakura-ui/react'
 import { Icon, IconButton } from '../../packages/icons/src'
 
@@ -32,7 +33,7 @@ const App = () => {
         <Icon icon="shopping_cart" className="text-sea-600" />
         test3
       </p>
-      <div>
+      <div className="my-4">
         <IconButton icon="face">Face</IconButton>
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -60,6 +61,19 @@ const App = () => {
 
         <IconButton icon="keyboard_arrow_down" />
         <IconButton icon="face" variant="secondary" />
+      </div>
+      <div className="my-4">
+        <Select>
+          <option key={0} value="1">
+            select1
+          </option>
+          <option key={1} value="2">
+            select2
+          </option>
+          <option key={2} value="3">
+            select3
+          </option>
+        </Select>
         <Radio name="sample">ラジオ1</Radio>
         <Radio name="sample">ラジオ2</Radio>
         <Checkbox>選択肢1</Checkbox>
