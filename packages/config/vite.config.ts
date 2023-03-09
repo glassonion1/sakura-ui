@@ -27,7 +27,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(__dirname, './fonts') + '/[!.]*',
+          src: path.resolve(__dirname, './src') + '/[!.]*.woff2',
           dest: './'
         }
       ]
