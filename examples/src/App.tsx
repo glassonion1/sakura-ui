@@ -24,6 +24,7 @@ const App = () => {
       <H5>SakuraUI Heading5</H5>
       <H6>SakuraUI Heading6</H6>
       <div>
+        <IconButton icon="face">Face</IconButton>
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </Button>

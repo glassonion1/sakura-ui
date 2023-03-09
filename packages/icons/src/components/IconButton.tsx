@@ -64,12 +64,12 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       secondary: secondary
     }
 
-    const fontStyle = `
+    const iconStyle = `
     inline-block
     font-icon
     text-2xl
     font-light
-    leading-none
+    leading-5
     antialiased
     `
 
@@ -79,10 +79,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         {...newProps}
         ref={ref}
       >
-        <div className="flex items-center">
-          <span className={cx(fontStyle)}>{icon}</span>
-          <span className="ml-1">{children}</span>
-        </div>
+        <span className={cx(iconStyle)}>{icon}</span>
+        <span className="ml-1">{children}</span>
       </button>
     )
   }

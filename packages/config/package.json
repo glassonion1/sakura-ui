@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/config",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -13,7 +13,7 @@
   "sideEffects": false,
   "files": [
     "dist",
-    "src/material-symbols-outlined.woff2"
+    "fonts/material-symbols-outlined.woff2"
   ],
   "publishConfig": {
     "access": "public"

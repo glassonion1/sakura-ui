@@ -1,5 +1,7 @@
 import plugin from 'tailwindcss/plugin'
 
+const path = __dirname + '/fonts/material-symbols-outlined.woff2'
+
 const sakuraPlugin = plugin(
   ({ addBase }) => {
     addBase({
@@ -7,7 +9,7 @@ const sakuraPlugin = plugin(
         fontFamily: 'Material Symbols Outlined',
         fontWheight: '300',
         fontStyle: 'normal',
-        src: "url(/src/material-symbols-outlined.woff2) format('woff2')"
+        src: `url(${path}) format('woff2')`
       }
     })
   },
