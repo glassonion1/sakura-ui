@@ -10,7 +10,7 @@ import {
   Checkbox,
   Radio
 } from '@sakura-ui/react'
-import { Icon, IconButton } from '@sakura-ui/icons'
+import { Icon, IconButton } from '../../packages/icons/src'
 
 const App = () => {
   const [count, setCount] = useState(0)

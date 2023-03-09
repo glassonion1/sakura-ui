@@ -26,6 +26,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const primary = `
     text-white-1000
+    border
+    border-solid
+    border-sea-600
     bg-sea-600
     hover:bg-sea-800
     active:bg-sea-800

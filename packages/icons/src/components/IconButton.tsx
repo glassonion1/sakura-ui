@@ -25,6 +25,9 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 
     const primary = `
     text-white-1000
+    border
+    border-solid
+    border-sea-600
     bg-sea-600
     hover:bg-sea-800
     active:bg-sea-800
@@ -61,14 +64,23 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       secondary: secondary
     }
 
+    const fontStyle = `
+    inline-block
+    font-icon
+    text-2xl
+    font-light
+    leading-none
+    antialiased
+    `
+
     return (
       <button
         className={cx(style, styles[variant ?? 'primary'], className)}
         {...newProps}
         ref={ref}
       >
-        <div className="flex">
-          <span className={cx('block font-icon')}>{icon}</span>
+        <div className="flex items-center">
+          <span className={cx(fontStyle)}>{icon}</span>
           <span className="ml-1">{children}</span>
         </div>
       </button>

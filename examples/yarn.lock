@@ -138,10 +138,10 @@
   resolved "https://registry.yarnpkg.com/@sakura-ui/config/-/config-0.0.2.tgz#b84969b56e9938a308265981e875e6b910cb8e97"
   integrity sha512-jv/x6kGwK7OI2fF5nzz3PApP7ez/XtAoJov8KF8K4cK5KptdnrRiTuRUgMjTpT30+EPX6ZBoDt3ZxBxW9Oh33w==
 
-"@sakura-ui/config@workspace:0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@sakura-ui/config/-/config-0.0.5.tgz#caf28806ce5b7ed05d548b2691a4a1c2450ba54d"
-  integrity sha512-4ROITRoutkk/kOLLfQyqI88xEspSR1mnvFthrh8tLQmDDNZIHlRqVhhyRygG+ieExquboWxbsB1eepyU1OR7GQ==
+"@sakura-ui/config@workspace:0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@sakura-ui/config/-/config-0.0.6.tgz#defba7e591584dbfb9bcfb1e53457e9f204eb883"
+  integrity sha512-whnexJcVfC70k2y63Avfw+HH0ERh4GjFZ9itoFRv+oq3L+gjGySjevpaekFJkN3gD1qbLvWNTU9EJTCai9FGjA==
 
 "@sakura-ui/react@0.0.2":
   version "0.0.2"
