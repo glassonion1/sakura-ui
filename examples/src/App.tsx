@@ -10,7 +10,7 @@ import {
   Checkbox,
   Radio,
   Select
-} from '@sakura-ui/react'
+} from '../../packages/react/src'
 import { Icon, IconButton } from '../../packages/icons/src'
 
 const App = () => {
@@ -65,19 +65,19 @@ const App = () => {
       <div className="my-4">
         <Select>
           <option key={0} value="1">
-            select1
+            Select1
           </option>
           <option key={1} value="2">
-            select2
+            Select2
           </option>
           <option key={2} value="3">
-            select3
+            Select3
           </option>
         </Select>
-        <Radio name="sample">ラジオ1</Radio>
-        <Radio name="sample">ラジオ2</Radio>
-        <Checkbox>選択肢1</Checkbox>
-        <Checkbox>選択肢2</Checkbox>
+        <Radio name="sample">Radio1</Radio>
+        <Radio name="sample">Radio2</Radio>
+        <Checkbox>Check1</Checkbox>
+        <Checkbox>Check2</Checkbox>
       </div>
     </div>
   )

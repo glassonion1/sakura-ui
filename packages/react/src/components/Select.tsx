@@ -8,8 +8,8 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const { className, children, ...newProps } = props
 
     const style = `
-    block
     appearance-none
+    text-base
     w-full
     bg-white-100
     border
@@ -28,11 +28,12 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
           <svg
-            className="fill-current h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
+            className="fill-sumi-900"
+            height="24"
+            width="24"
           >
-            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            <path d="M12 15.05 6.35 9.4 7.4 8.35l4.6 4.6 4.6-4.6 1.05 1.05Z" />
           </svg>
         </div>
       </div>
