@@ -17,16 +17,41 @@ module.exports = {
   mode: 'jit',
   content: [
     './src/pages/**/*.{jsx,tsx}',
-    './node_modules/@sakura-ui/sakura-ui/packages/react/**/*.{jsx,tsx}'
+    './node_modules/@sakura-ui/react/**/*.{js,jsx,ts,tsx}',
+    './node_modules/@sakura-ui/icons/**/*.{js,jsx,ts,tsx}'
   ],
   plugins: [require('@sakura-ui/config')]
 }
 ```
 
+Add fonts from CDN.
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    ...head
+  </head>
+  <body>
+    ...body
+  </body>
+</html>
+```
+
+
 ## Usage
 ```ts
 import { useState } from 'react'
 import { H1, H2, H3, H4, H5, H6, Button } from '@sakura-ui/react'
+import { IconButton } from '@sakura-ui/icons'
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -49,6 +74,7 @@ const App = () => {
         >
           count is {count}
         </Button>
+        <IconButton icon="face">Face</IconButton>
       </div>
     </div>
   )

@@ -1,27 +1,30 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {}
+export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {
+  label?: string
+}
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref) => {
-    const { className, children, ...newProps } = props
+    const { label, className, children, ...newProps } = props
 
     const style = `
-    appearance-none
-    text-base
-    w-full
-    bg-white-100
-    border
-    border-solid
-    border-sumi-900
-    py-4 px-4 pr-8
-    rounded-[4px]
-    focus:outline
-    focus:outline-2
-    focus:outline-wood-500
-  `
-    return (
+      appearance-none
+      text-base
+      w-full
+      bg-white-100
+      border
+      border-solid
+      border-sumi-900
+      py-4 px-4 pr-8
+      rounded-[8px]
+      focus:outline
+      focus:outline-2
+      focus:outline-wood-500
+    `
+
+    const elem = (
       <div className="inline-block relative">
         <select className={cx(style, props.className)} {...newProps} ref={ref}>
           {props.children}
@@ -37,6 +40,19 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           </svg>
         </div>
       </div>
+    )
+
+    return (
+      <>
+        {label ? (
+          <label>
+            <span className="block mb-2">{label}</span>
+            {elem}
+          </label>
+        ) : (
+          elem
+        )}
+      </>
     )
   }
 )

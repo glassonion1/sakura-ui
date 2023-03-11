@@ -7,17 +7,27 @@ import {
   H5,
   H6,
   Button,
-  Checkbox,
-  Radio,
-  Select
+  Icon,
+  IconButton,
+  Link,
+  Ol,
+  Ul
 } from '../../packages/react/src'
-import { Icon, IconButton } from '../../packages/icons/src'
+import {
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup,
+  Select,
+  Text,
+  Textarea
+} from '../../packages/forms/src'
 
 const App = () => {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="text-sumi-900 text-base">
+    <div className="text-sumi-900 text-base p-8">
       <H1>SakuraUI Heading1</H1>
       <H2>SakuraUI Heading2</H2>
       <H3>SakuraUI Heading3</H3>
@@ -31,8 +41,30 @@ const App = () => {
       <p>
         test1,test2,
         <Icon icon="shopping_cart" className="text-sea-600" />
-        test3
+        test3 <Link>link text here</Link>
       </p>
+      <div>
+        <Ul>
+          <li>list1</li>
+          <li>list2</li>
+          <li>list3</li>
+          <Ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+          </Ul>
+        </Ul>
+        <Ol>
+          <li>list1</li>
+          <li>list2</li>
+          <li>list3</li>
+          <Ol>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+          </Ol>
+        </Ol>
+      </div>
       <div className="my-4">
         <IconButton icon="face">Face</IconButton>
         <Button onClick={() => setCount((count) => count + 1)}>
@@ -63,7 +95,8 @@ const App = () => {
         <IconButton icon="face" variant="secondary" />
       </div>
       <div className="my-4">
-        <Select>
+        <H2>Forms</H2>
+        <Select label="Select component">
           <option key={0} value="1">
             Select1
           </option>
@@ -78,6 +111,26 @@ const App = () => {
         <Radio name="sample">Radio2</Radio>
         <Checkbox>Check1</Checkbox>
         <Checkbox>Check2</Checkbox>
+        <RadioGroup
+          label="RadioGroup component"
+          items={[
+            { value: '0', label: 'GRadio1' },
+            { value: '1', label: 'GRadio2' }
+          ]}
+          onChange={(e) => console.log(e.target.value)}
+        />
+        <CheckboxGroup
+          label="CheckboxGroup component"
+          items={[
+            { value: '0', label: 'GCheckbox1' },
+            { value: '1', label: 'GCheckbox2' }
+          ]}
+          onChange={(e) =>
+            console.log(`${e.target.value}, ${e.target.checked}`)
+          }
+        />
+        <Text label="Text component" />
+        <Textarea rows="4" label="Textarea component" />
       </div>
     </div>
   )

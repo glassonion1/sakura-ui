@@ -1,7 +1,6 @@
 export {
   Button,
   Card,
-  Checkbox,
   Code,
   H1,
   H2,
@@ -9,22 +8,18 @@ export {
   H4,
   H5,
   H6,
+  Icon,
   IconButton,
   InfoCard,
   Link,
   Ol,
   Ul,
   Pre,
-  Radio,
-  RadioGroup,
-  Select,
   Table,
   Caption,
   Thead,
   Tbody,
   Th,
   Tr,
-  Td,
-  Text,
-  Textarea
+  Td
 } from './components'

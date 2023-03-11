@@ -6,7 +6,7 @@ module.exports = {
     './index.html',
     './src/**/*.{jsx,tsx}',
     '../node_modules/@sakura-ui/react/src/**/*.{jsx,tsx}',
-    '../node_modules/@sakura-ui/icons/src/**/*.{jsx,tsx}'
+    '../node_modules/@sakura-ui/forms/src/**/*.{jsx,tsx}'
   ],
   plugins: [require('@sakura-ui/config')]
 }

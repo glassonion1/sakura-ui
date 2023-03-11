@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/sakura-ui",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "keywords": [],
   "author": "glassonion1",
   "homepage": "https://github.com/glassonion1/sakura-ui",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@sakura-ui/react": "workspace:*",
     "@sakura-ui/config": "workspace:*",
-    "@sakura-ui/icons": "workspace:*"
+    "@sakura-ui/forms": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.2.0",

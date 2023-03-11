@@ -11,6 +11,7 @@ export const Ul = (props: UlProps) => {
     list-inside
     -indent-4
     pl-4
+    marker:text-xs
   `
   return (
     <ul className={cx(style, className)} {...newprops}>

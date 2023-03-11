@@ -1,15 +1,12 @@
 import plugin from 'tailwindcss/plugin'
 
-const path = __dirname + '/material-symbols-outlined.woff2'
-
 const sakuraPlugin = plugin(
   ({ addBase }) => {
     addBase({
       '@font-face': {
         fontFamily: 'Material Symbols Outlined',
         fontWheight: '300',
-        fontStyle: 'normal',
-        src: `url(${path}) format('woff2')`
+        fontStyle: 'normal'
       }
     })
   },

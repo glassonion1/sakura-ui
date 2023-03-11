@@ -1,7 +1,5 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
-import path from 'path'
 import { peerDependencies } from './package.json'
 
 // https://vitejs.dev/config/
@@ -22,15 +20,5 @@ export default defineConfig({
     },
     target: 'esnext',
     sourcemap: true
-  },
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: path.resolve(__dirname, './src') + '/[!.]*.woff2',
-          dest: './'
-        }
-      ]
-    })
-  ]
+  }
 })
