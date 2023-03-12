@@ -35,18 +35,25 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     `
 
     return (
-      <label htmlFor={newProps.id} className={cx(style, className)}>
-        <input className={styleInput} type="checkbox" {...newProps} ref={ref} />
-        <span className={styleCheck}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-            <path
-              fill="#fff"
-              d="m9.55 17.65-5.325-5.325 1.05-1.075 4.275 4.275 9.175-9.175 1.05 1.075Z"
-            />
-          </svg>
-        </span>
-        {children}
-      </label>
+      <div className="inline-block">
+        <label htmlFor={newProps.id} className={cx(style, className)}>
+          <input
+            className={styleInput}
+            type="checkbox"
+            {...newProps}
+            ref={ref}
+          />
+          <span className={styleCheck}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+              <path
+                fill="#fff"
+                d="m9.55 17.65-5.325-5.325 1.05-1.075 4.275 4.275 9.175-9.175 1.05 1.075Z"
+              />
+            </svg>
+          </span>
+          {children}
+        </label>
+      </div>
     )
   }
 )

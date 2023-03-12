@@ -1,9 +1,9 @@
+export { Checkbox, Radio, Select, Text, Textarea } from './components'
+
 export {
-  Checkbox,
   CheckboxGroup,
-  Radio,
   RadioGroup,
-  Select,
-  Text,
-  Textarea
-} from './components'
+  Select as SelectControl,
+  Text as TextControl,
+  Textarea as TextareaControl
+} from './components/controlled'

@@ -20,7 +20,10 @@ import {
   RadioGroup,
   Select,
   Text,
-  Textarea
+  Textarea,
+  SelectControl,
+  TextControl,
+  TextareaControl
 } from '../../packages/forms/src'
 
 const App = () => {
@@ -96,7 +99,7 @@ const App = () => {
       </div>
       <div className="my-4">
         <H2>Forms</H2>
-        <Select label="Select component">
+        <Select>
           <option key={0} value="1">
             Select1
           </option>
@@ -111,26 +114,44 @@ const App = () => {
         <Radio name="sample">Radio2</Radio>
         <Checkbox>Check1</Checkbox>
         <Checkbox>Check2</Checkbox>
+        <Text />
+        <Textarea rows={4} />
+      </div>
+      <div className="my-4">
+        <H2>Controlled Forms</H2>
+        <SelectControl label="Select">
+          <option key={0} value="1">
+            Select1
+          </option>
+          <option key={1} value="2">
+            Select2
+          </option>
+          <option key={2} value="3">
+            Select3
+          </option>
+        </SelectControl>
         <RadioGroup
-          label="RadioGroup component"
+          label="Radio Group"
           items={[
-            { value: '0', label: 'GRadio1' },
-            { value: '1', label: 'GRadio2' }
+            { value: '0', label: 'Radio1' },
+            { value: '1', label: 'Radio2' },
+            { value: '2', label: 'Radio3' }
           ]}
           onChange={(e) => console.log(e.target.value)}
         />
         <CheckboxGroup
-          label="CheckboxGroup component"
+          label="Checkbox Group"
           items={[
-            { value: '0', label: 'GCheckbox1' },
-            { value: '1', label: 'GCheckbox2' }
+            { value: '0', label: 'Checkbox1' },
+            { value: '1', label: 'Checkbox2' },
+            { value: '2', label: 'Checkbox3' }
           ]}
           onChange={(e) =>
             console.log(`${e.target.value}, ${e.target.checked}`)
           }
         />
-        <Text label="Text component" />
-        <Textarea rows="4" label="Textarea component" />
+        <TextControl label="Text" />
+        <TextareaControl rows={4} label="Textarea" />
       </div>
     </div>
   )

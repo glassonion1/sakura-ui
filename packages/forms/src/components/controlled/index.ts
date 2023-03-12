@@ -1,5 +1,5 @@
-export { Checkbox } from './Checkbox'
-export { Radio } from './Radio'
+export { CheckboxGroup } from './CheckboxGroup'
+export { RadioGroup } from './RadioGroup'
 export { Select } from './Select'
 export { Text } from './Text'
 export { Textarea } from './Textarea'

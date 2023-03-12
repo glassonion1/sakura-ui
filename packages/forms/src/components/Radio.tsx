@@ -33,10 +33,12 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     peer-checked:border-sea-600
   `
   return (
-    <label htmlFor={newProps.id} className={cx(style, className)}>
-      <input className={styleInput} type="radio" {...newProps} ref={ref} />
-      <span className={styleRadio}></span>
-      {children}
-    </label>
+    <div className="inline-block">
+      <label htmlFor={newProps.id} className={cx(style, className)}>
+        <input className={styleInput} type="radio" {...newProps} ref={ref} />
+        <span className={styleRadio}></span>
+        {children}
+      </label>
+    </div>
   )
 })

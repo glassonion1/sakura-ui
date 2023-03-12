@@ -2,13 +2,11 @@ import React from 'react'
 import { cx } from '../utils'
 
 export interface TextareaProps
-  extends React.ComponentPropsWithoutRef<'textarea'> {
-  label?: string
-}
+  extends React.ComponentPropsWithoutRef<'textarea'> {}
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
-    const { label, className, children, ...newProps } = props
+    const { className, children, ...newProps } = props
 
     const style = `
       p-4
@@ -26,23 +24,10 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       disabled:border-sumi-500
     `
 
-    const elem = (
+    return (
       <textarea className={cx(style, className)} {...newProps} ref={ref}>
         {children}
       </textarea>
-    )
-
-    return (
-      <>
-        {label ? (
-          <label>
-            <div className="mb-2">{label}</div>
-            {elem}
-          </label>
-        ) : (
-          elem
-        )}
-      </>
     )
   }
 )
