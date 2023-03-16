@@ -18,7 +18,7 @@ module.exports = {
   content: [
     './src/pages/**/*.{jsx,tsx}',
     './node_modules/@sakura-ui/react/**/*.{js,jsx,ts,tsx}',
-    './node_modules/@sakura-ui/icons/**/*.{js,jsx,ts,tsx}'
+    './node_modules/@sakura-ui/forms/**/*.{js,jsx,ts,tsx}'
   ],
   plugins: [require('@sakura-ui/config')]
 }
@@ -50,8 +50,7 @@ Add fonts from CDN.
 ## Usage
 ```ts
 import { useState } from 'react'
-import { H1, H2, H3, H4, H5, H6, Button } from '@sakura-ui/react'
-import { IconButton } from '@sakura-ui/icons'
+import { H1, H2, H3, H4, H5, H6, Button, IconButton } from '@sakura-ui/react'
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -99,12 +98,14 @@ export default App
 - Td
 - Code
 - Pre
-
-## Form components
 - Button
 - IconButton
+
+## Form components
 - Radio
+- Checkbox
 - RadioGroup
+- CheckboxGroup
 - Select
 - Text
 - Textarea
