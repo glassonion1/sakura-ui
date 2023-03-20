@@ -8,14 +8,20 @@ export interface RadioGroupProps
   items: InputItem[]
   onChange: React.ChangeEventHandler<HTMLInputElement>
   label: string
+  helperText?: string
 }
 
 export const RadioGroup = (props: RadioGroupProps) => {
-  const { items, onChange, label, className, ...newProps } = props
+  const id = React.useId()
+  const { items, onChange, label, className, helperText, ...newProps } = props
   const groupName = `radio_group_${Math.random()}`
 
   return (
-    <fieldset className={cx('mb-4', className)} {...newProps}>
+    <fieldset
+      className={cx('mb-4', className)}
+      aria-describedby={`helper-text-${id}`}
+      {...newProps}
+    >
       <legend>{label}</legend>
       {items.map(({ label, value }, index) => {
         return (
@@ -31,6 +37,11 @@ export const RadioGroup = (props: RadioGroupProps) => {
           </div>
         )
       })}
+      {helperText && (
+        <p id={`helper-text-${id}`} className="text-sm text-sumi-700">
+          {helperText}
+        </p>
+      )}
     </fieldset>
   )
 }

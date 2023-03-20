@@ -150,8 +150,48 @@ const App = () => {
             console.log(`${e.target.value}, ${e.target.checked}`)
           }
         />
-        <TextControl label="Text" />
-        <TextareaControl rows={4} label="Textarea" />
+        <div className="flex space-x-4">
+          <TextControl label="Text" />
+          <TextControl label="Text required" required />
+        </div>
+        <div className="flex space-x-4">
+          <TextControl label="Text with helper" helperText="Helper text" />
+          <TextControl
+            label="Text with error"
+            isInvalid={true}
+            errorMessage="Error message"
+          />
+          <TextControl
+            label="Text with helper and error"
+            helperText="Helper text"
+            isInvalid={true}
+            errorMessage="Error message"
+          />
+        </div>
+        <div className="flex space-x-4">
+          <TextareaControl rows={4} label="Textarea" />
+          <TextareaControl rows={4} label="Textarea required" required />
+        </div>
+        <div className="flex space-x-4">
+          <TextareaControl
+            rows={4}
+            label="Textarea with helper"
+            helperText="Helper text"
+          />
+          <TextareaControl
+            rows={4}
+            label="Textarea with error"
+            isInvalid={true}
+            errorMessage="Error message"
+          />
+          <TextareaControl
+            rows={4}
+            label="Textarea with helper and error"
+            helperText="Helper text"
+            isInvalid={true}
+            errorMessage="Error message"
+          />
+        </div>
       </div>
     </div>
   )

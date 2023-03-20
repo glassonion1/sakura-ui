@@ -8,14 +8,20 @@ export interface CheckboxGroupProps
   items: InputItem[]
   onChange: React.ChangeEventHandler<HTMLInputElement>
   label: string
+  helperText?: string
 }
 
 export const CheckboxGroup = (props: CheckboxGroupProps) => {
-  const { items, onChange, label, className, ...newProps } = props
+  const id = React.useId()
+  const { items, onChange, label, className, helperText, ...newProps } = props
   const groupName = `checkbox_group_${Math.random()}`
 
   return (
-    <fieldset className={cx('mb-4', className)} {...newProps}>
+    <fieldset
+      className={cx('mb-4', className)}
+      aria-describedby={`helper-text-${id}`}
+      {...newProps}
+    >
       <legend>{label}</legend>
       {items.map(({ label, value }, index) => {
         return (
@@ -26,6 +32,11 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
           </div>
         )
       })}
+      {helperText && (
+        <p id={`helper-text-${id}`} className="text-sm text-sumi-700">
+          {helperText}
+        </p>
+      )}
     </fieldset>
   )
 }
