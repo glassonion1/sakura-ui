@@ -1,5 +1,5 @@
 export { CheckboxGroup } from './CheckboxGroup'
 export { RadioGroup } from './RadioGroup'
-export { Select } from './Select'
-export { Text } from './Text'
-export { Textarea } from './Textarea'
+export { SelectControl } from './SelectControl'
+export { TextControl } from './TextControl'
+export { TextareaControl } from './TextareaControl'

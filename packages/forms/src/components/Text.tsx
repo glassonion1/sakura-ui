@@ -1,18 +1,24 @@
 import React from 'react'
 import { cx } from '../utils'
+import { ControllerContext } from './context'
 
 export interface TextProps extends React.ComponentPropsWithoutRef<'input'> {}
 
 export const Text = React.forwardRef<HTMLInputElement, TextProps>(
   (props, ref) => {
     const { className, ...newProps } = props
+    const ctx = React.useContext(ControllerContext)
+    if (ctx.isRequired) {
+      newProps.required = true
+    }
+
+    const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
 
     const style = `
       p-4
       rounded-lg
       border
-      border-solid
-      border-sumi-900
+      border-solid      
       focus:outline
       focus:outline-2
       focus:outline-wood-500
@@ -26,7 +32,9 @@ export const Text = React.forwardRef<HTMLInputElement, TextProps>(
     return (
       <input
         type="text"
-        className={cx(style, className)}
+        className={cx(style, invalidStyle, className)}
+        aria-describedby={ctx.helperTextId}
+        aria-errormessage={ctx.errorMessageId}
         {...newProps}
         ref={ref}
       />

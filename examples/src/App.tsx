@@ -25,6 +25,10 @@ import {
   TextControl,
   TextareaControl
 } from '../../packages/forms/src'
+import {
+  FieldsetControl,
+  LabelControl
+} from '../../packages/forms/src/components'
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -118,20 +122,92 @@ const App = () => {
         <Textarea rows={4} />
       </div>
       <div className="my-4">
-        <H2>Controlled Forms</H2>
-        <SelectControl label="Select">
-          <option key={0} value="1">
-            Select1
-          </option>
-          <option key={1} value="2">
-            Select2
-          </option>
-          <option key={2} value="3">
-            Select3
-          </option>
-        </SelectControl>
+        <H2>Controlled forms</H2>
+        <div className="flex space-x-4">
+          <LabelControl labelText="Select">
+            <Select>
+              <option key={0} value="1">
+                Select value1
+              </option>
+              <option key={1} value="2">
+                Select value2
+              </option>
+              <option key={2} value="3">
+                Select value3
+              </option>
+            </Select>
+          </LabelControl>
+          <LabelControl labelText="Select required" isRequired={true}>
+            <Select>
+              <option key={0} value="1">
+                Select value1
+              </option>
+              <option key={1} value="2">
+                Select value2
+              </option>
+              <option key={2} value="3">
+                Select value3
+              </option>
+            </Select>
+          </LabelControl>
+        </div>
+        <div className="flex space-x-4">
+          <LabelControl labelText="Select with helper" helperText="Helper text">
+            <Select>
+              <option key={0} value="1">
+                Select value1
+              </option>
+              <option key={1} value="2">
+                Select value2
+              </option>
+              <option key={2} value="3">
+                Select value3
+              </option>
+            </Select>
+          </LabelControl>
+          <LabelControl
+            labelText="Select with error"
+            isInvalid={true}
+            errorMessage="Error message"
+          >
+            <Select>
+              <option key={0} value="1">
+                Select value1
+              </option>
+              <option key={1} value="2">
+                Select value2
+              </option>
+              <option key={2} value="3">
+                Select value3
+              </option>
+            </Select>
+          </LabelControl>
+          <LabelControl
+            labelText="Select with helper and error"
+            helperText="Helper text"
+            isInvalid={true}
+            errorMessage="Error message"
+          >
+            <Select>
+              <option key={0} value="1">
+                Select value1
+              </option>
+              <option key={1} value="2">
+                Select value2
+              </option>
+              <option key={2} value="3">
+                Select value3
+              </option>
+            </Select>
+          </LabelControl>
+        </div>
+        <FieldsetControl labelText="Radio">
+          <Radio value={0}>Radio1</Radio>
+          <Radio value={1}>Radio2</Radio>
+          <Radio value={2}>Radio3</Radio>
+        </FieldsetControl>
         <RadioGroup
-          label="Radio Group"
+          label="Radio group"
           items={[
             { value: '0', label: 'Radio1' },
             { value: '1', label: 'Radio2' },
@@ -140,7 +216,7 @@ const App = () => {
           onChange={(e) => console.log(e.target.value)}
         />
         <CheckboxGroup
-          label="Checkbox Group"
+          label="Checkbox group"
           items={[
             { value: '0', label: 'Checkbox1' },
             { value: '1', label: 'Checkbox2' },
@@ -151,46 +227,63 @@ const App = () => {
           }
         />
         <div className="flex space-x-4">
-          <TextControl label="Text" />
-          <TextControl label="Text required" required />
+          <LabelControl labelText="Text">
+            <Text />
+          </LabelControl>
+          <LabelControl labelText="Text required" isRequired={true}>
+            <Text />
+          </LabelControl>
         </div>
         <div className="flex space-x-4">
-          <TextControl label="Text with helper" helperText="Helper text" />
-          <TextControl
-            label="Text with error"
+          <LabelControl labelText="Text with helper" helperText="Helper text">
+            <Text />
+          </LabelControl>
+          <LabelControl
+            labelText="Text with error"
             isInvalid={true}
             errorMessage="Error message"
-          />
-          <TextControl
-            label="Text with helper and error"
+          >
+            <Text />
+          </LabelControl>
+          <LabelControl
+            labelText="Text with helper and error"
             helperText="Helper text"
             isInvalid={true}
             errorMessage="Error message"
-          />
+          >
+            <Text />
+          </LabelControl>
         </div>
         <div className="flex space-x-4">
-          <TextareaControl rows={4} label="Textarea" />
-          <TextareaControl rows={4} label="Textarea required" required />
+          <LabelControl labelText="Textarea">
+            <Textarea rows={4} />
+          </LabelControl>
+          <LabelControl labelText="Textarea required" isRequired={true}>
+            <Textarea rows={4} />
+          </LabelControl>
         </div>
         <div className="flex space-x-4">
-          <TextareaControl
-            rows={4}
-            label="Textarea with helper"
+          <LabelControl
+            labelText="Textarea with helper"
             helperText="Helper text"
-          />
-          <TextareaControl
-            rows={4}
-            label="Textarea with error"
+          >
+            <Textarea rows={4} />
+          </LabelControl>
+          <LabelControl
+            labelText="Textarea with error"
             isInvalid={true}
             errorMessage="Error message"
-          />
-          <TextareaControl
-            rows={4}
-            label="Textarea with helper and error"
+          >
+            <Textarea rows={4} />
+          </LabelControl>
+          <LabelControl
+            labelText="Textarea with helper and error"
             helperText="Helper text"
             isInvalid={true}
             errorMessage="Error message"
-          />
+          >
+            <Textarea rows={4} />
+          </LabelControl>
         </div>
       </div>
     </div>

@@ -1,11 +1,18 @@
 import React from 'react'
 import { cx } from '../utils'
+import { ControllerContext } from './context'
 
 export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {}
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref) => {
     const { className, children, ...newProps } = props
+    const ctx = React.useContext(ControllerContext)
+    if (ctx.isRequired) {
+      newProps.required = true
+    }
+
+    const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
 
     const style = `
       appearance-none
@@ -14,7 +21,6 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       bg-white-100
       border
       border-solid
-      border-sumi-900
       py-4 px-4 pr-8
       rounded-[8px]
       focus:outline
@@ -24,7 +30,13 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
     return (
       <div className="inline-block relative">
-        <select className={cx(style, props.className)} {...newProps} ref={ref}>
+        <select
+          className={cx(style, invalidStyle, props.className)}
+          aria-describedby={ctx.helperTextId}
+          aria-errormessage={ctx.errorMessageId}
+          {...newProps}
+          ref={ref}
+        >
           {children}
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">

@@ -1,11 +1,19 @@
 import React from 'react'
 import { cx } from '../utils'
+import { ControllerContext } from './context'
 
 export interface CheckboxProps extends React.ComponentProps<'input'> {}
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
     const { className, children, ...newProps } = props
+    const ctx = React.useContext(ControllerContext)
+    if (ctx.isRequired) {
+      newProps.required = true
+    }
+    if (ctx.groupName) {
+      newProps.name = ctx.groupName
+    }
 
     const style = `
       flex
@@ -40,6 +48,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           <input
             className={styleInput}
             type="checkbox"
+            aria-describedby={ctx.helperTextId}
+            aria-errormessage={ctx.errorMessageId}
             {...newProps}
             ref={ref}
           />

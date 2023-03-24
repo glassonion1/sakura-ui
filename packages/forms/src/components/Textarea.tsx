@@ -1,5 +1,6 @@
 import React from 'react'
 import { cx } from '../utils'
+import { ControllerContext } from './context'
 
 export interface TextareaProps
   extends React.ComponentPropsWithoutRef<'textarea'> {}
@@ -8,12 +9,18 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
     const { className, children, ...newProps } = props
 
+    const ctx = React.useContext(ControllerContext)
+    if (ctx.isRequired) {
+      newProps.required = true
+    }
+
+    const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
+
     const style = `
       p-4
       rounded-lg
       border
       border-solid
-      border-sumi-900
       focus:outline
       focus:outline-2
       focus:outline-wood-500
@@ -25,7 +32,13 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     `
 
     return (
-      <textarea className={cx(style, className)} {...newProps} ref={ref}>
+      <textarea
+        className={cx(style, invalidStyle, className)}
+        aria-describedby={ctx.helperTextId}
+        aria-errormessage={ctx.errorMessageId}
+        {...newProps}
+        ref={ref}
+      >
         {children}
       </textarea>
     )
