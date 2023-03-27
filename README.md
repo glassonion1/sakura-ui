@@ -1,5 +1,5 @@
 # Sakura UI
-Sakura UI - UI components built with Tailwind CSS for React. Sakura UI is an unofficial implementation of the Digital Agency Design System. The specifications for each UI component have been implemented with reference to the Digital Agency Design System. Please refer to this link for more information about the Digital Agency Design System.
+Sakura UI - UI components built with Tailwind CSS for React. Sakura UI is an unofficial implementation of the Digital Agency Design System. The specifications for each UI component have been implemented with reference to the Digital Agency Design System.
 
 - [Design System 1.2.1](https://www.figma.com/community/file/1172530831489802410)
 
@@ -14,7 +14,7 @@ $ yarn add @sakura-ui/sakura-ui
 
 ## Configuration
 tailwind.config.js
-```
+```ts
 module.exports = {
   mode: 'jit',
   content: [
@@ -27,7 +27,7 @@ module.exports = {
 ```
 
 Add fonts from CDN.
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
