@@ -73,32 +73,47 @@ const App = () => {
         </Ol>
       </div>
       <div className="my-4">
-        <IconButton icon="face">Face</IconButton>
-        <Button onClick={() => setCount((count) => count + 1)}>
+        <IconButton className="mr-2" icon="face">
+          Face
+        </IconButton>
+        <Button className="mr-2" onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </Button>
         <Button
+          className="mr-2"
           variant="secondary"
           onClick={() => setCount((count) => count + 1)}
         >
           count is {count}
         </Button>
-        <Button onClick={() => setCount((count) => count + 1)} disabled>
+        <Button
+          className="mr-2"
+          onClick={() => setCount((count) => count + 1)}
+          disabled
+        >
           count is {count}
         </Button>
         <Button
+          className="mr-2"
           variant="secondary"
           onClick={() => setCount((count) => count + 1)}
           disabled
         >
           count is {count}
         </Button>
-        <IconButton icon="face">Face</IconButton>
-        <IconButton icon="face" iconLayout="right" variant="secondary">
+        <IconButton className="mr-2" icon="face">
+          Face
+        </IconButton>
+        <IconButton
+          className="mr-2"
+          icon="face"
+          iconLayout="right"
+          variant="secondary"
+        >
           Face
         </IconButton>
 
-        <IconButton icon="keyboard_arrow_down" />
+        <IconButton className="mr-2" icon="keyboard_arrow_down" />
         <IconButton icon="face" variant="secondary" />
       </div>
       <div className="my-4">
