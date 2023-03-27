@@ -73,19 +73,22 @@ const App = () => {
         </Ol>
       </div>
       <div className="my-4">
-        <IconButton className="mr-2" icon="face">
-          Face
-        </IconButton>
         <Button className="mr-2" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          Primary button
         </Button>
         <Button
           className="mr-2"
           variant="secondary"
           onClick={() => setCount((count) => count + 1)}
         >
-          count is {count}
+          Secondary Button
         </Button>
+        <IconButton className="mr-2" icon="face">
+          Icon button
+        </IconButton>
+        <IconButton className="mr-2" variant="secondary" icon="face">
+          Icon button
+        </IconButton>
         <Button
           className="mr-2"
           onClick={() => setCount((count) => count + 1)}
