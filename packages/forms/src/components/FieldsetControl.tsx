@@ -9,6 +9,7 @@ export interface FieldsetControlProps
   errorMessage?: string
   isInvalid?: boolean
   isRequired?: boolean
+  direction?: 'flex-col' | 'flex-row'
 }
 
 export const FieldsetControl = React.forwardRef<
@@ -23,6 +24,7 @@ export const FieldsetControl = React.forwardRef<
     errorMessage,
     isInvalid,
     isRequired,
+    direction,
     children,
     ...newProps
   } = props
@@ -37,6 +39,8 @@ export const FieldsetControl = React.forwardRef<
     isRequired: isRequired ?? false
   }
 
+  const styleDirection = direction ?? 'flex-col'
+
   return (
     <ControllerContext.Provider value={context}>
       <fieldset className={cx('mb-4', className)} ref={ref} {...newProps}>
@@ -46,7 +50,7 @@ export const FieldsetControl = React.forwardRef<
             {isRequired && <span className="text-sun-800">&nbsp;*</span>}
           </p>
         </legend>
-        {children}
+        <div className={cx('inline-flex', styleDirection)}>{children}</div>
         {helperText && (
           <p id={context.helperTextId} className="text-sm text-sumi-700 mt-2">
             {helperText}

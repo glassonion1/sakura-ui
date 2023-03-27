@@ -1,47 +1,60 @@
 import React from 'react'
 import { Radio } from '../Radio'
+import { FieldsetControl } from '../FieldsetControl'
 import { InputItem } from './InputItem'
-import { cx } from '../../utils'
 
 export interface RadioGroupProps
-  extends Omit<React.ComponentProps<'fieldset'>, 'onChange'> {
+  extends Omit<React.ComponentPropsWithoutRef<'fieldset'>, 'onChange'> {
   items: InputItem[]
   onChange: React.ChangeEventHandler<HTMLInputElement>
-  label: string
+  labelText: string
   helperText?: string
+  errorMessage?: string
+  isInvalid?: boolean
+  isRequired?: boolean
+  defaultValue?: string
 }
 
-export const RadioGroup = (props: RadioGroupProps) => {
-  const id = React.useId()
-  const { items, onChange, label, className, helperText, ...newProps } = props
-  const groupName = `radio_group_${Math.random()}`
+export const RadioGroup = React.forwardRef<
+  HTMLFieldSetElement,
+  RadioGroupProps
+>((props, ref) => {
+  const {
+    items,
+    onChange,
+    className,
+    labelText,
+    helperText,
+    errorMessage,
+    isInvalid,
+    isRequired,
+    defaultValue,
+    ...newProps
+  } = props
 
   return (
-    <fieldset
-      className={cx('mb-4', className)}
-      aria-describedby={`helper-text-${id}`}
+    <FieldsetControl
+      className={className}
+      labelText={labelText}
+      helperText={helperText}
+      errorMessage={errorMessage}
+      isInvalid={isInvalid}
+      isRequired={isRequired}
+      ref={ref}
       {...newProps}
     >
-      <legend>{label}</legend>
       {items.map(({ label, value }, index) => {
         return (
-          <div key={index}>
-            <Radio
-              name={groupName}
-              value={value}
-              onChange={onChange}
-              defaultChecked={index === 0}
-            >
-              {label}
-            </Radio>
-          </div>
+          <Radio
+            key={index}
+            value={value}
+            onChange={onChange}
+            defaultChecked={defaultValue === value}
+          >
+            {label}
+          </Radio>
         )
       })}
-      {helperText && (
-        <p id={`helper-text-${id}`} className="text-sm text-sumi-700">
-          {helperText}
-        </p>
-      )}
-    </fieldset>
+    </FieldsetControl>
   )
-}
+})

@@ -104,15 +104,9 @@ const App = () => {
       <div className="my-4">
         <H2>Forms</H2>
         <Select>
-          <option key={0} value="1">
-            Select1
-          </option>
-          <option key={1} value="2">
-            Select2
-          </option>
-          <option key={2} value="3">
-            Select3
-          </option>
+          <option value="1">Select1</option>
+          <option value="2">Select2</option>
+          <option value="3">Select3</option>
         </Select>
         <Radio name="sample">Radio1</Radio>
         <Radio name="sample">Radio2</Radio>
@@ -126,43 +120,25 @@ const App = () => {
         <div className="flex space-x-4">
           <LabelControl labelText="Select">
             <Select>
-              <option key={0} value="1">
-                Select value1
-              </option>
-              <option key={1} value="2">
-                Select value2
-              </option>
-              <option key={2} value="3">
-                Select value3
-              </option>
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
             </Select>
           </LabelControl>
           <LabelControl labelText="Select required" isRequired={true}>
             <Select>
-              <option key={0} value="1">
-                Select value1
-              </option>
-              <option key={1} value="2">
-                Select value2
-              </option>
-              <option key={2} value="3">
-                Select value3
-              </option>
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
             </Select>
           </LabelControl>
         </div>
         <div className="flex space-x-4">
           <LabelControl labelText="Select with helper" helperText="Helper text">
             <Select>
-              <option key={0} value="1">
-                Select value1
-              </option>
-              <option key={1} value="2">
-                Select value2
-              </option>
-              <option key={2} value="3">
-                Select value3
-              </option>
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
             </Select>
           </LabelControl>
           <LabelControl
@@ -171,15 +147,9 @@ const App = () => {
             errorMessage="Error message"
           >
             <Select>
-              <option key={0} value="1">
-                Select value1
-              </option>
-              <option key={1} value="2">
-                Select value2
-              </option>
-              <option key={2} value="3">
-                Select value3
-              </option>
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
             </Select>
           </LabelControl>
           <LabelControl
@@ -189,34 +159,46 @@ const App = () => {
             errorMessage="Error message"
           >
             <Select>
-              <option key={0} value="1">
-                Select value1
-              </option>
-              <option key={1} value="2">
-                Select value2
-              </option>
-              <option key={2} value="3">
-                Select value3
-              </option>
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
             </Select>
           </LabelControl>
         </div>
         <FieldsetControl labelText="Radio">
-          <Radio value={0}>Radio1</Radio>
-          <Radio value={1}>Radio2</Radio>
-          <Radio value={2}>Radio3</Radio>
+          <Radio className="block" value={0}>
+            Radio1
+          </Radio>
+          <Radio className="block" value={1}>
+            Radio2
+          </Radio>
+          <Radio className="block" value={2}>
+            Radio3
+          </Radio>
+        </FieldsetControl>
+        <FieldsetControl direction="flex-row" labelText="Radio flex-row">
+          <Radio className="block" value={0}>
+            Radio1
+          </Radio>
+          <Radio className="block" value={1}>
+            Radio2
+          </Radio>
+          <Radio className="block" value={2}>
+            Radio3
+          </Radio>
         </FieldsetControl>
         <RadioGroup
-          label="Radio group"
+          labelText="Radio group"
           items={[
             { value: '0', label: 'Radio1' },
             { value: '1', label: 'Radio2' },
             { value: '2', label: 'Radio3' }
           ]}
+          defaultValue="1"
           onChange={(e) => console.log(e.target.value)}
         />
         <CheckboxGroup
-          label="Checkbox group"
+          labelText="Checkbox group"
           items={[
             { value: '0', label: 'Checkbox1' },
             { value: '1', label: 'Checkbox2' },

@@ -36,6 +36,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         className={cx(style, invalidStyle, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
+        aria-invalid={ctx.isInvalid ?? false}
         {...newProps}
         ref={ref}
       >

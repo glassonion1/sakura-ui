@@ -1,42 +1,53 @@
 import React from 'react'
 import { Checkbox } from '../Checkbox'
+import { FieldsetControl } from '../FieldsetControl'
 import { InputItem } from './InputItem'
-import { cx } from '../../utils'
 
 export interface CheckboxGroupProps
-  extends Omit<React.ComponentProps<'fieldset'>, 'onChange'> {
+  extends Omit<React.ComponentPropsWithoutRef<'fieldset'>, 'onChange'> {
   items: InputItem[]
   onChange: React.ChangeEventHandler<HTMLInputElement>
-  label: string
+  labelText: string
   helperText?: string
+  errorMessage?: string
+  isInvalid?: boolean
+  isRequired?: boolean
 }
 
-export const CheckboxGroup = (props: CheckboxGroupProps) => {
-  const id = React.useId()
-  const { items, onChange, label, className, helperText, ...newProps } = props
-  const groupName = `checkbox_group_${Math.random()}`
+export const CheckboxGroup = React.forwardRef<
+  HTMLFieldSetElement,
+  CheckboxGroupProps
+>((props, ref) => {
+  const {
+    items,
+    onChange,
+    className,
+    labelText,
+    helperText,
+    errorMessage,
+    isInvalid,
+    isRequired,
+    ...newProps
+  } = props
 
   return (
-    <fieldset
-      className={cx('mb-4', className)}
-      aria-describedby={`helper-text-${id}`}
+    <FieldsetControl
+      className={className}
+      labelText={labelText}
+      helperText={helperText}
+      errorMessage={errorMessage}
+      isInvalid={isInvalid}
+      isRequired={isRequired}
+      ref={ref}
       {...newProps}
     >
-      <legend>{label}</legend>
       {items.map(({ label, value }, index) => {
         return (
-          <div key={index}>
-            <Checkbox name={groupName} value={value} onChange={onChange}>
-              {label}
-            </Checkbox>
-          </div>
+          <Checkbox key={index} value={value} onChange={onChange}>
+            {label}
+          </Checkbox>
         )
       })}
-      {helperText && (
-        <p id={`helper-text-${id}`} className="text-sm text-sumi-700">
-          {helperText}
-        </p>
-      )}
-    </fieldset>
+    </FieldsetControl>
   )
-}
+})

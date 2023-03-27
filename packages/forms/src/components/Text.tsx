@@ -18,7 +18,7 @@ export const Text = React.forwardRef<HTMLInputElement, TextProps>(
       p-4
       rounded-lg
       border
-      border-solid      
+      border-solid
       focus:outline
       focus:outline-2
       focus:outline-wood-500
@@ -35,6 +35,7 @@ export const Text = React.forwardRef<HTMLInputElement, TextProps>(
         className={cx(style, invalidStyle, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
+        aria-invalid={ctx.isInvalid ?? false}
         {...newProps}
         ref={ref}
       />

@@ -34,6 +34,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           className={cx(style, invalidStyle, props.className)}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
+          aria-invalid={ctx.isInvalid ?? false}
           {...newProps}
           ref={ref}
         >

@@ -2,7 +2,7 @@ import React from 'react'
 import { cx } from '../utils'
 import { ControllerContext } from './context'
 
-export interface Props extends React.ComponentProps<'input'> {}
+export interface Props extends React.ComponentPropsWithoutRef<'input'> {}
 
 export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { className, children, ...newProps } = props
@@ -15,11 +15,11 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   }
 
   const style = `
-    flex
-    items-center
+    inline-block
     text-sm
     cursor-pointer
     py-2
+    mr-4
   `
   const styleInput = `
     hidden
@@ -40,19 +40,20 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     peer-checked:border-sea-600
   `
   return (
-    <div className="inline-block">
-      <label htmlFor={newProps.id} className={cx(style, className)}>
+    <label htmlFor={newProps.id} className={cx(style, className)}>
+      <div className="flex items-center">
         <input
           className={styleInput}
           type="radio"
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
+          aria-invalid={ctx.isInvalid ?? false}
           {...newProps}
           ref={ref}
         />
         <span className={styleRadio}></span>
         {children}
-      </label>
-    </div>
+      </div>
+    </label>
   )
 })

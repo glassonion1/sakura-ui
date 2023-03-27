@@ -16,11 +16,11 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     }
 
     const style = `
-      flex
-      items-center
+      inline-block
       text-sm
       cursor-pointer
       py-2
+      mr-4
     `
 
     const styleInput = `
@@ -43,13 +43,14 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     `
 
     return (
-      <div className="inline-block">
-        <label htmlFor={newProps.id} className={cx(style, className)}>
+      <label htmlFor={newProps.id} className={cx(style, className)}>
+        <div className="flex items-center">
           <input
             className={styleInput}
             type="checkbox"
             aria-describedby={ctx.helperTextId}
             aria-errormessage={ctx.errorMessageId}
+            aria-invalid={ctx.isInvalid ?? false}
             {...newProps}
             ref={ref}
           />
@@ -62,8 +63,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             </svg>
           </span>
           {children}
-        </label>
-      </div>
+        </div>
+      </label>
     )
   }
 )
