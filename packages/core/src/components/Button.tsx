@@ -9,7 +9,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     // Make sure that there is no problem even if className is specified on the side that uses the component
-    const { className, children, textAlign, variant, ...newProps } = props
+    const { className, children, textAlign, variant, ...restProps } = props
 
     const align = textAlign ?? 'center'
 
@@ -68,7 +68,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={cx(style, styles[variant ?? 'primary'], className)}
-        {...newProps}
+        {...restProps}
         ref={ref}
       >
         {children}

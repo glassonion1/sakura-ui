@@ -4,7 +4,7 @@ import { cx } from '../utils'
 export interface UlProps extends React.ComponentProps<'ul'> {}
 
 export const Ul = (props: UlProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     list-disc
@@ -14,7 +14,7 @@ export const Ul = (props: UlProps) => {
     marker:text-xs
   `
   return (
-    <ul className={cx(style, className)} {...newprops}>
+    <ul className={cx(style, className)} {...restProps}>
       {children}
     </ul>
   )
@@ -23,7 +23,7 @@ export const Ul = (props: UlProps) => {
 export interface OlProps extends React.ComponentProps<'ol'> {}
 
 export const Ol = (props: OlProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     list-decimal
@@ -32,7 +32,7 @@ export const Ol = (props: OlProps) => {
     pl-4
   `
   return (
-    <ol className={cx(style, className)} {...newprops}>
+    <ol className={cx(style, className)} {...restProps}>
       {children}
     </ol>
   )

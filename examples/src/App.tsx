@@ -12,7 +12,7 @@ import {
   Link,
   Ol,
   Ul
-} from '../../packages/react/src'
+} from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,

@@ -4,7 +4,7 @@ import { cx } from '../utils'
 export interface PreProps extends React.ComponentProps<'pre'> {}
 
 export const Pre = (props: PreProps) => {
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     p-4
@@ -15,7 +15,7 @@ export const Pre = (props: PreProps) => {
   `
 
   return (
-    <pre className={cx(style, className)} {...newProps}>
+    <pre className={cx(style, className)} {...restProps}>
       {children}
     </pre>
   )

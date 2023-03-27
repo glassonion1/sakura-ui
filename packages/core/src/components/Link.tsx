@@ -31,7 +31,7 @@ const getFileType = (url: string) => {
 }
 
 export const Link = (props: LinkProps) => {
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
   const href = props.href ?? ''
   const fileType = getFileType(href)
 
@@ -53,20 +53,20 @@ export const Link = (props: LinkProps) => {
   if (href.startsWith('http')) {
     return (
       <a
-        className={cx(style, props.className)}
+        className={cx(style, className)}
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        {...newProps}
+        {...restProps}
       >
-        {props.children}
+        {children}
         {fileType ? `（${fileType}）` : null}
       </a>
     )
   }
   return (
-    <a className={cx(style, props.className)} href={href} {...newProps}>
-      {props.children}
+    <a className={cx(style, className)} href={href} {...restProps}>
+      {children}
       {fileType ? `（${fileType}）` : null}
     </a>
   )

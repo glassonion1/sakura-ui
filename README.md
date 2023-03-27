@@ -17,7 +17,7 @@ module.exports = {
   mode: 'jit',
   content: [
     './src/pages/**/*.{jsx,tsx}',
-    './node_modules/@sakura-ui/react/**/*.{js,jsx,ts,tsx}',
+    './node_modules/@sakura-ui/core/**/*.{js,jsx,ts,tsx}',
     './node_modules/@sakura-ui/forms/**/*.{js,jsx,ts,tsx}'
   ],
   plugins: [require('@sakura-ui/config')]
@@ -104,8 +104,8 @@ export default App
 ## Form components
 - Radio
 - Checkbox
-- RadioGroup
-- CheckboxGroup
 - Select
 - Text
 - Textarea
+- LabelControl
+- FieldsetControl

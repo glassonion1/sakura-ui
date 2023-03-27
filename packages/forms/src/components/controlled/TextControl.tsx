@@ -20,7 +20,7 @@ export const TextControl = React.forwardRef<HTMLInputElement, TextControlProps>(
       errorMessage,
       isInvalid,
       isRequired,
-      ...newProps
+      ...restProps
     } = props
 
     return (
@@ -32,7 +32,7 @@ export const TextControl = React.forwardRef<HTMLInputElement, TextControlProps>(
         isInvalid={isInvalid}
         isRequired={isRequired}
       >
-        <Text ref={ref} {...newProps} />
+        <Text ref={ref} {...restProps} />
       </LabelControl>
     )
   }

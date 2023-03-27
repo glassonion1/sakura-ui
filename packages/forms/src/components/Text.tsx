@@ -6,10 +6,10 @@ export interface TextProps extends React.ComponentPropsWithoutRef<'input'> {}
 
 export const Text = React.forwardRef<HTMLInputElement, TextProps>(
   (props, ref) => {
-    const { className, ...newProps } = props
+    const { className, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
-      newProps.required = true
+      restProps.required = true
     }
 
     const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
@@ -36,7 +36,7 @@ export const Text = React.forwardRef<HTMLInputElement, TextProps>(
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
-        {...newProps}
+        {...restProps}
         ref={ref}
       />
     )

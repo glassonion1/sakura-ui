@@ -29,7 +29,7 @@ export const RadioGroup = React.forwardRef<
     isInvalid,
     isRequired,
     defaultValue,
-    ...newProps
+    ...restProps
   } = props
 
   return (
@@ -41,7 +41,7 @@ export const RadioGroup = React.forwardRef<
       isInvalid={isInvalid}
       isRequired={isRequired}
       ref={ref}
-      {...newProps}
+      {...restProps}
     >
       {items.map(({ label, value }, index) => {
         return (

@@ -22,7 +22,7 @@ export const TextareaControl = React.forwardRef<
     errorMessage,
     isInvalid,
     isRequired,
-    ...newProps
+    ...restProps
   } = props
 
   return (
@@ -34,7 +34,7 @@ export const TextareaControl = React.forwardRef<
       isInvalid={isInvalid}
       isRequired={isRequired}
     >
-      <Textarea ref={ref} {...newProps} />
+      <Textarea ref={ref} {...restProps} />
     </LabelControl>
   )
 })

@@ -27,7 +27,7 @@ export const CheckboxGroup = React.forwardRef<
     errorMessage,
     isInvalid,
     isRequired,
-    ...newProps
+    ...restProps
   } = props
 
   return (
@@ -39,7 +39,7 @@ export const CheckboxGroup = React.forwardRef<
       isInvalid={isInvalid}
       isRequired={isRequired}
       ref={ref}
-      {...newProps}
+      {...restProps}
     >
       {items.map(({ label, value }, index) => {
         return (

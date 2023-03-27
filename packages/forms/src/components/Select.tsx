@@ -15,6 +15,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
 
     const style = `
+      cursor-pointer
       appearance-none
       text-base
       w-full
@@ -29,7 +30,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     `
 
     return (
-      <div className="inline-block relative">
+      <span className="inline-block relative">
         <select
           className={cx(style, invalidStyle, props.className)}
           aria-describedby={ctx.helperTextId}
@@ -40,7 +41,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         >
           {children}
         </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+        <span className="flex items-center absolute inset-y-0 right-0 px-2 pointer-events-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="fill-sumi-900"
@@ -49,8 +50,8 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           >
             <path d="M12 15.05 6.35 9.4 7.4 8.35l4.6 4.6 4.6-4.6 1.05 1.05Z" />
           </svg>
-        </div>
-      </div>
+        </span>
+      </span>
     )
   }
 )

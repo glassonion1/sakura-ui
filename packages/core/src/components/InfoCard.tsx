@@ -6,7 +6,7 @@ export interface InfoCardProps extends React.ComponentProps<'div'> {
 }
 
 export const InfoCard = (props: InfoCardProps) => {
-  const { className, children, ...newProps } = props
+  const { className, children, title, ...restProps } = props
 
   const style = `
     bg-sumi-50
@@ -28,9 +28,9 @@ export const InfoCard = (props: InfoCardProps) => {
   `
 
   return (
-    <div className={cx(style, props.className)} {...newProps}>
-      <h2 className={topStyle}>{props.title}</h2>
-      <p className={bottmStyle}>{props.children}</p>
+    <div className={cx(style, className)} {...restProps}>
+      <h2 className={topStyle}>{title}</h2>
+      <p className={bottmStyle}>{children}</p>
     </div>
   )
 }

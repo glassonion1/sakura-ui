@@ -7,11 +7,11 @@ export interface TextareaProps
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
-    const { className, children, ...newProps } = props
+    const { className, children, ...restProps } = props
 
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
-      newProps.required = true
+      restProps.required = true
     }
 
     const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
@@ -37,7 +37,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
-        {...newProps}
+        {...restProps}
         ref={ref}
       >
         {children}

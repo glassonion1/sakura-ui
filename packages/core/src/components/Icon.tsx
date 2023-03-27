@@ -6,7 +6,7 @@ export interface IconProps extends React.ComponentProps<'span'> {
 }
 
 export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
-  const { className, icon, ...newProps } = props
+  const { className, icon, ...restProps } = props
 
   const style = `
   inline-block
@@ -20,7 +20,7 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
   `
 
   return (
-    <span className={cx(style, className)} {...newProps} ref={ref}>
+    <span className={cx(style, className)} {...restProps} ref={ref}>
       {icon}
     </span>
   )

@@ -9,7 +9,7 @@ export interface IconButtonProps extends React.ComponentProps<'button'> {
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
-    const { className, children, variant, icon, iconLayout, ...newProps } =
+    const { className, children, variant, icon, iconLayout, ...restProps } =
       props
 
     const layout = iconLayout ?? 'left'
@@ -82,7 +82,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <button
         className={cx(style, styles[variant ?? 'primary'], className)}
-        {...newProps}
+        {...restProps}
         ref={ref}
       >
         {layout == 'left' && <span className={cx(iconStyle)}>{icon}</span>}

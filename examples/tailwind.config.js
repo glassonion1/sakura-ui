@@ -5,7 +5,7 @@ module.exports = {
   content: [
     './index.html',
     './src/**/*.{jsx,tsx}',
-    '../packages/react/src/**/*.{js,jsx,ts,tsx}',
+    '../packages/core/src/**/*.{js,jsx,ts,tsx}',
     '../packages/forms/src/**/*.{js,jsx,ts,tsx}'
   ],
   plugins: [require('@sakura-ui/config')]

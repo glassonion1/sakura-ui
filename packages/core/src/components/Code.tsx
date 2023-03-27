@@ -4,7 +4,7 @@ import { cx } from '../utils'
 export interface CodeProps extends React.ComponentProps<'code'> {}
 
 export const Code = (props: CodeProps) => {
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     bg-sumi-50
@@ -12,7 +12,7 @@ export const Code = (props: CodeProps) => {
   `
 
   return (
-    <code className={cx(style, className)} {...newProps}>
+    <code className={cx(style, className)} {...restProps}>
       {children}
     </code>
   )

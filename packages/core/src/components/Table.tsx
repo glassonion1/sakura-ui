@@ -10,7 +10,7 @@ const styleBorder = `
 `
 
 export const Table = (props: TableProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   // If there is no break-all setting, the table will protrude when using a smartphone
   const style = `
@@ -20,7 +20,7 @@ export const Table = (props: TableProps) => {
   `
 
   return (
-    <table className={cx(style, styleBorder, className)} {...newprops}>
+    <table className={cx(style, styleBorder, className)} {...restProps}>
       {children}
     </table>
   )
@@ -29,11 +29,11 @@ export const Table = (props: TableProps) => {
 export interface CaptionProps extends React.ComponentProps<'caption'> {}
 
 export const Caption = (props: CaptionProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   const style = `text-left`
   return (
-    <caption className={cx(style, className)} {...newprops}>
+    <caption className={cx(style, className)} {...restProps}>
       {children}
     </caption>
   )
@@ -42,10 +42,10 @@ export const Caption = (props: CaptionProps) => {
 export interface TheadProps extends React.ComponentProps<'thead'> {}
 
 export const Thead = (props: TheadProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   return (
-    <thead className={cx(className)} {...newprops}>
+    <thead className={cx(className)} {...restProps}>
       {children}
     </thead>
   )
@@ -54,10 +54,10 @@ export const Thead = (props: TheadProps) => {
 export interface TbodyProps extends React.ComponentProps<'tbody'> {}
 
 export const Tbody = (props: TbodyProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   return (
-    <tbody className={cx(className)} {...newprops}>
+    <tbody className={cx(className)} {...restProps}>
       {children}
     </tbody>
   )
@@ -66,7 +66,7 @@ export const Tbody = (props: TbodyProps) => {
 export interface ThProps extends React.ComponentProps<'th'> {}
 
 export const Th = (props: ThProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     p-2
@@ -74,7 +74,7 @@ export const Th = (props: ThProps) => {
     text-left
   `
   return (
-    <th className={cx(style, styleBorder, className)} {...newprops}>
+    <th className={cx(style, styleBorder, className)} {...restProps}>
       {children}
     </th>
   )
@@ -83,12 +83,12 @@ export const Th = (props: ThProps) => {
 export interface TrProps extends React.ComponentProps<'tr'> {}
 
 export const Tr = (props: TrProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   const style = ``
 
   return (
-    <tr className={cx(style, styleBorder, className)} {...newprops}>
+    <tr className={cx(style, styleBorder, className)} {...restProps}>
       {children}
     </tr>
   )
@@ -97,14 +97,14 @@ export const Tr = (props: TrProps) => {
 export interface TdProps extends React.ComponentProps<'td'> {}
 
 export const Td = (props: TdProps) => {
-  const { className, children, ...newprops } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     p-2
   `
 
   return (
-    <td className={cx(style, styleBorder, className)} {...newprops}>
+    <td className={cx(style, styleBorder, className)} {...restProps}>
       {children}
     </td>
   )

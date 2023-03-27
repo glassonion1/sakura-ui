@@ -6,13 +6,13 @@ export interface CheckboxProps extends React.ComponentProps<'input'> {}
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
-    const { className, children, ...newProps } = props
+    const { className, children, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
-      newProps.required = true
+      restProps.required = true
     }
     if (ctx.groupName) {
-      newProps.name = ctx.groupName
+      restProps.name = ctx.groupName
     }
 
     const style = `
@@ -43,15 +43,15 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     `
 
     return (
-      <label htmlFor={newProps.id} className={cx(style, className)}>
-        <div className="flex items-center">
+      <label htmlFor={restProps.id} className={cx(style, className)}>
+        <span className="flex items-center">
           <input
             className={styleInput}
             type="checkbox"
             aria-describedby={ctx.helperTextId}
             aria-errormessage={ctx.errorMessageId}
             aria-invalid={ctx.isInvalid ?? false}
-            {...newProps}
+            {...restProps}
             ref={ref}
           />
           <span className={styleCheck}>
@@ -63,7 +63,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             </svg>
           </span>
           {children}
-        </div>
+        </span>
       </label>
     )
   }

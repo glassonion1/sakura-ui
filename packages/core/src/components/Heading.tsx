@@ -8,7 +8,7 @@ const common = `
 `
 
 export const H1 = (props: HeadingProps) => {
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     text-h1
@@ -17,15 +17,15 @@ export const H1 = (props: HeadingProps) => {
   `
 
   return (
-    <h1 className={cx(common, style, props.className)} {...newProps}>
-      {props.children}
+    <h1 className={cx(common, style, className)} {...restProps}>
+      {children}
     </h1>
   )
 }
 
 export const H2 = (props: HeadingProps) => {
   // コンポーネントを使う側でclassNameを指定しても問題ないようにする
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     text-h2
@@ -34,15 +34,15 @@ export const H2 = (props: HeadingProps) => {
   `
 
   return (
-    <h2 className={cx(common, style, props.className)} {...newProps}>
-      {props.children}
+    <h2 className={cx(common, style, className)} {...restProps}>
+      {children}
     </h2>
   )
 }
 
 export const H3 = (props: HeadingProps) => {
   // コンポーネントを使う側でclassNameを指定しても問題ないようにする
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     text-h3
@@ -51,15 +51,15 @@ export const H3 = (props: HeadingProps) => {
   `
 
   return (
-    <h3 className={cx(common, style, props.className)} {...newProps}>
-      {props.children}
+    <h3 className={cx(common, style, className)} {...restProps}>
+      {children}
     </h3>
   )
 }
 
 export const H4 = (props: HeadingProps) => {
   // コンポーネントを使う側でclassNameを指定しても問題ないようにする
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     text-h4
@@ -68,15 +68,15 @@ export const H4 = (props: HeadingProps) => {
   `
 
   return (
-    <h4 className={cx(common, style, props.className)} {...newProps}>
-      {props.children}
+    <h4 className={cx(common, style, className)} {...restProps}>
+      {children}
     </h4>
   )
 }
 
 export const H5 = (props: HeadingProps) => {
   // コンポーネントを使う側でclassNameを指定しても問題ないようにする
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     text-h5
@@ -85,15 +85,15 @@ export const H5 = (props: HeadingProps) => {
   `
 
   return (
-    <h5 className={cx(common, style, props.className)} {...newProps}>
-      {props.children}
+    <h5 className={cx(common, style, className)} {...restProps}>
+      {children}
     </h5>
   )
 }
 
 export const H6 = (props: HeadingProps) => {
   // コンポーネントを使う側でclassNameを指定しても問題ないようにする
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     text-h6
@@ -102,8 +102,8 @@ export const H6 = (props: HeadingProps) => {
   `
 
   return (
-    <h6 className={cx(common, style, props.className)} {...newProps}>
-      {props.children}
+    <h6 className={cx(common, style, className)} {...restProps}>
+      {children}
     </h6>
   )
 }

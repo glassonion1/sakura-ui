@@ -22,7 +22,7 @@ export const LabelControl = React.forwardRef<HTMLDivElement, LabelControlProps>(
       isInvalid,
       isRequired,
       children,
-      ...newProps
+      ...restProps
     } = props
 
     const context = {
@@ -34,33 +34,30 @@ export const LabelControl = React.forwardRef<HTMLDivElement, LabelControlProps>(
 
     return (
       <ControllerContext.Provider value={context}>
-        <div className={cx('mb-4', className)} ref={ref} {...newProps}>
+        <div className={cx('mb-4', className)} ref={ref} {...restProps}>
           <label>
-            <p className={cx('block mb-2', isInvalid && 'text-sun-800')}>
+            <span className={cx('block mb-2', isInvalid && 'text-sun-800')}>
               {labelText}
               {isRequired && <span className="text-sun-800">&nbsp;*</span>}
-            </p>
+            </span>
             {children}
-            {helperText && (
-              <p
-                id={context.helperTextId}
-                className="text-sm text-sumi-700 mt-2"
-              >
-                {helperText}
-              </p>
-            )}
-            {isInvalid && (
-              <p
-                id={context.errorMessageId}
-                className={cx(
-                  'text-sm text-sun-800',
-                  helperText ? 'mt-1' : 'mt-2'
-                )}
-              >
-                {errorMessage}
-              </p>
-            )}
           </label>
+          {helperText && (
+            <p id={context.helperTextId} className="text-sm text-sumi-700 mt-2">
+              {helperText}
+            </p>
+          )}
+          {isInvalid && (
+            <p
+              id={context.errorMessageId}
+              className={cx(
+                'text-sm text-sun-800',
+                helperText ? 'mt-1' : 'mt-2'
+              )}
+            >
+              {errorMessage}
+            </p>
+          )}
         </div>
       </ControllerContext.Provider>
     )

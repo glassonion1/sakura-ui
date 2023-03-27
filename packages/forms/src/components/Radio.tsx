@@ -41,7 +41,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   `
   return (
     <label htmlFor={newProps.id} className={cx(style, className)}>
-      <div className="flex items-center">
+      <span className="flex items-center">
         <input
           className={styleInput}
           type="radio"
@@ -53,7 +53,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
         />
         <span className={styleRadio}></span>
         {children}
-      </div>
+      </span>
     </label>
   )
 })

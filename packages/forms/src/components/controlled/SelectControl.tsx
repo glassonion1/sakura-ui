@@ -22,7 +22,7 @@ export const SelectControl = React.forwardRef<
     errorMessage,
     isInvalid,
     isRequired,
-    ...newProps
+    ...restProps
   } = props
 
   return (
@@ -34,7 +34,7 @@ export const SelectControl = React.forwardRef<
       isInvalid={isInvalid}
       isRequired={isRequired}
     >
-      <Select ref={ref} {...newProps} />
+      <Select ref={ref} {...restProps} />
     </LabelControl>
   )
 })

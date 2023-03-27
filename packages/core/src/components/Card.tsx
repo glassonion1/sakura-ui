@@ -4,7 +4,7 @@ import { cx } from '../utils'
 export interface CardProps extends React.ComponentProps<'div'> {}
 
 export const Card = (props: CardProps) => {
-  const { className, children, ...newProps } = props
+  const { className, children, ...restProps } = props
 
   const style = `
     bg-sumi-50
@@ -15,7 +15,7 @@ export const Card = (props: CardProps) => {
     p-4
   `
   return (
-    <div className={cx(style, props.className)} {...newProps}>
+    <div className={cx(style, props.className)} {...restProps}>
       {props.children}
     </div>
   )

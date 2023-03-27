@@ -26,10 +26,10 @@ export const FieldsetControl = React.forwardRef<
     isRequired,
     direction,
     children,
-    ...newProps
+    ...restProps
   } = props
 
-  const groupName = newProps.name ?? `group-${id}`
+  const groupName = restProps.name ?? `group-${id}`
 
   const context = {
     groupName: groupName,
@@ -43,7 +43,7 @@ export const FieldsetControl = React.forwardRef<
 
   return (
     <ControllerContext.Provider value={context}>
-      <fieldset className={cx('mb-4', className)} ref={ref} {...newProps}>
+      <fieldset className={cx('mb-4', className)} ref={ref} {...restProps}>
         <legend>
           <p className={cx('block mb-2', isInvalid && 'text-sun-800')}>
             {labelText}
