@@ -32,6 +32,7 @@ export const Text = React.forwardRef<HTMLInputElement, TextProps>(
     return (
       <input
         type="text"
+        id={restProps.id ?? ctx.id}
         className={cx(style, invalidStyle, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}

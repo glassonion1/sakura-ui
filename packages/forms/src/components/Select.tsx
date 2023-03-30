@@ -6,10 +6,10 @@ export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {}
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref) => {
-    const { className, children, ...newProps } = props
+    const { className, children, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
-      newProps.required = true
+      restProps.required = true
     }
 
     const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
@@ -32,11 +32,12 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <span className="inline-block relative">
         <select
+          id={restProps.id ?? ctx.id}
           className={cx(style, invalidStyle, props.className)}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
           aria-invalid={ctx.isInvalid ?? false}
-          {...newProps}
+          {...restProps}
           ref={ref}
         >
           {children}
