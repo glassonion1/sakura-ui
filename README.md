@@ -11,6 +11,10 @@ or
 ```
 $ yarn add @sakura-ui/sakura-ui
 ```
+or
+```
+$ pnpm add @sakura-ui/core @sakura-ui/forms @sakura-ui/config
+```
 
 ## Configuration
 tailwind.config.js

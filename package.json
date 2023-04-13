@@ -13,7 +13,7 @@
     "packages"
   ],
   "scripts": {
-    "build": "pnpm  --parallel --filter \"./**\" build"
+    "build": "pnpm --parallel --filter \"./**\" build"
   },
   "dependencies": {
     "@sakura-ui/config": "workspace:*",
