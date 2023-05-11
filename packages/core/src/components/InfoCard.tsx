@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export interface InfoCardProps extends React.ComponentProps<'div'> {
+export interface InfoCardProps extends React.ComponentProps<'section'> {
   title?: string
 }
 
@@ -27,10 +27,18 @@ export const InfoCard = (props: InfoCardProps) => {
     pb-4
   `
 
+  const headingId = React.useId()
+
   return (
-    <div className={cx(style, className)} {...restProps}>
-      <h2 className={topStyle}>{title}</h2>
+    <section
+      aria-labelledby={headingId}
+      className={cx(style, className)}
+      {...restProps}
+    >
+      <h2 id={headingId} className={topStyle}>
+        {title}
+      </h2>
       <p className={bottmStyle}>{children}</p>
-    </div>
+    </section>
   )
 }

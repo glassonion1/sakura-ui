@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils'
 
-export interface CardProps extends React.ComponentProps<'div'> {}
+export interface CardProps extends React.ComponentProps<'section'> {}
 
 export const Card = (props: CardProps) => {
   const { className, children, ...restProps } = props
@@ -15,8 +15,8 @@ export const Card = (props: CardProps) => {
     p-4
   `
   return (
-    <div className={cx(style, props.className)} {...restProps}>
+    <section className={cx(style, props.className)} {...restProps}>
       {props.children}
-    </div>
+    </section>
   )
 }
