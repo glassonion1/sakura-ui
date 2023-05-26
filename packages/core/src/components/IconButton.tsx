@@ -17,51 +17,38 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const align = 'center'
 
     const style = `
-    inline-block
-    p-4
-    text-base
-    font-bold
-    rounded-lg
-    text-${align}
-    cursor-pointer
-    whitespace-nowrap
-  `
+      inline-block
+      p-4
+      text-base
+      font-bold
+      rounded-lg
+      text-${align}
+      cursor-pointer
+      whitespace-nowrap
+      border
+      border-solid
+      border-sea-600
+      focus:outline
+      focus:outline-2
+      focus:outline-wood-500
+      disabled:border-sumi-500
+      disabled:cursor-not-allowed
+    `
 
     const primary = `
-    text-white-1000
-    border
-    border-solid
-    border-sea-600
-    bg-sea-600
-    hover:bg-sea-800
-    active:bg-sea-800
-    focus:outline
-    focus:outline-2
-    focus:outline-wood-500
-    disabled:bg-sumi-500
-    disabled:text-white-1000
-    disabled:border
-    disabled:border-solid
-    disabled:border-sumi-500
-    disabled:cursor-not-allowed
-  `
+      text-white-1000
+      bg-sea-600
+      hover:enabled:bg-sea-700
+      active:enabled:bg-sea-800
+      disabled:bg-sumi-500
+      disabled:text-white-1000
+    `
     const secondary = `
-    text-sea-600
-    border
-    border-solid
-    border-sea-600
-    hover:bg-sea-100
-    active:bg-sea-100
-    focus:outline
-    focus:outline-2
-    focus:outline-wood-500
-    disabled:hover:bg-white-1000
-    disabled:text-sumi-500
-    disabled:border
-    disabled:border-solid
-    disabled:border-sumi-500
-    disabled:cursor-not-allowed
-  `
+      text-sea-600
+      hover:enabled:bg-sea-100
+      active:enabled:bg-sea-200
+      disabled:text-sumi-500
+    `
 
     const styles = {
       primary: primary,
@@ -69,14 +56,14 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     }
 
     const iconStyle = `
-    inline-block
-    align-middle
-    font-icon
-    text-2xl
-    font-light
-    leading-4
-    antialiased
-    mb-1
+      inline-block
+      align-middle
+      font-icon
+      text-2xl
+      font-light
+      leading-4
+      antialiased
+      mb-1
     `
 
     return (

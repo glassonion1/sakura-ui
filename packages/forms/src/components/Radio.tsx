@@ -20,10 +20,11 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     cursor-pointer
     py-2
     mr-4
+    
   `
   const styleInput = `
-    hidden
     peer
+    hidden
   `
 
   const styleRadio = `
@@ -38,6 +39,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     border-sumi-900
     peer-checked:bg-sea-600
     peer-checked:border-sea-600
+    peer-disabled:border-sumi-500
   `
   return (
     <label htmlFor={newProps.id} className={cx(style, className)}>
@@ -52,7 +54,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           ref={ref}
         />
         <span className={styleRadio}></span>
-        {children}
+        <span className="peer-disabled:text-sumi-500">{children}</span>
       </span>
     </label>
   )

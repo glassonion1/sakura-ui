@@ -15,6 +15,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
 
     const style = `
+      peer
       cursor-pointer
       appearance-none
       text-base
@@ -27,10 +28,21 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       focus:outline
       focus:outline-2
       focus:outline-wood-500
+      disabled:bg-transparent
+      disabled:text-sumi-500
+      disabled:border-sumi-500
+    `
+
+    const styleArrow = `
+      flex items-center
+      absolute inset-y-0 right-0
+      px-2
+      pointer-events-none
+      peer-disabled:fill-sumi-500
     `
 
     return (
-      <span className="inline-block relative">
+      <label className="inline-block relative">
         <select
           id={restProps.id ?? ctx.id}
           className={cx(style, invalidStyle, props.className)}
@@ -42,17 +54,12 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         >
           {children}
         </select>
-        <span className="flex items-center absolute inset-y-0 right-0 px-2 pointer-events-none">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="fill-sumi-900"
-            height="24"
-            width="24"
-          >
+        <span className={styleArrow}>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
             <path d="M12 15.05 6.35 9.4 7.4 8.35l4.6 4.6 4.6-4.6 1.05 1.05Z" />
           </svg>
         </span>
-      </span>
+      </label>
     )
   }
 )

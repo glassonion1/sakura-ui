@@ -4,9 +4,9 @@ import { cx } from '../utils/class'
 export interface TableProps extends React.ComponentProps<'table'> {}
 
 const styleBorder = `
-    border
-    border-collapse
-    border-sumi-900
+  border
+  border-collapse
+  border-sumi-900
 `
 
 export const Table = (props: TableProps) => {
