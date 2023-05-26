@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../utils'
+import { cx } from '../utils/class'
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   variant?: 'primary' | 'secondary'
@@ -47,12 +47,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     border
     border-solid
     border-sea-600
-    hover:bg-sea-100
+    hover:enabled:bg-sea-100
     active:bg-sea-100
     focus:outline
     focus:outline-2
     focus:outline-wood-500
-    disabled:hover:bg-white-1000
     disabled:text-sumi-500
     disabled:border
     disabled:border-solid

@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../utils'
+import { cx } from '../utils/class'
 
 export interface IconButtonProps extends React.ComponentProps<'button'> {
   variant?: 'primary' | 'secondary'
