@@ -37,19 +37,19 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     const fileType = getFileType(href)
 
     const style = `
-    rounded-sm
-    cursor-pointer
-    text-sea-600
-    underline
-    underline-offset-[0.1em]
-    hover:text-sea-800
-    active:text-sea-800
-    visited:text-sea-900
-    focus:outline
-    focus:outline-2
-    focus:outline-wood-500
-    disabled:border-sumi-500
-  `
+      rounded-sm
+      cursor-pointer
+      text-sea-600
+      underline
+      underline-offset-[0.1em]
+      hover:text-sea-800
+      active:text-sea-800
+      visited:text-sea-900
+      focus:outline
+      focus:outline-2
+      focus:outline-wood-500
+      disabled:border-sumi-500
+    `
 
     if (href.startsWith('http')) {
       return (

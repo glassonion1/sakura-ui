@@ -89,6 +89,8 @@ const App = () => {
         <IconButton className="mr-2" variant="secondary" icon="face">
           Icon button
         </IconButton>
+        <IconButton className="mr-2" icon="keyboard_arrow_down" />
+        <IconButton className="mr-2" icon="face" variant="secondary" />
         <Button
           className="mr-2"
           onClick={() => setCount((count) => count + 1)}
@@ -104,7 +106,7 @@ const App = () => {
         >
           count is {count}
         </Button>
-        <IconButton className="mr-2" icon="face">
+        <IconButton className="mr-2" icon="face" disabled>
           Face
         </IconButton>
         <IconButton
@@ -112,12 +114,10 @@ const App = () => {
           icon="face"
           iconLayout="right"
           variant="secondary"
+          disabled
         >
           Face
         </IconButton>
-
-        <IconButton className="mr-2" icon="keyboard_arrow_down" />
-        <IconButton icon="face" variant="secondary" />
       </div>
       <div className="my-4">
         <H2>Forms</H2>
@@ -284,6 +284,50 @@ const App = () => {
           >
             <Textarea rows={4} />
           </LabelControl>
+        </div>
+        <div>
+          <H2>Disabled forms</H2>
+          <div className="flex space-x-4 bg-sumi-200">
+            <fieldset disabled>
+              <LabelControl
+                labelText="Text with helper"
+                helperText="Helper text"
+              >
+                <Text />
+              </LabelControl>
+              <LabelControl
+                labelText="Textarea disabled"
+                helperText="Helper text"
+              >
+                <Textarea rows={4} />
+              </LabelControl>
+              <LabelControl labelText="Select">
+                <Select>
+                  <option value="1">Select value1</option>
+                  <option value="2">Select value2</option>
+                  <option value="3">Select value3</option>
+                </Select>
+              </LabelControl>
+              <FieldsetControl direction="flex-row" labelText="Radio flex-row">
+                <Radio className="block" value={0}>
+                  Radio1
+                </Radio>
+                <Radio className="block" value={1}>
+                  Radio2
+                </Radio>
+                <Radio className="block" value={2}>
+                  Radio3
+                </Radio>
+              </FieldsetControl>
+              <FieldsetControl
+                direction="flex-row"
+                labelText="Checkbox flex-row"
+              >
+                <Checkbox>Check1</Checkbox>
+                <Checkbox>Check2</Checkbox>
+              </FieldsetControl>
+            </fieldset>
+          </div>
         </div>
       </div>
     </div>

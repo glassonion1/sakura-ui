@@ -24,12 +24,11 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     `
 
     const styleInput = `
-      hidden
       peer
+      hidden
     `
 
     const styleCheck = `
-      inline-block
       bg-clip-content
       w-6 h-6
       ml-1
@@ -38,8 +37,11 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       border
       border-solid
       border-sumi-900
+      fill-transparent
+      peer-checked:fill-white-1000
       peer-checked:bg-sea-600
       peer-checked:border-none
+      peer-disabled:border-sumi-500
     `
 
     return (
@@ -56,13 +58,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           />
           <span className={styleCheck}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-              <path
-                fill="#fff"
-                d="m9.55 17.65-5.325-5.325 1.05-1.075 4.275 4.275 9.175-9.175 1.05 1.075Z"
-              />
+              <path d="m9.55 17.65-5.325-5.325 1.05-1.075 4.275 4.275 9.175-9.175 1.05 1.075Z" />
             </svg>
           </span>
-          {children}
+          <span className="peer-disabled:text-sumi-500">{children}</span>
         </span>
       </label>
     )

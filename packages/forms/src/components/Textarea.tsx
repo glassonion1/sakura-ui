@@ -24,10 +24,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       focus:outline
       focus:outline-2
       focus:outline-wood-500
-      disabled:bg-sumi-500
-      disabled:text-white-1000
-      disabled:border
-      disabled:border-solid
+      disabled:bg-transparent
+      disabled:text-sumi-500
       disabled:border-sumi-500
     `
 
