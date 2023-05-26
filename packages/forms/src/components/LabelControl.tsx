@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../utils'
+import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
 export interface LabelControlProps

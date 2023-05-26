@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../utils'
+import { cx } from '../utils/class'
 
 export interface HeadingProps extends React.ComponentProps<'h1'> {}
 
