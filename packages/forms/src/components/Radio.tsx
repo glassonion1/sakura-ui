@@ -16,7 +16,7 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const style = `
     inline-block
-    text-sm
+    text-base
     cursor-pointer
     py-2
     mr-4

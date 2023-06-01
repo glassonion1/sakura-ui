@@ -2,7 +2,7 @@ export {
   Checkbox,
   Radio,
   Select,
-  Text,
+  Input,
   Textarea,
   LabelControl,
   FieldsetControl
@@ -12,6 +12,6 @@ export {
   CheckboxGroup,
   RadioGroup,
   SelectControl,
-  TextControl,
+  InputControl,
   TextareaControl
 } from './components/controlled'

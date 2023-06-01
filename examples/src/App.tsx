@@ -19,11 +19,8 @@ import {
   Radio,
   RadioGroup,
   Select,
-  Text,
-  Textarea,
-  SelectControl,
-  TextControl,
-  TextareaControl
+  Input,
+  Textarea
 } from '../../packages/forms/src'
 import {
   FieldsetControl,
@@ -130,7 +127,7 @@ const App = () => {
         <Radio name="sample">Radio2</Radio>
         <Checkbox>Check1</Checkbox>
         <Checkbox>Check2</Checkbox>
-        <Text />
+        <Input />
         <Textarea rows={4} />
       </div>
       <div className="my-4">
@@ -228,22 +225,22 @@ const App = () => {
         />
         <div className="flex space-x-4">
           <LabelControl labelText="Text">
-            <Text />
+            <Input />
           </LabelControl>
           <LabelControl labelText="Text required" isRequired={true}>
-            <Text />
+            <Input />
           </LabelControl>
         </div>
         <div className="flex space-x-4">
           <LabelControl labelText="Text with helper" helperText="Helper text">
-            <Text />
+            <Input />
           </LabelControl>
           <LabelControl
             labelText="Text with error"
             isInvalid={true}
             errorMessage="Error message"
           >
-            <Text />
+            <Input />
           </LabelControl>
           <LabelControl
             labelText="Text with helper and error"
@@ -251,7 +248,7 @@ const App = () => {
             isInvalid={true}
             errorMessage="Error message"
           >
-            <Text />
+            <Input />
           </LabelControl>
         </div>
         <div className="flex space-x-4">
@@ -293,7 +290,7 @@ const App = () => {
                 labelText="Text with helper"
                 helperText="Helper text"
               >
-                <Text />
+                <Input />
               </LabelControl>
               <LabelControl
                 labelText="Textarea disabled"
