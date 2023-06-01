@@ -3,21 +3,18 @@ import { cx } from '../utils/class'
 
 export interface HeadingProps extends React.ComponentProps<'h1'> {}
 
-const common = `
-    font-bold
-`
-
 export const H1 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-h1
+    text-4xlm
+    sm:text-4xl
     mt-16
     mb-6
   `
 
   return (
-    <h1 className={cx(common, style, className)} {...restProps}>
+    <h1 className={cx(style, className)} {...restProps}>
       {children}
     </h1>
   )
@@ -28,13 +25,14 @@ export const H2 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-h2
+    text-3xlm
+    sm:text-3xl
     mt-16
     mb-6
   `
 
   return (
-    <h2 className={cx(common, style, className)} {...restProps}>
+    <h2 className={cx(style, className)} {...restProps}>
       {children}
     </h2>
   )
@@ -45,13 +43,14 @@ export const H3 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-h3
+    text-2xlm
+    sm:text-2xl
     mt-10
     mb-6
   `
 
   return (
-    <h3 className={cx(common, style, className)} {...restProps}>
+    <h3 className={cx(style, className)} {...restProps}>
       {children}
     </h3>
   )
@@ -62,13 +61,14 @@ export const H4 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-h4
+    text-xlm
+    sm:text-xl
     mt-10
     mb-4
   `
 
   return (
-    <h4 className={cx(common, style, className)} {...restProps}>
+    <h4 className={cx(style, className)} {...restProps}>
       {children}
     </h4>
   )
@@ -79,13 +79,14 @@ export const H5 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-h5
+    text-lgm
+    sm:text-lg
     mt-10
     mb-4
   `
 
   return (
-    <h5 className={cx(common, style, className)} {...restProps}>
+    <h5 className={cx(style, className)} {...restProps}>
       {children}
     </h5>
   )
@@ -96,13 +97,14 @@ export const H6 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-h6
+    text-lgm
+    sm:text-lg
     mt-6
     mb-4
   `
 
   return (
-    <h6 className={cx(common, style, className)} {...restProps}>
+    <h6 className={cx(style, className)} {...restProps}>
       {children}
     </h6>
   )

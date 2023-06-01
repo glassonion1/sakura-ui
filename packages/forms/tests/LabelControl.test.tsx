@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { LabelControl, Select, Text, Textarea } from '../src'
+import { LabelControl, Select, Input, Textarea } from '../src'
 
 describe('LabelControl', () => {
   test('renders LabelControl component vol1', async () => {
@@ -57,7 +57,7 @@ describe('LabelControl', () => {
           </Select>
         </LabelControl>
         <LabelControl labelText="test2">
-          <Text defaultValue="1" />
+          <Input defaultValue="1" />
         </LabelControl>
         <LabelControl labelText="test3">
           <Textarea defaultValue="1" />
@@ -90,7 +90,7 @@ describe('LabelControl', () => {
           </Select>
         </LabelControl>
         <LabelControl labelText="test2" htmlFor="id2">
-          <Text defaultValue="1" />
+          <Input defaultValue="1" />
         </LabelControl>
         <LabelControl labelText="test3" htmlFor="id3">
           <Textarea defaultValue="1" />
@@ -103,10 +103,10 @@ describe('LabelControl', () => {
     expect(select).toHaveValue('1')
     expect(select).toHaveAttribute('id', 'id1')
 
-    const text = screen.getByLabelText(/test2/)
-    expect(text).toBeInTheDocument()
-    expect(text).toHaveValue('1')
-    expect(text).toHaveAttribute('id', 'id2')
+    const input = screen.getByLabelText(/test2/)
+    expect(input).toBeInTheDocument()
+    expect(input).toHaveValue('1')
+    expect(input).toHaveAttribute('id', 'id2')
 
     const textarea = screen.getByLabelText(/test3/)
     expect(textarea).toBeInTheDocument()

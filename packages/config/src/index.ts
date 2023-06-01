@@ -14,16 +14,171 @@ const sakuraPlugin = plugin(
     theme: {
       extend: {
         fontSize: {
-          h1: ['42px', '42px'],
-          h2: ['32px', '32px'],
-          h3: ['26px', '26px'],
-          h4: ['22px', '22px'],
-          h5: ['20px', '20px'],
-          h6: ['18px', '18px'],
-          base: ['16px', '28px'],
-          code: ['16px', '24px'],
-          sm: ['14px', '24px'],
-          xs: ['12px', '20px']
+          '6xl': [
+            '57px',
+            {
+              lineHeight: '1.4',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          '5xl': [
+            '45px',
+            {
+              lineHeight: '1.4',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          // h1
+          '4xl': [
+            '36px',
+            {
+              lineHeight: '1.4',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          '4xlm': [
+            '32px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          // h2
+          '3xl': [
+            '32px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          '3xlm': [
+            '28px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          // h3
+          '2xl': [
+            '28px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          '2xlm': [
+            '24px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          // h4
+          xl: [
+            '24px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          xlm: [
+            '20px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          // h5 h6
+          lg: [
+            '20px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          lgm: [
+            '16px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          base: [
+            '16px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          small: [
+            '14px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          label: [
+            '14px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          labelSmall: [
+            '12px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          xs: [
+            '12px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          xxs: [
+            '10px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          button: [
+            '16px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '700'
+            }
+          ],
+          code: [
+            '16px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ]
         },
         colors: {
           white: {

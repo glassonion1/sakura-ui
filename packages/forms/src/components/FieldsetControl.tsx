@@ -45,21 +45,23 @@ export const FieldsetControl = React.forwardRef<
     <ControllerContext.Provider value={context}>
       <fieldset className={cx('mb-4', className)} ref={ref} {...restProps}>
         <legend>
-          <p className={cx('block mb-2', isInvalid && 'text-sun-800')}>
+          <p
+            className={cx('block mb-2 text-label', isInvalid && 'text-sun-800')}
+          >
             {labelText}
             {isRequired && <span className="text-sun-800">&nbsp;*</span>}
           </p>
         </legend>
         <div className={cx('inline-flex', styleDirection)}>{children}</div>
         {helperText && (
-          <p id={context.helperTextId} className="text-sm text-sumi-700 mt-2">
+          <p id={context.helperTextId} className="text-xs text-sumi-700 mt-2">
             {helperText}
           </p>
         )}
         {isInvalid && (
           <p
             id={context.errorMessageId}
-            className={cx('text-sm text-sun-800', helperText ? 'mt-1' : 'mt-2')}
+            className={cx('text-xs text-sun-800', helperText ? 'mt-1' : 'mt-2')}
           >
             {errorMessage}
           </p>

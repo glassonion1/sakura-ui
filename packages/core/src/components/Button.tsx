@@ -16,10 +16,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const style = `
       inline-block
       p-4
-      text-base
-      font-bold
-      rounded-lg
+      text-button
       text-${align}
+      rounded-lg
       cursor-pointer
       whitespace-nowrap
       border

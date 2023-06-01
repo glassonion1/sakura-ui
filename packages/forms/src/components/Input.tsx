@@ -2,9 +2,9 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface TextProps extends React.ComponentPropsWithoutRef<'input'> {}
+export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {}
 
-export const Text = React.forwardRef<HTMLInputElement, TextProps>(
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
     const { className, ...restProps } = props
     const ctx = React.useContext(ControllerContext)

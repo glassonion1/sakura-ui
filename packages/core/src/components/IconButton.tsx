@@ -19,10 +19,9 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const style = `
       inline-block
       p-4
-      text-base
-      font-bold
-      rounded-lg
+      text-button
       text-${align}
+      rounded-lg
       cursor-pointer
       whitespace-nowrap
       border

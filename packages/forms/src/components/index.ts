@@ -1,7 +1,7 @@
 export { Checkbox } from './Checkbox'
 export { Radio } from './Radio'
 export { Select } from './Select'
-export { Text } from './Text'
+export { Input } from './Input'
 export { Textarea } from './Textarea'
 export { LabelControl } from './LabelControl'
 export { FieldsetControl } from './FieldsetControl'

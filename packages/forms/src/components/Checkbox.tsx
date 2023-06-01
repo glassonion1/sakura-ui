@@ -17,7 +17,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     const style = `
       inline-block
-      text-sm
+      text-base
       cursor-pointer
       py-2
       mr-4

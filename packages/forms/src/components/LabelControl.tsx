@@ -39,7 +39,7 @@ export const LabelControl = React.forwardRef<
     <ControllerContext.Provider value={context}>
       <div className={cx('mb-4', className)}>
         <label
-          className={cx('block mb-2', isInvalid && 'text-sun-800')}
+          className={cx('block mb-2 text-label', isInvalid && 'text-sun-800')}
           htmlFor={context.id}
           ref={ref}
           {...restProps}
@@ -47,17 +47,16 @@ export const LabelControl = React.forwardRef<
           {labelText}
           {isRequired && <span className="text-sun-800">&nbsp;*</span>}
         </label>
-        {children}
-
         {helperText && (
-          <p id={context.helperTextId} className="text-sm text-sumi-700 mt-2">
+          <p id={context.helperTextId} className="text-xs text-sumi-700 mb-2">
             {helperText}
           </p>
         )}
+        {children}
         {isInvalid && (
           <p
             id={context.errorMessageId}
-            className={cx('text-sm text-sun-800', helperText ? 'mt-1' : 'mt-2')}
+            className={cx('text-xs text-sun-800', helperText ? 'mt-1' : 'mt-2')}
           >
             {errorMessage}
           </p>

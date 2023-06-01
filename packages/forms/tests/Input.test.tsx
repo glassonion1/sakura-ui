@@ -2,13 +2,13 @@ import * as React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { LabelControl, Text } from '../src'
+import { LabelControl, Input } from '../src'
 
 describe('should derive values from surrounding LabelControl', () => {
   test('renders Text component vol1', async () => {
     render(
       <LabelControl labelText="test">
-        <Text />
+        <Input />
       </LabelControl>
     )
 
@@ -20,7 +20,7 @@ describe('should derive values from surrounding LabelControl', () => {
   test('renders Text component vol2', async () => {
     render(
       <LabelControl labelText="test" helperText="helper" errorMessage="error">
-        <Text />
+        <Input />
       </LabelControl>
     )
 
@@ -35,7 +35,7 @@ describe('should derive values from surrounding LabelControl', () => {
   test('renders Text component vol3', async () => {
     render(
       <LabelControl labelText="test">
-        <Text />
+        <Input />
       </LabelControl>
     )
 
@@ -50,7 +50,7 @@ describe('should derive values from surrounding LabelControl', () => {
   test('renders Text component vol4', async () => {
     render(
       <LabelControl labelText="test" isInvalid>
-        <Text />
+        <Input />
       </LabelControl>
     )
 
@@ -66,7 +66,7 @@ describe('should derive values from surrounding LabelControl', () => {
   test('renders Text component vol5', async () => {
     render(
       <LabelControl labelText="test" isRequired>
-        <Text defaultValue="test value" />
+        <Input defaultValue="test value" />
       </LabelControl>
     )
 
@@ -82,7 +82,7 @@ describe('should derive values from surrounding LabelControl', () => {
   test('renders Text component vol6', async () => {
     render(
       <LabelControl labelText="test" isRequired>
-        <Text />
+        <Input />
       </LabelControl>
     )
 
