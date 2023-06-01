@@ -14,7 +14,7 @@ const sakuraPlugin = plugin(
     theme: {
       extend: {
         fontSize: {
-          xxl: [
+          '6xl': [
             '57px',
             {
               lineHeight: '1.4',
@@ -22,7 +22,7 @@ const sakuraPlugin = plugin(
               fontWeight: '400'
             }
           ],
-          xl: [
+          '5xl': [
             '45px',
             {
               lineHeight: '1.4',
@@ -30,7 +30,8 @@ const sakuraPlugin = plugin(
               fontWeight: '400'
             }
           ],
-          l: [
+          // h1
+          '4xl': [
             '36px',
             {
               lineHeight: '1.4',
@@ -38,7 +39,7 @@ const sakuraPlugin = plugin(
               fontWeight: '400'
             }
           ],
-          lm: [
+          '4xlm': [
             '32px',
             {
               lineHeight: '1.5',
@@ -46,7 +47,8 @@ const sakuraPlugin = plugin(
               fontWeight: '500'
             }
           ],
-          m: [
+          // h2
+          '3xl': [
             '32px',
             {
               lineHeight: '1.5',
@@ -54,7 +56,7 @@ const sakuraPlugin = plugin(
               fontWeight: '400'
             }
           ],
-          mm: [
+          '3xlm': [
             '28px',
             {
               lineHeight: '1.5',
@@ -62,7 +64,8 @@ const sakuraPlugin = plugin(
               fontWeight: '500'
             }
           ],
-          s: [
+          // h3
+          '2xl': [
             '28px',
             {
               lineHeight: '1.5',
@@ -70,8 +73,74 @@ const sakuraPlugin = plugin(
               fontWeight: '400'
             }
           ],
-          sm: [
+          '2xlm': [
             '24px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          // h4
+          xl: [
+            '24px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          xlm: [
+            '20px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          // h5 h6
+          lg: [
+            '20px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          lgm: [
+            '16px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          base: [
+            '16px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          small: [
+            '14px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.04em',
+              fontWeight: '400'
+            }
+          ],
+          label: [
+            '14px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '500'
+            }
+          ],
+          labelSmall: [
+            '12px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
@@ -79,78 +148,14 @@ const sakuraPlugin = plugin(
             }
           ],
           xs: [
-            '24px',
+            '12px',
             {
-              lineHeight: '1.5',
+              lineHeight: '1.7',
               letterSpacing: '0.04em',
               fontWeight: '400'
-            }
-          ],
-          xsm: [
-            '20px',
-            {
-              lineHeight: '1.5',
-              letterSpacing: '0.04em',
-              fontWeight: '500'
             }
           ],
           xxs: [
-            '20px',
-            {
-              lineHeight: '1.5',
-              letterSpacing: '0.04em',
-              fontWeight: '400'
-            }
-          ],
-          xxsm: [
-            '16px',
-            {
-              lineHeight: '1.5',
-              letterSpacing: '0.04em',
-              fontWeight: '500'
-            }
-          ],
-          baseL: [
-            '16px',
-            {
-              lineHeight: '1.7',
-              letterSpacing: '0.04em',
-              fontWeight: '400'
-            }
-          ],
-          baseM: [
-            '14px',
-            {
-              lineHeight: '1.7',
-              letterSpacing: '0.04em',
-              fontWeight: '400'
-            }
-          ],
-          labelL: [
-            '14px',
-            {
-              lineHeight: '1.5',
-              letterSpacing: '0.04em',
-              fontWeight: '500'
-            }
-          ],
-          labelM: [
-            '12px',
-            {
-              lineHeight: '1.5',
-              letterSpacing: '0.04em',
-              fontWeight: '500'
-            }
-          ],
-          supplL: [
-            '12px',
-            {
-              lineHeight: '1.7',
-              letterSpacing: '0.04em',
-              fontWeight: '400'
-            }
-          ],
-          supplM: [
             '10px',
             {
               lineHeight: '1.7',

@@ -7,8 +7,8 @@ export const H1 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-lm
-    sm:text-l
+    text-4xlm
+    sm:text-4xl
     mt-16
     mb-6
   `
@@ -25,8 +25,8 @@ export const H2 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-mm
-    sm:text-m
+    text-3xlm
+    sm:text-3xl
     mt-16
     mb-6
   `
@@ -43,8 +43,8 @@ export const H3 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-sm
-    sm:text-s
+    text-2xlm
+    sm:text-2xl
     mt-10
     mb-6
   `
@@ -61,8 +61,8 @@ export const H4 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-xsm
-    sm:text-xs
+    text-xlm
+    sm:text-xl
     mt-10
     mb-4
   `
@@ -79,8 +79,8 @@ export const H5 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-xxsm
-    sm:text-xxs
+    text-lgm
+    sm:text-lg
     mt-10
     mb-4
   `
@@ -97,8 +97,8 @@ export const H6 = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-xxsm
-    sm:text-xxs
+    text-lgm
+    sm:text-lg
     mt-6
     mb-4
   `
