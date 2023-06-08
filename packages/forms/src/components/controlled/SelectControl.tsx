@@ -2,8 +2,7 @@ import React from 'react'
 import { LabelControl } from '../LabelControl'
 import { Select } from '../Select'
 
-export interface SelectControlProps
-  extends React.ComponentPropsWithoutRef<'select'> {
+export interface SelectControlProps extends React.ComponentProps<'select'> {
   labelText: string
   helperText?: string
   errorMessage?: string
@@ -37,4 +36,4 @@ export const SelectControl = React.forwardRef<
       <Select ref={ref} {...restProps} />
     </LabelControl>
   )
-})
+}) as React.ElementType

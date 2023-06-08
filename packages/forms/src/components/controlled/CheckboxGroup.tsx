@@ -4,7 +4,7 @@ import { FieldsetControl } from '../FieldsetControl'
 import { InputItem } from './InputItem'
 
 export interface CheckboxGroupProps
-  extends Omit<React.ComponentPropsWithoutRef<'fieldset'>, 'onChange'> {
+  extends Omit<React.ComponentProps<'fieldset'>, 'onChange'> {
   items: InputItem[]
   onChange: React.ChangeEventHandler<HTMLInputElement>
   labelText: string
@@ -50,4 +50,4 @@ export const CheckboxGroup = React.forwardRef<
       })}
     </FieldsetControl>
   )
-})
+}) as React.ElementType

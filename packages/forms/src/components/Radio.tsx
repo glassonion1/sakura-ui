@@ -2,7 +2,7 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface Props extends React.ComponentPropsWithoutRef<'input'> {}
+export interface Props extends React.ComponentProps<'input'> {}
 
 export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { className, children, ...newProps } = props
@@ -58,4 +58,4 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
       </span>
     </label>
   )
-})
+}) as React.ElementType

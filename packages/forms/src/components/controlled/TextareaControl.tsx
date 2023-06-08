@@ -2,8 +2,7 @@ import React from 'react'
 import { LabelControl } from '../LabelControl'
 import { Textarea } from '../Textarea'
 
-export interface TextareaControlProps
-  extends React.ComponentPropsWithoutRef<'textarea'> {
+export interface TextareaControlProps extends React.ComponentProps<'textarea'> {
   labelText: string
   helperText?: string
   errorMessage?: string
@@ -37,4 +36,4 @@ export const TextareaControl = React.forwardRef<
       <Textarea ref={ref} {...restProps} />
     </LabelControl>
   )
-})
+}) as React.ElementType

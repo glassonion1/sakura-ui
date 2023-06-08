@@ -24,4 +24,4 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
       {icon}
     </span>
   )
-})
+}) as React.ElementType

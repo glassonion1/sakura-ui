@@ -66,4 +66,4 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       </label>
     )
   }
-)
+) as React.ElementType

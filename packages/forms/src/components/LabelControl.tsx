@@ -2,8 +2,7 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface LabelControlProps
-  extends React.ComponentPropsWithoutRef<'label'> {
+export interface LabelControlProps extends React.ComponentProps<'label'> {
   labelText: string
   helperText?: string
   errorMessage?: string
@@ -64,4 +63,4 @@ export const LabelControl = React.forwardRef<
       </div>
     </ControllerContext.Provider>
   )
-})
+}) as React.ElementType

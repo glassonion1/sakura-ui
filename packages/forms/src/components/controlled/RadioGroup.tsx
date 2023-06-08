@@ -4,7 +4,7 @@ import { FieldsetControl } from '../FieldsetControl'
 import { InputItem } from './InputItem'
 
 export interface RadioGroupProps
-  extends Omit<React.ComponentPropsWithoutRef<'fieldset'>, 'onChange'> {
+  extends Omit<React.ComponentProps<'fieldset'>, 'onChange'> {
   items: InputItem[]
   onChange: React.ChangeEventHandler<HTMLInputElement>
   labelText: string
@@ -57,4 +57,4 @@ export const RadioGroup = React.forwardRef<
       })}
     </FieldsetControl>
   )
-})
+}) as React.ElementType

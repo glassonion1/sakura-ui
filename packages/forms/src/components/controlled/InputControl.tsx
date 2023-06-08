@@ -2,8 +2,7 @@ import React from 'react'
 import { LabelControl } from '../LabelControl'
 import { Input } from '../Input'
 
-export interface InputControlProps
-  extends React.ComponentPropsWithoutRef<'input'> {
+export interface InputControlProps extends React.ComponentProps<'input'> {
   labelText: string
   helperText?: string
   errorMessage?: string
@@ -37,4 +36,4 @@ export const InputControl = React.forwardRef<
       <Input ref={ref} {...restProps} />
     </LabelControl>
   )
-})
+}) as React.ElementType

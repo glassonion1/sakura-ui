@@ -77,4 +77,4 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       </button>
     )
   }
-)
+) as React.ElementType

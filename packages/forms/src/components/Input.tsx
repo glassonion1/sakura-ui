@@ -2,7 +2,7 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {}
+export interface InputProps extends React.ComponentProps<'input'> {}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
@@ -40,4 +40,4 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       />
     )
   }
-)
+) as React.ElementType

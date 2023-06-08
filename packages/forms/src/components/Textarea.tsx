@@ -2,8 +2,7 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface TextareaProps
-  extends React.ComponentPropsWithoutRef<'textarea'> {}
+export interface TextareaProps extends React.ComponentProps<'textarea'> {}
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
@@ -43,4 +42,4 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       </textarea>
     )
   }
-)
+) as React.ElementType

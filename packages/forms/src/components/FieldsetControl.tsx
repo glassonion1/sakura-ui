@@ -2,8 +2,7 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface FieldsetControlProps
-  extends React.ComponentPropsWithoutRef<'fieldset'> {
+export interface FieldsetControlProps extends React.ComponentProps<'fieldset'> {
   labelText: string
   helperText?: string
   errorMessage?: string
@@ -69,4 +68,4 @@ export const FieldsetControl = React.forwardRef<
       </fieldset>
     </ControllerContext.Provider>
   )
-})
+}) as React.ElementType

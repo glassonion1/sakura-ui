@@ -2,7 +2,7 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface SelectProps extends React.ComponentPropsWithoutRef<'select'> {}
+export interface SelectProps extends React.ComponentProps<'select'> {}
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref) => {
@@ -62,4 +62,4 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       </label>
     )
   }
-)
+) as React.ElementType
