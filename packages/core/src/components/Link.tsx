@@ -41,7 +41,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       cursor-pointer
       text-sea-600
       underline
-      underline-offset-[0.1em]
+      underline-offset-[0.125em]
       hover:text-sea-800
       active:text-sea-800
       visited:text-sea-900

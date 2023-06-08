@@ -10,9 +10,10 @@ export const Card = (props: CardProps) => {
     bg-sumi-50
     border
     border-solid
-    border-sumi-900
+    border-sumi-300
     rounded-[12px]
     p-4
+    text-sumi-900
   `
   return (
     <section className={cx(style, props.className)} {...restProps}>

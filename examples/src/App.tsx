@@ -11,7 +11,9 @@ import {
   IconButton,
   Link,
   Ol,
-  Ul
+  Ul,
+  Card,
+  InfoCard
 } from '../../packages/core/src'
 import {
   Checkbox,
@@ -47,6 +49,16 @@ const App = () => {
         <Icon icon="shopping_cart" className="text-sea-600" />
         test3 <Link>link text here</Link>
       </p>
+      <div className="w-1/3 my-4">
+        <Card>
+          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          <br />
+          xxxxxxxxxxxxx
+        </Card>
+      </div>
+      <div className="w-1/3 my-4">
+        <InfoCard title="Info card">Description</InfoCard>
+      </div>
       <div>
         <Ul>
           <li>list1</li>

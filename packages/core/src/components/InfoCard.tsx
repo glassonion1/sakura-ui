@@ -10,16 +10,19 @@ export const InfoCard = (props: InfoCardProps) => {
 
   const style = `
     bg-sumi-50
-    border-sumi-900
+    border-sumi-300
     border
     border-solid
     rounded-[12px]
+    text-sumi-900
   `
 
   const topStyle = `
-    p-4
-    text-h5
-    font-bold
+    px-4
+    pt-4
+    mb-1
+    text-lgm
+    sm:text-lg
   `
 
   const bottmStyle = `
