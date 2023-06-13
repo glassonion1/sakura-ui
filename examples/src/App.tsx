@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import Reac, { useState } from 'react'
 import {
   H1,
   H2,
@@ -14,7 +14,7 @@ import {
   Ul,
   Card,
   InfoCard
-} from '../../packages/core/src'
+} from '@sakura-ui/core'
 import {
   Checkbox,
   CheckboxGroup,
@@ -22,15 +22,13 @@ import {
   RadioGroup,
   Select,
   Input,
-  Textarea
-} from '../../packages/forms/src'
-import {
+  Textarea,
   FieldsetControl,
   LabelControl
-} from '../../packages/forms/src/components'
+} from '@sakura-ui/forms'
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState<number>(0)
 
   return (
     <div className="text-sumi-900 text-base p-8">
