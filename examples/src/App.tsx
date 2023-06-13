@@ -222,7 +222,9 @@ const App = () => {
             { value: '2', label: 'Radio3' }
           ]}
           defaultValue="1"
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            console.log(e.target.value)
+          }
         />
         <CheckboxGroup
           labelText="Checkbox group"
@@ -231,7 +233,7 @@ const App = () => {
             { value: '1', label: 'Checkbox2' },
             { value: '2', label: 'Checkbox3' }
           ]}
-          onChange={(e) =>
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             console.log(`${e.target.value}, ${e.target.checked}`)
           }
         />
