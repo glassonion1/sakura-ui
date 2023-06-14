@@ -3,6 +3,10 @@ Sakura UI - UI components built with Tailwind CSS for React. Sakura UI is an uno
 
 - [Design System 1.2.2](https://www.figma.com/community/file/1172530831489802410)
 
+## Sample page
+
+- [UI Catalog](https://glassonion1.github.io/sakura-ui/)
+
 ## Install
 ```
 $ npm install @sakura-ui/sakura-ui
@@ -116,7 +120,3 @@ export default App
 - Textarea
 - LabelControl
 - FieldsetControl
-
-## UI Catalog
-
-- [UI Catalog](https://glassonion1.github.io/sakura-ui/)
