@@ -15,6 +15,7 @@ import {
   Card,
   InfoCard
 } from '@sakura-ui/core'
+//from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -33,6 +34,13 @@ const App = () => {
 
   return (
     <div className="text-sumi-900 text-base p-8">
+      <IconButton
+        className="mr-2 fixed bottom-4 right-4"
+        icon="arrow_upward"
+        variant="secondary"
+        rounded="full"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      />
       <H1>SakuraUI Heading1</H1>
       <H2>SakuraUI Heading2</H2>
       <H3>SakuraUI Heading3</H3>
@@ -81,13 +89,16 @@ const App = () => {
         </Ol>
       </div>
       <div className="my-4">
-        <Button className="mr-2" onClick={() => setCount((count) => count + 1)}>
+        <Button
+          className="mr-2"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
           Primary button
         </Button>
         <Button
           className="mr-2"
           variant="secondary"
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() => setCount((count: number) => count + 1)}
         >
           Secondary Button
         </Button>
@@ -101,7 +112,7 @@ const App = () => {
         <IconButton className="mr-2" icon="face" variant="secondary" />
         <Button
           className="mr-2"
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() => setCount((count: number) => count + 1)}
           disabled
         >
           count is {count}
@@ -109,7 +120,7 @@ const App = () => {
         <Button
           className="mr-2"
           variant="secondary"
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() => setCount((count: number) => count + 1)}
           disabled
         >
           count is {count}

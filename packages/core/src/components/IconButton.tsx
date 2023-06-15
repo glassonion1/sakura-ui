@@ -4,24 +4,33 @@ import { cx } from '../utils/class'
 export interface IconButtonProps extends React.ComponentProps<'button'> {
   variant?: 'primary' | 'secondary'
   iconLayout?: 'left' | 'right'
+  rounded?: string
   icon: string
 }
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (props, ref) => {
-    const { className, children, variant, icon, iconLayout, ...restProps } =
-      props
+    const {
+      className,
+      children,
+      variant,
+      icon,
+      iconLayout,
+      rounded,
+      ...restProps
+    } = props
 
     const layout = iconLayout ?? 'left'
 
     const align = 'center'
 
     const style = `
+      ${rounded === 'full' ? 'aspect-square' : ''}
       inline-block
       p-4
       text-button
       text-${align}
-      rounded-lg
+      rounded-${rounded ? rounded : 'lg'}
       cursor-pointer
       whitespace-nowrap
       border
