@@ -6,7 +6,15 @@ export interface TextareaProps extends React.ComponentProps<'textarea'> {}
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
-    const { className, children, ...restProps } = props
+    const { className, children, onChange, maxLength, ...restProps } = props
+
+    const [count, setCount] = React.useState(0)
+
+    const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      if (onChange) onChange(e)
+
+      setCount(e.target.value.length)
+    }
 
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
@@ -14,6 +22,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     }
 
     const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
+    const overtextStyle =
+      count > (maxLength || 0) ? 'text-sun-800' : 'text-sumi-700'
 
     const style = `
       p-4
@@ -29,17 +39,28 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     `
 
     return (
-      <textarea
-        id={restProps.id ?? ctx.id}
-        className={cx(style, invalidStyle, className)}
-        aria-describedby={ctx.helperTextId}
-        aria-errormessage={ctx.errorMessageId}
-        aria-invalid={ctx.isInvalid ?? false}
-        {...restProps}
-        ref={ref}
-      >
-        {children}
-      </textarea>
+      <>
+        <textarea
+          id={restProps.id ?? ctx.id}
+          className={cx(style, invalidStyle, className)}
+          aria-describedby={ctx.helperTextId}
+          aria-errormessage={ctx.errorMessageId}
+          aria-invalid={ctx.isInvalid ?? false}
+          onChange={onChangeHandler}
+          {...restProps}
+          ref={ref}
+        >
+          {children}
+        </textarea>
+        {maxLength ? (
+          <p className="text-xs text-sumi-700">
+            <span className={overtextStyle}>{count}</span>/
+            <span>{maxLength}</span>
+          </p>
+        ) : (
+          ''
+        )}
+      </>
     )
   }
 ) as React.ElementType
