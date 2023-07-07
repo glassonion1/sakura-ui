@@ -5,7 +5,7 @@ const sakuraPlugin = plugin(
     addBase({
       '@font-face': {
         fontFamily: 'Material Symbols Outlined',
-        fontWheight: '300',
+        fontWeight: '300',
         fontStyle: 'normal'
       }
     })
