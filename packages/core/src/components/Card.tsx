@@ -3,7 +3,7 @@ import { cx } from '../utils/class'
 
 export interface CardProps extends React.ComponentProps<'section'> {}
 
-export const Card = (props: CardProps) => {
+export const Card: React.FC<CardProps> = (props: CardProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

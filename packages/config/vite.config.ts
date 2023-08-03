@@ -13,7 +13,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src', 'index.ts'),
       formats: ['es', 'cjs'],
-      fileName: (ext) => `index.${ext}.js`
+      fileName: (ext: string) => `index.${ext}.js`
     },
     rollupOptions: {
       external: [...Object.keys(peerDependencies)]

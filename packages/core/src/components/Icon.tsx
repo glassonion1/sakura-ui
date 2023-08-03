@@ -1,11 +1,14 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface IconProps extends React.ComponentProps<'span'> {
+export interface IconProps extends React.ComponentPropsWithoutRef<'span'> {
   icon: string
 }
 
-export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
+export const Icon: React.ElementType<IconProps> = React.forwardRef<
+  HTMLElement,
+  IconProps
+>((props, ref) => {
   const { className, icon, ...restProps } = props
 
   const style = `
@@ -24,4 +27,6 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
       {icon}
     </span>
   )
-}) as React.ElementType
+})
+
+Icon.displayName = 'Icon'

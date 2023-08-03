@@ -19,7 +19,7 @@
   "scripts": {
     "build": "run-p build:*",
     "build:scripts": "vite build",
-    "build:types": "tsc --emitDeclarationOnly",
+    "build:types": "tsc",
     "test": "jest"
   },
   "keywords": [],

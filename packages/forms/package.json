@@ -21,7 +21,7 @@
     "dev": "vite",
     "build": "run-p build:*",
     "build:scripts": "vite build",
-    "build:types": "tsc --emitDeclarationOnly && tsc-alias",
+    "build:types": "tsc && tsc-alias",
     "test": "jest"
   },
   "keywords": [],

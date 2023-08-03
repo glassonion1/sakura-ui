@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "useDefineForClassFields": true,
     "strict": true,
     "resolveJsonModule": true,

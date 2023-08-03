@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
     "useDefineForClassFields": true,
@@ -17,5 +17,6 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true
-  }
+  },
+  "exclude": ["**/node_modules"]
 }
