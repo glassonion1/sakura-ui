@@ -5,7 +5,7 @@ export interface InfoCardProps extends React.ComponentProps<'section'> {
   title?: string
 }
 
-export const InfoCard = (props: InfoCardProps) => {
+export const InfoCard: React.FC<InfoCardProps> = (props: InfoCardProps) => {
   const { className, children, title, ...restProps } = props
 
   const style = `
