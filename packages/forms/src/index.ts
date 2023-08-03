@@ -12,6 +12,5 @@ export {
   CheckboxGroup,
   RadioGroup,
   SelectControl,
-  InputControl,
   TextareaControl
 } from './components/controlled'

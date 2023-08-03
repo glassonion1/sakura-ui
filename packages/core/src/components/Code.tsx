@@ -1,9 +1,9 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface CodeProps extends React.ComponentProps<'code'> {}
+export interface CodeProps extends React.ComponentPropsWithoutRef<'code'> {}
 
-export const Code = (props: CodeProps) => {
+export const Code: React.ElementType<CodeProps> = (props: CodeProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

@@ -1,9 +1,9 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface HeadingProps extends React.ComponentProps<'h1'> {}
+export interface HeadingProps extends React.ComponentPropsWithoutRef<'h1'> {}
 
-export const H1 = (props: HeadingProps) => {
+export const H1: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -20,8 +20,7 @@ export const H1 = (props: HeadingProps) => {
   )
 }
 
-export const H2 = (props: HeadingProps) => {
-  // コンポーネントを使う側でclassNameを指定しても問題ないようにする
+export const H2: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -38,8 +37,7 @@ export const H2 = (props: HeadingProps) => {
   )
 }
 
-export const H3 = (props: HeadingProps) => {
-  // コンポーネントを使う側でclassNameを指定しても問題ないようにする
+export const H3: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -56,8 +54,7 @@ export const H3 = (props: HeadingProps) => {
   )
 }
 
-export const H4 = (props: HeadingProps) => {
-  // コンポーネントを使う側でclassNameを指定しても問題ないようにする
+export const H4: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -74,8 +71,7 @@ export const H4 = (props: HeadingProps) => {
   )
 }
 
-export const H5 = (props: HeadingProps) => {
-  // コンポーネントを使う側でclassNameを指定しても問題ないようにする
+export const H5: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -92,8 +88,7 @@ export const H5 = (props: HeadingProps) => {
   )
 }
 
-export const H6 = (props: HeadingProps) => {
-  // コンポーネントを使う側でclassNameを指定しても問題ないようにする
+export const H6: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

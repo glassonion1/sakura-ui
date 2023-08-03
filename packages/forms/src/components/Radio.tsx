@@ -2,9 +2,12 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface Props extends React.ComponentProps<'input'> {}
+export interface RadioProps extends React.ComponentPropsWithRef<'input'> {}
 
-export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const Radio: React.ElementType<RadioProps> = React.forwardRef<
+  HTMLInputElement,
+  RadioProps
+>((props, ref) => {
   const { className, children, ...newProps } = props
   const ctx = React.useContext(ControllerContext)
   if (ctx.isRequired) {
@@ -58,4 +61,6 @@ export const Radio = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
       </span>
     </label>
   )
-}) as React.ElementType
+})
+
+Radio.displayName = 'Radio'

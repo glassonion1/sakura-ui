@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface TableProps extends React.ComponentProps<'table'> {}
+export interface TableProps extends React.ComponentPropsWithoutRef<'table'> {}
 
 const styleBorder = `
   border
@@ -9,7 +9,7 @@ const styleBorder = `
   border-sumi-900
 `
 
-export const Table = (props: TableProps) => {
+export const Table: React.ElementType<TableProps> = (props: TableProps) => {
   const { className, children, ...restProps } = props
 
   // If there is no break-all setting, the table will protrude when using a smartphone
@@ -26,9 +26,12 @@ export const Table = (props: TableProps) => {
   )
 }
 
-export interface CaptionProps extends React.ComponentProps<'caption'> {}
+export interface CaptionProps
+  extends React.ComponentPropsWithoutRef<'caption'> {}
 
-export const Caption = (props: CaptionProps) => {
+export const Caption: React.ElementType<CaptionProps> = (
+  props: CaptionProps
+) => {
   const { className, children, ...restProps } = props
 
   const style = `text-left`
@@ -39,9 +42,9 @@ export const Caption = (props: CaptionProps) => {
   )
 }
 
-export interface TheadProps extends React.ComponentProps<'thead'> {}
+export interface TheadProps extends React.ComponentPropsWithoutRef<'thead'> {}
 
-export const Thead = (props: TheadProps) => {
+export const Thead: React.ElementType<TheadProps> = (props: TheadProps) => {
   const { className, children, ...restProps } = props
 
   return (
@@ -51,9 +54,9 @@ export const Thead = (props: TheadProps) => {
   )
 }
 
-export interface TbodyProps extends React.ComponentProps<'tbody'> {}
+export interface TbodyProps extends React.ComponentPropsWithoutRef<'tbody'> {}
 
-export const Tbody = (props: TbodyProps) => {
+export const Tbody: React.ElementType<TbodyProps> = (props: TbodyProps) => {
   const { className, children, ...restProps } = props
 
   return (
@@ -63,9 +66,9 @@ export const Tbody = (props: TbodyProps) => {
   )
 }
 
-export interface ThProps extends React.ComponentProps<'th'> {}
+export interface ThProps extends React.ComponentPropsWithoutRef<'th'> {}
 
-export const Th = (props: ThProps) => {
+export const Th: React.ElementType<ThProps> = (props: ThProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -80,9 +83,9 @@ export const Th = (props: ThProps) => {
   )
 }
 
-export interface TrProps extends React.ComponentProps<'tr'> {}
+export interface TrProps extends React.ComponentPropsWithoutRef<'tr'> {}
 
-export const Tr = (props: TrProps) => {
+export const Tr: React.ElementType<TrProps> = (props: TrProps) => {
   const { className, children, ...restProps } = props
 
   const style = ``
@@ -94,9 +97,9 @@ export const Tr = (props: TrProps) => {
   )
 }
 
-export interface TdProps extends React.ComponentProps<'td'> {}
+export interface TdProps extends React.ComponentPropsWithoutRef<'td'> {}
 
-export const Td = (props: TdProps) => {
+export const Td: React.ElementType<TdProps> = (props: TdProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

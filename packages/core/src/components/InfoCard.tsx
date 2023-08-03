@@ -1,11 +1,14 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface InfoCardProps extends React.ComponentProps<'section'> {
+export interface InfoCardProps
+  extends React.ComponentPropsWithoutRef<'section'> {
   title?: string
 }
 
-export const InfoCard: React.FC<InfoCardProps> = (props: InfoCardProps) => {
+export const InfoCard: React.ElementType<InfoCardProps> = (
+  props: InfoCardProps
+) => {
   const { className, children, title, ...restProps } = props
 
   const style = `

@@ -28,7 +28,7 @@ const getFileType = (url: string) => {
   return null
 }
 
-export interface LinkProps extends React.ComponentPropsWithoutRef<'a'> {}
+export interface LinkProps extends React.ComponentPropsWithRef<'a'> {}
 
 export const Link: React.ElementType<LinkProps> = React.forwardRef<
   HTMLAnchorElement,

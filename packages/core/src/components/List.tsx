@@ -1,9 +1,9 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface UlProps extends React.ComponentProps<'ul'> {}
+export interface UlProps extends React.ComponentPropsWithoutRef<'ul'> {}
 
-export const Ul = (props: UlProps) => {
+export const Ul: React.ElementType<UlProps> = (props: UlProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -20,9 +20,9 @@ export const Ul = (props: UlProps) => {
   )
 }
 
-export interface OlProps extends React.ComponentProps<'ol'> {}
+export interface OlProps extends React.ComponentPropsWithoutRef<'ol'> {}
 
-export const Ol = (props: OlProps) => {
+export const Ol: React.ElementType<OlProps> = (props: OlProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

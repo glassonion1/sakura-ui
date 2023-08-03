@@ -2,7 +2,8 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 
-export interface FieldsetControlProps extends React.ComponentProps<'fieldset'> {
+export interface FieldsetControlProps
+  extends React.ComponentPropsWithRef<'fieldset'> {
   labelText: string
   helperText?: string
   errorMessage?: string
@@ -11,61 +12,67 @@ export interface FieldsetControlProps extends React.ComponentProps<'fieldset'> {
   direction?: 'flex-col' | 'flex-row'
 }
 
-export const FieldsetControl = React.forwardRef<
-  HTMLFieldSetElement,
-  FieldsetControlProps
->((props, ref) => {
-  const id = React.useId()
-  const {
-    labelText,
-    className,
-    helperText,
-    errorMessage,
-    isInvalid,
-    isRequired,
-    direction,
-    children,
-    ...restProps
-  } = props
+export const FieldsetControl: React.ElementType<FieldsetControlProps> =
+  React.forwardRef<HTMLFieldSetElement, FieldsetControlProps>((props, ref) => {
+    const id = React.useId()
+    const {
+      labelText,
+      className,
+      helperText,
+      errorMessage,
+      isInvalid,
+      isRequired,
+      direction,
+      children,
+      ...restProps
+    } = props
 
-  const groupName = restProps.name ?? `group-${id}`
+    const groupName = restProps.name ?? `group-${id}`
 
-  const context = {
-    groupName: groupName,
-    helperTextId: `helper-text-${id}`,
-    errorMessageId: `error-message-${id}`,
-    isInvalid: isInvalid ?? false,
-    isRequired: isRequired ?? false
-  }
+    const context = {
+      groupName: groupName,
+      helperTextId: `helper-text-${id}`,
+      errorMessageId: `error-message-${id}`,
+      isInvalid: isInvalid ?? false,
+      isRequired: isRequired ?? false
+    }
 
-  const styleDirection = direction ?? 'flex-col'
+    const styleDirection = direction ?? 'flex-col'
 
-  return (
-    <ControllerContext.Provider value={context}>
-      <fieldset className={cx('mb-4', className)} ref={ref} {...restProps}>
-        <legend>
-          <p
-            className={cx('block mb-2 text-label', isInvalid && 'text-sun-800')}
-          >
-            {labelText}
-            {isRequired && <span className="text-sun-800">&nbsp;*</span>}
-          </p>
-        </legend>
-        <div className={cx('inline-flex', styleDirection)}>{children}</div>
-        {helperText && (
-          <p id={context.helperTextId} className="text-xs text-sumi-700 mt-2">
-            {helperText}
-          </p>
-        )}
-        {isInvalid && (
-          <p
-            id={context.errorMessageId}
-            className={cx('text-xs text-sun-800', helperText ? 'mt-1' : 'mt-2')}
-          >
-            {errorMessage}
-          </p>
-        )}
-      </fieldset>
-    </ControllerContext.Provider>
-  )
-}) as React.ElementType
+    return (
+      <ControllerContext.Provider value={context}>
+        <fieldset className={cx('mb-4', className)} ref={ref} {...restProps}>
+          <legend>
+            <p
+              className={cx(
+                'block mb-2 text-label',
+                isInvalid && 'text-sun-800'
+              )}
+            >
+              {labelText}
+              {isRequired && <span className="text-sun-800">&nbsp;*</span>}
+            </p>
+          </legend>
+          <div className={cx('inline-flex', styleDirection)}>{children}</div>
+          {helperText && (
+            <p id={context.helperTextId} className="text-xs text-sumi-700 mt-2">
+              {helperText}
+            </p>
+          )}
+          {isInvalid && (
+            <p
+              id={context.errorMessageId}
+              className={cx(
+                'text-xs text-sun-800',
+                helperText ? 'mt-1' : 'mt-2'
+              )}
+            >
+              {errorMessage}
+            </p>
+          )}
+        </fieldset>
+      </ControllerContext.Provider>
+    )
+  })
+
+FieldsetControl.displayName = 'FieldsetControl'

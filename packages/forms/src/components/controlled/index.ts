@@ -1,5 +1,4 @@
 export { CheckboxGroup } from './CheckboxGroup'
 export { RadioGroup } from './RadioGroup'
 export { SelectControl } from './SelectControl'
-export { InputControl } from './InputControl'
 export { TextareaControl } from './TextareaControl'

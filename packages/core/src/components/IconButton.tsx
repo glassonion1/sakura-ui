@@ -1,8 +1,7 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface IconButtonProps
-  extends React.ComponentPropsWithoutRef<'button'> {
+export interface IconButtonProps extends React.ComponentPropsWithRef<'button'> {
   variant?: 'primary' | 'secondary'
   iconLayout?: 'left' | 'right'
   rounded?: string

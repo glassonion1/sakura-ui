@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface IconProps extends React.ComponentPropsWithoutRef<'span'> {
+export interface IconProps extends React.ComponentPropsWithRef<'span'> {
   icon: string
 }
 

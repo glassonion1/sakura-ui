@@ -2,7 +2,8 @@ import React from 'react'
 import { LabelControl } from '../LabelControl'
 import { Select } from '../Select'
 
-export interface SelectControlProps extends React.ComponentProps<'select'> {
+export interface SelectControlProps
+  extends React.ComponentPropsWithRef<'select'> {
   labelText: string
   helperText?: string
   errorMessage?: string
@@ -10,30 +11,30 @@ export interface SelectControlProps extends React.ComponentProps<'select'> {
   isRequired?: boolean
 }
 
-export const SelectControl = React.forwardRef<
-  HTMLSelectElement,
-  SelectControlProps
->((props, ref) => {
-  const {
-    className,
-    labelText,
-    helperText,
-    errorMessage,
-    isInvalid,
-    isRequired,
-    ...restProps
-  } = props
+export const SelectControl: React.ElementType<SelectControlProps> =
+  React.forwardRef<HTMLSelectElement, SelectControlProps>((props, ref) => {
+    const {
+      className,
+      labelText,
+      helperText,
+      errorMessage,
+      isInvalid,
+      isRequired,
+      ...restProps
+    } = props
 
-  return (
-    <LabelControl
-      className={className}
-      labelText={labelText}
-      helperText={helperText}
-      errorMessage={errorMessage}
-      isInvalid={isInvalid}
-      isRequired={isRequired}
-    >
-      <Select ref={ref} {...restProps} />
-    </LabelControl>
-  )
-}) as React.ElementType
+    return (
+      <LabelControl
+        className={className}
+        labelText={labelText}
+        helperText={helperText}
+        errorMessage={errorMessage}
+        isInvalid={isInvalid}
+        isRequired={isRequired}
+      >
+        <Select ref={ref} {...restProps} />
+      </LabelControl>
+    )
+  })
+
+SelectControl.displayName = 'SelectControl'

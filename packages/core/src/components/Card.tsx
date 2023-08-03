@@ -1,9 +1,9 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-export interface CardProps extends React.ComponentProps<'section'> {}
+export interface CardProps extends React.ComponentPropsWithoutRef<'section'> {}
 
-export const Card: React.FC<CardProps> = (props: CardProps) => {
+export const Card: React.ElementType<CardProps> = (props: CardProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
