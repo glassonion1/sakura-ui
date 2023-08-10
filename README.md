@@ -42,11 +42,11 @@ Add fonts from CDN.
     <meta charset="UTF-8" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100;200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
     />
     ...head
   </head>
