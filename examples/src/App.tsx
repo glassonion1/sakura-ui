@@ -16,8 +16,8 @@ import {
   CardHeader,
   CardBody,
   CardFooter
-} from '../../packages/core/src'
-//from '@sakura-ui/core'
+} from '@sakura-ui/core'
+//from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
