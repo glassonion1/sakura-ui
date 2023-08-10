@@ -1,6 +1,9 @@
 export {
   Button,
   Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
   Code,
   H1,
   H2,

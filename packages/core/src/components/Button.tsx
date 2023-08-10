@@ -25,27 +25,27 @@ export const Button: React.ElementType<ButtonProps> = React.forwardRef<
       whitespace-nowrap
       border
       border-solid
-      border-sea-600
+      border-sea-800
+      active:hover:enabled:border-sea-800-darken
       focus:outline
       focus:outline-2
-      focus:outline-wood-500
+      focus:outline-wood-600
       disabled:border-sumi-500
       disabled:cursor-not-allowed
     `
 
   const primary = `
       text-white-1000
-      bg-sea-600
-      hover:enabled:bg-sea-700
-      active:enabled:bg-sea-800
+      bg-sea-800
+      active:hover:enabled:bg-sea-800-darken
       disabled:bg-sumi-500
       disabled:text-white-1000
     `
   const secondary = `
-      text-sea-600
+      text-sea-800
       bg-transparent
-      hover:enabled:bg-sea-100
-      active:enabled:bg-sea-200
+      active:hover:enabled:bg-sea-50
+      active:hover:enabled:text-sea-800-darken
       disabled:text-sumi-500
     `
 

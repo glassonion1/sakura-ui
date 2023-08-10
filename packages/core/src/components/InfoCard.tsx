@@ -12,25 +12,26 @@ export const InfoCard: React.ElementType<InfoCardProps> = (
   const { className, children, title, ...restProps } = props
 
   const style = `
-    bg-sumi-50
-    border-sumi-300
     border
     border-solid
-    rounded-[12px]
+    border-sumi-300
+    rounded-2xl
+    md:rounded-3xl
     text-sumi-900
   `
 
   const topStyle = `
-    px-4
-    pt-4
-    mb-1
+    pt-6
+    px-6
     text-lgm
-    sm:text-lg
+    leading-none
+    mb-2
   `
 
   const bottmStyle = `
-    px-4
-    pb-4
+    pb-6
+    px-6
+    text-base
   `
 
   const headingId = React.useId()
