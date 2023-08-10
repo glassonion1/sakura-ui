@@ -38,7 +38,8 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
       border
       border-solid
       border-sea-800
-      active:hover:enabled:border-sea-800-darken
+      active:enabled:border-sea-800-darken
+      hover:enabled:border-sea-800-darken
       focus:outline
       focus:outline-2
       focus:outline-wood-600
@@ -47,19 +48,22 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
     `
 
   const primary = `
-      text-white-1000
-      bg-sea-800
-      active:hover:enabled:bg-sea-800-darken
-      disabled:bg-sumi-500
-      disabled:text-white-1000
-    `
+    text-white-1000
+    bg-sea-800
+    active:enabled:bg-sea-800-darken
+    hover:enabled:bg-sea-800-darken
+    disabled:bg-sumi-500
+    disabled:text-white-1000
+  `
   const secondary = `
-      text-sea-800
-      bg-transparent
-      active:hover:enabled:bg-sea-50
-      active:hover:enabled:text-sea-800-darken
-      disabled:text-sumi-500
-    `
+    text-sea-800
+    bg-transparent
+    active:enabled:bg-sea-50
+    hover:enabled:bg-sea-50
+    active:enabled:text-sea-800-darken
+    hover:enabled:text-sea-800-darken
+    disabled:text-sumi-500
+  `
 
   const styles = {
     primary: primary,

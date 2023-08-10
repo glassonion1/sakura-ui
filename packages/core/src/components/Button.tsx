@@ -16,38 +16,42 @@ export const Button: React.ElementType<ButtonProps> = React.forwardRef<
   const align = textAlign ?? 'center'
 
   const style = `
-      inline-block
-      p-4
-      text-button
-      text-${align}
-      rounded-lg
-      cursor-pointer
-      whitespace-nowrap
-      border
-      border-solid
-      border-sea-800
-      active:hover:enabled:border-sea-800-darken
-      focus:outline
-      focus:outline-2
-      focus:outline-wood-600
-      disabled:border-sumi-500
-      disabled:cursor-not-allowed
-    `
+    inline-block
+    p-4
+    text-button
+    text-${align}
+    rounded-lg
+    cursor-pointer
+    whitespace-nowrap
+    border
+    border-solid
+    border-sea-800
+    active:enabled:border-sea-800-darken
+    hover:enabled:border-sea-800-darken
+    focus:outline
+    focus:outline-2
+    focus:outline-wood-600
+    disabled:border-sumi-500
+    disabled:cursor-not-allowed
+  `
 
   const primary = `
-      text-white-1000
-      bg-sea-800
-      active:hover:enabled:bg-sea-800-darken
-      disabled:bg-sumi-500
-      disabled:text-white-1000
-    `
+    text-white-1000
+    bg-sea-800
+    active:enabled:bg-sea-800-darken
+    hover:enabled:bg-sea-800-darken
+    disabled:bg-sumi-500
+    disabled:text-white-1000
+  `
   const secondary = `
-      text-sea-800
-      bg-transparent
-      active:hover:enabled:bg-sea-50
-      active:hover:enabled:text-sea-800-darken
-      disabled:text-sumi-500
-    `
+    text-sea-800
+    bg-transparent
+    active:enabled:bg-sea-50
+    hover:enabled:bg-sea-50
+    active:enabled:text-sea-800-darken
+    hover:enabled:text-sea-800-darken
+    disabled:text-sumi-500
+  `
 
   const styles = {
     primary: primary,

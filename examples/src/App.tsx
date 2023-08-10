@@ -13,9 +13,11 @@ import {
   Ol,
   Ul,
   Card,
-  InfoCard
-} from '@sakura-ui/core'
-//from '../../packages/core/src'
+  CardHeader,
+  CardBody,
+  CardFooter
+} from '../../packages/core/src'
+//from '@sakura-ui/core'
 import {
   Checkbox,
   CheckboxGroup,
@@ -58,13 +60,35 @@ const App = () => {
       </p>
       <div className="w-1/3 my-4">
         <Card>
-          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-          <br />
-          xxxxxxxxxxxxx
+          <CardBody>
+            XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx
+            <br />
+            XXXXXxxxxxxxxxxxxxXXX
+          </CardBody>
         </Card>
       </div>
       <div className="w-1/3 my-4">
-        <InfoCard title="Info card">Description</InfoCard>
+        <Card>
+          <img src="bg-mt.webp" className="object-cover h-48 w-full" />
+          <CardHeader>Header: XXXxxx</CardHeader>
+          <CardBody>Body: XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
+          <CardFooter>Footer: XXXXXXXXXXXXxxxxxxxxxxxxx</CardFooter>
+        </Card>
+      </div>
+      <div className="w-1/3 my-4">
+        <Card>
+          <img src="bg-mt.webp" className="object-cover h-48 w-full" />
+          <CardHeader>Header: XXXxxx</CardHeader>
+          <CardBody>Body: XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
+          <CardFooter>
+            <Button variant="secondary" className="w-full mb-2">
+              Button1
+            </Button>
+            <Button variant="secondary" className="w-full">
+              Button2
+            </Button>
+          </CardFooter>
+        </Card>
       </div>
       <div>
         <Ul>

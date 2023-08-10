@@ -1,10 +1,19 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
+interface IdContextType {
+  id: string
+}
+
+const IdContext = React.createContext<IdContextType>({ id: '' })
+
 export interface CardProps extends React.ComponentPropsWithoutRef<'section'> {}
 
 export const Card: React.ElementType<CardProps> = (props: CardProps) => {
   const { className, children, ...restProps } = props
+
+  const id = React.useId()
+  const ctx: IdContextType = { id: id }
 
   const style = `
     border
@@ -15,10 +24,17 @@ export const Card: React.ElementType<CardProps> = (props: CardProps) => {
     text-sumi-900
     overflow-hidden
   `
+
   return (
-    <section className={cx(style, className)} {...restProps}>
-      {children}
-    </section>
+    <IdContext.Provider value={ctx}>
+      <section
+        aria-labelledby={ctx.id}
+        className={cx(style, className)}
+        {...restProps}
+      >
+        {children}
+      </section>
+    </IdContext.Provider>
   )
 }
 
@@ -29,6 +45,8 @@ export const CardHeader: React.ElementType<CardHeaderProps> = (
 ) => {
   const { className, children, ...restProps } = props
 
+  const ctx = React.useContext(IdContext)
+
   const style = `
     py-6
     px-6
@@ -36,10 +54,8 @@ export const CardHeader: React.ElementType<CardHeaderProps> = (
     leading-none
   `
 
-  const headingId = React.useId()
-
   return (
-    <h2 id={headingId} className={cx(style, className)} {...restProps}>
+    <h2 id={ctx.id} className={cx(style, className)} {...restProps}>
       {children}
     </h2>
   )
