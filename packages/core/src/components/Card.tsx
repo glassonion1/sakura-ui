@@ -20,9 +20,11 @@ export const Card: React.ElementType<CardProps> = (props: CardProps) => {
     border-solid
     border-sumi-300
     rounded-2xl
-    md:rounded-3xl
+    sm:rounded-3xl
     text-sumi-900
     overflow-hidden
+    flex
+    flex-col
   `
 
   return (
@@ -51,6 +53,7 @@ export const CardHeader: React.ElementType<CardHeaderProps> = (
     py-6
     px-6
     text-lgm
+    sm:text-lg
     leading-none
   `
 
@@ -76,9 +79,9 @@ export const CardBody: React.ElementType<CardBodyProps> = (
   `
 
   return (
-    <p className={cx(style, className)} {...restProps}>
+    <div className={cx(style, className)} {...restProps}>
       {children}
-    </p>
+    </div>
   )
 }
 
@@ -91,6 +94,7 @@ export const CardFooter: React.ElementType<CardFooterProps> = (
   const { className, children, ...restProps } = props
 
   const style = `
+    mt-auto
     px-6
     first:pt-6
     pb-6
