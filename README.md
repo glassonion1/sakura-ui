@@ -1,7 +1,7 @@
 # Sakura UI
 Sakura UI - UI components built with Tailwind CSS for React. Sakura UI is an unofficial implementation of the Digital Agency Design System. The specifications for each UI component have been implemented with reference to the Digital Agency Design System.
 
-- [Design System 1.2.2](https://www.figma.com/community/file/1172530831489802410)
+- [Digital Agency Design System](https://www.digital.go.jp/policies/servicedesign/designsystem)
 
 ## Sample page
 
