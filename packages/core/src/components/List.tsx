@@ -11,7 +11,7 @@ export const Ul: React.ElementType<UlProps> = (props: UlProps) => {
     list-inside
     -indent-4
     pl-4
-    marker:text-xs
+    marker:text-base-sm
   `
   return (
     <ul className={cx(style, className)} {...restProps}>

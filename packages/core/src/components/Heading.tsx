@@ -7,10 +7,12 @@ export const H1: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-4xlm
-    sm:text-4xl
-    mt-16
-    mb-6
+    text-h-lg-m
+    sm:text-h-lg
+    mt-8
+    mb-3
+    sm:mt-16
+    sm:mb-6
   `
 
   return (
@@ -24,10 +26,12 @@ export const H2: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-3xlm
-    sm:text-3xl
-    mt-16
-    mb-6
+    text-h-med-m
+    sm:text-h-med
+    mt-8
+    mb-3
+    sm:mt-16
+    sm:mb-6
   `
 
   return (
@@ -41,10 +45,12 @@ export const H3: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-2xlm
-    sm:text-2xl
-    mt-10
-    mb-6
+    text-h-sm-m
+    sm:text-h-sm
+    mt-5
+    mb-3
+    sm:mt-10
+    sm:mb-6
   `
 
   return (
@@ -58,10 +64,12 @@ export const H4: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-xlm
-    sm:text-xl
-    mt-10
-    mb-4
+    text-h-xs-m
+    sm:text-h-xs
+    mt-5
+    mb-2
+    sm:mt-10
+    sm:mb-4
   `
 
   return (
@@ -75,10 +83,12 @@ export const H5: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-lgm
-    sm:text-lg
-    mt-10
-    mb-4
+    text-h-xxs-m
+    sm:text-h-xxs
+    mt-5
+    mb-2
+    sm:mt-10
+    sm:mb-4
   `
 
   return (
@@ -92,10 +102,12 @@ export const H6: React.ElementType<HeadingProps> = (props: HeadingProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    text-lgm
-    sm:text-lg
-    mt-6
-    mb-4
+    text-h-xxs-m
+    sm:text-h-xxs
+    mt-3
+    mb-2
+    sm:mt-6
+    sm:mb-4
   `
 
   return (

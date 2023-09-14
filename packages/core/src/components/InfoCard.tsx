@@ -16,14 +16,15 @@ export const InfoCard: React.ElementType<InfoCardProps> = (
     border-solid
     border-sumi-300
     rounded-2xl
-    md:rounded-3xl
+    sm:rounded-3xl
     text-sumi-900
   `
 
   const topStyle = `
     pt-6
     px-6
-    text-lgm
+    text-h-xxs-m
+    sm:text-h-xxs
     leading-none
     mb-2
   `

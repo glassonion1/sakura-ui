@@ -46,7 +46,10 @@ export const LabelControl: React.ElementType<LabelControlProps> =
             {isRequired && <span className="text-sun-800">&nbsp;*</span>}
           </label>
           {helperText && (
-            <p id={context.helperTextId} className="text-xs text-sumi-700 mb-2">
+            <p
+              id={context.helperTextId}
+              className="text-sup text-sumi-700 mb-2"
+            >
               {helperText}
             </p>
           )}
@@ -55,7 +58,7 @@ export const LabelControl: React.ElementType<LabelControlProps> =
             <p
               id={context.errorMessageId}
               className={cx(
-                'text-xs text-sun-800',
+                'text-sup text-sun-800',
                 helperText ? 'mt-1' : 'mt-2'
               )}
             >

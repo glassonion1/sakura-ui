@@ -15,9 +15,8 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter
-} from '@sakura-ui/core'
-//from '../../packages/core/src'
+  CardFooter //from '@sakura-ui/core'
+} from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -27,9 +26,8 @@ import {
   Input,
   Textarea,
   FieldsetControl,
-  LabelControl
-} from '@sakura-ui/forms'
-//from '../../packages/forms/src'
+  LabelControl //from '@sakura-ui/forms'
+} from '../../packages/forms/src'
 
 const App = () => {
   const [count, setCount] = useState<number>(0)

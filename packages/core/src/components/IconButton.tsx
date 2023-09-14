@@ -27,25 +27,25 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
   const align = 'center'
 
   const style = `
-      ${rounded === 'full' ? 'aspect-square' : ''}
-      inline-block
-      p-4
-      text-button
-      text-${align}
-      rounded-${rounded ? rounded : 'lg'}
-      cursor-pointer
-      whitespace-nowrap
-      border
-      border-solid
-      border-sea-800
-      active:enabled:border-sea-800-darken
-      hover:enabled:border-sea-800-darken
-      focus:outline
-      focus:outline-2
-      focus:outline-wood-600
-      disabled:border-sumi-500
-      disabled:cursor-not-allowed
-    `
+    ${rounded === 'full' ? 'aspect-square' : ''}
+    inline-block
+    p-4
+    text-button
+    text-${align}
+    rounded-${rounded ? rounded : 'lg'}
+    cursor-pointer
+    whitespace-nowrap
+    border
+    border-solid
+    border-sea-800
+    active:enabled:border-sea-800-darken
+    hover:enabled:border-sea-800-darken
+    focus:outline
+    focus:outline-2
+    focus:outline-wood-600
+    disabled:border-sumi-500
+    disabled:cursor-not-allowed
+  `
 
   const primary = `
     text-white-1000
@@ -71,15 +71,15 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
   }
 
   const iconStyle = `
-      inline-block
-      align-middle
-      font-icon
-      text-2xl
-      font-light
-      leading-4
-      antialiased
-      mb-1
-    `
+    inline-block
+    align-middle
+    font-icon
+    text-2xl
+    font-light
+    leading-4
+    antialiased
+    mb-1
+  `
 
   return (
     <button

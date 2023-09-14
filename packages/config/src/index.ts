@@ -14,105 +14,105 @@ const sakuraPlugin = plugin(
     theme: {
       extend: {
         fontSize: {
-          '6xl': [
+          'h-xxl': [
             '57px',
             {
               lineHeight: '1.4',
               letterSpacing: '0.04em',
-              fontWeight: '400'
+              fontWeight: '700'
             }
           ],
-          '5xl': [
+          'h-xl': [
             '45px',
             {
               lineHeight: '1.4',
               letterSpacing: '0.04em',
-              fontWeight: '400'
+              fontWeight: '700'
             }
           ],
           // h1
-          '4xl': [
+          'h-lg': [
             '36px',
             {
               lineHeight: '1.4',
               letterSpacing: '0.04em',
-              fontWeight: '400'
+              fontWeight: '700'
             }
           ],
-          '4xlm': [
+          'h-lg-m': [
             '32px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '500'
+              fontWeight: '700'
             }
           ],
           // h2
-          '3xl': [
+          'h-med': [
             '32px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '400'
+              fontWeight: '700'
             }
           ],
-          '3xlm': [
+          'h-med-m': [
             '28px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '500'
+              fontWeight: '700'
             }
           ],
           // h3
-          '2xl': [
+          'h-sm': [
             '28px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '400'
+              fontWeight: '700'
             }
           ],
-          '2xlm': [
+          'h-sm-m': [
             '24px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '500'
+              fontWeight: '700'
             }
           ],
           // h4
-          xl: [
+          'h-xs': [
             '24px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '400'
+              fontWeight: '700'
             }
           ],
-          xlm: [
+          'h-xs-m': [
             '20px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '500'
+              fontWeight: '700'
             }
           ],
           // h5 h6
-          lg: [
+          'h-xxs': [
             '20px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '400'
+              fontWeight: '700'
             }
           ],
-          lgm: [
+          'h-xxs-m': [
             '16px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
-              fontWeight: '500'
+              fontWeight: '700'
             }
           ],
           base: [
@@ -123,12 +123,36 @@ const sakuraPlugin = plugin(
               fontWeight: '400'
             }
           ],
-          small: [
+          'base-sm': [
             '14px',
             {
               lineHeight: '1.7',
               letterSpacing: '0.04em',
               fontWeight: '400'
+            }
+          ],
+          sup: [
+            '12px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.02em',
+              fontWeight: '400'
+            }
+          ],
+          'sup-sm': [
+            '10px',
+            {
+              lineHeight: '1.7',
+              letterSpacing: '0.02em',
+              fontWeight: '400'
+            }
+          ],
+          button: [
+            '16px',
+            {
+              lineHeight: '1.5',
+              letterSpacing: '0.04em',
+              fontWeight: '700'
             }
           ],
           label: [
@@ -139,36 +163,12 @@ const sakuraPlugin = plugin(
               fontWeight: '500'
             }
           ],
-          labelSmall: [
+          'label-sm': [
             '12px',
             {
               lineHeight: '1.5',
               letterSpacing: '0.04em',
               fontWeight: '500'
-            }
-          ],
-          xs: [
-            '12px',
-            {
-              lineHeight: '1.7',
-              letterSpacing: '0.04em',
-              fontWeight: '400'
-            }
-          ],
-          xxs: [
-            '10px',
-            {
-              lineHeight: '1.7',
-              letterSpacing: '0.04em',
-              fontWeight: '400'
-            }
-          ],
-          button: [
-            '16px',
-            {
-              lineHeight: '1.5',
-              letterSpacing: '0.04em',
-              fontWeight: '700'
             }
           ],
           code: [
@@ -197,8 +197,7 @@ const sakuraPlugin = plugin(
             300: '#7096F8',
             200: '#9DB7F9',
             100: '#C5D7FB',
-            50: '#E8F1FE',
-            '800-darken': '#000082'
+            50: '#E8F1FE'
           },
           sumi: {
             1200: '#000000',

@@ -56,7 +56,7 @@ export const Textarea: React.ElementType<TextareaProps> = React.forwardRef<
         {children}
       </textarea>
       {maxLength ? (
-        <p className="text-xs text-sumi-700">
+        <p className="text-sup text-sumi-700">
           <span className={overtextStyle}>{count}</span>/
           <span>{maxLength}</span>
         </p>

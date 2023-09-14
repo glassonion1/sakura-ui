@@ -52,8 +52,8 @@ export const CardHeader: React.ElementType<CardHeaderProps> = (
   const style = `
     py-6
     px-6
-    text-lgm
-    sm:text-lg
+    text-h-xxs-m
+    sm:text-h-xxs
     leading-none
   `
 
