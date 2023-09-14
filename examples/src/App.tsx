@@ -15,8 +15,9 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter //from '@sakura-ui/core'
-} from '../../packages/core/src'
+  CardFooter
+} from '@sakura-ui/core'
+//from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -26,8 +27,9 @@ import {
   Input,
   Textarea,
   FieldsetControl,
-  LabelControl //from '@sakura-ui/forms'
-} from '../../packages/forms/src'
+  LabelControl
+} from '@sakura-ui/forms'
+//from '../../packages/forms/src'
 
 const App = () => {
   const [count, setCount] = useState<number>(0)
@@ -335,7 +337,7 @@ const App = () => {
             <Textarea rows={4} />
           </LabelControl>
           <LabelControl labelText="Textarea with maxLength">
-            <Textarea rows={4} maxLength="50" />
+            <Textarea rows={4} maxLength={50} />
           </LabelControl>
         </div>
         <div className="flex space-x-4">
