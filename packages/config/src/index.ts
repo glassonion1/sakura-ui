@@ -241,7 +241,7 @@ const sakuraPlugin = plugin(
             400: '#D69C2B',
             300: '#DCAC4D',
             200: '#E1C383',
-            100: '#E7D89',
+            100: '#E7D8B9',
             50: '#F3EEE5'
           },
           sun: {
