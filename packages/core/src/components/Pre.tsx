@@ -3,7 +3,7 @@ import { cx } from '../utils/class'
 
 export interface PreProps extends React.ComponentPropsWithoutRef<'pre'> {}
 
-export const Pre: React.ElementType<PreProps> = (props: PreProps) => {
+export const Pre = (props: PreProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

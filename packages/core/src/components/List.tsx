@@ -3,7 +3,7 @@ import { cx } from '../utils/class'
 
 export interface UlProps extends React.ComponentPropsWithoutRef<'ul'> {}
 
-export const Ul: React.ElementType<UlProps> = (props: UlProps) => {
+export const Ul = (props: UlProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -22,7 +22,7 @@ export const Ul: React.ElementType<UlProps> = (props: UlProps) => {
 
 export interface OlProps extends React.ComponentPropsWithoutRef<'ol'> {}
 
-export const Ol: React.ElementType<OlProps> = (props: OlProps) => {
+export const Ol = (props: OlProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

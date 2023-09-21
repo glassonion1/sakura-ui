@@ -9,7 +9,7 @@ const IdContext = React.createContext<IdContextType>({ id: '' })
 
 export interface CardProps extends React.ComponentPropsWithoutRef<'section'> {}
 
-export const Card: React.ElementType<CardProps> = (props: CardProps) => {
+export const Card = (props: CardProps) => {
   const { className, children, ...restProps } = props
 
   const id = React.useId()
@@ -42,9 +42,7 @@ export const Card: React.ElementType<CardProps> = (props: CardProps) => {
 
 export interface CardHeaderProps extends React.ComponentPropsWithoutRef<'h2'> {}
 
-export const CardHeader: React.ElementType<CardHeaderProps> = (
-  props: CardHeaderProps
-) => {
+export const CardHeader = (props: CardHeaderProps) => {
   const { className, children, ...restProps } = props
 
   const ctx = React.useContext(IdContext)
@@ -66,9 +64,7 @@ export const CardHeader: React.ElementType<CardHeaderProps> = (
 
 export interface CardBodyProps extends React.ComponentPropsWithoutRef<'p'> {}
 
-export const CardBody: React.ElementType<CardBodyProps> = (
-  props: CardBodyProps
-) => {
+export const CardBody = (props: CardBodyProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -88,9 +84,7 @@ export const CardBody: React.ElementType<CardBodyProps> = (
 export interface CardFooterProps
   extends React.ComponentPropsWithoutRef<'div'> {}
 
-export const CardFooter: React.ElementType<CardFooterProps> = (
-  props: CardFooterProps
-) => {
+export const CardFooter = (props: CardFooterProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

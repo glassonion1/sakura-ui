@@ -14,40 +14,42 @@ export interface CheckboxGroupProps
   isRequired?: boolean
 }
 
-export const CheckboxGroup: React.ElementType<CheckboxGroupProps> =
-  React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>((props, ref) => {
-    const {
-      items,
-      onChange,
-      className,
-      labelText,
-      helperText,
-      errorMessage,
-      isInvalid,
-      isRequired,
-      ...restProps
-    } = props
+export const CheckboxGroup = React.forwardRef<
+  HTMLFieldSetElement,
+  CheckboxGroupProps
+>((props, ref) => {
+  const {
+    items,
+    onChange,
+    className,
+    labelText,
+    helperText,
+    errorMessage,
+    isInvalid,
+    isRequired,
+    ...restProps
+  } = props
 
-    return (
-      <FieldsetControl
-        className={className}
-        labelText={labelText}
-        helperText={helperText}
-        errorMessage={errorMessage}
-        isInvalid={isInvalid}
-        isRequired={isRequired}
-        ref={ref}
-        {...restProps}
-      >
-        {items.map(({ label, value }, index) => {
-          return (
-            <Checkbox key={index} value={value} onChange={onChange}>
-              {label}
-            </Checkbox>
-          )
-        })}
-      </FieldsetControl>
-    )
-  })
+  return (
+    <FieldsetControl
+      className={className}
+      labelText={labelText}
+      helperText={helperText}
+      errorMessage={errorMessage}
+      isInvalid={isInvalid}
+      isRequired={isRequired}
+      ref={ref}
+      {...restProps}
+    >
+      {items.map(({ label, value }, index) => {
+        return (
+          <Checkbox key={index} value={value} onChange={onChange}>
+            {label}
+          </Checkbox>
+        )
+      })}
+    </FieldsetControl>
+  )
+})
 
 CheckboxGroup.displayName = 'CheckboxGroup'

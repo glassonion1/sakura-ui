@@ -3,7 +3,7 @@ import { cx } from '../utils/class'
 
 export interface CodeProps extends React.ComponentPropsWithoutRef<'code'> {}
 
-export const Code: React.ElementType<CodeProps> = (props: CodeProps) => {
+export const Code = (props: CodeProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

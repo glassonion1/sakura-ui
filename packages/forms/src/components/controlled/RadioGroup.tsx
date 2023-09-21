@@ -15,7 +15,7 @@ export interface RadioGroupProps
   defaultValue?: string
 }
 
-export const RadioGroup: React.ElementType<RadioGroupProps> = React.forwardRef<
+export const RadioGroup = React.forwardRef<
   HTMLFieldSetElement,
   RadioGroupProps
 >((props, ref) => {

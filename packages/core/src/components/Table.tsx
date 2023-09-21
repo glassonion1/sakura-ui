@@ -9,7 +9,7 @@ const styleBorder = `
   border-sumi-900
 `
 
-export const Table: React.ElementType<TableProps> = (props: TableProps) => {
+export const Table = (props: TableProps) => {
   const { className, children, ...restProps } = props
 
   // If there is no break-all setting, the table will protrude when using a smartphone
@@ -29,9 +29,7 @@ export const Table: React.ElementType<TableProps> = (props: TableProps) => {
 export interface CaptionProps
   extends React.ComponentPropsWithoutRef<'caption'> {}
 
-export const Caption: React.ElementType<CaptionProps> = (
-  props: CaptionProps
-) => {
+export const Caption = (props: CaptionProps) => {
   const { className, children, ...restProps } = props
 
   const style = `text-left`
@@ -44,7 +42,7 @@ export const Caption: React.ElementType<CaptionProps> = (
 
 export interface TheadProps extends React.ComponentPropsWithoutRef<'thead'> {}
 
-export const Thead: React.ElementType<TheadProps> = (props: TheadProps) => {
+export const Thead = (props: TheadProps) => {
   const { className, children, ...restProps } = props
 
   return (
@@ -56,7 +54,7 @@ export const Thead: React.ElementType<TheadProps> = (props: TheadProps) => {
 
 export interface TbodyProps extends React.ComponentPropsWithoutRef<'tbody'> {}
 
-export const Tbody: React.ElementType<TbodyProps> = (props: TbodyProps) => {
+export const Tbody = (props: TbodyProps) => {
   const { className, children, ...restProps } = props
 
   return (
@@ -68,7 +66,7 @@ export const Tbody: React.ElementType<TbodyProps> = (props: TbodyProps) => {
 
 export interface ThProps extends React.ComponentPropsWithoutRef<'th'> {}
 
-export const Th: React.ElementType<ThProps> = (props: ThProps) => {
+export const Th = (props: ThProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -85,7 +83,7 @@ export const Th: React.ElementType<ThProps> = (props: ThProps) => {
 
 export interface TrProps extends React.ComponentPropsWithoutRef<'tr'> {}
 
-export const Tr: React.ElementType<TrProps> = (props: TrProps) => {
+export const Tr = (props: TrProps) => {
   const { className, children, ...restProps } = props
 
   const style = ``
@@ -99,7 +97,7 @@ export const Tr: React.ElementType<TrProps> = (props: TrProps) => {
 
 export interface TdProps extends React.ComponentPropsWithoutRef<'td'> {}
 
-export const Td: React.ElementType<TdProps> = (props: TdProps) => {
+export const Td = (props: TdProps) => {
   const { className, children, ...restProps } = props
 
   const style = `

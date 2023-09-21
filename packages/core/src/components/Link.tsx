@@ -30,15 +30,13 @@ const getFileType = (url: string) => {
 
 export interface LinkProps extends React.ComponentPropsWithRef<'a'> {}
 
-export const Link: React.ElementType<LinkProps> = React.forwardRef<
-  HTMLAnchorElement,
-  LinkProps
->((props, ref) => {
-  const { className, children, ...restProps } = props
-  const href = props.href ?? ''
-  const fileType = getFileType(href)
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => {
+    const { className, children, ...restProps } = props
+    const href = props.href ?? ''
+    const fileType = getFileType(href)
 
-  const style = `
+    const style = `
       rounded-sm
       cursor-pointer
       text-sea-600
@@ -53,27 +51,28 @@ export const Link: React.ElementType<LinkProps> = React.forwardRef<
       disabled:border-sumi-500
     `
 
-  if (href.startsWith('http')) {
+    if (href.startsWith('http')) {
+      return (
+        <a
+          className={cx(style, className)}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          {...restProps}
+          ref={ref}
+        >
+          {children}
+          {fileType ? `（${fileType}）` : null}
+        </a>
+      )
+    }
     return (
-      <a
-        className={cx(style, className)}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...restProps}
-        ref={ref}
-      >
+      <a className={cx(style, className)} href={href} {...restProps} ref={ref}>
         {children}
         {fileType ? `（${fileType}）` : null}
       </a>
     )
   }
-  return (
-    <a className={cx(style, className)} href={href} {...restProps} ref={ref}>
-      {children}
-      {fileType ? `（${fileType}）` : null}
-    </a>
-  )
-})
+)
 
 Link.displayName = 'Link'

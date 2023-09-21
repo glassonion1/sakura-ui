@@ -6,9 +6,7 @@ export interface InfoCardProps
   title?: string
 }
 
-export const InfoCard: React.ElementType<InfoCardProps> = (
-  props: InfoCardProps
-) => {
+export const InfoCard = (props: InfoCardProps) => {
   const { className, children, title, ...restProps } = props
 
   const style = `

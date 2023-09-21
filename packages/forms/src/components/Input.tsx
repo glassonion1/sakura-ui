@@ -4,19 +4,17 @@ import { ControllerContext } from './context'
 
 export interface InputProps extends React.ComponentPropsWithRef<'input'> {}
 
-export const Input: React.ElementType<InputProps> = React.forwardRef<
-  HTMLInputElement,
-  InputProps
->((props, ref) => {
-  const { className, ...restProps } = props
-  const ctx = React.useContext(ControllerContext)
-  if (ctx.isRequired) {
-    restProps.required = true
-  }
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (props, ref) => {
+    const { className, ...restProps } = props
+    const ctx = React.useContext(ControllerContext)
+    if (ctx.isRequired) {
+      restProps.required = true
+    }
 
-  const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
+    const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
 
-  const style = `
+    const style = `
     p-4
     rounded-lg
     border
@@ -29,18 +27,19 @@ export const Input: React.ElementType<InputProps> = React.forwardRef<
     disabled:border-sumi-500
   `
 
-  return (
-    <input
-      type="text"
-      id={restProps.id ?? ctx.id}
-      className={cx(style, invalidStyle, className)}
-      aria-describedby={ctx.helperTextId}
-      aria-errormessage={ctx.errorMessageId}
-      aria-invalid={ctx.isInvalid ?? false}
-      ref={ref}
-      {...restProps}
-    />
-  )
-})
+    return (
+      <input
+        type="text"
+        id={restProps.id ?? ctx.id}
+        className={cx(style, invalidStyle, className)}
+        aria-describedby={ctx.helperTextId}
+        aria-errormessage={ctx.errorMessageId}
+        aria-invalid={ctx.isInvalid ?? false}
+        ref={ref}
+        {...restProps}
+      />
+    )
+  }
+)
 
 Input.displayName = 'Input'

@@ -8,25 +8,23 @@ export interface IconButtonProps extends React.ComponentPropsWithRef<'button'> {
   icon: string
 }
 
-export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
-  HTMLButtonElement,
-  IconButtonProps
->((props, ref) => {
-  const {
-    className,
-    children,
-    variant,
-    icon,
-    iconLayout,
-    rounded,
-    ...restProps
-  } = props
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    const {
+      className,
+      children,
+      variant,
+      icon,
+      iconLayout,
+      rounded,
+      ...restProps
+    } = props
 
-  const layout = iconLayout ?? 'left'
+    const layout = iconLayout ?? 'left'
 
-  const align = 'center'
+    const align = 'center'
 
-  const style = `
+    const style = `
     ${rounded === 'full' ? 'aspect-square' : ''}
     inline-block
     p-4
@@ -47,7 +45,7 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
     disabled:cursor-not-allowed
   `
 
-  const primary = `
+    const primary = `
     text-white-1000
     bg-sea-800
     active:enabled:bg-sea-800/[.8]
@@ -55,7 +53,7 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
     disabled:bg-sumi-500
     disabled:text-white-1000
   `
-  const secondary = `
+    const secondary = `
     text-sea-800
     bg-transparent
     active:enabled:bg-sea-50/[.60]
@@ -65,12 +63,12 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
     disabled:text-sumi-500
   `
 
-  const styles = {
-    primary: primary,
-    secondary: secondary
-  }
+    const styles = {
+      primary: primary,
+      secondary: secondary
+    }
 
-  const iconStyle = `
+    const iconStyle = `
     inline-block
     align-middle
     font-icon
@@ -81,17 +79,18 @@ export const IconButton: React.ElementType<IconButtonProps> = React.forwardRef<
     mb-1
   `
 
-  return (
-    <button
-      className={cx(style, styles[variant ?? 'primary'], className)}
-      {...restProps}
-      ref={ref}
-    >
-      {layout == 'left' && <span className={cx(iconStyle)}>{icon}</span>}
-      {children && <span className="mx-1 inline-block">{children}</span>}
-      {layout == 'right' && <span className={cx(iconStyle)}>{icon}</span>}
-    </button>
-  )
-})
+    return (
+      <button
+        className={cx(style, styles[variant ?? 'primary'], className)}
+        {...restProps}
+        ref={ref}
+      >
+        {layout == 'left' && <span className={cx(iconStyle)}>{icon}</span>}
+        {children && <span className="mx-1 inline-block">{children}</span>}
+        {layout == 'right' && <span className={cx(iconStyle)}>{icon}</span>}
+      </button>
+    )
+  }
+)
 
 IconButton.displayName = 'IconButton'

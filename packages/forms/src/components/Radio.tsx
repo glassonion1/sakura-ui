@@ -4,20 +4,18 @@ import { ControllerContext } from './context'
 
 export interface RadioProps extends React.ComponentPropsWithRef<'input'> {}
 
-export const Radio: React.ElementType<RadioProps> = React.forwardRef<
-  HTMLInputElement,
-  RadioProps
->((props, ref) => {
-  const { className, children, ...newProps } = props
-  const ctx = React.useContext(ControllerContext)
-  if (ctx.isRequired) {
-    newProps.required = true
-  }
-  if (ctx.groupName) {
-    newProps.name = ctx.groupName
-  }
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+  (props, ref) => {
+    const { className, children, ...newProps } = props
+    const ctx = React.useContext(ControllerContext)
+    if (ctx.isRequired) {
+      newProps.required = true
+    }
+    if (ctx.groupName) {
+      newProps.name = ctx.groupName
+    }
 
-  const style = `
+    const style = `
     inline-block
     text-base
     cursor-pointer
@@ -25,12 +23,12 @@ export const Radio: React.ElementType<RadioProps> = React.forwardRef<
     mr-4
     
   `
-  const styleInput = `
+    const styleInput = `
     peer
     hidden
   `
 
-  const styleRadio = `
+    const styleRadio = `
     bg-clip-content
     w-6 h-6
     ml-1
@@ -44,23 +42,24 @@ export const Radio: React.ElementType<RadioProps> = React.forwardRef<
     peer-checked:border-sea-600
     peer-disabled:border-sumi-500
   `
-  return (
-    <label htmlFor={newProps.id} className={cx(style, className)}>
-      <span className="flex items-center">
-        <input
-          className={styleInput}
-          type="radio"
-          aria-describedby={ctx.helperTextId}
-          aria-errormessage={ctx.errorMessageId}
-          aria-invalid={ctx.isInvalid ?? false}
-          {...newProps}
-          ref={ref}
-        />
-        <span className={styleRadio}></span>
-        <span className="peer-disabled:text-sumi-500">{children}</span>
-      </span>
-    </label>
-  )
-})
+    return (
+      <label htmlFor={newProps.id} className={cx(style, className)}>
+        <span className="flex items-center">
+          <input
+            className={styleInput}
+            type="radio"
+            aria-describedby={ctx.helperTextId}
+            aria-errormessage={ctx.errorMessageId}
+            aria-invalid={ctx.isInvalid ?? false}
+            {...newProps}
+            ref={ref}
+          />
+          <span className={styleRadio}></span>
+          <span className="peer-disabled:text-sumi-500">{children}</span>
+        </span>
+      </label>
+    )
+  }
+)
 
 Radio.displayName = 'Radio'

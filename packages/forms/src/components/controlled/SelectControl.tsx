@@ -11,30 +11,32 @@ export interface SelectControlProps
   isRequired?: boolean
 }
 
-export const SelectControl: React.ElementType<SelectControlProps> =
-  React.forwardRef<HTMLSelectElement, SelectControlProps>((props, ref) => {
-    const {
-      className,
-      labelText,
-      helperText,
-      errorMessage,
-      isInvalid,
-      isRequired,
-      ...restProps
-    } = props
+export const SelectControl = React.forwardRef<
+  HTMLSelectElement,
+  SelectControlProps
+>((props, ref) => {
+  const {
+    className,
+    labelText,
+    helperText,
+    errorMessage,
+    isInvalid,
+    isRequired,
+    ...restProps
+  } = props
 
-    return (
-      <LabelControl
-        className={className}
-        labelText={labelText}
-        helperText={helperText}
-        errorMessage={errorMessage}
-        isInvalid={isInvalid}
-        isRequired={isRequired}
-      >
-        <Select ref={ref} {...restProps} />
-      </LabelControl>
-    )
-  })
+  return (
+    <LabelControl
+      className={className}
+      labelText={labelText}
+      helperText={helperText}
+      errorMessage={errorMessage}
+      isInvalid={isInvalid}
+      isRequired={isRequired}
+    >
+      <Select ref={ref} {...restProps} />
+    </LabelControl>
+  )
+})
 
 SelectControl.displayName = 'SelectControl'
