@@ -14,6 +14,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const align = textAlign ?? 'center'
 
     const style = `
+    select-none
     inline-block
     p-4
     text-button
