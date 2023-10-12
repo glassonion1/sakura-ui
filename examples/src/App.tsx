@@ -61,6 +61,9 @@ const App = () => {
         <Icon icon="shopping_cart" className="text-sea-600" />
         test3 <Link>link text here</Link>
       </p>
+      <p>
+        External link: <Link href="https://google.com">link text here</Link>
+      </p>
       <div className="w-1/3 my-4">
         <Card>
           <CardBody>

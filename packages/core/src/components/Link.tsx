@@ -1,40 +1,12 @@
 import React from 'react'
 import { cx } from '../utils/class'
 
-const getFileType = (url: string) => {
-  const converted = url.toLowerCase()
-
-  if (converted.endsWith('.pdf')) {
-    return 'PDF'
-  }
-  if (converted.endsWith('.doc') || converted.endsWith('.docx')) {
-    return 'Word'
-  }
-  if (converted.endsWith('.xls') || converted.endsWith('.xlsx')) {
-    return 'Excel'
-  }
-  if (converted.endsWith('.csv')) {
-    return 'CSV'
-  }
-  if (converted.endsWith('.json')) {
-    return 'JSON'
-  }
-  if (converted.endsWith('.ndjson')) {
-    return 'NDJSON'
-  }
-  if (converted.includes('youtu.be')) {
-    return 'YouTube'
-  }
-  return null
-}
-
 export interface LinkProps extends React.ComponentPropsWithRef<'a'> {}
 
 export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   (props, ref) => {
     const { className, children, ...restProps } = props
     const href = props.href ?? ''
-    const fileType = getFileType(href)
 
     const style = `
       rounded-sm
@@ -51,6 +23,17 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       disabled:border-sumi-500
     `
 
+    const iconStyle = `
+      inline-block
+      align-middle
+      ml-0.5
+      text-sumi-700
+      font-icon
+      font-light
+      leading-4
+      antialiased
+    `
+
     if (href.startsWith('http')) {
       return (
         <a
@@ -62,14 +45,15 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           ref={ref}
         >
           {children}
-          {fileType ? `（${fileType}）` : null}
+          <span className={cx(iconStyle)} aria-hidden="true">
+            open_in_new
+          </span>
         </a>
       )
     }
     return (
       <a className={cx(style, className)} href={href} {...restProps} ref={ref}>
         {children}
-        {fileType ? `（${fileType}）` : null}
       </a>
     )
   }
