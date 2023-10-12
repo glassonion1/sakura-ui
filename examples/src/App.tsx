@@ -15,9 +15,12 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter
+  CardFooter,
+  Faq,
+  Question,
+  Answer
 } from '@sakura-ui/core'
-//from '../../packages/core/src'
+// from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -141,6 +144,24 @@ const App = () => {
             <li>list3</li>
           </Ol>
         </Ol>
+      </div>
+      <div className="my-8">
+        <H2>Frequently Asked Questions</H2>
+        <Faq>
+          <Question>Why do you need an FAQ section?</Question>
+          <Answer>
+            A good website experience anticipates the needs of a user at every
+            stage of their journey, and on every page. It’s intuitive and all
+            information is easy to access.
+          </Answer>
+          <Question>Is an FAQ section the same as a knowledge base?</Question>
+          <Answer>
+            FAQ sections usually consist of a series of categories and questions
+            with concise answers across one or a few pages. A knowledge base is
+            usually an extensive directory with comprehensive articles accessed
+            by a search facility.
+          </Answer>
+        </Faq>
       </div>
       <div className="my-4">
         <Button

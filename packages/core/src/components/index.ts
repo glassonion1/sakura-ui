@@ -1,6 +1,7 @@
 export { Button } from './Button'
 export { Card, CardHeader, CardBody, CardFooter } from './Card'
 export { Code } from './Code'
+export { Faq, Question, Answer } from './Faq'
 export { H1, H2, H3, H4, H5, H6 } from './Heading'
 export { Icon } from './Icon'
 export { IconButton } from './IconButton'

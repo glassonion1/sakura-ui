@@ -79,15 +79,26 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     mb-1
   `
 
+    // When text is specified on a button, set the 'aria-hidden' attribute of the icon to true.
+    const ariaHidden = children ? true : false
+
     return (
       <button
         className={cx(style, styles[variant ?? 'primary'], className)}
         {...restProps}
         ref={ref}
       >
-        {layout == 'left' && <span className={cx(iconStyle)}>{icon}</span>}
+        {layout == 'left' && (
+          <span className={cx(iconStyle)} aria-hidden={ariaHidden}>
+            {icon}
+          </span>
+        )}
         {children && <span className="mx-1 inline-block">{children}</span>}
-        {layout == 'right' && <span className={cx(iconStyle)}>{icon}</span>}
+        {layout == 'right' && (
+          <span className={cx(iconStyle)} aria-hidden={ariaHidden}>
+            {icon}
+          </span>
+        )}
       </button>
     )
   }
