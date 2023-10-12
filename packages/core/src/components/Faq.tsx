@@ -41,16 +41,18 @@ export const Question = (props: QuestionProps) => {
     flex
     flex-row
     gap-8
+    mt-10
+    first:mt-0
   `
   return (
-    <dl
+    <dt
       className={cx(style, headingStyle, className)}
       itemProp="name"
       {...restProps}
     >
       <span aria-hidden="true">Q</span>
       <span>{children}</span>
-    </dl>
+    </dt>
   )
 }
 
