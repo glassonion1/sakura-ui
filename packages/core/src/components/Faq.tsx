@@ -40,8 +40,7 @@ export const Question = (props: QuestionProps) => {
     flex
     flex-row
     gap-8
-    mt-10
-    first:mt-0
+    mt-8
   `
   return (
     <dt
