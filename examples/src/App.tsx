@@ -151,7 +151,11 @@ const App = () => {
       <div className="my-8">
         <H2>Frequently Asked Questions</H2>
         <Faq>
-          <Question>Why do you need an FAQ section?</Question>
+          <Question>
+            Why do you need an FAQ section?
+            <br />
+            FAQ Sample
+          </Question>
           <Answer>
             A good website experience anticipates the needs of a user at every
             stage of their journey, and on every page. It’s intuitive and all

@@ -6,7 +6,6 @@ export interface FaqProps extends React.ComponentPropsWithoutRef<'dl'> {}
 const headingStyle = `
   text-h-med-m
   sm:text-h-med
-  !leading-none
 `
 
 export const Faq = (props: FaqProps) => {
@@ -75,7 +74,7 @@ export const Answer = (props: AnswerProps) => {
       itemType="https://schema.org/Answer"
       {...restProps}
     >
-      <span className={headingStyle} aria-hidden="true">
+      <span className={cx(headingStyle, '!leading-none')} aria-hidden="true">
         A
       </span>
       <span itemProp="text">{children}</span>
