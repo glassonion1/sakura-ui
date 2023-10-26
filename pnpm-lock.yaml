@@ -33,7 +33,7 @@ importers:
         specifier: ^0.1.5
         version: link:../packages/config
       '@sakura-ui/core':
-        specifier: ^0.1.17
+        specifier: ^0.1.18
         version: link:../packages/core
       '@sakura-ui/forms':
         specifier: ^0.1.5

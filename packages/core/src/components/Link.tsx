@@ -8,12 +8,15 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     const { className, children, ...restProps } = props
     const href = props.href ?? ''
 
+    const styleUnderLine = `
+      underline
+      underline-offset-[0.125em]
+    `
+
     const style = `
       rounded-sm
       cursor-pointer
       text-sea-600
-      underline
-      underline-offset-[0.125em]
       hover:text-sea-800
       active:text-sea-800
       visited:text-sea-900
@@ -23,8 +26,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       disabled:border-sumi-500
     `
 
-    const iconStyle = `
-      inline-block
+    const styleIcon = `
       align-middle
       ml-0.5
       text-sumi-700
@@ -44,15 +46,20 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           {...restProps}
           ref={ref}
         >
-          {children}
-          <span className={cx(iconStyle)} aria-hidden="true">
+          <span className={styleUnderLine}>{children}</span>
+          <span className={cx(styleIcon)} aria-label="新規タブで開きます">
             open_in_new
           </span>
         </a>
       )
     }
     return (
-      <a className={cx(style, className)} href={href} {...restProps} ref={ref}>
+      <a
+        className={cx(style, styleUnderLine, className)}
+        href={href}
+        {...restProps}
+        ref={ref}
+      >
         {children}
       </a>
     )

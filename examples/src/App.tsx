@@ -19,8 +19,8 @@ import {
   Faq,
   Question,
   Answer
-} from '@sakura-ui/core'
-// from '../../packages/core/src'
+} from '../../packages/core/src'
+// from '@sakura-ui/core'
 import {
   Checkbox,
   CheckboxGroup,
@@ -64,6 +64,14 @@ const App = () => {
       <p>
         External link: <Link href="https://google.com">link text here</Link>
       </p>
+      <div>
+        List
+        <Ul>
+          <li>
+            External link: <Link href="https://google.com">link text here</Link>
+          </li>
+        </Ul>
+      </div>
       <div className="w-1/3 my-4">
         <Card>
           <CardBody>
@@ -192,6 +200,39 @@ const App = () => {
         </IconButton>
         <IconButton className="mr-2" icon="keyboard_arrow_down" />
         <IconButton className="mr-2" icon="face" variant="secondary" />
+      </div>
+      <div className="my-4">
+        <Button
+          className="mr-2"
+          size="md"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
+          Primary button(md)
+        </Button>
+        <Button
+          className="mr-2"
+          size="sm"
+          variant="secondary"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
+          Secondary Button(sm)
+        </Button>
+        <Button
+          className="mr-2"
+          size="xs"
+          variant="secondary"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
+          Secondary Button(xs)
+        </Button>
+        <IconButton className="mr-2" size="md" icon="face">
+          Icon button(md)
+        </IconButton>
+        <IconButton className="mr-2" variant="secondary" size="sm" icon="face">
+          Icon button(sm)
+        </IconButton>
+      </div>
+      <div className="my-4">
         <Button
           className="mr-2"
           onClick={() => setCount((count: number) => count + 1)}

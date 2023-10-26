@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/config",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/index.cjs.js",
   "types": "dist/index.d.ts",
   "exports": {
