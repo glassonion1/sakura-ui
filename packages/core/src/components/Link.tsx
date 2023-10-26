@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { cx } from '../utils/class'
 
 export interface LinkProps extends React.ComponentPropsWithRef<'a'> {}
@@ -36,15 +36,16 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       antialiased
     `
 
-    const getLabel = () => {
+    const [iconLabel, setIconLabel] = useState('')
+    useEffect(() => {
       const language =
         (window.navigator.languages && window.navigator.languages[0]) ||
         window.navigator.language
       if (language === 'ja') {
-        return '新規タブで開きます'
+        setIconLabel('新規タブで開きます')
       }
-      return 'Opens in new tab'
-    }
+      setIconLabel('Opens in new tab')
+    }, [])
 
     if (href.startsWith('http')) {
       return (
@@ -57,7 +58,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           ref={ref}
         >
           <span className={styleUnderLine}>{children}</span>
-          <span className={cx(styleIcon)} aria-label={getLabel()}>
+          <span className={cx(styleIcon)} aria-label={iconLabel}>
             open_in_new
           </span>
         </a>
