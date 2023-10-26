@@ -30,7 +30,7 @@ importers:
   examples:
     dependencies:
       '@sakura-ui/config':
-        specifier: ^0.1.5
+        specifier: workspace:^
         version: link:../packages/config
       '@sakura-ui/core':
         specifier: ^0.1.18

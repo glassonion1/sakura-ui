@@ -19,8 +19,8 @@ import {
   Faq,
   Question,
   Answer
-} from '../../packages/core/src'
-// from '@sakura-ui/core'
+} from '@sakura-ui/core'
+//from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,

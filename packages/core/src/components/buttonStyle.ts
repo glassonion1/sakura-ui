@@ -4,7 +4,6 @@ export const base = `
   inline-block
   text-button
   text-center
-  rounded-lg
   cursor-pointer
   whitespace-nowrap
   outline-offset-2
@@ -57,6 +56,7 @@ const params: {
     py-4
     my-0
     text-button
+    rounded-lg
   `,
   md: `
     h-[48px]
@@ -64,6 +64,7 @@ const params: {
     py-3
     my-0
     text-button
+    rounded-lg
   `,
   sm: `
     h-[36px]
@@ -71,14 +72,16 @@ const params: {
     py-1.5
     my-1
     text-button
+    rounded-md
   `,
   xs: `
     h-[28px]
     px-2
     py-[7px]
     my-2
-    text-[14px]
-    leading-[14px]
+    text-button-sm
+    !leading-[14px]
+    rounded
   `
 }
 

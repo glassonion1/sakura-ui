@@ -158,7 +158,7 @@ const sakuraPlugin = plugin(
           'button-sm': [
             '14px',
             {
-              lineHeight: '100%',
+              lineHeight: '14px',
               letterSpacing: '0.04em',
               fontWeight: '700'
             }

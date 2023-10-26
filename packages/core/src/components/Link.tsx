@@ -36,6 +36,16 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       antialiased
     `
 
+    const getLabel = () => {
+      const language =
+        (window.navigator.languages && window.navigator.languages[0]) ||
+        window.navigator.language
+      if (language === 'ja') {
+        return '新規タブで開きます'
+      }
+      return 'Opens in new tab'
+    }
+
     if (href.startsWith('http')) {
       return (
         <a
@@ -47,7 +57,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           ref={ref}
         >
           <span className={styleUnderLine}>{children}</span>
-          <span className={cx(styleIcon)} aria-label="新規タブで開きます">
+          <span className={cx(styleIcon)} aria-label={getLabel()}>
             open_in_new
           </span>
         </a>
