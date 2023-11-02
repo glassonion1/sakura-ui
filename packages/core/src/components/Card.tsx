@@ -25,6 +25,7 @@ export const Card = (props: CardProps) => {
     overflow-hidden
     flex
     flex-col
+    gap-3
   `
 
   return (
@@ -48,21 +49,21 @@ export const CardHeader = (props: CardHeaderProps) => {
   const ctx = React.useContext(IdContext)
 
   const style = `
-    py-6
     px-6
-    text-h-xxs-m
-    sm:text-h-xxs
-    leading-none
+    first:pt-6
+    last:pb-6
+    text-base
+    font-medium
   `
 
   return (
-    <h2 id={ctx.id} className={cx(style, className)} {...restProps}>
+    <div id={ctx.id} className={cx(style, className)} {...restProps}>
       {children}
-    </h2>
+    </div>
   )
 }
 
-export interface CardBodyProps extends React.ComponentPropsWithoutRef<'p'> {}
+export interface CardBodyProps extends React.ComponentPropsWithoutRef<'div'> {}
 
 export const CardBody = (props: CardBodyProps) => {
   const { className, children, ...restProps } = props
@@ -70,8 +71,8 @@ export const CardBody = (props: CardBodyProps) => {
   const style = `
     px-6
     first:pt-6
-    pb-6
-    text-base
+    last:pb-6
+    text-base-sm
   `
 
   return (
@@ -88,10 +89,10 @@ export const CardFooter = (props: CardFooterProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    mt-auto
     px-6
     first:pt-6
-    pb-6
+    last:pb-6
+    text-base-sm
   `
 
   return (

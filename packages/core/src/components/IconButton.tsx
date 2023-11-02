@@ -27,15 +27,16 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const v = variant ?? 'primary'
     const s = size ?? 'lg'
 
+    const styleFontSize = `${s === 'xs' ? `text-xl` : `text-2xl`}`
+
     const styleIcon = `
       inline-block
       align-middle
-      font-icon
-      text-2xl
-      font-light
-      leading-4
-      antialiased
       mb-1
+      font-icon
+      font-light
+      leading-[0px]
+      antialiased
     `
 
     const styleRounded = `
@@ -58,13 +59,19 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         ref={ref}
       >
         {layout == 'left' && (
-          <span className={cx(styleIcon)} aria-hidden={ariaHidden}>
+          <span
+            className={cx(styleIcon, styleFontSize)}
+            aria-hidden={ariaHidden}
+          >
             {icon}
           </span>
         )}
-        {children && <span className="mx-1 inline-block">{children}</span>}
+        {children && <span className="mx-1">{children}</span>}
         {layout == 'right' && (
-          <span className={cx(styleIcon)} aria-hidden={ariaHidden}>
+          <span
+            className={cx(styleIcon, styleFontSize)}
+            aria-hidden={ariaHidden}
+          >
             {icon}
           </span>
         )}

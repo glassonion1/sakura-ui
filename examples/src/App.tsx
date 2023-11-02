@@ -84,17 +84,17 @@ const App = () => {
       <div className="w-1/3 my-4">
         <Card>
           <img src="bg-mt.webp" className="object-cover h-48 w-full" />
-          <CardHeader>Header: XXXxxx</CardHeader>
-          <CardBody>Body: XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
-          <CardFooter>Footer: XXXXXXXXXXXXxxxxxxxxxxxxx</CardFooter>
+          <CardHeader>Header:XXXxxx</CardHeader>
+          <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
+          <CardFooter>Footer:XXXXXXXXXXXXxxxxxxxxxxxxx</CardFooter>
         </Card>
       </div>
       <div className="w-1/3 my-4">
         <Card>
           <img src="bg-mt.webp" className="object-cover h-48 w-full" />
-          <CardHeader>Header: XXXxxx</CardHeader>
-          <CardBody>Body: XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
-          <CardFooter>
+          <CardHeader>Header:XXXxxx</CardHeader>
+          <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
+          <CardFooter className="">
             <Button variant="secondary" className="w-full mb-2">
               Button1
             </Button>
@@ -107,9 +107,9 @@ const App = () => {
       <div className="my-4 flex items-stretch gap-x-20">
         <Card className="w-80">
           <img src="bg-mt.webp" className="object-cover h-48 w-full" />
-          <CardHeader>Header: XXXxxx</CardHeader>
+          <CardHeader>Header:XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardHeader>
           <CardBody>
-            Body: XXXXXXXXXXXX
+            Body:XXXXXXXXXXXX
             <br />
             xxxxxxxxxxxxx
             <br />
@@ -126,7 +126,7 @@ const App = () => {
         <Card className="w-80">
           <img src="bg-mt.webp" className="object-cover h-48 w-full" />
           <CardHeader>Header: XXXxxx</CardHeader>
-          <CardBody>Body: XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
+          <CardBody>Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
           <CardFooter>
             <Button variant="secondary" className="w-full">
               Button1
@@ -204,6 +204,32 @@ const App = () => {
       <div className="my-4">
         <Button
           className="mr-2"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
+          Primary button
+        </Button>
+        <Button
+          className="mr-2"
+          size="xs"
+          variant="secondary"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
+          Secondary Button(xs)
+        </Button>
+        <IconButton
+          className="mr-2"
+          size="xs"
+          variant="secondary"
+          icon="arrow_forward"
+          iconLayout="right"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
+          Secondary Button(xs)
+        </IconButton>
+      </div>
+      <div className="my-4">
+        <Button
+          className="mr-2"
           size="md"
           onClick={() => setCount((count: number) => count + 1)}
         >
@@ -216,14 +242,6 @@ const App = () => {
           onClick={() => setCount((count: number) => count + 1)}
         >
           Secondary Button(sm)
-        </Button>
-        <Button
-          className="mr-2"
-          size="xs"
-          variant="secondary"
-          onClick={() => setCount((count: number) => count + 1)}
-        >
-          Secondary Button(xs)
         </Button>
         <IconButton className="mr-2" size="md" icon="face">
           Icon button(md)

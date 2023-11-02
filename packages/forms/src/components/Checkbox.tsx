@@ -16,33 +16,36 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     }
 
     const style = `
-    inline-block
-    text-base
-    cursor-pointer
-    py-2
-    mr-4
-  `
+      inline-block
+      text-base
+      cursor-pointer
+      py-2
+      mr-4
+    `
 
     const styleInput = `
-    peer
-    hidden
-  `
+      peer
+      sr-only
+    `
 
     const styleCheck = `
-    bg-clip-content
-    w-6 h-6
-    ml-1
-    mr-2
-    rounded
-    border
-    border-solid
-    border-sumi-900
-    fill-transparent
-    peer-checked:fill-white-1000
-    peer-checked:bg-sea-600
-    peer-checked:border-none
-    peer-disabled:border-sumi-500
-  `
+      bg-clip-content
+      w-6 h-6
+      ml-1
+      mr-2
+      rounded
+      border
+      border-solid
+      border-sumi-900
+      fill-transparent
+      peer-checked:fill-white-1000
+      peer-checked:bg-sea-600
+      peer-checked:border-none
+      peer-disabled:border-sumi-500
+      peer-focus-visible:ring-2
+      peer-focus-visible:ring-offset-2
+      peer-focus-visible:ring-wood-500
+    `
 
     return (
       <label htmlFor={restProps.id} className={cx(style, className)}>

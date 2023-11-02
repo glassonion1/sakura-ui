@@ -1,8 +1,7 @@
+//   select-none
 export const base = `
-  leading-normal
-  select-none
-  inline-block
   text-button
+  leading-[22px]
   text-center
   cursor-pointer
   whitespace-nowrap
@@ -53,23 +52,18 @@ const params: {
   lg: `
     h-[56px]
     px-4
-    py-4
-    my-0
     text-button
     rounded-lg
   `,
   md: `
     h-[48px]
     px-4
-    py-3
-    my-0
     text-button
     rounded-lg
   `,
   sm: `
     h-[36px]
     px-3
-    py-1.5
     my-1
     text-button
     rounded-md
@@ -77,7 +71,6 @@ const params: {
   xs: `
     h-[28px]
     px-2
-    py-[7px]
     my-2
     text-button-sm
     !leading-[14px]

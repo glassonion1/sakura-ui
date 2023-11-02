@@ -19,6 +19,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     rounded-lg
     border
     border-solid
+    outline-offset-2
     focus:outline
     focus:outline-2
     focus:outline-wood-500
