@@ -80,6 +80,10 @@ const App = () => {
             XXXXXxxxxxxxxxxxxxXXX
           </CardBody>
         </Card>
+        <Card>
+          <CardHeader>XXXxxx</CardHeader>
+          <CardBody>XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
+        </Card>
       </div>
       <div className="w-1/3 my-4">
         <Card>

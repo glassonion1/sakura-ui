@@ -23,9 +23,6 @@ export const Card = (props: CardProps) => {
     sm:rounded-3xl
     text-sumi-900
     overflow-hidden
-    flex
-    flex-col
-    gap-3
   `
 
   return (
@@ -52,6 +49,7 @@ export const CardHeader = (props: CardHeaderProps) => {
     px-6
     first:pt-6
     last:pb-6
+    py-3
     text-base
     font-medium
   `
@@ -72,6 +70,7 @@ export const CardBody = (props: CardBodyProps) => {
     px-6
     first:pt-6
     last:pb-6
+    pb-3
     text-base-sm
   `
 
