@@ -1,8 +1,9 @@
-import React from 'react'
-import { cx } from '../utils/class'
+import { cx } from '../libs/cx'
+import { ComponentWithAs } from '../types/component'
+import { forwardRef } from '../libs/forward-ref'
 import { base, getVariantStyle, getSizeStyle } from './buttonStyle'
 
-export interface IconButtonProps extends React.ComponentPropsWithRef<'button'> {
+export interface IconButtonProps {
   variant?: 'primary' | 'secondary'
   size?: 'lg' | 'md' | 'sm' | 'xs'
   iconLayout?: 'left' | 'right'
@@ -10,24 +11,21 @@ export interface IconButtonProps extends React.ComponentPropsWithRef<'button'> {
   rounded?: string
 }
 
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  (props, ref) => {
+export const IconButton: ComponentWithAs<'button', IconButtonProps> =
+  forwardRef((props, ref) => {
     const {
-      className,
-      children,
-      variant,
-      size,
-      iconLayout,
+      as: Component = 'button',
+      variant = 'primary',
+      size = 'lg',
+      iconLayout = 'left',
       icon,
       rounded,
+      className,
+      children,
       ...restProps
     } = props
 
-    const layout = iconLayout ?? 'left'
-    const v = variant ?? 'primary'
-    const s = size ?? 'lg'
-
-    const styleFontSize = `${s === 'xs' ? `text-xl` : `text-2xl`}`
+    const styleFontSize = `${size === 'xs' ? `scale-105` : `scale-125`}`
 
     const styleIcon = `
       inline-block
@@ -35,30 +33,28 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       mb-1
       font-icon
       font-light
-      leading-[0px]
+      leading-[0px]      
       antialiased
     `
 
-    const styleRounded = `
-      ${rounded ? `aspect-square !rounded-full` : ''}
-    `
+    const styleRounded = `${rounded ? `aspect-square !rounded-full !py-0` : ''}`
 
     // When text is specified on a button, set the 'aria-hidden' attribute of the icon to true.
     const ariaHidden = children ? true : false
 
     return (
-      <button
+      <Component
         className={cx(
           base,
-          getVariantStyle(v),
-          getSizeStyle(s),
+          getVariantStyle(variant),
+          getSizeStyle(size),
           styleRounded,
           className
         )}
         {...restProps}
         ref={ref}
       >
-        {layout == 'left' && (
+        {iconLayout == 'left' && (
           <span
             className={cx(styleIcon, styleFontSize)}
             aria-hidden={ariaHidden}
@@ -67,7 +63,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           </span>
         )}
         {children && <span className="mx-1">{children}</span>}
-        {layout == 'right' && (
+        {iconLayout == 'right' && (
           <span
             className={cx(styleIcon, styleFontSize)}
             aria-hidden={ariaHidden}
@@ -75,9 +71,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
             {icon}
           </span>
         )}
-      </button>
+      </Component>
     )
-  }
-)
+  })
 
 IconButton.displayName = 'IconButton'

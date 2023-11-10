@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../utils/class'
+import { cx } from '../libs/cx'
 
 export interface InfoCardProps
   extends React.ComponentPropsWithoutRef<'section'> {

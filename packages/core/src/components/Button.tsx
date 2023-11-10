@@ -1,28 +1,37 @@
-import React from 'react'
-import { cx } from '../utils/class'
+import { cx } from '../libs/cx'
+import { ComponentWithAs } from '../types/component'
+import { forwardRef } from '../libs/forward-ref'
 import { base, getVariantStyle, getSizeStyle } from './buttonStyle'
 
-export interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
+export interface ButtonProps {
   variant?: 'primary' | 'secondary'
   size?: 'lg' | 'md' | 'sm' | 'xs'
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button: ComponentWithAs<'button', ButtonProps> = forwardRef(
   (props, ref) => {
-    // Make sure that there is no problem even if className is specified on the side that uses the component
-    const { className, children, variant, size, ...restProps } = props
-
-    const v = variant ?? 'primary'
-    const s = size ?? 'lg'
+    const {
+      as: Component = 'button',
+      variant = 'primary',
+      size = 'lg',
+      className,
+      children,
+      ...restProps
+    } = props
 
     return (
-      <button
-        className={cx(base, getVariantStyle(v), getSizeStyle(s), className)}
+      <Component
+        className={cx(
+          base,
+          getVariantStyle(variant),
+          getSizeStyle(size),
+          className
+        )}
         {...restProps}
         ref={ref}
       >
         {children}
-      </button>
+      </Component>
     )
   }
 )

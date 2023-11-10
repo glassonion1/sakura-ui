@@ -73,6 +73,7 @@ const App = () => {
         </Ul>
       </div>
       <div className="w-1/3 my-4">
+        <H2>Card</H2>
         <Card>
           <CardBody>
             XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -139,6 +140,7 @@ const App = () => {
         </Card>
       </div>
       <div>
+        <H2>List</H2>
         <Ul>
           <li>list1</li>
           <li>list2</li>
@@ -183,6 +185,7 @@ const App = () => {
         </Faq>
       </div>
       <div className="my-4">
+        <H2>Buttons</H2>
         <Button
           className="mr-2"
           onClick={() => setCount((count: number) => count + 1)}
@@ -196,7 +199,11 @@ const App = () => {
         >
           Secondary Button
         </Button>
-        <IconButton className="mr-2" icon="face">
+        <IconButton
+          className="mr-2"
+          icon="face"
+          onClick={() => setCount((count: number) => count + 1)}
+        >
           Icon button
         </IconButton>
         <IconButton className="mr-2" variant="secondary" icon="face">
@@ -281,6 +288,90 @@ const App = () => {
           disabled
         >
           Face
+        </IconButton>
+      </div>
+      <div className="my-4">
+        <H2>Link Buttons</H2>
+        <Button className="mr-2">Normal button</Button>
+        <Button
+          as="a"
+          className="mr-2"
+          href="https://google.com"
+          target="_blank"
+        >
+          Link button
+        </Button>
+        <IconButton
+          as="a"
+          className="mr-2"
+          target="_blank"
+          icon="open_in_new"
+          iconLayout="right"
+          variant="secondary"
+        >
+          Link icon button
+        </IconButton>
+        <Button
+          as="a"
+          size="md"
+          className="mr-2"
+          href="https://google.com"
+          target="_blank"
+          variant="secondary"
+        >
+          Link button
+        </Button>
+        <IconButton
+          as="a"
+          size="md"
+          className="mr-2"
+          target="_blank"
+          icon="open_in_new"
+          iconLayout="right"
+        >
+          Link icon button
+        </IconButton>
+      </div>
+      <div className="my-4">
+        <Button
+          as="a"
+          size="md"
+          className="mr-2"
+          href="https://google.com"
+          target="_blank"
+        >
+          Link button
+        </Button>
+        <IconButton
+          as="a"
+          size="sm"
+          className="mr-2"
+          target="_blank"
+          icon="open_in_new"
+          iconLayout="right"
+          variant="secondary"
+        >
+          Link icon button
+        </IconButton>
+        <Button
+          as="a"
+          size="sm"
+          className="mr-2"
+          href="https://google.com"
+          target="_blank"
+          variant="secondary"
+        >
+          Link button
+        </Button>
+        <IconButton
+          as="a"
+          size="xs"
+          className="mr-2"
+          target="_blank"
+          icon="open_in_new"
+          iconLayout="right"
+        >
+          Link icon button
         </IconButton>
       </div>
       <div className="my-4">

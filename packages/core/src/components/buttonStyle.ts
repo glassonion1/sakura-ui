@@ -1,7 +1,7 @@
 //   select-none
 export const base = `
+  inline-block
   text-button
-  leading-[22px]
   text-center
   cursor-pointer
   whitespace-nowrap
@@ -9,8 +9,8 @@ export const base = `
   border
   border-solid
   border-sea-800
-  active:enabled:border-sea-1200
-  hover:enabled:border-sea-900
+  active:border-sea-1200
+  hover:border-sea-900
   focus:outline
   focus:outline-2
   focus:outline-wood-600
@@ -21,8 +21,8 @@ export const base = `
 const primary = `
   text-white-1000
   bg-sea-800
-  active:enabled:bg-sea-1200
-  hover:enabled:bg-sea-900
+  active:bg-sea-1200
+  hover:bg-sea-900
   disabled:bg-sumi-500
   disabled:text-white-1000
 `
@@ -30,11 +30,12 @@ const primary = `
 const secondary = `
   text-sea-800
   bg-transparent
-  active:enabled:bg-sea-200
-  hover:enabled:bg-sea-100
-  active:enabled:text-sea-1200
-  hover:enabled:text-sea-900
+  active:bg-sea-200
+  hover:bg-sea-100
+  active:text-sea-1200
+  hover:text-sea-900
   disabled:text-sumi-500
+  disabled:bg-transparent
 `
 
 const styles: { [key: string]: string } = {
@@ -50,27 +51,26 @@ const params: {
   [key: string]: string
 } = {
   lg: `
-    h-[56px]
-    px-4
+    p-4
     text-button
     rounded-lg
   `,
   md: `
-    h-[48px]
     px-4
+    py-3
     text-button
     rounded-lg
   `,
   sm: `
-    h-[36px]
     px-3
+    py-1.5
     my-1
     text-button
     rounded-md
   `,
   xs: `
-    h-[28px]
     px-2
+    py-[7px]
     my-2
     text-button-sm
     !leading-[14px]

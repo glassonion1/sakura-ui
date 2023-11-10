@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { cx } from '../utils/class'
+import { useState, useEffect } from 'react'
+import { cx } from '../libs/cx'
+import { ComponentWithAs } from '../types/component'
+import { forwardRef } from '../libs/forward-ref'
 
-export interface LinkProps extends React.ComponentPropsWithRef<'a'> {}
+export interface LinkProps {}
 
-export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
   (props, ref) => {
-    const { className, children, ...restProps } = props
-    const href = props.href ?? ''
+    const {
+      as: Component = 'a',
+      href,
+      className,
+      children,
+      ...restProps
+    } = props
 
     const styleUnderLine = `
       underline
@@ -47,9 +54,9 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       setIconLabel('Opens in new tab')
     }, [])
 
-    if (href.startsWith('http')) {
+    if (href?.startsWith('http')) {
       return (
-        <a
+        <Component
           className={cx(style, className)}
           href={href}
           target="_blank"
@@ -61,18 +68,18 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           <span className={cx(styleIcon)} aria-label={iconLabel}>
             open_in_new
           </span>
-        </a>
+        </Component>
       )
     }
     return (
-      <a
+      <Component
         className={cx(style, styleUnderLine, className)}
         href={href}
         {...restProps}
         ref={ref}
       >
         {children}
-      </a>
+      </Component>
     )
   }
 )
