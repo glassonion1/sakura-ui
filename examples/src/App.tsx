@@ -20,7 +20,7 @@ import {
   Question,
   Answer
 } from '@sakura-ui/core'
-//from '../../packages/core/src'
+// from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -57,7 +57,7 @@ const App = () => {
         test1,test2,test3
       </p>
       <p>
-        test1,test2,
+        test1,test2,abcdefghijk
         <Icon icon="shopping_cart" className="text-sea-600" />
         test3 <Link>link text here</Link>
       </p>
