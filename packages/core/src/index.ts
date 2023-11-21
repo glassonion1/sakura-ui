@@ -29,3 +29,29 @@ export {
   Tr,
   Td
 } from './components'
+
+export type {
+  ButtonProps,
+  CardProps,
+  CardHeaderProps,
+  CardBodyProps,
+  CardFooterProps,
+  CodeProps,
+  FaqProps,
+  QuestionProps,
+  AnswerProps,
+  HeadingProps,
+  IconProps,
+  IconButtonProps,
+  LinkProps,
+  OlProps,
+  UlProps,
+  PreProps,
+  TableProps,
+  CaptionProps,
+  TheadProps,
+  TbodyProps,
+  ThProps,
+  TrProps,
+  TdProps
+} from './components'
