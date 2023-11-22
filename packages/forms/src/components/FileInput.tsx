@@ -12,27 +12,58 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       restProps.required = true
     }
 
-    const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
+    const invalidStyle = ctx.isInvalid ? 'text-sun-800' : 'text-sumi-900'
 
-    const style = `
-    p-4
-    rounded-lg
-    border
-    border-solid
-    outline-offset-2
-    focus:outline
-    focus:outline-2
-    focus:outline-wood-500
-    disabled:bg-transparent
-    disabled:text-sumi-500
-    disabled:border-sumi-500
-  `
+    const base = `
+      file:inline-block
+      file:text-button
+      file:text-center
+      file:cursor-pointer
+      file:whitespace-nowrap
+      file:border
+      file:border-solid
+      file:border-sea-800
+      file:active:border-sea-1200
+      file:hover:border-sea-900
+      file:disabled:border-sumi-500
+      file:disabled:cursor-not-allowed
+    `
+
+    const secondary = `
+      file:text-sea-800
+      file:bg-transparent
+      file:active:bg-sea-200
+      file:hover:bg-sea-100
+      file:active:text-sea-1200
+      file:hover:text-sea-900
+      file:disabled:text-sumi-500
+      file:disabled:bg-transparent
+    `
+    const styleLg = `
+      file:p-4
+      file:text-button
+      file:rounded-lg
+    `
+    const styleInput = `
+      rounded-lg
+      outline-offset-2
+      focus:outline
+      focus:outline-2
+      focus:outline-wood-600
+    `
 
     return (
       <input
         type="file"
         id={restProps.id ?? ctx.id}
-        className={cx(style, invalidStyle, className)}
+        className={cx(
+          base,
+          secondary,
+          styleLg,
+          styleInput,
+          invalidStyle,
+          className
+        )}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}

@@ -20,7 +20,7 @@ import {
   Question,
   Answer
 } from '@sakura-ui/core'
-// from '../../packages/core/src'
+//from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -31,8 +31,9 @@ import {
   Input,
   Textarea,
   FieldsetControl,
-  LabelControl //from '@sakura-ui/forms'
-} from '../../packages/forms/src'
+  LabelControl
+} from '@sakura-ui/forms'
+//from '../../packages/forms/src'
 
 const App = () => {
   const [count, setCount] = useState<number>(0)
@@ -510,6 +511,19 @@ const App = () => {
             errorMessage="Error message"
           >
             <Input />
+          </LabelControl>
+        </div>
+        <div className="flex space-x-4">
+          <LabelControl labelText="File input" helperText="Helper text">
+            <FileInput />
+          </LabelControl>
+          <LabelControl
+            labelText="File input"
+            helperText="Helper text"
+            isInvalid={true}
+            errorMessage="Error message"
+          >
+            <FileInput />
           </LabelControl>
         </div>
         <div className="flex space-x-4">
