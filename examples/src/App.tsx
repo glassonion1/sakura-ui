@@ -20,13 +20,14 @@ import {
   Question,
   Answer
 } from '@sakura-ui/core'
-// from '../../packages/core/src'
+//from '../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
   Radio,
   RadioGroup,
   Select,
+  FileInput,
   Input,
   Textarea,
   FieldsetControl,
@@ -385,6 +386,7 @@ const App = () => {
         <Radio name="sample">Radio2</Radio>
         <Checkbox>Check1</Checkbox>
         <Checkbox>Check2</Checkbox>
+        <FileInput />
         <Input />
         <Textarea rows={4} />
       </div>
@@ -509,6 +511,19 @@ const App = () => {
             errorMessage="Error message"
           >
             <Input />
+          </LabelControl>
+        </div>
+        <div className="flex space-x-4">
+          <LabelControl labelText="File input" helperText="Helper text">
+            <FileInput />
+          </LabelControl>
+          <LabelControl
+            labelText="File input"
+            helperText="Helper text"
+            isInvalid={true}
+            errorMessage="Error message"
+          >
+            <FileInput />
           </LabelControl>
         </div>
         <div className="flex space-x-4">

@@ -35,6 +35,14 @@ export const LabelControl = React.forwardRef<
     isRequired: isRequired ?? false
   }
 
+  const styleHelp = `
+    text-sup text-sumi-700
+  `
+
+  const styleError = `
+    text-sup text-sun-800
+  `
+
   return (
     <ControllerContext.Provider value={context}>
       <div className={cx('mb-4', className)}>
@@ -45,10 +53,12 @@ export const LabelControl = React.forwardRef<
           {...restProps}
         >
           {labelText}
-          {isRequired && <span className="text-sun-800">&nbsp;*</span>}
+          {isRequired && (
+            <span className="text-label text-sun-800">&nbsp;*</span>
+          )}
         </label>
         {helperText && (
-          <p id={context.helperTextId} className="text-sup text-sumi-700 mb-2">
+          <p id={context.helperTextId} className={cx(styleHelp, 'mb-2')}>
             {helperText}
           </p>
         )}
@@ -56,10 +66,7 @@ export const LabelControl = React.forwardRef<
         {isInvalid && (
           <p
             id={context.errorMessageId}
-            className={cx(
-              'text-sup text-sun-800',
-              helperText ? 'mt-1' : 'mt-2'
-            )}
+            className={cx(styleError, helperText ? 'mt-1' : 'mt-2')}
           >
             {errorMessage}
           </p>
