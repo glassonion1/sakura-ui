@@ -27,12 +27,12 @@ import {
   Radio,
   RadioGroup,
   Select,
+  FileInput,
   Input,
   Textarea,
   FieldsetControl,
-  LabelControl
-} from '@sakura-ui/forms'
-//from '../../packages/forms/src'
+  LabelControl //from '@sakura-ui/forms'
+} from '../../packages/forms/src'
 
 const App = () => {
   const [count, setCount] = useState<number>(0)
@@ -385,6 +385,7 @@ const App = () => {
         <Radio name="sample">Radio2</Radio>
         <Checkbox>Check1</Checkbox>
         <Checkbox>Check2</Checkbox>
+        <FileInput />
         <Input />
         <Textarea rows={4} />
       </div>

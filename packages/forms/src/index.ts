@@ -2,6 +2,7 @@ export {
   Checkbox,
   Radio,
   Select,
+  FileInput,
   Input,
   Textarea,
   LabelControl,
