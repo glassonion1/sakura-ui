@@ -1,11 +1,12 @@
 {
   "name": "@sakura-ui/forms",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "type": "module",
   "main": "dist/index.cjs.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
     }
