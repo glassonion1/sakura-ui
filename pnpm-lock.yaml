@@ -30,13 +30,13 @@ importers:
   examples:
     dependencies:
       '@sakura-ui/config':
-        specifier: ^0.1.7
+        specifier: ^0.1.8
         version: link:../packages/config
       '@sakura-ui/core':
-        specifier: ^0.1.24
+        specifier: ^0.1.27
         version: link:../packages/core
       '@sakura-ui/forms':
-        specifier: ^0.1.6
+        specifier: ^0.1.8
         version: link:../packages/forms
       react:
         specifier: ^18.2.0
