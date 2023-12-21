@@ -55,6 +55,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             aria-describedby={ctx.helperTextId}
             aria-errormessage={ctx.errorMessageId}
             aria-invalid={ctx.isInvalid ?? false}
+            aria-required={ctx.isRequired ?? false}
             {...newProps}
             ref={ref}
           />

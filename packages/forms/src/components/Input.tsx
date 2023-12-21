@@ -12,30 +12,31 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       restProps.required = true
     }
 
-    const invalidStyle = ctx.isInvalid ? 'border-sun-800' : 'border-sumi-900'
-
     const style = `
-    p-4
-    rounded-lg
-    border
-    border-solid
-    outline-offset-2
-    focus:outline
-    focus:outline-2
-    focus:outline-wood-500
-    disabled:bg-transparent
-    disabled:text-sumi-500
-    disabled:border-sumi-500
-  `
+      p-4
+      rounded-lg
+      border
+      border-solid
+      border-sumi-900
+      outline-offset-2
+      focus:outline
+      focus:outline-2
+      focus:outline-wood-500
+      disabled:bg-transparent
+      disabled:text-sumi-500
+      disabled:border-sumi-500
+      aria-[invalid]:border-sun-800
+    `
 
     return (
       <input
         type="text"
         id={restProps.id ?? ctx.id}
-        className={cx(style, invalidStyle, className)}
+        className={cx(style, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
+        aria-required={ctx.isRequired ?? false}
         ref={ref}
         {...restProps}
       />

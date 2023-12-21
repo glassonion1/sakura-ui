@@ -56,6 +56,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             aria-describedby={ctx.helperTextId}
             aria-errormessage={ctx.errorMessageId}
             aria-invalid={ctx.isInvalid ?? false}
+            aria-required={ctx.isRequired ?? false}
             {...restProps}
             ref={ref}
           />

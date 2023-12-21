@@ -12,9 +12,8 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       restProps.required = true
     }
 
-    const invalidStyle = ctx.isInvalid ? 'text-sun-800' : 'text-sumi-900'
-
     const base = `
+      file:mr-2
       file:inline-block
       file:text-button
       file:text-center
@@ -47,26 +46,22 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
     const styleInput = `
       rounded-lg
       outline-offset-2
+      text-sumi-900
       focus:outline
       focus:outline-2
       focus:outline-wood-600
+      aria-[invalid]:text-sun-800
     `
 
     return (
       <input
         type="file"
         id={restProps.id ?? ctx.id}
-        className={cx(
-          base,
-          secondary,
-          styleLg,
-          styleInput,
-          invalidStyle,
-          className
-        )}
+        className={cx(base, secondary, styleLg, styleInput, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
+        aria-required={ctx.isRequired ?? false}
         ref={ref}
         {...restProps}
       />
