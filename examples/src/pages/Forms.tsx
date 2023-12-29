@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { H1, Button } from '@sakura-ui/core'
-//from '../../packages/core/src'
+//from '../../../packages/core/src'
 import {
   CheckboxGroup,
   Radio,
@@ -47,6 +47,14 @@ const Forms = () => {
           }
         />
         <LabelControl labelText="Text" helperText="Helper text">
+          <Input />
+        </LabelControl>
+        <LabelControl
+          labelText="Text2"
+          helperText="Helper text"
+          isInvalid="true"
+          errorMessage="error message"
+        >
           <Input />
         </LabelControl>
         <LabelControl

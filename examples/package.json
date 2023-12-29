@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/config": "^0.1.8",
+    "@sakura-ui/config": "^0.1.9",
     "@sakura-ui/core": "^0.1.28",
     "@sakura-ui/forms": "^0.1.9",
     "react": "^18.2.0",

@@ -1,7 +1,38 @@
 import plugin from 'tailwindcss/plugin'
 
+const booleans = [
+  'atomic',
+  'busy',
+  'checked',
+  'current',
+  'disabled',
+  'expanded',
+  'grabbed',
+  'haspopup',
+  'hidden',
+  'invalid',
+  'live',
+  'modal',
+  'multiline',
+  'multiselectable',
+  'pressed',
+  'readonly',
+  'required',
+  'selected'
+]
+
+const enumerables = {
+  autocomplete: ['both', 'inline', 'list', 'none'],
+  current: ['date', 'location', 'page', 'step', 'time'],
+  dropeffect: ['copy', 'execute', 'link', 'move', 'none', 'popup'],
+  haspopup: ['dialog', 'grid', 'listbox', 'menu', 'tree'],
+  orientation: ['horizontal', 'undefined', 'vertial'],
+  relevant: ['additions', 'all', 'removals', 'text'],
+  sort: ['ascending', 'descending', 'none', 'other']
+}
+
 const sakuraPlugin = plugin(
-  ({ addBase }) => {
+  ({ addBase, addVariant }) => {
     addBase({
       '@font-face': {
         fontFamily: 'Material Symbols Outlined',
@@ -9,6 +40,32 @@ const sakuraPlugin = plugin(
         fontStyle: 'normal'
       }
     })
+    const addAriaVariant = (name: string, value: string) => {
+      addVariant(name, `[${name}="${value}"]&`)
+      addVariant(`peer-${name}`, `:merge(.peer)[${name}="${value}"] ~ &`)
+      addVariant(`group-${name}`, `:merge(.group)[${name}="${value}"] &`)
+    }
+    const addAriaEnumVariant = (name: string, value: string) => {
+      addVariant(`${name}-${value}`, `[${name}="${value}"]&`)
+      addVariant(
+        `peer-${name}-${value}`,
+        `:merge(.peer)[${name}="${value}"] ~ &`
+      )
+      addVariant(
+        `group-${name}-${value}`,
+        `:merge(.group)[${name}="${value}"] &`
+      )
+    }
+
+    for (const attribute of booleans) {
+      addAriaVariant(`aria-${attribute}`, 'true')
+    }
+
+    for (const [attribute, values] of Object.entries(enumerables)) {
+      for (const value of values) {
+        addAriaEnumVariant(`aria-${attribute}`, value)
+      }
+    }
   },
   {
     theme: {

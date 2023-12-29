@@ -50,7 +50,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       focus:outline
       focus:outline-2
       focus:outline-wood-600
-      aria-[invalid]:text-sun-800
+      aria-invalid:text-sun-800
     `
 
     return (

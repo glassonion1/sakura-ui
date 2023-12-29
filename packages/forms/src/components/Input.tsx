@@ -25,7 +25,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       disabled:bg-transparent
       disabled:text-sumi-500
       disabled:border-sumi-500
-      aria-[invalid]:border-sun-800
+      aria-invalid:border-sun-800
     `
 
     return (
