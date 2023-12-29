@@ -18,9 +18,14 @@ import {
   CardFooter,
   Faq,
   Question,
-  Answer
+  Answer,
+  Table,
+  Tbody,
+  Tr,
+  Th,
+  Td
 } from '@sakura-ui/core'
-//from '../../packages/core/src'
+//from '../../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -33,7 +38,7 @@ import {
   FieldsetControl,
   LabelControl
 } from '@sakura-ui/forms'
-//from '../../packages/forms/src'
+//from '../../../packages/forms/src'
 
 const Home = () => {
   const [count, setCount] = useState<number>(0)
@@ -72,6 +77,21 @@ const Home = () => {
             External link: <Link href="https://google.com">link text here</Link>
           </li>
         </Ul>
+      </div>
+      <div className="w-1/2 my-4">
+        <H2>Table</H2>
+        <Table>
+          <Tbody>
+            <Tr>
+              <Th scope="row">key1</Th>
+              <Td className="p-2">value1</Td>
+            </Tr>
+            <Tr>
+              <Th scope="row">key2</Th>
+              <Td>value2</Td>
+            </Tr>
+          </Tbody>
+        </Table>
       </div>
       <div className="w-1/3 my-4">
         <H2>Card</H2>

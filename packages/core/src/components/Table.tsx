@@ -6,7 +6,7 @@ export interface TableProps extends React.ComponentPropsWithoutRef<'table'> {}
 const styleBorder = `
   border
   border-collapse
-  border-sumi-900
+  border-[#cccccc]
 `
 
 export const Table = (props: TableProps) => {
@@ -71,7 +71,8 @@ export const Th = (props: ThProps) => {
 
   const style = `
     p-2
-    bg-sumi-100
+    bg-[#f8f8fb]
+    text-base
     text-left
   `
   return (

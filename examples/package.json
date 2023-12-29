@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@sakura-ui/config": "^0.1.8",
-    "@sakura-ui/core": "^0.1.27",
-    "@sakura-ui/forms": "^0.1.8",
+    "@sakura-ui/core": "^0.1.28",
+    "@sakura-ui/forms": "^0.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.0"
