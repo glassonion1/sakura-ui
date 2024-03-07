@@ -76,6 +76,21 @@ const Home = () => {
           <li>
             External link: <Link href="https://google.com">link text here</Link>
           </li>
+          <li>
+            External link:{' '}
+            <Link href="https://google.com">
+              https://testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest.com
+            </Link>
+          </li>
+          <li>
+            Normal link:{' '}
+            <Link href="/">
+              FAQ sections usually consist of a series of categories and
+              questions with concise answers across one or a few pages. A
+              knowledge base is usually an extensive directory with
+              comprehensive articles accessed by a search facility.
+            </Link>
+          </li>
         </Ul>
       </div>
       <div className="w-1/2 my-4">

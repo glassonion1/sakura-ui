@@ -20,6 +20,7 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       underline-offset-[0.125em]
     `
 
+    // Make lines break at each word
     const style = `
       rounded-sm
       cursor-pointer
@@ -31,6 +32,7 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       focus:outline-2
       focus:outline-wood-500
       disabled:border-sumi-500
+      [overflow-wrap:anywhere]
     `
 
     const styleIcon = `
@@ -48,8 +50,9 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       const language =
         (window.navigator.languages && window.navigator.languages[0]) ||
         window.navigator.language
-      if (language === 'ja') {
+      if (/^ja\b/.test(language)) {
         setIconLabel('新規タブで開きます')
+        return
       }
       setIconLabel('Opens in new tab')
     }, [])
@@ -65,9 +68,10 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
           ref={ref}
         >
           <span className={styleUnderLine}>{children}</span>
-          <span className={cx(styleIcon)} aria-label={iconLabel}>
+          <span className={cx(styleIcon)} aria-hidden="true">
             open_in_new
           </span>
+          <span className="sr-only">{iconLabel}</span>
         </Component>
       )
     }

@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import { peerDependencies } from './package.json'
@@ -17,8 +18,9 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [...Object.keys(peerDependencies)]
-    },
-    target: 'esnext',
-    sourcemap: true
+    }
+  },
+  test: {
+    globals: true
   }
 })
