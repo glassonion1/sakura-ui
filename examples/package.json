@@ -8,9 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/config": "workspace:^",
-    "@sakura-ui/core": "workspace:^",
-    "@sakura-ui/forms": "workspace:^",
+    "@sakura-ui/config": "^0.1.10",
+    "@sakura-ui/core": "^0.1.31",
+    "@sakura-ui/forms": "^0.1.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2"
