@@ -41,7 +41,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: pnpm --ignore-workspace install
+      - run: pnpm install
       - run: pnpm build
       - name: Setup Pages
         uses: actions/configure-pages@v2

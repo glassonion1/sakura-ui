@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { cx } from '../libs/cx'
 import { ComponentWithAs } from '../types/component'
 import { forwardRef } from '../libs/forward-ref'
@@ -45,18 +44,6 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       antialiased
     `
 
-    const [iconLabel, setIconLabel] = useState('')
-    useEffect(() => {
-      const language =
-        (window.navigator.languages && window.navigator.languages[0]) ||
-        window.navigator.language
-      if (/^ja\b/.test(language)) {
-        setIconLabel('新規タブで開きます')
-        return
-      }
-      setIconLabel('Opens in new tab')
-    }, [])
-
     if (href?.startsWith('http')) {
       return (
         <Component
@@ -71,7 +58,7 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
           <span className={cx(styleIcon)} aria-hidden="true">
             open_in_new
           </span>
-          <span className="sr-only">{iconLabel}</span>
+          <span className="sr-only">Opens in new tab</span>
         </Component>
       )
     }
