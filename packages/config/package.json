@@ -10,6 +10,9 @@
     "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git",
     "directory": "packages/config"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs.js",
