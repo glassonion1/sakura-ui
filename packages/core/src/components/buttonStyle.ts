@@ -1,9 +1,10 @@
-//   select-none
 export const base = `
   inline-block
   text-button
   text-center
   cursor-pointer
+  select-none
+  touch-manipulation
   whitespace-nowrap
   outline-offset-2
   border

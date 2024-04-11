@@ -18,6 +18,8 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       file:text-button
       file:text-center
       file:cursor-pointer
+      file:select-none
+      file:touch-manipulation
       file:whitespace-nowrap
       file:border
       file:border-solid
