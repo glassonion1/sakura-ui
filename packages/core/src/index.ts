@@ -1,6 +1,7 @@
 export {
   Button,
   Card,
+  CardImg,
   CardHeader,
   CardBody,
   CardFooter,
@@ -33,6 +34,7 @@ export {
 export type {
   ButtonProps,
   CardProps,
+  CardImgProps,
   CardHeaderProps,
   CardBodyProps,
   CardFooterProps,

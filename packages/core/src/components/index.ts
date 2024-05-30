@@ -1,7 +1,8 @@
 export { Button, type ButtonProps } from './Button'
-export { Card, CardHeader, CardBody, CardFooter } from './Card'
+export { Card, CardImg, CardHeader, CardBody, CardFooter } from './Card'
 export type {
   CardProps,
+  CardImgProps,
   CardHeaderProps,
   CardBodyProps,
   CardFooterProps

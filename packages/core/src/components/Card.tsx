@@ -23,6 +23,8 @@ export const Card = (props: CardProps) => {
     sm:rounded-3xl
     text-sumi-900
     overflow-hidden
+    flex flex-col
+    gap-2
   `
 
   return (
@@ -38,7 +40,22 @@ export const Card = (props: CardProps) => {
   )
 }
 
-export interface CardHeaderProps extends React.ComponentPropsWithoutRef<'h2'> {}
+export interface CardImgProps extends React.ComponentPropsWithoutRef<'img'> {}
+
+export const CardImg = (props: CardImgProps) => {
+  const { className, children, ...restProps } = props
+
+  const ctx = React.useContext(IdContext)
+
+  const style = `
+    object-cover
+  `
+
+  return <img id={ctx.id} className={cx(style, className)} {...restProps} />
+}
+
+export interface CardHeaderProps
+  extends React.ComponentPropsWithoutRef<'div'> {}
 
 export const CardHeader = (props: CardHeaderProps) => {
   const { className, children, ...restProps } = props
@@ -46,12 +63,11 @@ export const CardHeader = (props: CardHeaderProps) => {
   const ctx = React.useContext(IdContext)
 
   const style = `
-    px-6
-    first:pt-6
-    last:pb-6
-    py-3
     text-base
     font-medium
+    first:pt-4
+    last:pb-4
+    px-6
   `
 
   return (
@@ -67,11 +83,10 @@ export const CardBody = (props: CardBodyProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    px-6
-    first:pt-6
-    last:pb-6
-    pb-3
     text-base-sm
+    first:pt-4
+    last:pb-4
+    px-6
   `
 
   return (
@@ -88,10 +103,10 @@ export const CardFooter = (props: CardFooterProps) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    px-6
-    first:pt-6
-    last:pb-6
     text-base-sm
+    first:pt-4
+    last:pb-4
+    px-6
   `
 
   return (

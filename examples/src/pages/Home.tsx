@@ -13,6 +13,7 @@ import {
   Ol,
   Ul,
   Card,
+  CardImg,
   CardHeader,
   CardBody,
   CardFooter,
@@ -108,7 +109,7 @@ const Home = () => {
           </Tbody>
         </Table>
       </div>
-      <div className="w-1/3 my-4">
+      <div className="w-1/3">
         <H2>Card</H2>
         <Card>
           <CardBody>
@@ -118,8 +119,13 @@ const Home = () => {
           </CardBody>
         </Card>
         <Card>
-          <CardHeader>XXXxxx</CardHeader>
-          <CardBody>XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
+          <CardImg src="bg-mt.webp" className="h-48 w-full" />
+          <CardHeader>Header: XXXxxx</CardHeader>
+          <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
+        </Card>
+        <Card>
+          <CardHeader>Header: XXXxxx</CardHeader>
+          <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
         </Card>
       </div>
       <div className="w-1/3 my-4">
@@ -135,7 +141,7 @@ const Home = () => {
           <img src="bg-mt.webp" className="object-cover h-48 w-full" />
           <CardHeader>Header:XXXxxx</CardHeader>
           <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
-          <CardFooter className="">
+          <CardFooter>
             <Button variant="secondary" className="w-full mb-2">
               Button1
             </Button>
