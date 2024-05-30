@@ -43,15 +43,13 @@ export const Card = (props: CardProps) => {
 export interface CardImgProps extends React.ComponentPropsWithoutRef<'img'> {}
 
 export const CardImg = (props: CardImgProps) => {
-  const { className, children, ...restProps } = props
-
-  const ctx = React.useContext(IdContext)
+  const { className, ...restProps } = props
 
   const style = `
     object-cover
   `
 
-  return <img id={ctx.id} className={cx(style, className)} {...restProps} />
+  return <img className={cx(style, className)} {...restProps} />
 }
 
 export interface CardHeaderProps
