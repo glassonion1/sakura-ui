@@ -1,11 +1,17 @@
 import { cx } from '../libs/cx'
 import { ComponentWithAs } from '../types/component'
 import { forwardRef } from '../libs/forward-ref'
-import { base, getVariantStyle, getSizeStyle } from './buttonStyle'
+import {
+  type ButtonVariant,
+  type ButtonSize,
+  base,
+  getVariantStyle,
+  getSizeStyle
+} from './buttonStyle'
 
 export interface ButtonProps {
-  variant?: 'primary' | 'secondary'
-  size?: 'lg' | 'md' | 'sm' | 'xs'
+  variant?: ButtonVariant
+  size?: ButtonSize
 }
 
 export const Button: ComponentWithAs<'button', ButtonProps> = forwardRef(

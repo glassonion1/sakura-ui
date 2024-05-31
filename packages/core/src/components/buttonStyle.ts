@@ -1,3 +1,6 @@
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs'
+
 export const base = `
   inline-block
   text-button
@@ -39,18 +42,25 @@ const secondary = `
   disabled:bg-transparent
 `
 
-const styles: { [key: string]: string } = {
+const tertiary = `
+    bg-transparent
+    text-blue-900
+    underline
+    hover:bg-blue-200
+    hover:text-blue-1000
+    active:bg-blue-300
+    active:text-blue-1200
+    disabled:bg-transparent
+    disabled:text-solid-grey-420
+  `
+
+const styles: { [key in ButtonVariant]: string } = {
   primary: primary,
-  secondary: secondary
+  secondary: secondary,
+  tertiary: tertiary
 }
 
-export const getVariantStyle = (variant: 'primary' | 'secondary') => {
-  return styles[variant]
-}
-
-const params: {
-  [key: string]: string
-} = {
+const params: { [key in ButtonSize]: string } = {
   lg: `
     p-4
     text-button
@@ -79,6 +89,10 @@ const params: {
   `
 }
 
-export const getSizeStyle = (size: 'lg' | 'md' | 'sm' | 'xs') => {
+export const getVariantStyle = (variant: ButtonVariant) => {
+  return styles[variant]
+}
+
+export const getSizeStyle = (size: ButtonSize) => {
   return params[size]
 }
