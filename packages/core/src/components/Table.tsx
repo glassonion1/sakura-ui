@@ -72,7 +72,7 @@ export const Th = (props: ThProps) => {
   const style = `
     p-2
     bg-[#f8f8fb]
-    text-base
+    text-label
     text-left
   `
   return (
@@ -103,6 +103,7 @@ export const Td = (props: TdProps) => {
 
   const style = `
     p-2
+    text-label
   `
 
   return (

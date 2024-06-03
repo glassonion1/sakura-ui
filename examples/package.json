@@ -8,9 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/config": "^0.1.10",
-    "@sakura-ui/core": "^0.1.36",
-    "@sakura-ui/forms": "^0.1.12",
+    "@sakura-ui/core": "file:../packages/core",
+    "@sakura-ui/forms": "file:../packages/forms",
+    "@sakura-ui/tailwind-theme-plugin": "file:../packages/tailwind-theme-plugin",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1"

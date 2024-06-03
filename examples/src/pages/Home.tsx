@@ -24,9 +24,8 @@ import {
   Tbody,
   Tr,
   Th,
-  Td
-} from '@sakura-ui/core'
-//from '../../../packages/core/src'
+  Td //from '@sakura-ui/core'
+} from '../../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,

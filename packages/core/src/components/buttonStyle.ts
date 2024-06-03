@@ -23,12 +23,12 @@ export const base = `
 `
 
 const primary = `
-  text-white-1000
+  text-white
   bg-sea-800
   active:bg-sea-1200
   hover:bg-sea-900
   disabled:bg-sumi-500
-  disabled:text-white-1000
+  disabled:text-white
 `
 
 const secondary = `
@@ -43,16 +43,16 @@ const secondary = `
 `
 
 const tertiary = `
-    bg-transparent
-    text-blue-900
-    underline
-    hover:bg-blue-200
-    hover:text-blue-1000
-    active:bg-blue-300
-    active:text-blue-1200
-    disabled:bg-transparent
-    disabled:text-solid-grey-420
-  `
+  bg-transparent
+  text-blue-900
+  underline
+  hover:bg-blue-200
+  hover:text-blue-1000
+  active:bg-blue-300
+  active:text-blue-1200
+  disabled:bg-transparent
+  disabled:text-solid-grey-420
+`
 
 const styles: { [key in ButtonVariant]: string } = {
   primary: primary,
@@ -61,30 +61,36 @@ const styles: { [key in ButtonVariant]: string } = {
 }
 
 const params: { [key in ButtonSize]: string } = {
+  // 16(p-4) * 2 + 22(text-button * leading-snug) + boader * 2 = 56px
   lg: `
     p-4
     text-button
     rounded-lg
+    leading-snug
   `,
+  // 12(py-3) * 2 + 22(text-button * leading-snug) + boader * 2 = 48px
   md: `
     px-4
     py-3
     text-button
     rounded-lg
+    leading-snug
   `,
+  // 6(py-1.5) * 2 + 22(text-button * leading-snug) + boader * 2 = 36px
   sm: `
     px-3
     py-1.5
     my-1
     text-button
     rounded-md
+    leading-snug
   `,
+  // 6(py-1.5) * 2 + 14(text-button-sm) + boader * 2 = 28p
   xs: `
     px-2
-    py-[7px]
+    py-1.5
     my-2
     text-button-sm
-    !leading-[14px]
     rounded
   `
 }

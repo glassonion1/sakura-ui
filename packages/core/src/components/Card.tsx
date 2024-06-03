@@ -47,6 +47,7 @@ export const CardImg = (props: CardImgProps) => {
 
   const style = `
     object-cover
+    mb-2
   `
 
   return <img className={cx(style, className)} {...restProps} />
@@ -63,6 +64,7 @@ export const CardHeader = (props: CardHeaderProps) => {
   const style = `
     text-base
     font-medium
+    first:pt-4
     last:pb-4
     px-6
   `
