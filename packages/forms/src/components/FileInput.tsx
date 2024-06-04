@@ -6,7 +6,7 @@ export interface FileInputProps extends React.ComponentPropsWithRef<'input'> {}
 
 export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   (props, ref) => {
-    const { className, ...restProps } = props
+    const { id, className, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
       restProps.required = true
@@ -46,9 +46,10 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       file:rounded-lg
     `
     const styleInput = `
+      text-label
+      text-sumi-900
       rounded-lg
       outline-offset-2
-      text-sumi-900
       focus:outline
       focus:outline-2
       focus:outline-wood-600
@@ -58,7 +59,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
     return (
       <input
         type="file"
-        id={restProps.id ?? ctx.id}
+        id={id || ctx.id}
         className={cx(base, secondary, styleLg, styleInput, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}

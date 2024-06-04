@@ -6,7 +6,7 @@ export interface SelectProps extends React.ComponentPropsWithRef<'select'> {}
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref) => {
-    const { className, children, ...restProps } = props
+    const { id, className, children, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
       restProps.required = true
@@ -16,9 +16,9 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       peer
       cursor-pointer
       appearance-none
-      text-base
+      text-label
       w-full
-      bg-white-100
+      bg-white
       border
       border-solid
       border-sumi-900
@@ -45,7 +45,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <label className="inline-block relative">
         <select
-          id={restProps.id ?? ctx.id}
+          id={id || ctx.id}
           className={cx(style, props.className)}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}

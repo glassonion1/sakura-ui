@@ -17,7 +17,6 @@ export {
   H6,
   Icon,
   IconButton,
-  InfoCard,
   Link,
   Ol,
   Ul,

@@ -62,7 +62,7 @@ export const FieldsetControl = React.forwardRef<
           <p
             id={context.errorMessageId}
             className={cx(
-              'text-sup text-sun-800',
+              'text-label text-sun-800',
               helperText ? 'mt-1' : 'mt-2'
             )}
           >

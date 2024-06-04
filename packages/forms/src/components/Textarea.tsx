@@ -7,7 +7,7 @@ export interface TextareaProps
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
-    const { className, children, onChange, maxLength, ...restProps } = props
+    const { id, className, children, onChange, maxLength, ...restProps } = props
 
     const [count, setCount] = React.useState(0)
 
@@ -27,6 +27,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     const style = `
       p-4
+      text-label
       rounded-lg
       border
       border-solid
@@ -44,7 +45,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <>
         <textarea
-          id={restProps.id ?? ctx.id}
+          id={id || ctx.id}
           className={cx(style, className)}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
@@ -57,7 +58,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           {children}
         </textarea>
         {maxLength ? (
-          <p className="text-sup text-sumi-700">
+          <p className="text-label text-sumi-700">
             <span className={overtextStyle}>{count}</span>/
             <span>{maxLength}</span>
           </p>

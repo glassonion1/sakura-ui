@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { H1, Button } from '@sakura-ui/core'
 //from '../../../packages/core/src'
 import {
@@ -52,7 +52,7 @@ const Forms = () => {
         <LabelControl
           labelText="Text2"
           helperText="Helper text"
-          isInvalid="true"
+          isInvalid={true}
           errorMessage="error message"
         >
           <Input />
@@ -63,7 +63,7 @@ const Forms = () => {
         >
           <FileInput className="w-96" />
         </LabelControl>
-        <Button tyoe="submit">Submit</Button>
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   )

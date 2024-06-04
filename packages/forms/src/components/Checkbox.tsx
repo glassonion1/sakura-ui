@@ -6,7 +6,8 @@ export interface CheckboxProps extends React.ComponentPropsWithRef<'input'> {}
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
-    const { className, children, ...restProps } = props
+    const { id, className, children, ...restProps } = props
+    const checkboxId = id || React.useId()
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
       restProps.required = true
@@ -17,7 +18,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     const style = `
       inline-block
-      text-base
+      text-label
       cursor-pointer
       py-2
       mr-4
@@ -38,7 +39,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       border-solid
       border-sumi-900
       fill-transparent
-      peer-checked:fill-white-1000
+      peer-checked:fill-white
       peer-checked:bg-sea-600
       peer-checked:border-none
       peer-disabled:border-sumi-500
@@ -48,9 +49,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     `
 
     return (
-      <label htmlFor={restProps.id} className={cx(style, className)}>
+      <label htmlFor={checkboxId} className={cx(style, className)}>
         <span className="flex items-center">
           <input
+            id={checkboxId}
             className={styleInput}
             type="checkbox"
             aria-describedby={ctx.helperTextId}

@@ -27,6 +27,3 @@ export type {
   TrProps,
   TdProps
 } from './Table'
-
-/** @deprecated use Card instead */
-export { InfoCard } from './InfoCard'

@@ -6,7 +6,7 @@ export interface InputProps extends React.ComponentPropsWithRef<'input'> {}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
-    const { className, ...restProps } = props
+    const { id, className, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
       restProps.required = true
@@ -14,6 +14,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const style = `
       p-4
+      text-label
       rounded-lg
       border
       border-solid
@@ -31,7 +32,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         type="text"
-        id={restProps.id ?? ctx.id}
+        id={id || ctx.id}
         className={cx(style, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}

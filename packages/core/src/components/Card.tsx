@@ -7,7 +7,7 @@ interface IdContextType {
 
 const IdContext = React.createContext<IdContextType>({ id: '' })
 
-export interface CardProps extends React.ComponentPropsWithoutRef<'section'> {}
+export interface CardProps extends React.ComponentPropsWithoutRef<'article'> {}
 
 export const Card = (props: CardProps) => {
   const { className, children, ...restProps } = props
@@ -29,13 +29,14 @@ export const Card = (props: CardProps) => {
 
   return (
     <IdContext.Provider value={ctx}>
-      <section
+      <article
         aria-labelledby={ctx.id}
+        aria-describedby={`${ctx.id}-desc`}
         className={cx(style, className)}
         {...restProps}
       >
         {children}
-      </section>
+      </article>
     </IdContext.Provider>
   )
 }
@@ -81,6 +82,8 @@ export interface CardBodyProps extends React.ComponentPropsWithoutRef<'div'> {}
 export const CardBody = (props: CardBodyProps) => {
   const { className, children, ...restProps } = props
 
+  const ctx = React.useContext(IdContext)
+
   const style = `
     text-base-sm
     first:pt-4
@@ -89,7 +92,7 @@ export const CardBody = (props: CardBodyProps) => {
   `
 
   return (
-    <div className={cx(style, className)} {...restProps}>
+    <div id={`${ctx.id}-desc`} className={cx(style, className)} {...restProps}>
       {children}
     </div>
   )
