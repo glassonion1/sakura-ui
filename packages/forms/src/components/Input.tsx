@@ -1,21 +1,22 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
+import { InputSize, sizeStyles } from './inputStyle'
 
-export interface InputProps extends React.ComponentPropsWithRef<'input'> {}
+export interface InputProps
+  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+  size?: InputSize
+}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
-    const { id, className, ...restProps } = props
+    const { id, className, size = 'lg', ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
       restProps.required = true
     }
 
     const style = `
-      p-4
-      text-label
-      rounded-lg
       border
       border-solid
       border-sumi-900
@@ -33,7 +34,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type="text"
         id={id || ctx.id}
-        className={cx(style, className)}
+        className={cx(style, sizeStyles[size], className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}

@@ -28,7 +28,7 @@ import React, {
 } from 'react'
 import type { As, ComponentWithAs, RightJoinProps } from '../types/component'
 
-export function forwardRef<Props extends object, Component extends As>(
+export function forwardRef<Component extends As, Props extends object>(
   component: React.ForwardRefRenderFunction<
     // biome-ignore lint/suspicious/noExplicitAny:
     any,

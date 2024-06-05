@@ -24,6 +24,26 @@ const Forms = () => {
             <option value="3">Select value3</option>
           </Select>
         </LabelControl>
+        <LabelControl
+          labelText="Select(md) with helper"
+          helperText="Helper text"
+        >
+          <Select size="md">
+            <option value="1">Select value1</option>
+            <option value="2">Select value2</option>
+            <option value="3">Select value3</option>
+          </Select>
+        </LabelControl>
+        <LabelControl
+          labelText="Select(sm) with helper"
+          helperText="Helper text"
+        >
+          <Select size="sm">
+            <option value="1">Select value1</option>
+            <option value="2">Select value2</option>
+            <option value="3">Select value3</option>
+          </Select>
+        </LabelControl>
         <FieldsetControl labelText="Radio">
           <Radio className="block" value={0}>
             Radio1
@@ -48,6 +68,12 @@ const Forms = () => {
         />
         <LabelControl labelText="Text" helperText="Helper text">
           <Input />
+        </LabelControl>
+        <LabelControl labelText="Text(md)" helperText="Helper text">
+          <Input size="md" />
+        </LabelControl>
+        <LabelControl labelText="Text(sm)" helperText="Helper text">
+          <Input size="sm" />
         </LabelControl>
         <LabelControl
           labelText="Text2"

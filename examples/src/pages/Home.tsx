@@ -481,6 +481,29 @@ const Home = () => {
             </Select>
           </LabelControl>
         </div>
+        <div className="flex space-x-4">
+          <LabelControl labelText="Select(size=lg)">
+            <Select>
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
+            </Select>
+          </LabelControl>
+          <LabelControl labelText="Select(size=md)">
+            <Select size="md">
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
+            </Select>
+          </LabelControl>
+          <LabelControl labelText="Select(size=sm)">
+            <Select size="sm">
+              <option value="1">Select value1</option>
+              <option value="2">Select value2</option>
+              <option value="3">Select value3</option>
+            </Select>
+          </LabelControl>
+        </div>
         <FieldsetControl labelText="Radio">
           <Radio className="block" value={0}>
             Radio1
@@ -492,7 +515,10 @@ const Home = () => {
             Radio3
           </Radio>
         </FieldsetControl>
-        <FieldsetControl direction="flex-row" labelText="Radio flex-row">
+        <FieldsetControl
+          direction="flex-row"
+          labelText="Radio(size=lg) flex-row"
+        >
           <Radio className="block" value={0}>
             Radio1
           </Radio>
@@ -503,6 +529,69 @@ const Home = () => {
             Radio3
           </Radio>
         </FieldsetControl>
+        <FieldsetControl
+          direction="flex-row"
+          labelText="Radio(size=md) flex-row"
+        >
+          <Radio size="md" className="block" value={0}>
+            Radio1
+          </Radio>
+          <Radio size="md" className="block" value={1}>
+            Radio2
+          </Radio>
+          <Radio size="md" className="block" value={2}>
+            Radio3
+          </Radio>
+        </FieldsetControl>
+        <FieldsetControl
+          direction="flex-row"
+          labelText="Radio(size=sm) flex-row"
+        >
+          <Radio size="sm" className="block" value={0}>
+            Radio1
+          </Radio>
+          <Radio size="sm" className="block" value={1}>
+            Radio2
+          </Radio>
+          <Radio size="sm" className="block" value={2}>
+            Radio3
+          </Radio>
+        </FieldsetControl>
+        <div className="flex gap-6">
+          <FieldsetControl labelText="Radio(size=lg)">
+            <Radio className="block" value={0}>
+              Radio1
+            </Radio>
+            <Radio className="block" value={1}>
+              Radio2
+            </Radio>
+            <Radio className="block" value={2}>
+              Radio3
+            </Radio>
+          </FieldsetControl>
+          <FieldsetControl labelText="Radio(size=md)">
+            <Radio size="md" className="block" value={0}>
+              Radio1
+            </Radio>
+            <Radio size="md" className="block" value={1}>
+              Radio2
+            </Radio>
+            <Radio size="md" className="block" value={2}>
+              Radio3
+            </Radio>
+          </FieldsetControl>
+          <FieldsetControl labelText="Radio(size=sm)">
+            <Radio size="sm" className="block" value={0}>
+              Radio1
+            </Radio>
+            <Radio size="sm" className="block" value={1}>
+              Radio2
+            </Radio>
+            <Radio size="sm" className="block" value={2}>
+              Radio3
+            </Radio>
+          </FieldsetControl>
+        </div>
         <RadioGroup
           labelText="Radio group"
           items={[
@@ -515,6 +604,83 @@ const Home = () => {
             console.log(e.target.value)
           }
         />
+        <FieldsetControl
+          direction="flex-row"
+          labelText="Checkbox(size=lg) flex-row"
+        >
+          <Checkbox className="block" value={0}>
+            Checkbox1
+          </Checkbox>
+          <Checkbox className="block" value={1}>
+            Checkbox2
+          </Checkbox>
+          <Checkbox className="block" value={2}>
+            Checkbox3
+          </Checkbox>
+        </FieldsetControl>
+        <FieldsetControl
+          direction="flex-row"
+          labelText="Checkbox(size=md) flex-row"
+        >
+          <Checkbox size="md" className="block" value={0}>
+            Checkbox1
+          </Checkbox>
+          <Checkbox size="md" className="block" value={1}>
+            Checkbox2
+          </Checkbox>
+          <Checkbox size="md" className="block" value={2}>
+            Checkbox3
+          </Checkbox>
+        </FieldsetControl>
+        <FieldsetControl
+          direction="flex-row"
+          labelText="Checkbox(size=sm) flex-row"
+        >
+          <Checkbox size="sm" className="block" value={0}>
+            Checkbox1
+          </Checkbox>
+          <Checkbox size="sm" className="block" value={1}>
+            Checkbox2
+          </Checkbox>
+          <Checkbox size="sm" className="block" value={2}>
+            Checkbox3
+          </Checkbox>
+        </FieldsetControl>
+        <div className="flex gap-6">
+          <FieldsetControl labelText="Checkbox(size=lg)">
+            <Checkbox className="block" value={0}>
+              Checkbox1
+            </Checkbox>
+            <Checkbox className="block" value={1}>
+              Checkbox2
+            </Checkbox>
+            <Checkbox className="block" value={2}>
+              Checkbox3
+            </Checkbox>
+          </FieldsetControl>
+          <FieldsetControl labelText="Checkbox(size=md)">
+            <Checkbox size="md" className="block" value={0}>
+              Checkbox1
+            </Checkbox>
+            <Checkbox size="md" className="block" value={1}>
+              Checkbox2
+            </Checkbox>
+            <Checkbox size="md" className="block" value={2}>
+              Checkbox3
+            </Checkbox>
+          </FieldsetControl>
+          <FieldsetControl labelText="Checkbox(size=sm)">
+            <Checkbox size="sm" className="block" value={0}>
+              Checkbox1
+            </Checkbox>
+            <Checkbox size="sm" className="block" value={1}>
+              Checkbox2
+            </Checkbox>
+            <Checkbox size="sm" className="block" value={2}>
+              Checkbox3
+            </Checkbox>
+          </FieldsetControl>
+        </div>
         <CheckboxGroup
           labelText="Checkbox group"
           items={[
@@ -552,6 +718,17 @@ const Home = () => {
             errorMessage="Error message"
           >
             <Input />
+          </LabelControl>
+        </div>
+        <div className="flex space-x-4">
+          <LabelControl labelText="Text(size=lg)">
+            <Input />
+          </LabelControl>
+          <LabelControl labelText="Text(size=md)">
+            <Input size="md" />
+          </LabelControl>
+          <LabelControl labelText="Text(size=sm)">
+            <Input size="sm" />
           </LabelControl>
         </div>
         <div className="flex space-x-4">

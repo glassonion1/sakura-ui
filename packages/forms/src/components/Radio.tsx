@@ -1,12 +1,16 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
+import { InputSize } from './inputStyle'
 
-export interface RadioProps extends React.ComponentPropsWithRef<'input'> {}
+export interface RadioProps
+  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+  size?: InputSize
+}
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   (props, ref) => {
-    const { id, className, children, ...restProps } = props
+    const { id, className, size = 'lg', children, ...restProps } = props
     const radioId = id || React.useId()
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
@@ -16,12 +20,28 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       restProps.name = ctx.groupName
     }
 
+    const spaces: { [key in InputSize]: string } = {
+      lg: 'py-2 mr-4',
+      md: 'py-1.5 mr-3',
+      sm: 'py-1 mr-1.5'
+    }
+
+    const radioSpaces: { [key in InputSize]: string } = {
+      lg: 'mr-2',
+      md: 'mr-1',
+      sm: 'mr-1'
+    }
+
+    const iconSizes: { [key in InputSize]: string } = {
+      lg: 'w-6 h-6',
+      md: 'w-5 h-5',
+      sm: 'w-5 h-5'
+    }
+
     const style = `
       inline-block
       text-label
       cursor-pointer
-      py-2
-      mr-4
     `
 
     const styleInput = `
@@ -31,9 +51,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const styleRadio = `
       bg-clip-content
-      w-6 h-6
       ml-1
-      mr-2
       p-1
       rounded-full
       border
@@ -48,7 +66,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     `
 
     return (
-      <label htmlFor={radioId} className={cx(style, className)}>
+      <label htmlFor={radioId} className={cx(style, spaces[size], className)}>
         <span className="flex items-center">
           <input
             id={radioId}
@@ -61,7 +79,10 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             {...restProps}
             ref={ref}
           />
-          <span className={styleRadio}></span>
+          <span
+            aria-hidden={true}
+            className={cx(styleRadio, radioSpaces[size], iconSizes[size])}
+          />
           <span className="peer-disabled:text-sumi-500">{children}</span>
         </span>
       </label>

@@ -1,12 +1,16 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
+import { InputSize } from './inputStyle'
 
-export interface CheckboxProps extends React.ComponentPropsWithRef<'input'> {}
+export interface CheckboxProps
+  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+  size?: InputSize
+}
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
-    const { id, className, children, ...restProps } = props
+    const { id, className, size = 'lg', children, ...restProps } = props
     const checkboxId = id || React.useId()
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
@@ -16,12 +20,34 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       restProps.name = ctx.groupName
     }
 
+    const spaces: { [key in InputSize]: string } = {
+      lg: 'py-2 mr-4',
+      md: 'py-1.5 mr-3',
+      sm: 'py-1 mr-1.5'
+    }
+
+    const checkSpaces: { [key in InputSize]: string } = {
+      lg: 'mr-2',
+      md: 'mr-1',
+      sm: 'mr-1'
+    }
+
+    const iconSizes: { [key in InputSize]: string } = {
+      lg: 'w-6 h-6',
+      md: 'w-5 h-5',
+      sm: 'w-5 h-5'
+    }
+
+    const scales: { [key in InputSize]: number } = {
+      lg: 24 / 24,
+      md: 20 / 24,
+      sm: 20 / 24
+    }
+
     const style = `
       inline-block
       text-label
       cursor-pointer
-      py-2
-      mr-4
     `
 
     const styleInput = `
@@ -31,9 +57,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     const styleCheck = `
       bg-clip-content
-      w-6 h-6
       ml-1
-      mr-2
       rounded
       border
       border-solid
@@ -49,7 +73,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     `
 
     return (
-      <label htmlFor={checkboxId} className={cx(style, className)}>
+      <label
+        htmlFor={checkboxId}
+        className={cx(style, spaces[size], className)}
+      >
         <span className="flex items-center">
           <input
             id={checkboxId}
@@ -62,9 +89,18 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {...restProps}
             ref={ref}
           />
-          <span className={styleCheck}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-              <path d="m9.55 17.65-5.325-5.325 1.05-1.075 4.275 4.275 9.175-9.175 1.05 1.075Z" />
+          <span className={cx(styleCheck, iconSizes[size], checkSpaces[size])}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden={true}
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <title>check</title>
+              <g transform={`scale(${scales[size]} ${scales[size]})`}>
+                <path d="m9.55 17.65-5.325-5.325 1.05-1.075 4.275 4.275 9.175-9.175 1.05 1.075Z" />
+              </g>
             </svg>
           </span>
           <span className="peer-disabled:text-sumi-500">{children}</span>

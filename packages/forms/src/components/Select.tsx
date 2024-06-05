@@ -1,29 +1,31 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
+import { InputSize, sizeStyles } from './inputStyle'
 
-export interface SelectProps extends React.ComponentPropsWithRef<'select'> {}
+export interface SelectProps
+  extends Omit<React.ComponentPropsWithRef<'select'>, 'size'> {
+  size?: InputSize
+}
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref) => {
-    const { id, className, children, ...restProps } = props
+    const { id, className, size = 'lg', children, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
       restProps.required = true
     }
 
     const style = `
+      !pr-8
       peer
       cursor-pointer
       appearance-none
-      text-label
       w-full
       bg-white
       border
       border-solid
       border-sumi-900
-      py-4 px-4 pr-8
-      rounded-[8px]
       outline-offset-2
       focus:outline
       focus:outline-2
@@ -35,18 +37,20 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     `
 
     const styleArrow = `
-      flex items-center
-      absolute inset-y-0 right-0
-      px-2
       pointer-events-none
-      peer-disabled:fill-sumi-500
+      absolute
+      right-4
+      top-1/2
+      -translate-y-1/2
+      text-sumi-900
+      peer-disabled:text-sumi-500
     `
 
     return (
-      <label className="inline-block relative">
+      <div className="inline-block relative">
         <select
           id={id || ctx.id}
-          className={cx(style, props.className)}
+          className={cx(style, sizeStyles[size], props.className)}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
           aria-invalid={ctx.isInvalid ?? false}
@@ -56,12 +60,22 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         >
           {children}
         </select>
-        <span className={styleArrow}>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-            <path d="M12 15.05 6.35 9.4 7.4 8.35l4.6 4.6 4.6-4.6 1.05 1.05Z" />
-          </svg>
-        </span>
-      </label>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden={true}
+          className={styleArrow}
+          fill="none"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+        >
+          <title>arrow down</title>
+          <path
+            d="M12 15.05 6.35 9.4 7.4 8.35l4.6 4.6 4.6-4.6 1.05 1.05Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
     )
   }
 )

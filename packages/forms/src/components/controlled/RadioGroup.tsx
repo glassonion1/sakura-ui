@@ -1,7 +1,7 @@
 import React from 'react'
 import { Radio } from '../Radio'
 import { FieldsetControl } from '../FieldsetControl'
-import { InputItem } from './InputItem'
+import type { InputItem } from './InputItem'
 
 export interface RadioGroupProps
   extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {

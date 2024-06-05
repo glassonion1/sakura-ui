@@ -1,7 +1,7 @@
 import React from 'react'
 import { Checkbox } from '../Checkbox'
 import { FieldsetControl } from '../FieldsetControl'
-import { InputItem } from './InputItem'
+import type { InputItem } from './InputItem'
 
 export interface CheckboxGroupProps
   extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {

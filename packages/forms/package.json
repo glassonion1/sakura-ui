@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "lint": "run-s lint:*",
-    "lint:eslint": "eslint . --ext .ts,.tsx --fix",
+    "lint:lint": "biome lint ./",
     "lint:prettier": "prettier --write --ignore-path .gitignore './src/*.ts'",
     "prebuild": "rimraf dist",
     "build": "run-p build:*",

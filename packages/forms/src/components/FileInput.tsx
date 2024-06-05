@@ -44,6 +44,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       file:p-4
       file:text-button
       file:rounded-lg
+      file:leading-snug
     `
     const styleInput = `
       text-label
