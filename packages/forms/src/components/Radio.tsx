@@ -21,9 +21,9 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     }
 
     const spaces: { [key in InputSize]: string } = {
-      lg: 'py-2 mr-4',
-      md: 'py-1.5 mr-3',
-      sm: 'py-1 mr-1.5'
+      lg: 'py-4 mr-6',
+      md: 'py-3 mr-4',
+      sm: 'py-2 mr-2'
     }
 
     const radioSpaces: { [key in InputSize]: string } = {
