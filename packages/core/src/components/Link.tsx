@@ -1,26 +1,17 @@
 import { cx } from '../libs/cx'
-import { ComponentWithAs } from '../types/component'
+import type { ComponentWithAs } from '../types/component'
 import { forwardRef } from '../libs/forward-ref'
 
-export interface LinkProps {}
+export const Link: ComponentWithAs<'a'> = forwardRef((props, ref) => {
+  const { as: Component = 'a', href, className, children, ...restProps } = props
 
-export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
-  (props, ref) => {
-    const {
-      as: Component = 'a',
-      href,
-      className,
-      children,
-      ...restProps
-    } = props
-
-    const styleUnderLine = `
+  const styleUnderLine = `
       underline
       underline-offset-[0.125em]
     `
 
-    // Make lines break at each word
-    const style = `
+  // Make lines break at each word
+  const style = `
       rounded-sm
       cursor-pointer
       text-sea-600
@@ -34,7 +25,7 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       [overflow-wrap:anywhere]
     `
 
-    const styleIcon = `
+  const styleIcon = `
       align-middle
       ml-0.5
       text-sumi-700
@@ -44,35 +35,34 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       antialiased
     `
 
-    if (href?.startsWith('http')) {
-      return (
-        <Component
-          className={cx(style, className)}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...restProps}
-          ref={ref}
-        >
-          <span className={styleUnderLine}>{children}</span>
-          <span className={cx(styleIcon)} aria-hidden="true">
-            open_in_new
-          </span>
-          <span className="sr-only">Opens in new tab</span>
-        </Component>
-      )
-    }
+  if (href?.startsWith('http')) {
     return (
       <Component
-        className={cx(style, styleUnderLine, className)}
+        className={cx(style, className)}
         href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         {...restProps}
         ref={ref}
       >
-        {children}
+        <span className={styleUnderLine}>{children}</span>
+        <span className={cx(styleIcon)} aria-hidden="true">
+          open_in_new
+        </span>
+        <span className="sr-only">Opens in new tab</span>
       </Component>
     )
   }
-)
+  return (
+    <Component
+      className={cx(style, styleUnderLine, className)}
+      href={href}
+      {...restProps}
+      ref={ref}
+    >
+      {children}
+    </Component>
+  )
+})
 
 Link.displayName = 'Link'

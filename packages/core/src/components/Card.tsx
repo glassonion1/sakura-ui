@@ -51,6 +51,7 @@ export const CardImg = (props: CardImgProps) => {
     mb-2
   `
 
+  // biome-ignore lint/a11y/useAltText: things to check on the user side
   return <img className={cx(style, className)} {...restProps} />
 }
 

@@ -1,5 +1,5 @@
 import { cx } from '../libs/cx'
-import { ComponentWithAs } from '../types/component'
+import type { ComponentWithAs } from '../types/component'
 import { forwardRef } from '../libs/forward-ref'
 import { base, getVariantStyle, getSizeStyle } from './buttonStyle'
 
@@ -25,7 +25,7 @@ export const IconButton: ComponentWithAs<'button', IconButtonProps> =
       ...restProps
     } = props
 
-    const styleFontSize = `${size === 'xs' ? `scale-105` : `scale-125`}`
+    const styleFontSize = `${size === 'xs' ? 'scale-105' : 'scale-125'}`
 
     const styleIcon = `
       inline-block
@@ -37,10 +37,10 @@ export const IconButton: ComponentWithAs<'button', IconButtonProps> =
       antialiased
     `
 
-    const styleRounded = `${rounded ? `aspect-square !rounded-full !py-0` : ''}`
+    const styleRounded = `${rounded ? 'aspect-square !rounded-full !py-0' : ''}`
 
     // When text is specified on a button, set the 'aria-hidden' attribute of the icon to true.
-    const ariaHidden = children ? true : false
+    const ariaHidden = !!children
 
     return (
       <Component
@@ -54,7 +54,7 @@ export const IconButton: ComponentWithAs<'button', IconButtonProps> =
         {...restProps}
         ref={ref}
       >
-        {iconLayout == 'left' && (
+        {iconLayout === 'left' && (
           <span
             className={cx(styleIcon, styleFontSize)}
             aria-hidden={ariaHidden}
@@ -63,7 +63,7 @@ export const IconButton: ComponentWithAs<'button', IconButtonProps> =
           </span>
         )}
         {children && <span className="mx-1">{children}</span>}
-        {iconLayout == 'right' && (
+        {iconLayout === 'right' && (
           <span
             className={cx(styleIcon, styleFontSize)}
             aria-hidden={ariaHidden}

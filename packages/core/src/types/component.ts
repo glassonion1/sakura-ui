@@ -22,14 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { ComponentProps } from 'react'
+import React, { type ComponentProps } from 'react'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny:
 export type As<Props = any> = React.ElementType<Props>
 
 export type OmitCommonProps<
   Target,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny:
   OmitAdditionalProps extends keyof any = never
 > = Omit<Target, 'as' | OmitAdditionalProps>
 
@@ -70,13 +70,14 @@ export type ComponentWithAs<
       Props,
       AsComponent
     >
+    // biome-ignore lint/correctness/noUndeclaredVariables:
   ): JSX.Element
   displayName?: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny:
   propTypes?: React.WeakValidationMap<any>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny:
   contextTypes?: React.ValidationMap<any>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny:
   defaultProps?: Partial<any>
   id?: string
 }
