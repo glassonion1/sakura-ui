@@ -25,6 +25,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "run-s lint:*",
     "lint:eslint": "biome lint ./",

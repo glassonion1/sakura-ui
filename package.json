@@ -12,6 +12,9 @@
   "files": [
     "packages"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "pnpm --parallel --filter=./packages/* build"
   },
