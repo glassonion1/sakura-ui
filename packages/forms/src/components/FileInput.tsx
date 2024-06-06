@@ -1,12 +1,16 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
+import { InputSize } from './inputStyle'
 
-export interface FileInputProps extends React.ComponentPropsWithRef<'input'> {}
+export interface FileInputProps
+  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+  size?: InputSize
+}
 
 export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   (props, ref) => {
-    const { id, className, ...restProps } = props
+    const { id, className, size = 'lg', ...restProps } = props
     const ctx = React.useContext(ControllerContext)
     if (ctx.isRequired) {
       restProps.required = true
@@ -23,29 +27,24 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       file:whitespace-nowrap
       file:border
       file:border-solid
-      file:border-sea-800
-      file:active:border-sea-1200
-      file:hover:border-sea-900
+      file:border-blue-900
+      file:hover:border-blue-1000
+      file:active:border-blue-1200
       file:disabled:border-sumi-500
       file:disabled:cursor-not-allowed
     `
 
     const secondary = `
-      file:text-sea-800
-      file:bg-transparent
-      file:active:bg-sea-200
-      file:hover:bg-sea-100
+      file:text-sea-900
+      file:hover:text-sea-1000
       file:active:text-sea-1200
-      file:hover:text-sea-900
+      file:bg-transparent
+      file:hover:bg-sea-200
+      file:active:bg-sea-300
       file:disabled:text-sumi-500
       file:disabled:bg-transparent
     `
-    const styleLg = `
-      file:p-4
-      file:text-button
-      file:rounded-lg
-      file:leading-snug
-    `
+
     const styleInput = `
       text-label
       text-sumi-900
@@ -57,11 +56,37 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       aria-invalid:text-sun-800
     `
 
+    const sizeStyles: { [key in InputSize]: string } = {
+      // 16(p-4) * 2 + 22(text-button * leading-snug) + boader * 2 = 56px
+      lg: `
+        file:p-4
+        file:text-button
+        file:rounded-lg
+        file:leading-snug
+      `,
+      // 12(py-3) * 2 + 22(text-button * leading-snug) + boader * 2 = 48px
+      md: `
+        file:px-4
+        file:py-3
+        file:text-button
+        file:rounded-lg
+        file:leading-snug
+      `,
+      // 8(py-2) * 2 + 22(text-button * leading-snug) + boader * 2 = 40px
+      sm: `
+        file:px-3
+        file:py-2
+        file:text-button
+        file:rounded-md
+        file:leading-snug
+      `
+    }
+
     return (
       <input
         type="file"
         id={id || ctx.id}
-        className={cx(base, secondary, styleLg, styleInput, className)}
+        className={cx(base, secondary, sizeStyles[size], styleInput, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
