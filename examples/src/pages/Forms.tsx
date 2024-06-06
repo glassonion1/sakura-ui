@@ -1,6 +1,5 @@
 import React from 'react'
 import { H1, Button } from '@sakura-ui/core'
-//from '../../../packages/core/src'
 import {
   CheckboxGroup,
   Radio,
@@ -10,7 +9,6 @@ import {
   FieldsetControl,
   LabelControl
 } from '@sakura-ui/forms'
-//from '../../../packages/forms/src'
 
 const Forms = () => {
   return (

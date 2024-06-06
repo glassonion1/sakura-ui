@@ -17,17 +17,17 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
 
     const styleUnderLine = `
       underline
-      underline-offset-[0.125em]
+      underline-offset-[0.1875rem]
+      hover:decoration-4
     `
 
     // Make lines break at each word
     const style = `
       rounded-sm
       cursor-pointer
-      text-sea-600
-      hover:text-sea-800
-      active:text-sea-800
-      visited:text-sea-900
+      text-blue-1000
+      active:text-orange-700
+      visited:text-magenta-900
       focus:outline
       focus:outline-2
       focus:outline-wood-500
@@ -36,6 +36,14 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
     `
 
     const styleIcon = `
+      inline
+      align-middle
+      font-icon
+      font-light
+      antialiased
+    `
+
+    const styleIcon2 = `
       align-middle
       ml-0.5
       text-sumi-700
@@ -48,14 +56,14 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
     if (href?.startsWith('http')) {
       return (
         <Component
-          className={cx(style, className)}
+          className={cx(style, styleUnderLine, className)}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           {...restProps}
           ref={ref}
         >
-          <span className={styleUnderLine}>{children}</span>
+          <span>{children}</span>&nbsp;
           <span className={cx(styleIcon)} aria-hidden="true">
             open_in_new
           </span>

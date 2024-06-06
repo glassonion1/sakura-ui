@@ -26,7 +26,6 @@ import {
   Th,
   Td
 } from '@sakura-ui/core'
-//from '../../../packages/core/src'
 import {
   Checkbox,
   CheckboxGroup,
@@ -39,7 +38,6 @@ import {
   FieldsetControl,
   LabelControl
 } from '@sakura-ui/forms'
-//from '../../../packages/forms/src'
 
 const Home = () => {
   const [count, setCount] = useState<number>(0)

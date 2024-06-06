@@ -61,14 +61,14 @@ importers:
   examples:
     dependencies:
       '@sakura-ui/core':
-        specifier: file:../packages/core
+        specifier: file:../packages/core/
         version: file:packages/core(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
       '@sakura-ui/forms':
-        specifier: file:../packages/forms
-        version: file:packages/forms(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
+        specifier: ^0.2.0
+        version: 0.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
       '@sakura-ui/tailwind-theme-plugin':
-        specifier: file:../packages/tailwind-theme-plugin
-        version: file:packages/tailwind-theme-plugin(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
+        specifier: ^0.2.0
+        version: 0.2.0(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -593,15 +593,15 @@ packages:
       react-dom: ^18.2.0
       tailwindcss: ^3.2.7
 
-  '@sakura-ui/forms@file:packages/forms':
-    resolution: {directory: packages/forms, type: directory}
+  '@sakura-ui/forms@0.2.0':
+    resolution: {integrity: sha512-WTWAYdLtkrpucFXzi3Tlk+L30TObW6ZBc+OQ1Ms+y82UeSpRZZdsL8bfj4yQJBdAA0+A1JtprJegwQ0ZKPZjxA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
       tailwindcss: ^3.2.7
 
-  '@sakura-ui/tailwind-theme-plugin@file:packages/tailwind-theme-plugin':
-    resolution: {directory: packages/tailwind-theme-plugin, type: directory}
+  '@sakura-ui/tailwind-theme-plugin@0.2.0':
+    resolution: {integrity: sha512-jHFdsfZPzaczmOUe+zgijLhMhOjnNoOPZalhf/6M2KWaORatcJFHpD+a0oWWT57p/zvc7JMQt60eSMMQbc9lAw==}
     peerDependencies:
       tailwindcss: ^3.2.7
 
@@ -2231,22 +2231,18 @@ snapshots:
 
   '@sakura-ui/core@file:packages/core(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))':
     dependencies:
-      '@sakura-ui/sakura-ui': 'link:'
-      examples: link:examples
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tailwindcss: 3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5))
 
-  '@sakura-ui/forms@file:packages/forms(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))':
+  '@sakura-ui/forms@0.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))':
     dependencies:
-      '@sakura-ui/sakura-ui': 'link:'
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tailwindcss: 3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5))
 
-  '@sakura-ui/tailwind-theme-plugin@file:packages/tailwind-theme-plugin(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))':
+  '@sakura-ui/tailwind-theme-plugin@0.2.0(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))':
     dependencies:
-      '@sakura-ui/sakura-ui': 'link:'
       tailwindcss: 3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5))
 
   '@sinclair/typebox@0.27.8': {}

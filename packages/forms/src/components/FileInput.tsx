@@ -23,20 +23,20 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       file:whitespace-nowrap
       file:border
       file:border-solid
-      file:border-sea-800
-      file:active:border-sea-1200
-      file:hover:border-sea-900
+      file:border-blue-900
+      file:hover:border-blue-1000
+      file:active:border-blue-1200
       file:disabled:border-sumi-500
       file:disabled:cursor-not-allowed
     `
 
     const secondary = `
-      file:text-sea-800
-      file:bg-transparent
-      file:active:bg-sea-200
-      file:hover:bg-sea-100
+      file:text-sea-900
+      file:hover:text-sea-1000
       file:active:text-sea-1200
-      file:hover:text-sea-900
+      file:bg-transparent
+      file:hover:bg-sea-200
+      file:active:bg-sea-300
       file:disabled:text-sumi-500
       file:disabled:bg-transparent
     `

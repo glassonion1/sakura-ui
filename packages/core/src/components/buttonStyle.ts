@@ -12,9 +12,9 @@ export const base = `
   outline-offset-2
   border
   border-solid
-  border-sea-800
-  active:border-sea-1200
-  hover:border-sea-900
+  border-blue-900
+  hover:border-blue-1000
+  active:border-blue-1200
   focus:outline
   focus:outline-2
   focus:outline-wood-600
@@ -24,20 +24,20 @@ export const base = `
 
 const primary = `
   text-white
-  bg-sea-800
-  active:bg-sea-1200
-  hover:bg-sea-900
+  bg-blue-900
+  hover:bg-blue-1000
+  active:bg-blue-1200
   disabled:bg-sumi-500
   disabled:text-white
 `
 
 const secondary = `
-  text-sea-800
+  text-blue-900
+  hover:text-blue-1000
+  active:text-blue-1200
   bg-transparent
-  active:bg-sea-200
-  hover:bg-sea-100
-  active:text-sea-1200
-  hover:text-sea-900
+  hover:bg-blue-200
+  active:bg-blue-300
   disabled:text-sumi-500
   disabled:bg-transparent
 `
@@ -45,13 +45,13 @@ const secondary = `
 const tertiary = `
   bg-transparent
   text-blue-900
+  hover:text-blue-1000
+  active:text-blue-1200
   underline
   hover:bg-blue-200
-  hover:text-blue-1000
   active:bg-blue-300
-  active:text-blue-1200
   disabled:bg-transparent
-  disabled:text-solid-grey-420
+  disabled:text-sumi-500
 `
 
 const styles: { [key in ButtonVariant]: string } = {
