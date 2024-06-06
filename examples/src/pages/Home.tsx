@@ -116,6 +116,16 @@ const Home = () => {
             XXXXXxxxxxxxxxxxxxXXX
           </CardBody>
         </Card>
+        <Card className="flex justify-between items-center">
+          <span>
+            <CardHeader>xxxXXX</CardHeader>
+            <CardBody>xxxxxxxxXXX</CardBody>
+          </span>
+          <Icon
+            className="text-base-sm !font-medium mr-6"
+            icon="arrow_forward"
+          />
+        </Card>
         <Card>
           <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header: XXXxxx</CardHeader>
@@ -149,8 +159,8 @@ const Home = () => {
           </CardFooter>
         </Card>
       </div>
-      <div className="my-4 flex items-stretch gap-x-20">
-        <Card className="w-80">
+      <div className="my-4 grid grid-cols-3 gap-4">
+        <Card className="">
           <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header:XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardHeader>
           <CardBody>
@@ -168,7 +178,7 @@ const Home = () => {
             </Button>
           </CardFooter>
         </Card>
-        <Card className="w-80">
+        <Card className="">
           <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header: XXXxxx</CardHeader>
           <CardBody>Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
@@ -177,6 +187,11 @@ const Home = () => {
               Button1
             </Button>
           </CardFooter>
+        </Card>
+        <Card className="">
+          <CardImg src="bg-mt.webp" className="h-48 w-full" />
+          <CardHeader>Header: XXXxxx</CardHeader>
+          <CardBody>Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
         </Card>
       </div>
       <div>
@@ -794,6 +809,17 @@ const Home = () => {
             errorMessage="Error message"
           >
             <FileInput />
+          </LabelControl>
+        </div>
+        <div className="flex space-x-4">
+          <LabelControl labelText="File input" helperText="size=lg">
+            <FileInput />
+          </LabelControl>
+          <LabelControl labelText="File input" helperText="size=md">
+            <FileInput size="md" />
+          </LabelControl>
+          <LabelControl labelText="File input" helperText="size=sm">
+            <FileInput size="sm" />
           </LabelControl>
         </div>
         <div className="flex space-x-4">

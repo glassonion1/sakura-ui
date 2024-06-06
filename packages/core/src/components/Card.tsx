@@ -18,13 +18,11 @@ export const Card = (props: CardProps) => {
   const style = `
     border
     border-solid
-    border-sumi-300
+    border-sumi-500
     rounded-2xl
     sm:rounded-3xl
     text-sumi-900
     overflow-hidden
-    flex flex-col
-    gap-2
   `
 
   return (
@@ -65,8 +63,10 @@ export const CardHeader = (props: CardHeaderProps) => {
 
   const style = `
     text-base
+    leading-[2rem]
     font-medium
     first:pt-4
+    pt-2
     last:pb-4
     px-6
   `
@@ -87,7 +87,9 @@ export const CardBody = (props: CardBodyProps) => {
 
   const style = `
     text-base-sm
+    leading-[1.85rem]
     first:pt-4
+    pt-2
     last:pb-4
     px-6
   `
@@ -107,7 +109,9 @@ export const CardFooter = (props: CardFooterProps) => {
 
   const style = `
     text-base-sm
+    leading-[1.85rem]
     first:pt-4
+    pt-2
     last:pb-4
     px-6
   `

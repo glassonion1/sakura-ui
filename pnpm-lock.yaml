@@ -61,11 +61,11 @@ importers:
   examples:
     dependencies:
       '@sakura-ui/core':
-        specifier: file:../packages/core/
+        specifier: file:../packages/core
         version: file:packages/core(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
       '@sakura-ui/forms':
-        specifier: ^0.2.0
-        version: 0.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
+        specifier: file:../packages/forms
+        version: file:packages/forms(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
       '@sakura-ui/tailwind-theme-plugin':
         specifier: ^0.2.0
         version: 0.2.0(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))
@@ -593,8 +593,8 @@ packages:
       react-dom: ^18.2.0
       tailwindcss: ^3.2.7
 
-  '@sakura-ui/forms@0.2.0':
-    resolution: {integrity: sha512-WTWAYdLtkrpucFXzi3Tlk+L30TObW6ZBc+OQ1Ms+y82UeSpRZZdsL8bfj4yQJBdAA0+A1JtprJegwQ0ZKPZjxA==}
+  '@sakura-ui/forms@file:packages/forms':
+    resolution: {directory: packages/forms, type: directory}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2235,7 +2235,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       tailwindcss: 3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5))
 
-  '@sakura-ui/forms@0.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))':
+  '@sakura-ui/forms@file:packages/forms(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.1)(typescript@5.4.5)))':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
