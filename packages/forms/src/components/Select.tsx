@@ -2,7 +2,7 @@ import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
 import {
-  InputSize,
+  type InputSize,
   borderedInputBaseStyles,
   borderedInputSizeStyles
 } from './inputStyle'
