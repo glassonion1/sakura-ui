@@ -17,7 +17,7 @@ $ yarn add @sakura-ui/sakura-ui
 ```
 or
 ```
-$ pnpm add @sakura-ui/core @sakura-ui/forms @sakura-ui/config
+$ pnpm add @sakura-ui/core @sakura-ui/forms @sakura-ui/tailwind-theme-plugin
 ```
 
 ## Configuration
@@ -30,7 +30,7 @@ module.exports = {
     './node_modules/@sakura-ui/core/**/*.{js,jsx,ts,tsx}',
     './node_modules/@sakura-ui/forms/**/*.{js,jsx,ts,tsx}'
   ],
-  plugins: [require('@sakura-ui/config')]
+  plugins: [require('@sakura-ui/tailwind-theme-plugin')]
 }
 ```
 
@@ -117,6 +117,7 @@ export default App
 - Checkbox
 - Select
 - Input
+- FileInput
 - Textarea
 - LabelControl
 - FieldsetControl
