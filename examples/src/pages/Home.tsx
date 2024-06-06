@@ -130,7 +130,7 @@ const Home = () => {
       </div>
       <div className="w-1/3 my-4">
         <Card>
-          <img src="bg-mt.webp" className="object-cover h-48 w-full" />
+          <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header:XXXxxx</CardHeader>
           <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
           <CardFooter>Footer:XXXXXXXXXXXXxxxxxxxxxxxxx</CardFooter>
@@ -138,7 +138,7 @@ const Home = () => {
       </div>
       <div className="w-1/3 my-4">
         <Card>
-          <img src="bg-mt.webp" className="object-cover h-48 w-full" />
+          <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header:XXXxxx</CardHeader>
           <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
           <CardFooter>
@@ -153,7 +153,7 @@ const Home = () => {
       </div>
       <div className="my-4 flex items-stretch gap-x-20">
         <Card className="w-80">
-          <img src="bg-mt.webp" className="object-cover h-48 w-full" />
+          <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header:XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardHeader>
           <CardBody>
             Body:XXXXXXXXXXXX
@@ -171,7 +171,7 @@ const Home = () => {
           </CardFooter>
         </Card>
         <Card className="w-80">
-          <img src="bg-mt.webp" className="object-cover h-48 w-full" />
+          <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header: XXXxxx</CardHeader>
           <CardBody>Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
           <CardFooter>
