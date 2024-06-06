@@ -1,7 +1,12 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
-import { InputSize } from './inputStyle'
+import {
+  InputSize,
+  borderlessInputBaseStyles,
+  borderlessInputSizeStyles,
+  iconStyles
+} from './inputStyle'
 
 export interface RadioProps
   extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
@@ -20,30 +25,6 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       restProps.name = ctx.groupName
     }
 
-    const spaces: { [key in InputSize]: string } = {
-      lg: 'py-4 mr-6',
-      md: 'py-3 mr-4',
-      sm: 'py-2 mr-2'
-    }
-
-    const radioSpaces: { [key in InputSize]: string } = {
-      lg: 'mr-2',
-      md: 'mr-1',
-      sm: 'mr-1'
-    }
-
-    const iconSizes: { [key in InputSize]: string } = {
-      lg: 'w-6 h-6',
-      md: 'w-5 h-5',
-      sm: 'w-5 h-5'
-    }
-
-    const style = `
-      inline-block
-      text-label
-      cursor-pointer
-    `
-
     const styleInput = `
       peer
       sr-only
@@ -51,8 +32,6 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const styleRadio = `
       bg-clip-content
-      ml-1
-      p-1
       rounded-full
       border
       border-solid
@@ -65,8 +44,21 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       peer-focus-visible:ring-wood-500
     `
 
+    const radioSizes: { [key in InputSize]: string } = {
+      lg: 'p-1',
+      md: 'p-[3px]',
+      sm: 'p-[3px]'
+    }
+
     return (
-      <label htmlFor={radioId} className={cx(style, spaces[size], className)}>
+      <label
+        htmlFor={radioId}
+        className={cx(
+          borderlessInputBaseStyles,
+          borderlessInputSizeStyles[size],
+          className
+        )}
+      >
         <span className="flex items-center">
           <input
             id={radioId}
@@ -81,7 +73,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           />
           <span
             aria-hidden={true}
-            className={cx(styleRadio, radioSpaces[size], iconSizes[size])}
+            className={cx(styleRadio, radioSizes[size], iconStyles[size])}
           />
           <span className="peer-disabled:text-sumi-500">{children}</span>
         </span>

@@ -592,18 +592,46 @@ const Home = () => {
             </Radio>
           </FieldsetControl>
         </div>
-        <RadioGroup
-          labelText="Radio group"
-          items={[
-            { value: '0', label: 'Radio1' },
-            { value: '1', label: 'Radio2' },
-            { value: '2', label: 'Radio3' }
-          ]}
-          defaultValue="1"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            console.log(e.target.value)
-          }
-        />
+        <div className="flex gap-6">
+          <RadioGroup
+            labelText="Radio group(size=lg)"
+            items={[
+              { value: '0', label: 'Radio1' },
+              { value: '1', label: 'Radio2' },
+              { value: '2', label: 'Radio3' }
+            ]}
+            defaultValue="1"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              console.log(e.target.value)
+            }
+          />
+          <RadioGroup
+            size="md"
+            labelText="Radio group(size=md)"
+            items={[
+              { value: '0', label: 'Radio1' },
+              { value: '1', label: 'Radio2' },
+              { value: '2', label: 'Radio3' }
+            ]}
+            defaultValue="1"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              console.log(e.target.value)
+            }
+          />
+          <RadioGroup
+            size="sm"
+            labelText="Radio group(size=sm)"
+            items={[
+              { value: '0', label: 'Radio1' },
+              { value: '1', label: 'Radio2' },
+              { value: '2', label: 'Radio3' }
+            ]}
+            defaultValue="1"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              console.log(e.target.value)
+            }
+          />
+        </div>
         <FieldsetControl
           direction="flex-row"
           labelText="Checkbox(size=lg) flex-row"
@@ -681,17 +709,43 @@ const Home = () => {
             </Checkbox>
           </FieldsetControl>
         </div>
-        <CheckboxGroup
-          labelText="Checkbox group"
-          items={[
-            { value: '0', label: 'Checkbox1' },
-            { value: '1', label: 'Checkbox2' },
-            { value: '2', label: 'Checkbox3' }
-          ]}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            console.log(`${e.target.value}, ${e.target.checked}`)
-          }
-        />
+        <div className="flex gap-6">
+          <CheckboxGroup
+            labelText="Checkbox group(size=sm)"
+            items={[
+              { value: '0', label: 'Checkbox1' },
+              { value: '1', label: 'Checkbox2' },
+              { value: '2', label: 'Checkbox3' }
+            ]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              console.log(`${e.target.value}, ${e.target.checked}`)
+            }
+          />
+          <CheckboxGroup
+            size="md"
+            labelText="Checkbox group(size=md)"
+            items={[
+              { value: '0', label: 'Checkbox1' },
+              { value: '1', label: 'Checkbox2' },
+              { value: '2', label: 'Checkbox3' }
+            ]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              console.log(`${e.target.value}, ${e.target.checked}`)
+            }
+          />
+          <CheckboxGroup
+            size="sm"
+            labelText="Checkbox group(size=sm)"
+            items={[
+              { value: '0', label: 'Checkbox1' },
+              { value: '1', label: 'Checkbox2' },
+              { value: '2', label: 'Checkbox3' }
+            ]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              console.log(`${e.target.value}, ${e.target.checked}`)
+            }
+          />
+        </div>
         <div className="flex space-x-4">
           <LabelControl labelText="Text">
             <Input />

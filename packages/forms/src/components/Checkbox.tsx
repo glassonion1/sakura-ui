@@ -1,7 +1,12 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
-import { InputSize } from './inputStyle'
+import {
+  InputSize,
+  borderlessInputBaseStyles,
+  borderlessInputSizeStyles,
+  iconStyles
+} from './inputStyle'
 
 export interface CheckboxProps
   extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
@@ -20,35 +25,11 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       restProps.name = ctx.groupName
     }
 
-    const spaces: { [key in InputSize]: string } = {
-      lg: 'py-4 mr-6',
-      md: 'py-3 mr-4',
-      sm: 'py-2 mr-2'
-    }
-
-    const checkSpaces: { [key in InputSize]: string } = {
-      lg: 'mr-2',
-      md: 'mr-1',
-      sm: 'mr-1'
-    }
-
-    const iconSizes: { [key in InputSize]: string } = {
-      lg: 'w-6 h-6',
-      md: 'w-5 h-5',
-      sm: 'w-5 h-5'
-    }
-
     const scales: { [key in InputSize]: number } = {
-      lg: 24 / 24,
-      md: 20 / 24,
-      sm: 20 / 24
+      lg: 22 / 24,
+      md: 18 / 24,
+      sm: 18 / 24
     }
-
-    const style = `
-      inline-block
-      text-label
-      cursor-pointer
-    `
 
     const styleInput = `
       peer
@@ -57,7 +38,6 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     const styleCheck = `
       bg-clip-content
-      ml-1
       rounded
       border
       border-solid
@@ -75,7 +55,11 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     return (
       <label
         htmlFor={checkboxId}
-        className={cx(style, spaces[size], className)}
+        className={cx(
+          borderlessInputBaseStyles,
+          borderlessInputSizeStyles[size],
+          className
+        )}
       >
         <span className="flex items-center">
           <input
@@ -89,7 +73,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {...restProps}
             ref={ref}
           />
-          <span className={cx(styleCheck, iconSizes[size], checkSpaces[size])}>
+          <span className={cx(styleCheck, iconStyles[size])}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden={true}

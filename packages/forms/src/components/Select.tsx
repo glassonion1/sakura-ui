@@ -1,7 +1,11 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
-import { InputSize, sizeStyles } from './inputStyle'
+import {
+  InputSize,
+  borderedInputBaseStyles,
+  borderedInputSizeStyles
+} from './inputStyle'
 
 export interface SelectProps
   extends Omit<React.ComponentPropsWithRef<'select'>, 'size'> {
@@ -21,19 +25,6 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       peer
       cursor-pointer
       appearance-none
-      w-full
-      bg-white
-      border
-      border-solid
-      border-sumi-900
-      outline-offset-2
-      focus:outline
-      focus:outline-2
-      focus:outline-wood-500
-      disabled:bg-transparent
-      disabled:text-sumi-500
-      disabled:border-sumi-500
-      aria-invalid:border-sun-800
     `
 
     const styleArrow = `
@@ -50,7 +41,12 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       <div className="inline-block relative">
         <select
           id={id || ctx.id}
-          className={cx(style, sizeStyles[size], props.className)}
+          className={cx(
+            style,
+            borderedInputBaseStyles,
+            borderedInputSizeStyles[size],
+            props.className
+          )}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
           aria-invalid={ctx.isInvalid ?? false}

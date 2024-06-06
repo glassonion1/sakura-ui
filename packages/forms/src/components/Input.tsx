@@ -1,7 +1,11 @@
 import React from 'react'
 import { cx } from '../utils/class'
 import { ControllerContext } from './context'
-import { InputSize, sizeStyles } from './inputStyle'
+import {
+  InputSize,
+  borderedInputBaseStyles,
+  borderedInputSizeStyles
+} from './inputStyle'
 
 export interface InputProps
   extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
@@ -16,25 +20,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       restProps.required = true
     }
 
-    const style = `
-      border
-      border-solid
-      border-sumi-900
-      outline-offset-2
-      focus:outline
-      focus:outline-2
-      focus:outline-wood-500
-      disabled:bg-transparent
-      disabled:text-sumi-500
-      disabled:border-sumi-500
-      aria-invalid:border-sun-800
-    `
-
     return (
       <input
         type="text"
         id={id || ctx.id}
-        className={cx(style, sizeStyles[size], className)}
+        className={cx(
+          borderedInputBaseStyles,
+          borderedInputSizeStyles[size],
+          className
+        )}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
