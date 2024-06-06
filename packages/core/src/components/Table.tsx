@@ -32,7 +32,7 @@ export interface CaptionProps
 export const Caption = (props: CaptionProps) => {
   const { className, children, ...restProps } = props
 
-  const style = `text-left`
+  const style = 'text-left'
   return (
     <caption className={cx(style, className)} {...restProps}>
       {children}
@@ -72,7 +72,7 @@ export const Th = (props: ThProps) => {
   const style = `
     p-2
     bg-[#f8f8fb]
-    text-base
+    text-label
     text-left
   `
   return (
@@ -87,7 +87,7 @@ export interface TrProps extends React.ComponentPropsWithoutRef<'tr'> {}
 export const Tr = (props: TrProps) => {
   const { className, children, ...restProps } = props
 
-  const style = ``
+  const style = ''
 
   return (
     <tr className={cx(style, styleBorder, className)} {...restProps}>
@@ -103,6 +103,7 @@ export const Td = (props: TdProps) => {
 
   const style = `
     p-2
+    text-label
   `
 
   return (

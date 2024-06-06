@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { peerDependencies } from './package.json'
@@ -24,6 +24,7 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'jsdom'
+    environment: 'happy-dom',
+    setupFiles: 'tests/vitest.setup.ts'
   }
 })

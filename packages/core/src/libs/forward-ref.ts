@@ -22,12 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { ComponentProps, forwardRef as forwardReactRef } from 'react'
-import { As, ComponentWithAs, RightJoinProps } from '../types/component'
+import React, {
+  type ComponentProps,
+  forwardRef as forwardReactRef
+} from 'react'
+import type { As, ComponentWithAs, RightJoinProps } from '../types/component'
 
-export function forwardRef<Props extends object, Component extends As>(
+export function forwardRef<Component extends As, Props extends object>(
   component: React.ForwardRefRenderFunction<
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny:
     any,
     RightJoinProps<ComponentProps<Component>, Props> & {
       as?: As

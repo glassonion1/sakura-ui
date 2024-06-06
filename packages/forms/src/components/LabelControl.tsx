@@ -36,11 +36,11 @@ export const LabelControl = React.forwardRef<
   }
 
   const styleHelp = `
-    text-sup text-sumi-700
+    text-label text-sumi-700
   `
 
   const styleError = `
-    text-sup text-sun-800
+    text-label text-sun-800
   `
 
   return (

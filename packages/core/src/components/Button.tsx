@@ -1,5 +1,5 @@
 import { cx } from '../libs/cx'
-import { ComponentWithAs } from '../types/component'
+import type { ComponentWithAs } from '../types/component'
 import { forwardRef } from '../libs/forward-ref'
 import {
   type ButtonVariant,

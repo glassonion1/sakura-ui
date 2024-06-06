@@ -185,21 +185,7 @@ const sakuraPlugin = plugin(
               lineHeight: tokens.LineHeight['1_3'].value
             }
           ],
-          'tb-header': [
-            tokens.FontSize[16].value,
-            {
-              fontWeight: tokens.FontWeight[700].value,
-              lineHeight: tokens.LineHeight['1_2'].value
-            }
-          ],
-          'tb-data': [
-            tokens.FontSize[16].value,
-            {
-              fontWeight: tokens.FontWeight[400].value,
-              lineHeight: tokens.LineHeight['1_2'].value
-            }
-          ],
-          ui: [
+          button: [
             tokens.FontSize[16].value,
             {
               fontWeight: tokens.FontWeight[700].value,
@@ -207,12 +193,26 @@ const sakuraPlugin = plugin(
               letterSpacing: '0.02em'
             }
           ],
-          'ui-sm': [
+          'button-sm': [
             tokens.FontSize[14].value,
             {
               fontWeight: tokens.FontWeight[700].value,
               lineHeight: tokens.LineHeight['1_0'].value,
               letterSpacing: '0.02em'
+            }
+          ],
+          'label-b': [
+            tokens.FontSize[16].value,
+            {
+              fontWeight: tokens.FontWeight[700].value,
+              lineHeight: tokens.LineHeight['1_2'].value
+            }
+          ],
+          label: [
+            tokens.FontSize[16].value,
+            {
+              fontWeight: tokens.FontWeight[400].value,
+              lineHeight: tokens.LineHeight['1_2'].value
             }
           ],
           code: [

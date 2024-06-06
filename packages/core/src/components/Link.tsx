@@ -1,7 +1,8 @@
 import { cx } from '../libs/cx'
-import { ComponentWithAs } from '../types/component'
+import type { ComponentWithAs } from '../types/component'
 import { forwardRef } from '../libs/forward-ref'
 
+// biome-ignore lint/suspicious/noEmptyInterface:
 export interface LinkProps {}
 
 export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(

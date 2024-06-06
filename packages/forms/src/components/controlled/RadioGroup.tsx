@@ -1,7 +1,8 @@
 import React from 'react'
 import { Radio } from '../Radio'
 import { FieldsetControl } from '../FieldsetControl'
-import { InputItem } from './InputItem'
+import type { InputItem } from './InputItem'
+import type { InputSize } from '../inputStyle'
 
 export interface RadioGroupProps
   extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {
@@ -13,6 +14,7 @@ export interface RadioGroupProps
   isInvalid?: boolean
   isRequired?: boolean
   defaultValue?: string
+  size?: InputSize
 }
 
 export const RadioGroup = React.forwardRef<
@@ -29,6 +31,7 @@ export const RadioGroup = React.forwardRef<
     isInvalid,
     isRequired,
     defaultValue,
+    size,
     ...restProps
   } = props
 
@@ -43,10 +46,11 @@ export const RadioGroup = React.forwardRef<
       ref={ref}
       {...restProps}
     >
-      {items.map(({ label, value }, index) => {
+      {items.map(({ label, value }) => {
         return (
           <Radio
-            key={index}
+            key={`${label}-${value}`}
+            size={size}
             value={value}
             onChange={onChange}
             defaultChecked={defaultValue === value}

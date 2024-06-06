@@ -1,7 +1,8 @@
 import React from 'react'
 import { Checkbox } from '../Checkbox'
 import { FieldsetControl } from '../FieldsetControl'
-import { InputItem } from './InputItem'
+import type { InputItem } from './InputItem'
+import type { InputSize } from '../inputStyle'
 
 export interface CheckboxGroupProps
   extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {
@@ -12,6 +13,7 @@ export interface CheckboxGroupProps
   errorMessage?: string
   isInvalid?: boolean
   isRequired?: boolean
+  size?: InputSize
 }
 
 export const CheckboxGroup = React.forwardRef<
@@ -27,6 +29,7 @@ export const CheckboxGroup = React.forwardRef<
     errorMessage,
     isInvalid,
     isRequired,
+    size,
     ...restProps
   } = props
 
@@ -41,9 +44,14 @@ export const CheckboxGroup = React.forwardRef<
       ref={ref}
       {...restProps}
     >
-      {items.map(({ label, value }, index) => {
+      {items.map(({ label, value }) => {
         return (
-          <Checkbox key={index} value={value} onChange={onChange}>
+          <Checkbox
+            key={`${label}-${value}`}
+            size={size}
+            value={value}
+            onChange={onChange}
+          >
             {label}
           </Checkbox>
         )

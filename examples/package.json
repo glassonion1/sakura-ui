@@ -8,9 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/config": "^0.1.10",
-    "@sakura-ui/core": "^0.1.36",
-    "@sakura-ui/forms": "^0.1.12",
+    "@sakura-ui/core": "file:../packages/core",
+    "@sakura-ui/forms": "file:../packages/forms",
+    "@sakura-ui/tailwind-theme-plugin": "file:../packages/tailwind-theme-plugin",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1"
@@ -24,6 +24,6 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
-    "vite": "^4.5.3"
+    "vite": "^5.2.12"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/core",
-  "version": "0.1.38",
+  "version": "0.2.0",
   "description": "",
   "keywords": [],
   "author": "glassonion1",
@@ -25,9 +25,12 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "run-s lint:*",
-    "lint:eslint": "eslint . --ext .ts,.tsx --fix",
+    "lint:lint": "biome lint ./",
     "lint:prettier": "prettier --write --ignore-path .gitignore './src/*.ts'",
     "prebuild": "rimraf dist",
     "build": "run-p build:*",
@@ -41,17 +44,15 @@
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.1",
-    "@types/react": "^18.2.60",
-    "@types/react-dom": "^18.2.19",
-    "autoprefixer": "^10.4.17",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.33.2",
-    "jsdom": "^24.0.0",
-    "postcss": "^8.4.35",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.4.1"
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "happy-dom": "^14.12.0",
+    "postcss": "^8.4.38",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.3"
   }
 }

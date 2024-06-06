@@ -7,7 +7,7 @@ interface IdContextType {
 
 const IdContext = React.createContext<IdContextType>({ id: '' })
 
-export interface CardProps extends React.ComponentPropsWithoutRef<'section'> {}
+export interface CardProps extends React.ComponentPropsWithoutRef<'article'> {}
 
 export const Card = (props: CardProps) => {
   const { className, children, ...restProps } = props
@@ -29,13 +29,14 @@ export const Card = (props: CardProps) => {
 
   return (
     <IdContext.Provider value={ctx}>
-      <section
+      <article
         aria-labelledby={ctx.id}
+        aria-describedby={`${ctx.id}-desc`}
         className={cx(style, className)}
         {...restProps}
       >
         {children}
-      </section>
+      </article>
     </IdContext.Provider>
   )
 }
@@ -47,8 +48,10 @@ export const CardImg = (props: CardImgProps) => {
 
   const style = `
     object-cover
+    mb-2
   `
 
+  // biome-ignore lint/a11y/useAltText: things to check on the user side
   return <img className={cx(style, className)} {...restProps} />
 }
 
@@ -63,6 +66,7 @@ export const CardHeader = (props: CardHeaderProps) => {
   const style = `
     text-base
     font-medium
+    first:pt-4
     last:pb-4
     px-6
   `
@@ -79,6 +83,8 @@ export interface CardBodyProps extends React.ComponentPropsWithoutRef<'div'> {}
 export const CardBody = (props: CardBodyProps) => {
   const { className, children, ...restProps } = props
 
+  const ctx = React.useContext(IdContext)
+
   const style = `
     text-base-sm
     first:pt-4
@@ -87,7 +93,7 @@ export const CardBody = (props: CardBodyProps) => {
   `
 
   return (
-    <div className={cx(style, className)} {...restProps}>
+    <div id={`${ctx.id}-desc`} className={cx(style, className)} {...restProps}>
       {children}
     </div>
   )

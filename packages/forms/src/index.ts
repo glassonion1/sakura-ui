@@ -20,9 +20,4 @@ export type {
   FieldsetControlProps
 } from './components'
 
-export {
-  CheckboxGroup,
-  RadioGroup,
-  SelectControl,
-  TextareaControl
-} from './components/controlled'
+export { CheckboxGroup, RadioGroup } from './components/controlled'
