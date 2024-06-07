@@ -92,17 +92,53 @@ const Home = () => {
           </li>
         </Ul>
       </div>
+      <div>
+        <H2>List</H2>
+        <Ul>
+          <li>List1</li>
+          <li>List2</li>
+          <Ul>
+            <li>List2-1</li>
+            <li>List2-2</li>
+            <Ul>
+              <li>List3-1</li>
+              <li>List3-2</li>
+            </Ul>
+          </Ul>
+        </Ul>
+      </div>
+      <div>
+        <H2>Ordered List</H2>
+        <Ol>
+          <li>List1</li>
+          <li>List2</li>
+          <Ol>
+            <li>List2-1</li>
+            <li>List2-2</li>
+          </Ol>
+        </Ol>
+      </div>
       <div className="w-1/2 my-4">
         <H2>Table</H2>
         <Table>
           <Tbody>
             <Tr>
-              <Th scope="row">key1</Th>
-              <Td className="p-2">value1</Td>
+              <Th>key1</Th>
+              <Th>key2</Th>
+              <Th>key3</Th>
+              <Th>key4</Th>
+              <Th>key5</Th>
             </Tr>
             <Tr>
-              <Th scope="row">key2</Th>
-              <Td>value2</Td>
+              <Td>value1</Td>
+              <Td>value2-value2</Td>
+              <Td>value3-value3-value3</Td>
+              <Td>value4-value4-value4-value4</Td>
+              <Td>
+                value5-value5
+                <br />
+                value5-value5-value5
+              </Td>
             </Tr>
           </Tbody>
         </Table>
@@ -193,29 +229,6 @@ const Home = () => {
           <CardHeader>Header: XXXxxx</CardHeader>
           <CardBody>Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
         </Card>
-      </div>
-      <div>
-        <H2>List</H2>
-        <Ul>
-          <li>list1</li>
-          <li>list2</li>
-          <li>list3</li>
-          <Ul>
-            <li>list1</li>
-            <li>list2</li>
-            <li>list3</li>
-          </Ul>
-        </Ul>
-        <Ol>
-          <li>list1</li>
-          <li>list2</li>
-          <li>list3</li>
-          <Ol>
-            <li>list1</li>
-            <li>list2</li>
-            <li>list3</li>
-          </Ol>
-        </Ol>
       </div>
       <div className="my-8">
         <H2>Frequently Asked Questions</H2>
