@@ -9,10 +9,8 @@ export const H1 = (props: HeadingProps) => {
   const style = `
     text-h-lg-m
     sm:text-h-lg
-    mt-8
-    mb-3
-    sm:mt-16
-    sm:mb-6
+    pt-[2rem]
+    sm:-[6.5rem]
   `
 
   return (
@@ -28,10 +26,8 @@ export const H2 = (props: HeadingProps) => {
   const style = `
     text-h-med-m
     sm:text-h-med
-    mt-8
-    mb-3
-    sm:mt-16
-    sm:mb-6
+    pt-[4rem]
+    sm:pt-[4.5rem]
   `
 
   return (
@@ -47,10 +43,8 @@ export const H3 = (props: HeadingProps) => {
   const style = `
     text-h-sm-m
     sm:text-h-sm
-    mt-5
-    mb-3
-    sm:mt-10
-    sm:mb-6
+    pt-[4rem]
+    sm:pt-[4.5rem]
   `
 
   return (
@@ -66,10 +60,8 @@ export const H4 = (props: HeadingProps) => {
   const style = `
     text-h-xs-m
     sm:text-h-xs
-    mt-5
-    mb-2
-    sm:mt-10
-    sm:mb-4
+    pt-[3.5rem]
+    sm:pt-[4.5rem]
   `
 
   return (
@@ -85,10 +77,8 @@ export const H5 = (props: HeadingProps) => {
   const style = `
     text-h-xxs-m
     sm:text-h-xxs
-    mt-5
-    mb-2
-    sm:mt-10
-    sm:mb-4
+    pt-[3rem]
+    sm:pt-[4rem]
   `
 
   return (
@@ -104,10 +94,8 @@ export const H6 = (props: HeadingProps) => {
   const style = `
     text-h-xxs-m
     sm:text-h-xxs
-    mt-3
-    mb-2
-    sm:mt-6
-    sm:mb-4
+    pt-[2.5rem]
+    sm:pt-[3.5rem]
   `
 
   return (
