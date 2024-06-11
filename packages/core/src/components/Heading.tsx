@@ -10,7 +10,7 @@ export const H1 = (props: HeadingProps) => {
     text-h-lg-m
     sm:text-h-lg
     pt-[2rem]
-    sm:-[6.5rem]
+    sm:pt-[6.5rem]
   `
 
   return (

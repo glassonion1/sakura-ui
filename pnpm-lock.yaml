@@ -61,7 +61,7 @@ importers:
   examples:
     dependencies:
       '@sakura-ui/core':
-        specifier: ^0.2.3-beta.0
+        specifier: ^0.2.3-beta.1
         version: link:../packages/core
       '@sakura-ui/forms':
         specifier: ^0.2.1
