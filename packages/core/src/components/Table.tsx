@@ -12,17 +12,10 @@ const styleBorder = `
 export const Table = (props: TableProps) => {
   const { className, children, ...restProps } = props
 
-  const style = `
-    whitespace-nowrap
-    --break-all
-  `
-
   return (
-    <div className="w-full overflow-x-auto">
-      <table className={cx(style, styleBorder, className)} {...restProps}>
-        {children}
-      </table>
-    </div>
+    <table className={cx(styleBorder, className)} {...restProps}>
+      {children}
+    </table>
   )
 }
 

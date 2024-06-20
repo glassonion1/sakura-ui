@@ -27,7 +27,8 @@ export {
   Tbody,
   Th,
   Tr,
-  Td
+  Td,
+  OverflowContainer
 } from './components'
 
 export type {
@@ -54,5 +55,6 @@ export type {
   TbodyProps,
   ThProps,
   TrProps,
-  TdProps
+  TdProps,
+  OverflowContainerProps
 } from './components'

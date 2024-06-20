@@ -20,6 +20,7 @@ import {
   Faq,
   Question,
   Answer,
+  OverflowContainer,
   Table,
   Tbody,
   Tr,
@@ -119,29 +120,31 @@ const Home = () => {
         </Ol>
       </div>
       <div className="w-1/2 my-4">
-        <H2>Table</H2>
-        <Table>
-          <Tbody>
-            <Tr>
-              <Th>key1</Th>
-              <Th>key2</Th>
-              <Th>key3</Th>
-              <Th>key4</Th>
-              <Th>key5</Th>
-            </Tr>
-            <Tr>
-              <Td>value1</Td>
-              <Td>value2-value2</Td>
-              <Td>value3-value3-value3</Td>
-              <Td>value4-value4-value4-value4</Td>
-              <Td>
-                value5-value5
-                <br />
-                value5-value5-value5
-              </Td>
-            </Tr>
-          </Tbody>
-        </Table>
+        <H2>Table(scroll-x)</H2>
+        <OverflowContainer>
+          <Table>
+            <Tbody>
+              <Tr>
+                <Th>key1</Th>
+                <Th>key2</Th>
+                <Th>key3</Th>
+                <Th>key4</Th>
+                <Th>key5</Th>
+              </Tr>
+              <Tr>
+                <Td>value1</Td>
+                <Td>value2-value2</Td>
+                <Td>value3-value3-value3</Td>
+                <Td>value4-value4-value4-value4</Td>
+                <Td>
+                  value5-value5
+                  <br />
+                  value5-value5-value5
+                </Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </OverflowContainer>
       </div>
       <div className="w-1/3">
         <H2>Card</H2>
