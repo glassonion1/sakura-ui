@@ -27,3 +27,4 @@ export type {
   TrProps,
   TdProps
 } from './Table'
+export { OverflowContainer, type OverflowContainerProps } from './container'

@@ -6,21 +6,14 @@ export interface TableProps extends React.ComponentPropsWithoutRef<'table'> {}
 const styleBorder = `
   border
   border-collapse
-  border-[#cccccc]
+  border-solid-grey-420
 `
 
 export const Table = (props: TableProps) => {
   const { className, children, ...restProps } = props
 
-  // If there is no break-all setting, the table will protrude when using a smartphone
-  const style = `
-    w-full
-    table-auto
-    break-all
-  `
-
   return (
-    <table className={cx(style, styleBorder, className)} {...restProps}>
+    <table className={cx(styleBorder, className)} {...restProps}>
       {children}
     </table>
   )

@@ -8,10 +8,9 @@ export const Ul = (props: UlProps) => {
 
   const style = `
     list-disc
-    list-inside
-    -indent-4
-    pl-4
-    marker:text-base-sm
+    [&_&]:list-circle
+    [&_&_&]:list-square
+    pl-8
   `
   return (
     <ul className={cx(style, className)} {...restProps}>
@@ -27,9 +26,8 @@ export const Ol = (props: OlProps) => {
 
   const style = `
     list-decimal
-    list-inside
-    -indent-4
-    pl-4
+    [&_&]:list-lower-latin
+    pl-8
   `
   return (
     <ol className={cx(style, className)} {...restProps}>
