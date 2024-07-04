@@ -2,7 +2,7 @@ import React from 'react'
 import { describe, test, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
-import { LabelControl, Select, Input, Textarea } from '../src'
+import { LabelControl, Select, Input, Textarea, FileInput } from '../src'
 
 describe('LabelControl', () => {
   test('renders LabelControl component vol1', async () => {
@@ -60,6 +60,9 @@ describe('LabelControl', () => {
           <Input defaultValue="1" />
         </LabelControl>
         <LabelControl labelText="test3">
+          <FileInput />
+        </LabelControl>
+        <LabelControl labelText="test4">
           <Textarea defaultValue="1" />
         </LabelControl>
       </>
@@ -75,7 +78,11 @@ describe('LabelControl', () => {
     expect(text).toHaveValue('1')
     expect(text).toHaveAttribute('id')
 
-    const textarea = screen.getByLabelText(/test3/)
+    const file = screen.getByLabelText(/test3/)
+    expect(file).toBeInTheDocument()
+    expect(file).toHaveAttribute('id')
+
+    const textarea = screen.getByLabelText(/test4/)
     expect(textarea).toBeInTheDocument()
     expect(textarea).toHaveValue('1')
     expect(textarea).toHaveAttribute('id')
@@ -93,6 +100,9 @@ describe('LabelControl', () => {
           <Input defaultValue="1" />
         </LabelControl>
         <LabelControl labelText="test3" htmlFor="id3">
+          <FileInput />
+        </LabelControl>
+        <LabelControl labelText="test4" htmlFor="id4">
           <Textarea defaultValue="1" />
         </LabelControl>
       </>
@@ -108,9 +118,13 @@ describe('LabelControl', () => {
     expect(input).toHaveValue('1')
     expect(input).toHaveAttribute('id', 'id2')
 
-    const textarea = screen.getByLabelText(/test3/)
+    const file = screen.getByLabelText(/test3/)
+    expect(file).toBeInTheDocument()
+    expect(file).toHaveAttribute('id', 'id3')
+
+    const textarea = screen.getByLabelText(/test4/)
     expect(textarea).toBeInTheDocument()
     expect(textarea).toHaveValue('1')
-    expect(textarea).toHaveAttribute('id', 'id3')
+    expect(textarea).toHaveAttribute('id', 'id4')
   })
 })
