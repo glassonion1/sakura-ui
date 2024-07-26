@@ -49,38 +49,49 @@ export const MyPage = () => {
 ## Syntax
 ### LinkButton
 ```
-:link-button[services and applications]{href=/services}
+:link-button[Services and applications]{href=/services}
 ```
 
 ### YouTube
 ```
-::youtube[title]{id=o_dzh2vzyMMn}
+::youtube[title]{id=yXdbvBzxeb8}
 ```
 
 ### Multi column layout
 ```
-::::grid-cols-2
+::::grid-cols-3
 :::cell
-::cell-img{alt=alternative_text src=https://image.foo}
-Cell contents...
+![alternative text](https://dummyimage.com/600x400/000/fff)
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 :::
 :::cell
-::cell-description[Cell text...]
+![alternative text](https://dummyimage.com/600x400/000/fff)
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+:::
+:::cell
+![alternative text](https://dummyimage.com/600x400/000/fff)
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 :::
 ::::
 ```
 
 ### Multi column layout with card
 ```
-::::grid-cols-2
+::::grid-cols-3
 :::card
-::card-title[card title]
-::card-description[Cell text...]
+::card-img{alt=alternative_text src=https://dummyimage.com/600x400/000/fff}
+::card-title[Card title]
+::card-description[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
 :::
 :::card
-::card-img{alt=alternative_text src=https://image.foo}
-::card-title[card title]
-::card-description[Cell text...]
+::card-img{alt=alternative_text src=https://dummyimage.com/600x400/000/fff}
+::card-title[Card title]
+::card-description[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+:::
+:::card
+::card-img{alt=alternative_text src=https://dummyimage.com/600x400/000/fff}
+::card-title[Card title]
+::card-description[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
 :::
 ::::
 ```
@@ -88,26 +99,26 @@ Cell contents...
 ### FAQ
 ```
 :::faq
-::faq-q[Question1]
-::faq-a[Answer1]
-::faq-q[Question2]
-::faq-a[Answer2]
+::faq-q[Why you need an FAQ page]
+::faq-a[Here are the benefits of having an FAQ page.]
+::faq-q[Whom to contact?]
+::faq-a[You can contact the apprenticeship office through our official phone hotline above, or with the web-form below. We generally respond to written requests within 7-10 days.]
 :::
 ```
 or
 ```
 ::::faq
 :::faq-q
-Question1
+Why you need an FAQ page
 :::
 :::faq-a
-Answer1
+Here are the benefits of having an FAQ page.
 :::
 :::faq-q
-Question2
+Whom to contact?
 :::
 :::faq-a
-Answer2
+You can contact the apprenticeship office through our official phone hotline above, or with the web-form below. We generally respond to written requests within 7-10 days.
 :::
 ::::
 ```
