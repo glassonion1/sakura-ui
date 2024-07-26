@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../libs/cx'
+import { cx } from '@sakura-ui/helper'
 
 interface IdContextType {
   id: string

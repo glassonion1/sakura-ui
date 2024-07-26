@@ -1,6 +1,4 @@
-import { cx } from '../libs/cx'
-import type { ComponentWithAs } from '../types/component'
-import { forwardRef } from '../libs/forward-ref'
+import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
 import { base, getVariantStyle, getSizeStyle } from './buttonStyle'
 
 export interface IconButtonProps {

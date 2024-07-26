@@ -7,6 +7,8 @@ export type {
   CardBodyProps,
   CardFooterProps
 } from './Card'
+export { LinkCard, LinkCardHeader } from './LinkCard'
+export type { LinkCardProps, LinkCardHeaderProps } from './LinkCard'
 export { Code, type CodeProps } from './Code'
 export { Faq, Question, Answer } from './Faq'
 export type { FaqProps, QuestionProps, AnswerProps } from './Faq'

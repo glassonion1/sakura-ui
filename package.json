@@ -21,7 +21,8 @@
   "dependencies": {
     "@sakura-ui/tailwind-theme-plugin": "workspace:*",
     "@sakura-ui/core": "workspace:*",
-    "@sakura-ui/forms": "workspace:*"
+    "@sakura-ui/forms": "workspace:*",
+    "@sakura-ui/helper": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.2.0",

@@ -1,17 +1,7 @@
 {
-  "name": "@sakura-ui/core",
-  "version": "0.2.5",
-  "description": "",
-  "keywords": [],
-  "author": "glassonion1",
-  "homepage": "https://github.com/glassonion1/sakura-ui",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git",
-    "directory": "packages/core"
-  },
+  "name": "@sakura-ui/helper",
+  "version": "0.0.2",
   "license": "MIT",
-  "type": "module",
   "main": "dist/index.cjs.js",
   "types": "dist/types/index.d.ts",
   "exports": {
@@ -38,21 +28,13 @@
     "build:types": "tsc && tsc-alias",
     "test": "vitest"
   },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.2.7"
-  },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.19",
     "happy-dom": "^14.12.0",
-    "postcss": "^8.4.38",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.3"
+    "react-dom": "^18.3.1"
   }
 }

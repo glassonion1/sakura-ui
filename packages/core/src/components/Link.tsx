@@ -1,6 +1,4 @@
-import { cx } from '../libs/cx'
-import type { ComponentWithAs } from '../types/component'
-import { forwardRef } from '../libs/forward-ref'
+import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
 
 // biome-ignore lint/suspicious/noEmptyInterface:
 export interface LinkProps {}
