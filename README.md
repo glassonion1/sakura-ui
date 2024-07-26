@@ -17,7 +17,7 @@ $ yarn add @sakura-ui/sakura-ui
 ```
 or
 ```
-$ pnpm add @sakura-ui/core @sakura-ui/forms @sakura-ui/tailwind-theme-plugin
+$ pnpm add @sakura-ui/core @sakura-ui/forms @sakura-ui/tailwind-theme-plugin @sakura-ui/markdown
 ```
 
 ## Configuration
@@ -121,3 +121,6 @@ export default App
 - Textarea
 - LabelControl
 - FieldsetControl
+
+## Markdwon extension
+- Markdown

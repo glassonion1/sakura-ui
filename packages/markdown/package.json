@@ -1,8 +1,10 @@
 {
   "name": "@sakura-ui/markdown",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "markdown"
+  ],
   "author": "glassonion1",
   "homepage": "https://github.com/glassonion1/sakura-ui",
   "repository": {

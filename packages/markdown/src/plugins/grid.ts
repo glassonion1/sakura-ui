@@ -22,7 +22,7 @@ export function gridPlugin() {
 
       const gridNum: number = parseInt(node.name.split('-').pop() || '1')
 
-      // 文字列の埋め込みだとTailwindがCSSを生成してくれない
+      // Tailwind doesn't generate CSS for string interpolation
       const gridClass: { [key: number]: string } = {
         1: 'md:grid-cols-1',
         2: 'md:grid-cols-2',

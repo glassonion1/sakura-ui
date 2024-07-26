@@ -2,7 +2,14 @@
   "name": "@sakura-ui/core",
   "version": "0.2.5",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "ui",
+    "design-system",
+    "accessible",
+    "components",
+    "library"
+  ],
   "author": "glassonion1",
   "homepage": "https://github.com/glassonion1/sakura-ui",
   "repository": {

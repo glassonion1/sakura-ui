@@ -241,7 +241,6 @@ export const Markdown = ({ children, showToc, tocTitle = '目次' }: Props) => {
   const [element, setElement] = React.useState(<></>)
 
   React.useEffect(() => {
-    // workaround for 'document is not defined'
     setToc(markdown2Headings(children))
     setElement(markdown2ReactElements(children))
   }, [children])

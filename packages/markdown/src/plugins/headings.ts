@@ -4,7 +4,6 @@ import { visit } from 'unist-util-visit'
 import { toString } from 'mdast-util-to-string'
 import { treefy } from '@sakura-ui/helper'
 import { isHeading } from './helper'
-import { Node } from 'unist'
 
 export type HeadingItem = {
   id?: string
