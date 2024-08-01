@@ -29,4 +29,7 @@ export type {
   TrProps,
   TdProps
 } from './Table'
-export { OverflowContainer, type OverflowContainerProps } from './container'
+export {
+  OverflowContainer,
+  type OverflowContainerProps
+} from './OverflowContainer'

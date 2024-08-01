@@ -1,4 +1,4 @@
-import React, { ReactElement, Children } from 'react'
+import React, { Children } from 'react'
 import * as production from 'react/jsx-runtime'
 import { remark } from 'remark'
 import { unified } from 'unified'
@@ -305,7 +305,7 @@ export const Markdown = ({ children, showToc, tocTitle = '目次' }: Props) => {
       }) // mdast -> hast      (HTML Abstract Syntax Tree)
       .use(rehypeRaw) // hast  -> hast
       .use(rehypeExternalLinks, { target: '_blank' }) // hast  -> hast
-      .use(rebypeShiftHeding, { shift: 0 }) // hast  -> hast
+      .use(rebypeShiftHeding, { shift: 1 }) // hast  -> hast
       .use(rehypeSlug)
       .use(rehypeReact, rhypeReactOptions as any) // hast  -> React Elements
       .processSync(md).result
