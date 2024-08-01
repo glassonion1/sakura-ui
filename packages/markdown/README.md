@@ -51,11 +51,13 @@ export const MyPage = () => {
 ```
 :link-button[Services and applications]{href=/services}
 ```
+<img width="288" alt="スクリーンショット 2024-07-26 23 44 39" src="https://github.com/user-attachments/assets/997ccf27-4d83-4fb5-b173-ae94cd7d76cb">
 
 ### YouTube
 ```
 ::youtube[title]{id=yXdbvBzxeb8}
 ```
+<img width="494" alt="スクリーンショット 2024-07-26 23 48 18" src="https://github.com/user-attachments/assets/a724cf27-a1af-4633-b9a8-27b25b04e3ae">
 
 ### Multi column layout
 ```
@@ -74,6 +76,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 :::
 ::::
 ```
+<img width="1143" alt="スクリーンショット 2024-07-26 23 51 46" src="https://github.com/user-attachments/assets/60b813b4-3a8c-451d-99b2-58c1e5b3a3b4">
 
 ### Multi column layout with card
 ```
@@ -95,6 +98,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 :::
 ::::
 ```
+<img width="1133" alt="スクリーンショット 2024-07-26 23 55 37" src="https://github.com/user-attachments/assets/9a6dff6f-7115-451a-9d15-f953ddad78b7">
 
 ### FAQ
 ```
@@ -122,3 +126,4 @@ You can contact the apprenticeship office through our official phone hotline abo
 :::
 ::::
 ```
+<img width="1133" alt="スクリーンショット 2024-07-26 23 59 50" src="https://github.com/user-attachments/assets/0f6b51fb-068e-4173-8011-f782c1b894f6">
