@@ -13,7 +13,6 @@ export const OverflowContainer = (props: OverflowContainerProps) => {
     whitespace-nowrap
     print:overflow-visible
     print:whitespace-normal
-
   `
 
   return (

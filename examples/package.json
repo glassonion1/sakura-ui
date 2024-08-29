@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/core": "^0.2.3",
+    "@sakura-ui/core": "^0.2.6",
     "@sakura-ui/forms": "^0.2.1",
     "@sakura-ui/tailwind-theme-plugin": "^0.2.0",
     "react": "^18.3.1",
@@ -24,6 +24,6 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "typescript": "^5.4.5",
-    "vite": "^5.2.13"
+    "vite": "^5.3.5"
   }
 }
