@@ -6,7 +6,7 @@ import { isContainerDirective, isDirective } from './helper'
 
 // This plugin is to turn `::linkButton` into divs, passing arbitrary
 // attributes.
-export function faqPlugin() {
+export const faqPlugin = () => {
   return (tree: Root) => {
     visit(tree, isContainerDirective, (node: Directives) => {
       if (node.name !== 'faq') {

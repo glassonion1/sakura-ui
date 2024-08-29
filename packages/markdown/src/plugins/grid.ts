@@ -6,7 +6,7 @@ import { isContainerDirective } from './helper'
 
 // This plugin is to turn `::linkButton` into divs, passing arbitrary
 // attributes.
-export function gridPlugin() {
+export const gridPlugin = () => {
   return (tree: Root) => {
     visit(tree, isContainerDirective, (node: Directives) => {
       if (!node.name.startsWith('grid-cols-')) {
@@ -20,7 +20,7 @@ export function gridPlugin() {
         node.attributes['data-behavior'] = 'list'
       }
 
-      const gridNum: number = parseInt(node.name.split('-').pop() || '1')
+      const gridNum: number = Number.parseInt(node.name.split('-').pop() || '1')
 
       // Tailwind doesn't generate CSS for string interpolation
       const gridClass: { [key: number]: string } = {

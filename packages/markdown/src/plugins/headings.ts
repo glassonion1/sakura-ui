@@ -1,7 +1,7 @@
 import type { Heading, Root } from 'mdast'
 import Slugger from 'github-slugger'
 import { visit } from 'unist-util-visit'
-import { toString } from 'mdast-util-to-string'
+import { toString as mdastToString } from 'mdast-util-to-string'
 import { treefy } from '@sakura-ui/helper'
 import { isHeading } from './helper'
 
@@ -19,9 +19,9 @@ export const headingsPlugin = () => {
 
     const getFlatHeadingsList = (node: Heading) => {
       const h: HeadingItem = {
-        id: slugger.slug(toString(node)),
+        id: slugger.slug(mdastToString(node)),
         depth: node.depth,
-        value: toString(node)
+        value: mdastToString(node)
       }
 
       headings.push(h)

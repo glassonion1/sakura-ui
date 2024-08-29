@@ -8,7 +8,7 @@ import { isDirective } from './helper'
 // attributes.
 export const attrPlugin = () => {
   return (tree: Root) => {
-    visit(tree, isDirective, function (node: Directives) {
+    visit(tree, isDirective, (node: Directives) => {
       node.data = node.data ?? {}
       const hast = h(node.name, node.attributes || {})
 

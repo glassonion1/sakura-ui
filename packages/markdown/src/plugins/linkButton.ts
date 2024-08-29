@@ -6,7 +6,7 @@ import { isTextDirective } from './helper'
 
 // This plugin is to turn `::linkButton` into divs, passing arbitrary
 // attributes.
-export function linkButtonPlugin() {
+export const linkButtonPlugin = () => {
   return (tree: Root) => {
     visit(tree, isTextDirective, (node: Directives) => {
       if (node.name !== 'link-button') return

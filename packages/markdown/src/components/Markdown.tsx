@@ -165,8 +165,8 @@ const Div = (props: DivProps) => {
     // Set the css class configured for cells to the ul tag
     return (
       <ul className={restProps.className}>
-        {Children.map(children, (child, index) => (
-          <li className="sm:grid" key={index}>
+        {Children.map(children, (child) => (
+          <li className="sm:grid" key={Math.random()}>
             {child}
           </li>
         ))}
@@ -233,12 +233,18 @@ const Iframe = (props: IframeProps) => {
 type Props = {
   tocTitle?: string
   showToc?: boolean
+  shiftHeding?: number
   children: string
 }
 
-export const Markdown = ({ children, showToc, tocTitle = '目次' }: Props) => {
+export const Markdown = ({
+  children,
+  showToc,
+  tocTitle = '目次',
+  shiftHeding = 0
+}: Props) => {
   const [toc, setToc] = React.useState<HeadingItem[]>([])
-  const [element, setElement] = React.useState(<></>)
+  const [element, setElement] = React.useState(<React.Fragment />)
 
   React.useEffect(() => {
     setToc(markdown2Headings(children))
@@ -305,7 +311,7 @@ export const Markdown = ({ children, showToc, tocTitle = '目次' }: Props) => {
       }) // mdast -> hast      (HTML Abstract Syntax Tree)
       .use(rehypeRaw) // hast  -> hast
       .use(rehypeExternalLinks, { target: '_blank' }) // hast  -> hast
-      .use(rebypeShiftHeding, { shift: 1 }) // hast  -> hast
+      .use(rebypeShiftHeding, { shift: shiftHeding }) // hast  -> hast
       .use(rehypeSlug)
       .use(rehypeReact, rhypeReactOptions as any) // hast  -> React Elements
       .processSync(md).result

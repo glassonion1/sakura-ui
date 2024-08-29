@@ -6,7 +6,7 @@ import { isContainerDirective, isDirective } from './helper'
 
 // This plugin is to turn `:::cell` into divs, passing arbitrary
 // attributes.
-export function cellPlugin() {
+export const cellPlugin = () => {
   return (tree: Root) => {
     visit(tree, isContainerDirective, (node: Directives) => {
       if (node.name !== 'cell') {

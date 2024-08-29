@@ -6,7 +6,7 @@ import { isDirective } from './helper'
 
 // This plugin is to turn `:::card` into divs, passing arbitrary
 // attributes.
-export function cardPlugin() {
+export const cardPlugin = () => {
   return (tree: Root) => {
     visit(tree, isDirective, (node: Directives) => {
       if (node.type !== 'containerDirective') {

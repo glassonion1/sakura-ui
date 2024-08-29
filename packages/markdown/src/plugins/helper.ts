@@ -1,6 +1,6 @@
 import type { Directives } from 'mdast-util-directive'
-import { Node } from 'unist'
-import { Heading } from 'mdast'
+import type { Node } from 'unist'
+import type { Heading } from 'mdast'
 
 export const isDirective = (node: Node): node is Directives => {
   return (

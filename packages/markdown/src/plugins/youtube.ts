@@ -1,13 +1,13 @@
 import type { Root } from 'mdast'
 import { visit } from 'unist-util-visit'
 import type { Directives } from 'mdast-util-directive'
-import { Literal } from 'unist'
+import type { Literal } from 'unist'
 import { isDirective } from './helper'
 
 // This plugin is turn `::youtube` into iframes.
-export function youtubePlugin() {
+export const youtubePlugin = () => {
   return (tree: Root) => {
-    visit(tree, isDirective, function (node: Directives) {
+    visit(tree, isDirective, (node: Directives) => {
       if (node.type === 'containerDirective' || node.type === 'leafDirective') {
         if (node.name !== 'youtube') return
 
@@ -33,7 +33,7 @@ export function youtubePlugin() {
         data.hName = 'iframe'
         data.hProperties = {
           title: title,
-          src: 'https://www.youtube-nocookie.com/embed/' + id,
+          src: `https://www.youtube-nocookie.com/embed/${id}`,
           width: width,
           height: height,
           frameBorder: 0,
