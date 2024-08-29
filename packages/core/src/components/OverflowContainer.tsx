@@ -11,6 +11,9 @@ export const OverflowContainer = (props: OverflowContainerProps) => {
     w-full
     overflow-x-auto
     whitespace-nowrap
+    print:overflow-visible
+    print:whitespace-normal
+
   `
 
   return (
