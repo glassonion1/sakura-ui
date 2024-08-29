@@ -510,6 +510,16 @@ const sakuraPlugin = plugin(
             'monospace'
           ],
           icon: ['Material Symbols Outlined']
+        },
+        boxShadow: {
+          '1': tokens.Shadow[1].value,
+          '2': tokens.Shadow[2].value,
+          '3': tokens.Shadow[3].value,
+          '4': tokens.Shadow[4].value,
+          '5': tokens.Shadow[5].value,
+          '6': tokens.Shadow[6].value,
+          '7': tokens.Shadow[7].value,
+          '8': tokens.Shadow[8].value
         }
       }
     }
