@@ -59,12 +59,16 @@ const Home = () => {
       <H5>SakuraUI Heading5</H5>
       <H6>SakuraUI Heading6</H6>
       <p>
-        <Icon icon="home" className="text-sea-600" />
+        <Icon className="text-sea-600 !leading-7 align-middle" opticalSize={16}>
+          home
+        </Icon>
         test1,test2,test3
       </p>
       <p>
         test1,test2,abcdefghijk
-        <Icon icon="shopping_cart" className="text-sea-600" />
+        <Icon className="text-sea-600 !leading-7 align-middle" opticalSize={16}>
+          shopping_cart
+        </Icon>
         test3 <Link>link text here</Link>
       </p>
       <p>
@@ -92,6 +96,23 @@ const Home = () => {
             </Link>
           </li>
         </Ul>
+      </div>
+      <div>
+        <H2>Icons</H2>
+        <div className="flex gap-2">
+          {[16, 20, 24, 40, 44, 48].map((size) => (
+            <div className="inline-flex flex-col items-center">
+              <Icon
+                opticalSize={size}
+                altText="Opens in new tab"
+                className="!leading-7"
+              >
+                open_in_new
+              </Icon>
+              {size}px
+            </div>
+          ))}
+        </div>
       </div>
       <div>
         <H2>List</H2>

@@ -1,4 +1,11 @@
-import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
+import {
+  type ComponentWithAs,
+  cx,
+  forwardRef,
+  styleUnderline,
+  styleFocusRoundedWithBg
+} from '@sakura-ui/helper'
+import { Icon } from './Icon'
 
 // biome-ignore lint/suspicious/noEmptyInterface:
 export interface LinkProps {}
@@ -13,54 +20,42 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       ...restProps
     } = props
 
-    const styleUnderLine = `
-      underline
-      underline-offset-[0.1875rem]
-      hover:decoration-4
-    `
-
     // Make lines break at each word
     const style = `
       cursor-pointer
       text-blue-1000
       active:text-orange-700
       visited:text-magenta-900
-      focus:outline
-      focus:outline-2
-      focus:outline-wood-500
+      ${styleFocusRoundedWithBg}
+      ${styleUnderline}
       disabled:border-sumi-500
       [overflow-wrap:anywhere]
     `
 
-    const styleIcon = `
-      inline
-      align-middle
-      font-icon
-      font-light
-      antialiased
-    `
-
-    if (href?.startsWith('http')) {
+    if (href?.startsWith('http') || props.target === '_blank') {
       return (
         <Component
-          className={cx(style, styleUnderLine, className)}
+          className={cx(style, className)}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           {...restProps}
           ref={ref}
         >
-          <span>{children}</span>&nbsp;
-          <span className={cx(styleIcon)} aria-hidden="true">
+          <span>{children}</span>
+          <Icon
+            opticalSize={16}
+            altText="Opens in new tab"
+            className="ml-0.5 !leading-7 align-middle"
+          >
             open_in_new
-          </span>
-          <span className="sr-only">Opens in new tab</span>
+          </Icon>
         </Component>
       )
     }
     return (
       <Component
-        className={cx(style, styleUnderLine, className)}
+        className={cx(style, className)}
         href={href}
         {...restProps}
         ref={ref}

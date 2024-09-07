@@ -41,7 +41,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       peer-disabled:border-sumi-500
       peer-focus-visible:ring-2
       peer-focus-visible:ring-offset-2
-      peer-focus-visible:ring-wood-500
+      peer-focus-visible:ring-wood-600
     `
 
     const radioSizes: { [key in InputSize]: string } = {

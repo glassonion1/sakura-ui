@@ -1,4 +1,15 @@
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+import {
+  styleFocusRounded,
+  styleFocusRoundedWithBg,
+  styleHoverUnderline,
+  styleUnderlineNoDeco
+} from '@sakura-ui/helper'
+
+// Deprecated, replace to ButtonVariantV2
+export type ButtonVariantV1 = 'primary' | 'secondary' | 'tertiary'
+export type ButtonVariantV2 = 'solid-fill' | 'outline' | 'text'
+export type ButtonVariant = ButtonVariantV1 | ButtonVariantV2
+
 export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs'
 
 export const base = `
@@ -15,49 +26,54 @@ export const base = `
   border-blue-900
   hover:border-blue-1000
   active:border-blue-1200
-  focus:outline
-  focus:outline-2
-  focus:outline-wood-600
   disabled:border-sumi-500
   disabled:cursor-not-allowed
 `
 
-const primary = `
+const solidFill = `
   text-white
   bg-blue-900
   hover:bg-blue-1000
   active:bg-blue-1200
   disabled:bg-sumi-500
   disabled:text-white
+  ${styleHoverUnderline}
+  ${styleFocusRounded}
 `
 
-const secondary = `
+const outline = `
   text-blue-900
   hover:text-blue-1000
   active:text-blue-1200
   bg-transparent
   hover:bg-blue-200
   active:bg-blue-300
-  disabled:text-sumi-500
   disabled:bg-transparent
+  disabled:text-sumi-500
+  ${styleHoverUnderline}
+  ${styleFocusRounded}
 `
 
-const tertiary = `
+const text = `
   bg-transparent
   text-blue-900
   hover:text-blue-1000
   active:text-blue-1200
-  underline
   hover:bg-blue-200
   active:bg-blue-300
   disabled:bg-transparent
   disabled:text-sumi-500
+  ${styleUnderlineNoDeco}
+  ${styleFocusRoundedWithBg}
 `
 
 const styles: { [key in ButtonVariant]: string } = {
-  primary: primary,
-  secondary: secondary,
-  tertiary: tertiary
+  primary: solidFill,
+  secondary: outline,
+  tertiary: text,
+  'solid-fill': solidFill,
+  outline: outline,
+  text: text
 }
 
 const params: { [key in ButtonSize]: string } = {

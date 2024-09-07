@@ -49,7 +49,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       peer-disabled:border-sumi-500
       peer-focus-visible:ring-2
       peer-focus-visible:ring-offset-2
-      peer-focus-visible:ring-wood-500
+      peer-focus-visible:ring-wood-600
     `
 
     return (

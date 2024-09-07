@@ -64,14 +64,14 @@ importers:
   examples:
     dependencies:
       '@sakura-ui/core':
-        specifier: ^0.2.6
-        version: 0.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
+        specifier: ^0.2.7-beta.11
+        version: 0.2.7-beta.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
       '@sakura-ui/forms':
         specifier: ^0.2.1
         version: 0.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
       '@sakura-ui/tailwind-theme-plugin':
-        specifier: ^0.2.0
-        version: 0.2.0(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
+        specifier: ^0.2.1
+        version: 0.2.1(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -885,8 +885,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@sakura-ui/core@0.2.6':
-    resolution: {integrity: sha512-Xd233BRCYb1dBr53bvZGXH35KVScNIj1IuoHtcG/mYUWrMPu+AkYKJWWD6+Y7D237ClejcDVgV5rFEo4xB/OIQ==}
+  '@sakura-ui/core@0.2.7-beta.11':
+    resolution: {integrity: sha512-0/ipQwIw32AIDsR1dEuLESaVeiAjpoFwtZ7S8XtiFISGRBURc34Y28c1sZFhEsPF0Xviou/LRtDijXW34Xm/aA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -899,8 +899,8 @@ packages:
       react-dom: ^18.2.0
       tailwindcss: ^3.2.7
 
-  '@sakura-ui/tailwind-theme-plugin@0.2.0':
-    resolution: {integrity: sha512-jHFdsfZPzaczmOUe+zgijLhMhOjnNoOPZalhf/6M2KWaORatcJFHpD+a0oWWT57p/zvc7JMQt60eSMMQbc9lAw==}
+  '@sakura-ui/tailwind-theme-plugin@0.2.1':
+    resolution: {integrity: sha512-hNO70Z8mXwlc5aQFAZJoGC9INruD+DBreNxQPx0zxwF6dUlbFRO5X9kVdAdO/qVdz7+kqx6SGn5idi4OwMz37g==}
     peerDependencies:
       tailwindcss: ^3.2.7
 
@@ -2929,7 +2929,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.19.0':
     optional: true
 
-  '@sakura-ui/core@0.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
+  '@sakura-ui/core@0.2.7-beta.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -2941,7 +2941,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       tailwindcss: 3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5))
 
-  '@sakura-ui/tailwind-theme-plugin@0.2.0(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
+  '@sakura-ui/tailwind-theme-plugin@0.2.1(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
     dependencies:
       tailwindcss: 3.4.4(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5))
 
