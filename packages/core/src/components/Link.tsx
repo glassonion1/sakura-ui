@@ -43,11 +43,7 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
           ref={ref}
         >
           <span>{children}</span>
-          <Icon
-            opticalSize={16}
-            altText="Opens in new tab"
-            className="ml-0.5 !leading-7 align-middle"
-          >
+          <Icon opticalSize={16} altText="Opens in new tab" className="ml-0.5">
             open_in_new
           </Icon>
         </Component>

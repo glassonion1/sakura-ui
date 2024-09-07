@@ -16,7 +16,7 @@ export const Button: ComponentWithAs<'button', ButtonProps> = forwardRef(
   (props, ref) => {
     const {
       as: Component = 'button',
-      variant = 'primary',
+      variant = 'solid-fill',
       size = 'lg',
       className,
       children,

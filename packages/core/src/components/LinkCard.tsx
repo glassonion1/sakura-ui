@@ -75,16 +75,14 @@ export const LinkCardHeader = ({
           <span>
             {children}
             {isExternal ? (
-              <Icon className="text-base ml-1 font-light" icon="open_in_new" />
+              <Icon opticalSize={16} className="ml-1">
+                open_in_new
+              </Icon>
             ) : (
               ''
             )}
           </span>
-          {isExternal ? (
-            ''
-          ) : (
-            <Icon className="text-base-sm !font-medium" icon="arrow_forward" />
-          )}
+          {isExternal ? '' : <Icon opticalSize={16}>arrow_forward</Icon>}
         </>
       )}
     </CardHeader>

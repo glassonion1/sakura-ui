@@ -48,7 +48,11 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
     <>
       <span
         aria-hidden="true"
-        className={cx(fontSize, 'material-symbols-outlined', className)}
+        className={cx(
+          fontSize,
+          'material-symbols-outlined align-middle',
+          className
+        )}
         {...rest}
         ref={ref}
       >

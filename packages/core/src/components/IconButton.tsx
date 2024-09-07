@@ -1,9 +1,15 @@
 import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
-import { base, getVariantStyle, getSizeStyle } from './buttonStyle'
+import {
+  base,
+  getVariantStyle,
+  getSizeStyle,
+  ButtonVariant,
+  ButtonSize
+} from './buttonStyle'
 
 export interface IconButtonProps {
-  variant?: 'primary' | 'secondary'
-  size?: 'lg' | 'md' | 'sm' | 'xs'
+  variant?: ButtonVariant
+  size?: ButtonSize
   iconLayout?: 'left' | 'right'
   icon: string
   rounded?: string
@@ -13,7 +19,7 @@ export const IconButton: ComponentWithAs<'button', IconButtonProps> =
   forwardRef((props, ref) => {
     const {
       as: Component = 'button',
-      variant = 'primary',
+      variant = 'solid-fill',
       size = 'lg',
       iconLayout = 'left',
       icon,

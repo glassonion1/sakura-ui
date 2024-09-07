@@ -25,7 +25,9 @@ import {
   Tbody,
   Tr,
   Th,
-  Td
+  Td,
+  LinkCard,
+  LinkCardHeader
 } from '@sakura-ui/core'
 import {
   Checkbox,
@@ -52,30 +54,42 @@ const Home = () => {
         rounded="full"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
-      <H1>SakuraUI Heading1</H1>
-      <H2>SakuraUI Heading2</H2>
-      <H3>SakuraUI Heading3</H3>
-      <H4>SakuraUI Heading4</H4>
-      <H5>SakuraUI Heading5</H5>
-      <H6>SakuraUI Heading6</H6>
-      <p>
-        <Icon className="text-sea-600 !leading-7 align-middle" opticalSize={16}>
-          home
-        </Icon>
-        test1,test2,test3
-      </p>
-      <p>
-        test1,test2,abcdefghijk
-        <Icon className="text-sea-600 !leading-7 align-middle" opticalSize={16}>
-          shopping_cart
-        </Icon>
-        test3 <Link>link text here</Link>
-      </p>
-      <p>
-        External link: <Link href="https://google.com">link text here</Link>
-      </p>
       <div>
-        List
+        <H2>Headings</H2>
+        <H1>SakuraUI Heading1</H1>
+        <H2>SakuraUI Heading2</H2>
+        <H3>SakuraUI Heading3</H3>
+        <H4>SakuraUI Heading4</H4>
+        <H5>SakuraUI Heading5</H5>
+        <H6>SakuraUI Heading6</H6>
+      </div>
+      <div>
+        <H2>Text</H2>
+        <p>
+          <Icon
+            className="text-sea-600 !leading-7 align-middle"
+            opticalSize={16}
+          >
+            home
+          </Icon>
+          test1,test2,test3
+        </p>
+        <p>
+          test1,test2,abcdefghijk
+          <Icon
+            className="text-sea-600 !leading-7 align-middle"
+            opticalSize={16}
+          >
+            shopping_cart
+          </Icon>
+          test3 <Link>link text here</Link>
+        </p>
+        <p>
+          External link: <Link href="https://google.com">link text here</Link>
+        </p>
+      </div>
+      <div>
+        <H2>List</H2>
         <Ul>
           <li>
             External link: <Link href="https://google.com">link text here</Link>
@@ -99,7 +113,7 @@ const Home = () => {
       </div>
       <div>
         <H2>Icons</H2>
-        <div className="flex gap-2">
+        <div className="flex gap-4">
           {[16, 20, 24, 40, 44, 48].map((size) => (
             <div className="inline-flex flex-col items-center">
               <Icon
@@ -176,16 +190,10 @@ const Home = () => {
             XXXXXxxxxxxxxxxxxxXXX
           </CardBody>
         </Card>
-        <Card className="flex justify-between items-center">
-          <span>
-            <CardHeader>xxxXXX</CardHeader>
-            <CardBody>xxxxxxxxXXX</CardBody>
-          </span>
-          <Icon
-            className="text-base-sm !font-medium mr-6"
-            icon="arrow_forward"
-          />
-        </Card>
+        <LinkCard href="/">
+          <LinkCardHeader>xxxXXX</LinkCardHeader>
+          <CardBody>xxxxxxxxXXX</CardBody>
+        </LinkCard>
         <Card>
           <CardImg src="bg-mt.webp" className="h-48 w-full" />
           <CardHeader>Header: XXXxxx</CardHeader>
