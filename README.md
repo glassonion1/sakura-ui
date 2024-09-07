@@ -96,7 +96,7 @@ export default App
 - H1-H6 Headings
 - Link
 - Card
-- InfoCard
+- LinkCard
 - Ol
 - Ul
 - Table
