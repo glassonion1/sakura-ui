@@ -30,7 +30,10 @@ export {
   Th,
   Tr,
   Td,
-  OverflowContainer
+  OverflowContainer,
+  LangSelector,
+  PopoverMenu,
+  PopoverMenuItem
 } from './components'
 
 export type {
@@ -60,5 +63,6 @@ export type {
   ThProps,
   TrProps,
   TdProps,
-  OverflowContainerProps
+  OverflowContainerProps,
+  LangSelectorProps
 } from './components'

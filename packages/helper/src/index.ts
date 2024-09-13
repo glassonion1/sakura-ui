@@ -4,8 +4,11 @@ export type { ComponentWithAs } from './types/component'
 export { treefy } from './treefy'
 export {
   styleClickable,
+  styleFocusRectCondensed,
+  styleFocusRectCondensedWithBg,
   styleFocusRect,
   styleFocusRounded,
+  styleFocusCard,
   styleFocusRectWithBg,
   styleFocusRoundedWithBg,
   styleHoverUnderline,

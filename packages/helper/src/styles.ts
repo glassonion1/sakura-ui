@@ -12,28 +12,50 @@ export const styleSelected = `
   bg-yellow-50
 `
 
-export const styleFocusRect = `
+const styleFocus = `
   focus-visible:outline
   focus-visible:outline-4
   focus-visible:outline-black
-  focus-visible:outline-offset-[calc(2/16*1rem)]
-  focus-visible:ring-[calc(2/16*1rem)]
   focus-visible:ring-yellow-300
 `
 
+export const styleFocusRectCondensed = `
+  ${styleFocus}
+  focus-visible:-outline-offset-4
+  focus-visible:ring-[calc(6/16*1rem)]
+  focus-visible:ring-inset
+`
+
+export const styleFocusRectCondensedWithBg = `
+  ${styleFocusRectCondensed}
+  focus-visible:bg-yellow-300
+`
+
+export const styleFocusRect = `
+  ${styleFocus}
+  focus-visible:outline-offset-[calc(2/16*1rem)]
+  focus-visible:ring-[calc(2/16*1rem)]
+`
+
 export const styleFocusRounded = `
-  focus-visible:rounded
   ${styleFocusRect}
+  focus-visible:rounded
+`
+
+export const styleFocusCard = `
+  ${styleFocusRect}
+  focus-visible:rounded-2xl
+  sm:focus-visible:rounded-3xl
 `
 
 export const styleFocusRectWithBg = `
-  focus-visible:bg-yellow-300
   ${styleFocusRect}
+  focus-visible:bg-yellow-300
 `
 
 export const styleFocusRoundedWithBg = `
-  focus-visible:rounded
   ${styleFocusRectWithBg}
+  focus-visible:rounded
 `
 
 export const styleHoverUnderline = `

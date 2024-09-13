@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx, styleFocusRounded } from '@sakura-ui/helper'
+import { cx, styleFocusCard } from '@sakura-ui/helper'
 import { Card, CardHeader } from './Card'
 import { Icon } from './Icon'
 
@@ -25,7 +25,7 @@ export const LinkCard = ({
     rounded-2xl
     sm:rounded-3xl
     w-full h-full
-    ${styleFocusRounded}
+    ${styleFocusCard}
   `
 
   const styleHover = `

@@ -10,7 +10,7 @@ export const treefy = <I extends { depth: number }>(input: I[]) => {
     if (top < item.depth && item.depth <= bottom + 1) {
       const idx = item.depth - top
       bottom = item.depth
-      ;(last[idx - 1].children ??= []).push(item)
+      ;(last[idx - 1].children ?? []).push(item)
       last[idx] = item
       continue
     }
