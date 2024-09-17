@@ -28,7 +28,8 @@ module.exports = {
   content: [
     './src/pages/**/*.{jsx,tsx}',
     './node_modules/@sakura-ui/core/**/*.{js,jsx,ts,tsx}',
-    './node_modules/@sakura-ui/forms/**/*.{js,jsx,ts,tsx}'
+    './node_modules/@sakura-ui/forms/**/*.{js,jsx,ts,tsx}',
+    './node_modules/@sakura-ui/markdown/**/*.{js,jsx,ts,tsx}'
   ],
   plugins: [require('@sakura-ui/tailwind-theme-plugin')]
 }
