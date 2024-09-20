@@ -465,6 +465,20 @@ const sakuraPlugin = plugin(
             800: tokens.Color.Neutral.SolidGrey[800].value,
             900: tokens.Color.Neutral.SolidGrey[900].value
           },
+          'solid-gray': {
+            50: tokens.Color.Neutral.SolidGrey[50].value,
+            100: tokens.Color.Neutral.SolidGrey[100].value,
+            200: tokens.Color.Neutral.SolidGrey[200].value,
+            300: tokens.Color.Neutral.SolidGrey[300].value,
+            400: tokens.Color.Neutral.SolidGrey[400].value,
+            420: tokens.Color.Neutral.SolidGrey[420].value,
+            500: tokens.Color.Neutral.SolidGrey[500].value,
+            536: tokens.Color.Neutral.SolidGrey[536].value,
+            600: tokens.Color.Neutral.SolidGrey[600].value,
+            700: tokens.Color.Neutral.SolidGrey[700].value,
+            800: tokens.Color.Neutral.SolidGrey[800].value,
+            900: tokens.Color.Neutral.SolidGrey[900].value
+          },
           'success-1': tokens.Color.Success[1].value,
           'success-2': tokens.Color.Success[2].value,
           'error-1': tokens.Color.Error[1].value,
