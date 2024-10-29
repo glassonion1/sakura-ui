@@ -46,7 +46,7 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
 
   const style = `
     font-icon
-    font-normal
+    font-light
     inline-block
     leading-4
     whitespace-nowrap
