@@ -49,8 +49,8 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
     font-light
     inline-block
     leading-4
-    whitespace-nowrap
     align-middle
+    whitespace-nowrap
   `
 
   return (

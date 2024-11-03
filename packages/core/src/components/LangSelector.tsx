@@ -39,10 +39,11 @@ export const LangSelector = ({
   `
 
   const styleButton = `
-    flex
     w-fit
-    items-center
-    sm:gap-1
+    sm:py-3
+    text-base
+    leading-4
+    leading-snug
     ${styleClickable}
     ${styleFocusRoundedWithBg}
     ${styleAnchorName}
@@ -90,7 +91,11 @@ export const LangSelector = ({
         fucus(index)
         break
       case 'Tab':
-        menuRef.current?.hidePopover()
+        index = e.shiftKey ? currentIndex - 1 : currentIndex + 1
+        setCurrentIndex(index)
+        if (index === -1 || index === langs.length) {
+          menuRef.current?.hidePopover()
+        }
         break
     }
   }
@@ -111,11 +116,11 @@ export const LangSelector = ({
           language
         </Icon>
         <span
-          className={cx('hidden sm:inline-block mb-0.5', styleHoverUnderline)}
+          className={cx('hidden sm:mx-1 sm:inline-block', styleHoverUnderline)}
         >
           Language
         </span>
-        <IconLanguageMobile className="sm:hidden" />
+        <IconLanguageMobile className="inline-block sm:hidden" />
         <Icon
           opticalSize={20}
           className="group-[:has(:popover-open)]:rotate-180"

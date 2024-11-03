@@ -81,16 +81,16 @@ const params: { [key in ButtonSize]: string } = {
   lg: `
     p-4
     text-button
-    rounded-lg
     leading-snug
+    rounded-lg
   `,
   // 12(py-3) * 2 + 22(text-button * leading-snug) + boader * 2 = 48px
   md: `
     px-4
     py-3
     text-button
-    rounded-lg
     leading-snug
+    rounded-lg
   `,
   // 6(py-1.5) * 2 + 22(text-button * leading-snug) + boader * 2 = 36px
   sm: `
@@ -98,8 +98,8 @@ const params: { [key in ButtonSize]: string } = {
     py-1.5
     my-1
     text-button
-    rounded-md
     leading-snug
+    rounded-md
   `,
   // 6(py-1.5) * 2 + 14(text-button-sm) + boader * 2 = 28p
   xs: `
