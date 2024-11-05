@@ -3,8 +3,8 @@ import {
   base,
   getVariantStyle,
   getSizeStyle,
-  ButtonVariant,
-  ButtonSize
+  type ButtonVariant,
+  type ButtonSize
 } from './buttonStyle'
 
 export interface IconButtonProps {
