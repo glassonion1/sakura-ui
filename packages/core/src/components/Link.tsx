@@ -12,13 +12,7 @@ export interface LinkProps {}
 
 export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
   (props, ref) => {
-    const {
-      as: Component = 'a',
-      href,
-      className,
-      children,
-      ...restProps
-    } = props
+    const { as: Component = 'a', href, className, children, ...rest } = props
 
     // Make lines break at each word
     const style = `
@@ -39,7 +33,7 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          {...restProps}
+          {...rest}
           ref={ref}
         >
           <span>{children}</span>
@@ -53,7 +47,7 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       <Component
         className={cx(style, className)}
         href={href}
-        {...restProps}
+        {...rest}
         ref={ref}
       >
         {children}

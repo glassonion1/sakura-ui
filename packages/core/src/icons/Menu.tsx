@@ -1,6 +1,6 @@
 import type { IconProps } from './props'
 
-export const KeyboadArrowDown = (props: IconProps) => {
+export const Menu = (props: IconProps) => {
   const { size, className, ...rest } = props
   return (
     <svg
@@ -12,12 +12,12 @@ export const KeyboadArrowDown = (props: IconProps) => {
       width={size}
       {...rest}
     >
-      <g>
-        <path
-          d="M8 11.4L2 5.33332L2.66667 4.66666L8 9.99999L13.3333 4.66666L14 5.33332L8 11.4Z"
-          fill="currentColor"
-        />
-      </g>
+      <path
+        clipRule="evenodd"
+        d="M21 5.5H3V7H21V5.5ZM21 11.2998H3V12.7998H21V11.2998ZM3 17H21V18.5H3V17Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
     </svg>
   )
 }

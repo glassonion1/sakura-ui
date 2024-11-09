@@ -64,14 +64,17 @@ importers:
   examples:
     dependencies:
       '@sakura-ui/core':
-        specifier: ^0.2.15
-        version: 0.2.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
+        specifier: ^0.2.17
+        version: 0.2.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
       '@sakura-ui/forms':
         specifier: ^0.2.1
         version: 0.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
       '@sakura-ui/tailwind-theme-plugin':
         specifier: ^0.2.1
-        version: 0.2.1(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
+        version: 0.2.2(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))
+      clsx:
+        specifier: ^2.1.0
+        version: 2.1.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -80,7 +83,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-router-dom:
         specifier: ^6.23.1
-        version: 6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.28.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwindcss:
         specifier: ^3.4.11
         version: 3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5))
@@ -721,8 +724,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@remix-run/router@1.19.2':
-    resolution: {integrity: sha512-baiMx18+IMuD1yyvOGaHM9QrVUPGGG0jC+z+IPHnRJWUAUvaKuWKyE8gjDj2rzv3sz9zOGoRSPgeBVHRhZnBlA==}
+  '@remix-run/router@1.21.0':
+    resolution: {integrity: sha512-xfSkCAchbdG5PnbrKqFWwia4Bi61nH+wm8wLEqfHDyp7Y3dZzgqS2itV8i4gAq9pC2HsTpwyBC6Ds8VHZ96JlA==}
     engines: {node: '>=14.0.0'}
 
   '@rollup/rollup-android-arm-eabi@4.18.0':
@@ -885,8 +888,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@sakura-ui/core@0.2.15':
-    resolution: {integrity: sha512-M7l7qKxMneffjNxW6yNkCDW6bWwI2+eF3rDrx18b3bBRJiuemDiXUjoIe245Ik6TmHqEAqKMIoHJ0YEXNeeweg==}
+  '@sakura-ui/core@0.2.17':
+    resolution: {integrity: sha512-dyDu7SpGu9a9cUXuqoRR/TzCmcrJnIMY0mlPSFQtaEOt9/zWlg7e51fJtrGuiQDfjGYiJTubhZmckSmhYZvizg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -899,8 +902,8 @@ packages:
       react-dom: ^18.2.0
       tailwindcss: ^3.2.7
 
-  '@sakura-ui/tailwind-theme-plugin@0.2.1':
-    resolution: {integrity: sha512-hNO70Z8mXwlc5aQFAZJoGC9INruD+DBreNxQPx0zxwF6dUlbFRO5X9kVdAdO/qVdz7+kqx6SGn5idi4OwMz37g==}
+  '@sakura-ui/tailwind-theme-plugin@0.2.2':
+    resolution: {integrity: sha512-Hb3ew7zT792w2E5GYbOOcbbR71c9YJX6gJJo+5mSXVEza7mvNUZAFDCjDeUZ+n2dqN06Ii6Wq3i00olP7kq+oA==}
     peerDependencies:
       tailwindcss: ^3.2.7
 
@@ -1343,6 +1346,10 @@ packages:
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
+
+  clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
 
   color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -2097,15 +2104,15 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react-router-dom@6.26.2:
-    resolution: {integrity: sha512-z7YkaEW0Dy35T3/QKPYB1LjMK2R1fxnHO8kWpUMTBdfVzZrWOiY9a7CtN8HqdWtDUWd5FY6Dl8HFsqVwH4uOtQ==}
+  react-router-dom@6.28.0:
+    resolution: {integrity: sha512-kQ7Unsl5YdyOltsPGl31zOjLrDv+m2VcIEcIHqYYD3Lp0UppLjrzcfJqDJwXxFw3TH/yvapbnUvPlAj7Kx5nbg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
 
-  react-router@6.26.2:
-    resolution: {integrity: sha512-tvN1iuT03kHgOFnLPfLJ8V95eijteveqdOSk+srqfePtQvqCExB8eHOYnlilbOcyJyKnYkr1vJvf7YqotAJu1A==}
+  react-router@6.28.0:
+    resolution: {integrity: sha512-HrYdIFqdrnhDw0PqG/AKjAqEqM7AvxCz0DQ4h2W8k6nqmc5uRBYDag0SBxx9iYz5G8gnuNVLzUe13wl9eAsXXg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
@@ -2839,7 +2846,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@remix-run/router@1.19.2': {}
+  '@remix-run/router@1.21.0': {}
 
   '@rollup/rollup-android-arm-eabi@4.18.0':
     optional: true
@@ -2937,7 +2944,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.19.0':
     optional: true
 
-  '@sakura-ui/core@0.2.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
+  '@sakura-ui/core@0.2.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -2949,7 +2956,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       tailwindcss: 3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5))
 
-  '@sakura-ui/tailwind-theme-plugin@0.2.1(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
+  '@sakura-ui/tailwind-theme-plugin@0.2.2(tailwindcss@3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5)))':
     dependencies:
       tailwindcss: 3.4.11(ts-node@10.9.2(@swc/core@1.7.1)(@types/node@20.14.2)(typescript@5.4.5))
 
@@ -3404,6 +3411,8 @@ snapshots:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  clsx@2.1.1: {}
 
   color-convert@1.9.3:
     dependencies:
@@ -4417,16 +4426,16 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-router-dom@6.28.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@remix-run/router': 1.19.2
+      '@remix-run/router': 1.21.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-router: 6.26.2(react@18.3.1)
+      react-router: 6.28.0(react@18.3.1)
 
-  react-router@6.26.2(react@18.3.1):
+  react-router@6.28.0(react@18.3.1):
     dependencies:
-      '@remix-run/router': 1.19.2
+      '@remix-run/router': 1.21.0
       react: 18.3.1
 
   react@18.3.1:

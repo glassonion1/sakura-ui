@@ -4,7 +4,6 @@ export const Language = (props: IconProps) => {
   const { size, className, ...rest } = props
   return (
     <svg
-      aria-label={`${rest['aria-label'] ?? 'Language'}`}
       className={className}
       fill="none"
       height={size}

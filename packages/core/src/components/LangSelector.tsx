@@ -1,14 +1,14 @@
 import React from 'react'
 import {
   cx,
+  mod,
+  focusableSelector,
   styleClickable,
   styleFocusRoundedWithBg,
   styleHoverUnderline
 } from '@sakura-ui/helper'
 import { Language, LanguageMobile, KeyboadArrowDown } from '@/icons'
 import { PopoverMenu, PopoverMenuItem } from './PopoverMenu'
-
-const mod = (n: number, m: number): number => ((n % m) + m) % m
 
 interface Lang {
   code: string
@@ -18,7 +18,8 @@ interface Lang {
 
 // Tailwind 3.4.5 or higher is required to use anchor-name.
 // https://github.com/tailwindlabs/tailwindcss/issues/13818
-export interface LangSelectorProps extends React.ComponentPropsWithRef<'div'> {
+export interface LangSelectorProps
+  extends React.ComponentPropsWithRef<'button'> {
   current: string
   langs: Lang[]
 }
@@ -27,7 +28,7 @@ export const LangSelector = ({
   current,
   langs,
   className,
-  ...rest
+  ...restProps
 }: LangSelectorProps) => {
   const styleRoot = `
     relative
@@ -38,8 +39,10 @@ export const LangSelector = ({
     [anchor-name:--target]
   `
 
+  // height: text-base(16px)*1.375 + p-3(12px)*2 + border(1px)*2  = 48px
   const styleButton = `
     w-fit
+    py-[1px]
     sm:py-3
     text-base
     leading-snug
@@ -60,81 +63,75 @@ export const LangSelector = ({
 
   const targetId = React.useId()
 
-  // see: https://stackoverflow.com/questions/71145871/how-to-focus-the-next-input-with-react
-  const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [menuItemRefs] = React.useState(() =>
-    Array.from({ length: langs.length }, () =>
-      React.createRef<HTMLAnchorElement>()
-    )
-  )
   const menuRef = React.useRef<HTMLUListElement>(null)
 
-  const fucus = (index: number) => {
-    if (index >= 0) {
-      menuItemRefs[index].current?.focus()
-    }
-    setCurrentIndex(index)
-  }
-
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    let index = currentIndex
-    switch (e.key) {
-      case 'ArrowUp':
-        e.preventDefault()
-        menuRef.current?.showPopover()
-        index = mod(currentIndex - 1, langs.length)
-        fucus(index)
-        break
-      case 'ArrowDown':
-        e.preventDefault()
-        menuRef.current?.showPopover()
-        index = mod(currentIndex + 1, langs.length)
-        fucus(index)
-        break
-      case 'Tab':
-        index = e.shiftKey ? currentIndex - 1 : currentIndex + 1
-        setCurrentIndex(index)
-        if (index === -1 || index === langs.length) {
-          menuRef.current?.hidePopover()
-        }
-        break
+    if (e.key === 'Tab') {
+      e.preventDefault()
+
+      const focusables: HTMLElement[] = Array.from(
+        menuRef.current?.querySelectorAll(focusableSelector) || []
+      )
+      if (focusables.length === 0) return
+
+      const tabIndex = focusables.findIndex(
+        (el) => el === document.activeElement
+      )
+      // If there is no focused element, focus the first element
+      if (tabIndex === -1) {
+        focusables[0].focus()
+        return
+      }
+      const nextIndex = mod(tabIndex + (e.shiftKey ? -1 : 1), focusables.length)
+      focusables[nextIndex].focus()
+
+      return
     }
   }
 
-  const handleOnToggle = (_e: React.MouseEvent<HTMLElement>) => {
-    fucus(-1)
+  const handleToggle = () => {
+    const focusable: HTMLElement | null | undefined =
+      menuRef.current?.querySelector(focusableSelector)
+    if (!focusable) return
+    focusable.focus()
   }
+
+  React.useEffect(() => {
+    menuRef.current?.addEventListener('toggle', handleToggle)
+
+    return () => menuRef.current?.removeEventListener('toggle', handleToggle)
+  }, [menuRef])
 
   return (
-    <div className={styleRoot} onKeyDown={handleKeyDown} {...rest}>
+    <div className={cx(className, styleRoot)}>
       <button
         popoverTarget={targetId}
         type="button"
-        onClick={handleOnToggle}
         className={styleButton}
+        {...restProps}
       >
-        <Language size={20} className={cx('hidden sm:inline-block')} />
-        <span className="hidden sm:mb-0.5 sm:mx-1 sm:inline">Language</span>
+        <Language size={20} className="hidden sm:mt-0.5 sm:inline-block" />
+        <span className="hidden sm:mx-1 sm:inline">Language</span>
         <LanguageMobile size={44} className="inline-block sm:hidden" />
         <KeyboadArrowDown
           size={16}
-          className="inline-block sm:mt-0.5 group-[:has(:popover-open)]:rotate-180"
+          className="inline-block sm:mt-1 group-[:has(:popover-open)]:rotate-180"
         />
       </button>
       <PopoverMenu
         ref={menuRef}
         id={targetId}
         popover="auto"
+        onKeyDown={handleKeyDown}
         className={stylePositionBottomRight}
       >
-        {menuItemRefs.map((ref, index) => (
+        {langs.map((lang) => (
           <PopoverMenuItem
-            key={langs[index].code}
-            aria-current={current === langs[index].code}
-            ref={ref}
-            href={langs[index].path}
+            key={lang.code}
+            aria-current={current === lang.code}
+            href={lang.path}
           >
-            {langs[index].title}
+            {lang.title}
           </PopoverMenuItem>
         ))}
       </PopoverMenu>
