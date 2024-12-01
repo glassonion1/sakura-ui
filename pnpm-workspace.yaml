@@ -2,3 +2,12 @@ packages:
   - 'packages/**'
   - '!**/test/**'
   - '!examples/**'
+
+catalog:
+  '@types/react': ^18.3.5
+  '@types/react-dom': ^18.3.1
+  react: ^18.3.1
+  react-dom: ^18.3.1
+  tailwindcss: ^3.4.15
+  autoprefixer: ^10.4.20
+  postcss: ^8.4.49

@@ -27,18 +27,18 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.4.5"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
-    "@types/node": "^20.14.1",
-    "@vitejs/plugin-react-swc": "^3.7.0",
+    "@types/node": "^22.10.1",
+    "@vitejs/plugin-react-swc": "^3.7.2",
     "npm-run-all2": "^6.2.0",
     "rimraf": "^5.0.7",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.12",
-    "vitest": "^1.6.0"
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1",
+    "vitest": "^2.1.6"
   }
 }

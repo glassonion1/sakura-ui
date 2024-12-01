@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../utils/class'
+import { cx } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
 
 export interface LabelControlProps
