@@ -4,19 +4,10 @@ import { cx } from '@sakura-ui/helper'
 export interface IconProps extends React.ComponentPropsWithRef<'span'> {
   opticalSize?: 16 | 20 | 24 | 40 | 44 | 48
   altText?: string
-  /** @deprecated instead of using this property, set the text to children. */
-  icon?: string
 }
 
 export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
-  const {
-    className,
-    icon,
-    altText = '',
-    opticalSize = 24,
-    children,
-    ...rest
-  } = props
+  const { className, altText = '', opticalSize = 24, children, ...rest } = props
 
   const size = {
     16: '!text-[16px]',
@@ -61,7 +52,7 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
         {...rest}
         ref={ref}
       >
-        {icon ?? children}
+        {children}
       </span>
       <span className="sr-only">{altText}</span>
     </>

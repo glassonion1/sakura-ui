@@ -8,14 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/core": "^0.2.17",
+    "@sakura-ui/core": "^0.3.0-beta.1",
     "@sakura-ui/forms": "^0.2.1",
     "@sakura-ui/tailwind-theme-plugin": "^0.2.1",
+    "clsx": "^2.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
-    "tailwindcss": "^3.4.11",
-    "clsx": "^2.1.0"
+    "tailwindcss": "^3.4.11"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
@@ -25,6 +25,6 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "typescript": "^5.4.5",
-    "vite": "^5.3.5"
+    "vite": "^5.4.11"
   }
 }
