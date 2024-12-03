@@ -35,7 +35,8 @@ export {
   LangSelector,
   NavigationItem,
   PopoverMenu,
-  PopoverMenuItem
+  PopoverMenuItem,
+  Slot
 } from './components'
 
 export type {
