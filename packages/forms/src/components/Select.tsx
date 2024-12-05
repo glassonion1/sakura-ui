@@ -45,7 +45,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             style,
             borderedInputBaseStyles,
             borderedInputSizeStyles[size],
-            props.className
+            className
           )}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}

@@ -44,7 +44,7 @@ export const FieldsetControl = React.forwardRef<
   return (
     <ControllerContext.Provider value={context}>
       <fieldset
-        className={cx('flex flex-col gap-2', className)}
+        className={cx('flex flex-col items-start gap-2', className)}
         ref={ref}
         {...restProps}
       >

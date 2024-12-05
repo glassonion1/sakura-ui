@@ -45,7 +45,7 @@ export const LabelControl = React.forwardRef<
 
   return (
     <ControllerContext.Provider value={context}>
-      <div className={cx('flex flex-col gap-2', className)}>
+      <div className={cx('flex flex-col items-start gap-2', className)}>
         <label
           className={cx('block text-label', isInvalid && 'text-sun-800')}
           htmlFor={context.id}

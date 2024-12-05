@@ -72,10 +72,10 @@ const Home = () => {
           <nav>
             <ul className="flex sm:gap-8">
               <li className={styleSp}>
-                <NavigationItem href="/">Menu1</NavigationItem>
+                <NavigationItem href="/">Home</NavigationItem>
               </li>
               <li className={styleSp}>
-                <NavigationItem href="/">Menu2</NavigationItem>
+                <NavigationItem href="forms">Forms</NavigationItem>
               </li>
               <li className={clsx(styleSp, 'py-2')} aria-hidden="true">
                 |
@@ -86,10 +86,10 @@ const Home = () => {
                     <nav className="p-6 xl:px-0 bg-white flex flex-col sm:flex-row gap-4 sm:gap-10 justify-center">
                       <ul>
                         <li>
-                          <NavigationItem href="/">Menu1</NavigationItem>
+                          <NavigationItem href="/">Home</NavigationItem>
                         </li>
                         <li>
-                          <NavigationItem href="/">Menu2</NavigationItem>
+                          <NavigationItem href="forms">Forms</NavigationItem>
                         </li>
                       </ul>
                     </nav>
