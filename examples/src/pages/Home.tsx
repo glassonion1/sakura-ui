@@ -476,85 +476,63 @@ const Home = () => {
           <div className="my-4">
             <H2>Link Buttons</H2>
             <Button className="mr-2">Normal button</Button>
-            <Button
-              as="a"
-              className="mr-2"
-              href="https://google.com"
-              target="_blank"
-            >
-              Link button
+            <Button className="mr-2" asChild>
+              <a href="https://google.com">Link button</a>
             </Button>
             <IconButton
-              as="a"
               className="mr-2"
-              target="_blank"
               icon="open_in_new"
               iconLayout="right"
               variant="secondary"
+              asChild
             >
-              Link icon button
+              <a href="https://google.com" target="_blank">
+                Link icon button
+              </a>
             </IconButton>
-            <Button
-              as="a"
-              size="md"
-              className="mr-2"
-              href="https://google.com"
-              target="_blank"
-              variant="secondary"
-            >
-              Link button
+            <Button size="md" className="mr-2" variant="secondary" asChild>
+              <a href="https://google.com">Link button</a>
             </Button>
             <IconButton
-              as="a"
               size="md"
               className="mr-2"
-              target="_blank"
               icon="open_in_new"
               iconLayout="right"
+              asChild
             >
-              Link icon button
+              <a href="https://google.com" target="_blank">
+                Link icon button
+              </a>
             </IconButton>
           </div>
           <div className="my-4">
-            <Button
-              as="a"
-              size="md"
-              className="mr-2"
-              href="https://google.com"
-              target="_blank"
-            >
-              Link button
+            <Button size="md" className="mr-2" asChild>
+              <a href="https://google.com">Link button</a>
             </Button>
             <IconButton
-              as="a"
               size="sm"
               className="mr-2"
-              target="_blank"
               icon="open_in_new"
               iconLayout="right"
               variant="secondary"
+              asChild
             >
-              Link icon button
+              <a href="https://google.com" target="_blank">
+                Link icon button
+              </a>
             </IconButton>
-            <Button
-              as="a"
-              size="sm"
-              className="mr-2"
-              href="https://google.com"
-              target="_blank"
-              variant="secondary"
-            >
-              Link button
+            <Button size="sm" className="mr-2" variant="secondary" asChild>
+              <a href="https://google.com">Link button</a>
             </Button>
             <IconButton
-              as="a"
               size="xs"
               className="mr-2"
-              target="_blank"
               icon="open_in_new"
               iconLayout="right"
             >
-              Link icon button
+              <a href="https://google.com" target="_blank">
+                Link icon button
+              </a>
             </IconButton>
           </div>
         </div>

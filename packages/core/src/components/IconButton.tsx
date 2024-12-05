@@ -1,4 +1,5 @@
-import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
+import React, { type ComponentProps } from 'react'
+import { cx } from '@sakura-ui/helper'
 import {
   base,
   getVariantStyle,
@@ -6,19 +7,24 @@ import {
   type ButtonVariant,
   type ButtonSize
 } from './buttonStyle'
+import { Slot } from './Slot'
 
-export interface IconButtonProps {
+export type IconButtonProps = {
+  className?: string
   variant?: ButtonVariant
   size?: ButtonSize
   iconLayout?: 'left' | 'right'
   icon: string
   rounded?: string
-}
+} & (
+  | ({ asChild?: false } & ComponentProps<'button'>)
+  | { asChild: true; children: React.ReactNode }
+)
 
-export const IconButton: ComponentWithAs<'button', IconButtonProps> =
-  forwardRef((props, ref) => {
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
     const {
-      as: Component = 'button',
+      asChild,
       variant = 'solid-fill',
       size = 'lg',
       iconLayout = 'left',
@@ -28,6 +34,8 @@ export const IconButton: ComponentWithAs<'button', IconButtonProps> =
       children,
       ...restProps
     } = props
+
+    const Component = asChild ? Slot : 'button'
 
     const styleFontSize = `${size === 'xs' ? 'scale-105' : 'scale-125'}`
 
@@ -58,25 +66,28 @@ export const IconButton: ComponentWithAs<'button', IconButtonProps> =
         {...restProps}
         ref={ref}
       >
-        {iconLayout === 'left' && (
-          <span
-            className={cx(styleIcon, styleFontSize)}
-            aria-hidden={ariaHidden}
-          >
-            {icon}
-          </span>
-        )}
-        {children && <span className="mx-1">{children}</span>}
-        {iconLayout === 'right' && (
-          <span
-            className={cx(styleIcon, styleFontSize)}
-            aria-hidden={ariaHidden}
-          >
-            {icon}
-          </span>
-        )}
+        <span>
+          {iconLayout === 'left' && (
+            <span
+              className={cx(styleIcon, styleFontSize)}
+              aria-hidden={ariaHidden}
+            >
+              {icon}
+            </span>
+          )}
+          {children && <span className="mx-1">{children}</span>}
+          {iconLayout === 'right' && (
+            <span
+              className={cx(styleIcon, styleFontSize)}
+              aria-hidden={ariaHidden}
+            >
+              {icon}
+            </span>
+          )}
+        </span>
       </Component>
     )
-  })
+  }
+)
 
 IconButton.displayName = 'IconButton'

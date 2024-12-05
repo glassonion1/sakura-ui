@@ -36,3 +36,4 @@ export {
 } from './OverflowContainer'
 export { LangSelector, type LangSelectorProps } from './LangSelector'
 export { PopoverMenu, PopoverMenuItem } from './PopoverMenu'
+export { Slot } from './Slot'

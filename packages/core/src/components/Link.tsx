@@ -1,18 +1,23 @@
-import {
-  type ComponentWithAs,
-  cx,
-  forwardRef,
-  styleUnderline,
-  styleFocusRoundedWithBg
-} from '@sakura-ui/helper'
+import React, { type ComponentProps } from 'react'
+import { cx, styleUnderline, styleFocusRoundedWithBg } from '@sakura-ui/helper'
 import { Icon } from './Icon'
+import { Slot } from './Slot'
 
-// biome-ignore lint/suspicious/noEmptyInterface:
-export interface LinkProps {}
+export type LinkProps = {
+  className?: string
+} & (
+  | ({ asChild?: false } & ComponentProps<'a'>)
+  | {
+      asChild: true
+      children: React.ReactNode
+    }
+)
 
-export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   (props, ref) => {
-    const { as: Component = 'a', href, className, children, ...rest } = props
+    const { asChild, className, children, ...rest } = props
+
+    const Component = asChild ? Slot : 'a'
 
     // Make lines break at each word
     const style = `
@@ -26,11 +31,19 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
       [overflow-wrap:anywhere]
     `
 
-    if (href?.startsWith('http') || props.target === '_blank') {
+    // This assumes the use of next/link or gatsby-link.
+    if (asChild) {
+      return (
+        <Component className={cx(style, className)} {...rest} ref={ref}>
+          {children}
+        </Component>
+      )
+    }
+
+    if (props.href?.startsWith('http') || props.target === '_blank') {
       return (
         <Component
           className={cx(style, className)}
-          href={href}
           target="_blank"
           rel="noopener noreferrer"
           {...rest}
@@ -43,16 +56,6 @@ export const Link: ComponentWithAs<'a', LinkProps> = forwardRef(
         </Component>
       )
     }
-    return (
-      <Component
-        className={cx(style, className)}
-        href={href}
-        {...rest}
-        ref={ref}
-      >
-        {children}
-      </Component>
-    )
   }
 )
 

@@ -1,21 +1,32 @@
+import React, { type ComponentProps } from 'react'
 import {
-  type ComponentWithAs,
   cx,
-  forwardRef,
   styleClickable,
   styleHoverUnderline,
   styleFocusRectWithBg
 } from '@sakura-ui/helper'
+import { Slot } from './Slot'
 
-// biome-ignore lint/suspicious/noEmptyInterface:
-export interface NavigationItemProps {}
+export type NavigationItemProps = {
+  className?: string
+} & (
+  | ({ asChild?: false } & ComponentProps<'a'>)
+  | {
+      asChild: true
+      children: React.ReactNode
+    }
+)
 
-export const NavigationItem: ComponentWithAs<'a', NavigationItemProps> =
-  forwardRef((props, ref) => {
-    const { as: Component = 'a', href, className, children, ...rest } = props
+export const NavigationItem = React.forwardRef<
+  HTMLAnchorElement,
+  NavigationItemProps
+>((props, ref) => {
+  const { asChild, className, children, ...rest } = props
 
-    // leading 16px * 1.375(snug) + padding top 12px + padding bottom 12px + border * 2 = 48px
-    const style = `
+  const Component = asChild ? Slot : 'a'
+
+  // leading 16px * 1.375(snug) + padding top 12px + padding bottom 12px + border * 2 = 48px
+  const style = `
       inline-block
       w-fit
       py-3
@@ -26,17 +37,16 @@ export const NavigationItem: ComponentWithAs<'a', NavigationItemProps> =
       ${styleFocusRectWithBg}
     `
 
-    return (
-      <Component
-        className={cx(style, className)}
-        href={href}
-        rel="noopener noreferrer"
-        {...rest}
-        ref={ref}
-      >
-        {children}
-      </Component>
-    )
-  })
+  return (
+    <Component
+      className={cx(style, className)}
+      rel="noopener noreferrer"
+      {...rest}
+      ref={ref}
+    >
+      {children}
+    </Component>
+  )
+})
 
 NavigationItem.displayName = 'NavigationItem'
