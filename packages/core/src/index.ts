@@ -37,36 +37,3 @@ export {
   PopoverMenu,
   PopoverMenuItem
 } from './components'
-
-export type {
-  ButtonProps,
-  MenuButtonProps,
-  CardProps,
-  CardImgProps,
-  CardHeaderProps,
-  CardBodyProps,
-  CardFooterProps,
-  LinkCardProps,
-  LinkCardHeaderProps,
-  CodeProps,
-  FaqProps,
-  QuestionProps,
-  AnswerProps,
-  HeadingProps,
-  IconProps,
-  IconButtonProps,
-  LinkProps,
-  OlProps,
-  UlProps,
-  PreProps,
-  TableProps,
-  CaptionProps,
-  TheadProps,
-  TbodyProps,
-  ThProps,
-  TrProps,
-  TdProps,
-  OverflowContainerProps,
-  LangSelectorProps,
-  NavigationItemProps
-} from './components'

@@ -4,21 +4,23 @@ import { FieldsetControl } from '../FieldsetControl'
 import type { InputItem } from './InputItem'
 import type { InputSize } from '../inputStyle'
 
-export interface CheckboxGroupProps
-  extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {
-  items: InputItem[]
-  onChange: React.ChangeEventHandler<HTMLInputElement>
-  labelText: string
-  helperText?: string
-  errorMessage?: string
-  isInvalid?: boolean
-  isRequired?: boolean
-  size?: InputSize
+export namespace CheckboxGroup {
+  export interface Props
+    extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {
+    items: InputItem[]
+    onChange: React.ChangeEventHandler<HTMLInputElement>
+    labelText: string
+    helperText?: string
+    errorMessage?: string
+    isInvalid?: boolean
+    isRequired?: boolean
+    size?: InputSize
+  }
 }
 
 export const CheckboxGroup = React.forwardRef<
   HTMLFieldSetElement,
-  CheckboxGroupProps
+  CheckboxGroup.Props
 >((props, ref) => {
   const {
     items,

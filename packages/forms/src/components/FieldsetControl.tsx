@@ -1,20 +1,21 @@
 import React from 'react'
-import { cx } from '../utils/class'
+import { cx } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
 
-export interface FieldsetControlProps
-  extends React.ComponentPropsWithRef<'fieldset'> {
-  labelText: string
-  helperText?: string
-  errorMessage?: string
-  isInvalid?: boolean
-  isRequired?: boolean
-  direction?: 'flex-col' | 'flex-row'
+export namespace FieldsetControl {
+  export interface Props extends React.ComponentPropsWithRef<'fieldset'> {
+    labelText: string
+    helperText?: string
+    errorMessage?: string
+    isInvalid?: boolean
+    isRequired?: boolean
+    direction?: 'flex-col' | 'flex-row'
+  }
 }
 
 export const FieldsetControl = React.forwardRef<
   HTMLFieldSetElement,
-  FieldsetControlProps
+  FieldsetControl.Props
 >((props, ref) => {
   const id = React.useId()
   const {

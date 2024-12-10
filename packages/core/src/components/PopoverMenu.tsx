@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  cx,
-  styleHoverUnderline,
-  styleFocusRectCondensedWithBg
-} from '@sakura-ui/helper'
+import { cx, Style } from '@sakura-ui/helper'
 import { Icon } from './Icon'
 
 export const PopoverMenu = React.forwardRef<
@@ -50,7 +46,7 @@ export const PopoverMenuItem = React.forwardRef<
     items-center
     gap-x-1.5
     hover:bg-solid-grey-50
-    ${styleFocusRectCondensedWithBg}
+    ${Style.focusRectCondensedWithBg}
   `
 
   const styleSelected = `
@@ -76,7 +72,7 @@ export const PopoverMenuItem = React.forwardRef<
         >
           check
         </Icon>
-        <span className={styleHoverUnderline}>{children}</span>
+        <span className={Style.hoverUnderline}>{children}</span>
       </a>
     </li>
   )

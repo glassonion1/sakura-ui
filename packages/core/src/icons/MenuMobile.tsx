@@ -4,11 +4,11 @@ export const MenuMobile = (props: IconProps) => {
   const { size, className, ...rest } = props
   return (
     <svg
+      role="img"
       aria-label={`${rest['aria-label'] ?? 'Menu'}`}
       className={className}
       fill="none"
       height={size}
-      role="img"
       viewBox={`0 0 ${size} ${size}`}
       width={size}
       {...rest}

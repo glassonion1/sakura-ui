@@ -2,18 +2,19 @@ import React from 'react'
 import { cx } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
 
-export interface LabelControlProps
-  extends React.ComponentPropsWithRef<'label'> {
-  labelText: string
-  helperText?: string
-  errorMessage?: string
-  isInvalid?: boolean
-  isRequired?: boolean
+export namespace LabelControl {
+  export interface Props extends React.ComponentPropsWithRef<'label'> {
+    labelText: string
+    helperText?: string
+    errorMessage?: string
+    isInvalid?: boolean
+    isRequired?: boolean
+  }
 }
 
 export const LabelControl = React.forwardRef<
   HTMLLabelElement,
-  LabelControlProps
+  LabelControl.Props
 >((props, ref) => {
   const id = React.useId()
   const {

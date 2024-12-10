@@ -1,9 +1,11 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export interface UlProps extends React.ComponentPropsWithoutRef<'ul'> {}
+export namespace Ul {
+  export interface Props extends React.ComponentPropsWithoutRef<'ul'> {}
+}
 
-export const Ul = (props: UlProps) => {
+export const Ul = (props: Ul.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -19,9 +21,11 @@ export const Ul = (props: UlProps) => {
   )
 }
 
-export interface OlProps extends React.ComponentPropsWithoutRef<'ol'> {}
+export namespace Ol {
+  export interface Props extends React.ComponentPropsWithoutRef<'ol'> {}
+}
 
-export const Ol = (props: OlProps) => {
+export const Ol = (props: Ol.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `

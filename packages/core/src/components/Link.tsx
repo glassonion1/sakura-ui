@@ -1,23 +1,13 @@
-import React, { type ComponentProps } from 'react'
-import { cx, styleUnderline, styleFocusRoundedWithBg } from '@sakura-ui/helper'
+import { type ComponentWithAs, cx, forwardRef, Style } from '@sakura-ui/helper'
 import { Icon } from './Icon'
-import { Slot } from './Slot'
 
-export type LinkProps = {
-  className?: string
-} & (
-  | ({ asChild?: false } & ComponentProps<'a'>)
-  | {
-      asChild: true
-      children: React.ReactNode
-    }
-)
+export namespace Link {
+  export interface Props {}
+}
 
-export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+export const Link: ComponentWithAs<'a', Link.Props> = forwardRef(
   (props, ref) => {
-    const { asChild, className, children, ...rest } = props
-
-    const Component = asChild ? Slot : 'a'
+    const { as: Component = 'a', href, className, children, ...rest } = props
 
     // Make lines break at each word
     const style = `
@@ -25,22 +15,13 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       text-blue-1000
       active:text-orange-700
       visited:text-magenta-900
-      ${styleFocusRoundedWithBg}
-      ${styleUnderline}
+      ${Style.focusRoundedWithBg}
+      ${Style.underline}
       disabled:border-sumi-500
       [overflow-wrap:anywhere]
     `
 
-    // This assumes the use of next/link or gatsby-link.
-    if (asChild) {
-      return (
-        <Component className={cx(style, className)} {...rest} ref={ref}>
-          {children}
-        </Component>
-      )
-    }
-
-    if (props.href?.startsWith('http') || props.target === '_blank') {
+    if (href?.startsWith('http') || props.target === '_blank') {
       return (
         <Component
           className={cx(style, className)}
@@ -56,6 +37,16 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         </Component>
       )
     }
+    return (
+      <Component
+        className={cx(style, className)}
+        href={href}
+        {...rest}
+        ref={ref}
+      >
+        {children}
+      </Component>
+    )
   }
 )
 

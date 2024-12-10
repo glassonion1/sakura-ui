@@ -135,6 +135,10 @@ importers:
         version: 5.4.11(@types/node@22.10.1)
 
   packages/core:
+    dependencies:
+      '@sakura-ui/helper':
+        specifier: workspace:*
+        version: link:../helper
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.6.3

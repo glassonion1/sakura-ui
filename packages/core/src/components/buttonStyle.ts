@@ -1,9 +1,4 @@
-import {
-  styleFocusRounded,
-  styleFocusRoundedWithBg,
-  styleHoverUnderline,
-  styleUnderlineNoDeco
-} from '@sakura-ui/helper'
+import { Style } from '@sakura-ui/helper'
 
 // Deprecated, replace to ButtonVariantV2
 export type ButtonVariantV1 = 'primary' | 'secondary' | 'tertiary'
@@ -37,8 +32,8 @@ const solidFill = `
   active:bg-blue-1200
   disabled:bg-sumi-500
   disabled:text-white
-  ${styleHoverUnderline}
-  ${styleFocusRounded}
+  ${Style.hoverUnderline}
+  ${Style.focusRounded}
 `
 
 const outline = `
@@ -50,8 +45,8 @@ const outline = `
   active:bg-blue-300
   disabled:bg-transparent
   disabled:text-sumi-500
-  ${styleHoverUnderline}
-  ${styleFocusRounded}
+  ${Style.hoverUnderline}
+  ${Style.focusRounded}
 `
 
 const text = `
@@ -63,8 +58,8 @@ const text = `
   active:bg-blue-300
   disabled:bg-transparent
   disabled:text-sumi-500
-  ${styleUnderlineNoDeco}
-  ${styleFocusRoundedWithBg}
+  ${Style.underlineNoDeco}
+  ${Style.focusRoundedWithBg}
 `
 
 const styles: { [key in ButtonVariant]: string } = {
