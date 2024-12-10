@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/core": "^0.3.0-beta.1",
+    "@sakura-ui/core": "^0.3.0",
     "@sakura-ui/forms": "^0.2.1",
     "@sakura-ui/tailwind-theme-plugin": "^0.2.1",
     "clsx": "^2.1.0",
