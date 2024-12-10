@@ -1,3 +1,5 @@
+import { Style } from '@sakura-ui/helper'
+
 export type InputSize = 'lg' | 'md' | 'sm'
 
 export const borderedInputBaseStyles = `
@@ -5,14 +7,11 @@ export const borderedInputBaseStyles = `
   border
   border-solid
   border-sumi-900
-  outline-offset-2
-  focus:outline
-  focus:outline-2
-  focus:outline-wood-500
   disabled:bg-transparent
   disabled:text-sumi-500
   disabled:border-sumi-500
   aria-invalid:border-sun-800
+  ${Style.focusRect}
 `
 
 // for text input and select

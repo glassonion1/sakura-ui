@@ -4,22 +4,24 @@ import { FieldsetControl } from '../FieldsetControl'
 import type { InputItem } from './InputItem'
 import type { InputSize } from '../inputStyle'
 
-export interface RadioGroupProps
-  extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {
-  items: InputItem[]
-  onChange: React.ChangeEventHandler<HTMLInputElement>
-  labelText: string
-  helperText?: string
-  errorMessage?: string
-  isInvalid?: boolean
-  isRequired?: boolean
-  defaultValue?: string
-  size?: InputSize
+export namespace RadioGroup {
+  export interface Props
+    extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'onChange'> {
+    items: InputItem[]
+    onChange: React.ChangeEventHandler<HTMLInputElement>
+    labelText: string
+    helperText?: string
+    errorMessage?: string
+    isInvalid?: boolean
+    isRequired?: boolean
+    defaultValue?: string
+    size?: InputSize
+  }
 }
 
 export const RadioGroup = React.forwardRef<
   HTMLFieldSetElement,
-  RadioGroupProps
+  RadioGroup.Props
 >((props, ref) => {
   const {
     items,

@@ -8,23 +8,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sakura-ui/core": "^0.3.0",
-    "@sakura-ui/forms": "^0.2.1",
-    "@sakura-ui/tailwind-theme-plugin": "^0.2.1",
+    "@sakura-ui/core": "workspace:*",
+    "@sakura-ui/forms": "workspace:*",
+    "@sakura-ui/helper": "workspace:*",
+    "@sakura-ui/tailwind-theme-plugin": "workspace:*",
     "clsx": "^2.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "react-router-dom": "^6.23.1",
-    "tailwindcss": "^3.4.11"
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react-swc": "^3.7.0",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "typescript": "^5.4.5",
+    "autoprefixer": "catalog:",
+    "postcss": "catalog:",
     "vite": "^5.4.11"
   }
 }

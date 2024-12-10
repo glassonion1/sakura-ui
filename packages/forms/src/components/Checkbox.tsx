@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '../utils/class'
+import { cx, Style } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
 import {
   type InputSize,
@@ -8,12 +8,14 @@ import {
   iconStyles
 } from './inputStyle'
 
-export interface CheckboxProps
-  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
-  size?: InputSize
+export namespace Checkbox {
+  export interface Props
+    extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+    size?: InputSize
+  }
 }
 
-export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = React.forwardRef<HTMLInputElement, Checkbox.Props>(
   (props, ref) => {
     const { id, className, size = 'lg', children, ...restProps } = props
     const checkboxId = id || React.useId()
@@ -47,9 +49,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       peer-checked:bg-sea-600
       peer-checked:border-none
       peer-disabled:border-sumi-500
-      peer-focus-visible:ring-2
-      peer-focus-visible:ring-offset-2
-      peer-focus-visible:ring-wood-600
+      ${Style.Peer.focusRect}
     `
 
     return (
@@ -81,7 +81,6 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               height="24"
               viewBox="0 0 24 24"
             >
-              <title>check</title>
               <g transform={`scale(${scales[size]} ${scales[size]})`}>
                 <path d="m9.55 17.65-5.325-5.325 1.05-1.075 4.275 4.275 9.175-9.175 1.05 1.075Z" />
               </g>

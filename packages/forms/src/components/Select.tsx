@@ -7,12 +7,14 @@ import {
   borderedInputSizeStyles
 } from './inputStyle'
 
-export interface SelectProps
-  extends Omit<React.ComponentPropsWithRef<'select'>, 'size'> {
-  size?: InputSize
+export namespace Select {
+  export interface Props
+    extends Omit<React.ComponentPropsWithRef<'select'>, 'size'> {
+    size?: InputSize
+  }
 }
 
-export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+export const Select = React.forwardRef<HTMLSelectElement, Select.Props>(
   (props, ref) => {
     const { id, className, size = 'lg', children, ...restProps } = props
     const ctx = React.useContext(ControllerContext)
@@ -45,7 +47,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             style,
             borderedInputBaseStyles,
             borderedInputSizeStyles[size],
-            props.className
+            className
           )}
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}

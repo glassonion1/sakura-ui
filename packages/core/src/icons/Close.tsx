@@ -4,10 +4,10 @@ export const Close = (props: IconProps) => {
   const { size, className, ...rest } = props
   return (
     <svg
+      aria-hidden={true}
       className={className}
       fill="none"
       height={size}
-      role="img"
       viewBox={`0 0 ${size} ${size}`}
       width={size}
       {...rest}

@@ -1,14 +1,16 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export interface FaqProps extends React.ComponentPropsWithoutRef<'dl'> {}
+export namespace Faq {
+  export interface Props extends React.ComponentPropsWithoutRef<'dl'> {}
+}
 
 const headingStyle = `
   text-h-med-m
   sm:text-h-med
 `
 
-export const Faq = (props: FaqProps) => {
+export const Faq = (props: Faq.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -31,9 +33,11 @@ export const Faq = (props: FaqProps) => {
   )
 }
 
-export interface QuestionProps extends React.ComponentPropsWithoutRef<'dt'> {}
+export namespace Question {
+  export interface Props extends React.ComponentPropsWithoutRef<'dt'> {}
+}
 
-export const Question = (props: QuestionProps) => {
+export const Question = (props: Question.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -54,9 +58,11 @@ export const Question = (props: QuestionProps) => {
   )
 }
 
-export interface AnswerProps extends React.ComponentPropsWithoutRef<'dd'> {}
+export namespace Answer {
+  export interface Props extends React.ComponentPropsWithoutRef<'dd'> {}
+}
 
-export const Answer = (props: AnswerProps) => {
+export const Answer = (props: Answer.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `

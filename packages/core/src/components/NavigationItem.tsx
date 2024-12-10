@@ -1,29 +1,19 @@
 import React, { type ComponentProps } from 'react'
-import {
-  cx,
-  styleClickable,
-  styleHoverUnderline,
-  styleFocusRectWithBg
-} from '@sakura-ui/helper'
-import { Slot } from './Slot'
+import { cx, Style } from '@sakura-ui/helper'
 
-export type NavigationItemProps = {
-  className?: string
-} & (
-  | ({ asChild?: false } & ComponentProps<'a'>)
-  | {
-      asChild: true
-      children: React.ReactNode
-    }
-)
+export namespace NavigationItem {
+  export interface Props<T extends React.ElementType> {
+    as?: T
+  }
+}
 
-export const NavigationItem = React.forwardRef<
-  HTMLAnchorElement,
-  NavigationItemProps
->((props, ref) => {
-  const { asChild, className, children, ...rest } = props
+export const NavigationItem = <T extends React.ElementType = 'a'>(
+  props: NavigationItem.Props<T> &
+    Omit<React.ComponentProps<T>, keyof NavigationItem.Props<T>>
+) => {
+  const { as, className, children, ...rest } = props
 
-  const Component = asChild ? Slot : 'a'
+  const Component = as || 'a'
 
   // leading 16px * 1.375(snug) + padding top 12px + padding bottom 12px + border * 2 = 48px
   const style = `
@@ -32,9 +22,9 @@ export const NavigationItem = React.forwardRef<
       py-3
       text-base
       leading-snug
-      ${styleClickable}
-      ${styleHoverUnderline}
-      ${styleFocusRectWithBg}
+      ${Style.clickable}
+      ${Style.hoverUnderline}
+      ${Style.focusRectWithBg}
     `
 
   return (
@@ -42,11 +32,10 @@ export const NavigationItem = React.forwardRef<
       className={cx(style, className)}
       rel="noopener noreferrer"
       {...rest}
-      ref={ref}
     >
       {children}
     </Component>
   )
-})
+}
 
 NavigationItem.displayName = 'NavigationItem'

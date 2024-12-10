@@ -4,6 +4,7 @@ export const KeyboadArrowDown = (props: IconProps) => {
   const { size, className, ...rest } = props
   return (
     <svg
+      aria-hidden={true}
       className={className}
       fill="none"
       height={size}

@@ -4,11 +4,11 @@ export const LanguageMobile = (props: IconProps) => {
   const { size, className, ...rest } = props
   return (
     <svg
+      role="img"
       aria-label={`${rest['aria-label'] ?? 'Language'}`}
       className={className}
       fill="none"
       height={size}
-      role="img"
       viewBox={`0 0 ${size} ${size}`}
       width={size}
       {...rest}

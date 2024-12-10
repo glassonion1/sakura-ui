@@ -7,9 +7,11 @@ interface IdContextType {
 
 const IdContext = React.createContext<IdContextType>({ id: '' })
 
-export interface CardProps extends React.ComponentPropsWithoutRef<'article'> {}
+export namespace Card {
+  export interface Props extends React.ComponentPropsWithoutRef<'article'> {}
+}
 
-export const Card = (props: CardProps) => {
+export const Card = (props: Card.Props) => {
   const { className, children, ...restProps } = props
 
   const id = React.useId()
@@ -39,9 +41,11 @@ export const Card = (props: CardProps) => {
   )
 }
 
-export interface CardImgProps extends React.ComponentPropsWithoutRef<'img'> {}
+export namespace CardImg {
+  export interface Props extends React.ComponentPropsWithoutRef<'img'> {}
+}
 
-export const CardImg = (props: CardImgProps) => {
+export const CardImg = (props: CardImg.Props) => {
   const { className, ...restProps } = props
 
   const style = `
@@ -53,10 +57,11 @@ export const CardImg = (props: CardImgProps) => {
   return <img className={cx(style, className)} {...restProps} />
 }
 
-export interface CardHeaderProps
-  extends React.ComponentPropsWithoutRef<'div'> {}
+export namespace CardHeader {
+  export interface Props extends React.ComponentPropsWithoutRef<'div'> {}
+}
 
-export const CardHeader = (props: CardHeaderProps) => {
+export const CardHeader = (props: CardHeader.Props) => {
   const { className, children, ...restProps } = props
 
   const ctx = React.useContext(IdContext)
@@ -78,9 +83,11 @@ export const CardHeader = (props: CardHeaderProps) => {
   )
 }
 
-export interface CardBodyProps extends React.ComponentPropsWithoutRef<'div'> {}
+export namespace CardBody {
+  export interface Props extends React.ComponentPropsWithoutRef<'div'> {}
+}
 
-export const CardBody = (props: CardBodyProps) => {
+export const CardBody = (props: CardBody.Props) => {
   const { className, children, ...restProps } = props
 
   const ctx = React.useContext(IdContext)
@@ -101,10 +108,11 @@ export const CardBody = (props: CardBodyProps) => {
   )
 }
 
-export interface CardFooterProps
-  extends React.ComponentPropsWithoutRef<'div'> {}
+export namespace CardFooter {
+  export interface Props extends React.ComponentPropsWithoutRef<'div'> {}
+}
 
-export const CardFooter = (props: CardFooterProps) => {
+export const CardFooter = (props: CardFooter.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `

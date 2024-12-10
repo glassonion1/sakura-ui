@@ -1,10 +1,11 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export interface OverflowContainerProps
-  extends React.ComponentPropsWithoutRef<'div'> {}
+export namespace OverflowContainer {
+  export interface Props extends React.ComponentPropsWithoutRef<'div'> {}
+}
 
-export const OverflowContainer = (props: OverflowContainerProps) => {
+export const OverflowContainer = (props: OverflowContainer.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `

@@ -1,9 +1,11 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export interface CodeProps extends React.ComponentPropsWithoutRef<'code'> {}
+export namespace Code {
+  export interface Props extends React.ComponentPropsWithoutRef<'code'> {}
+}
 
-export const Code = (props: CodeProps) => {
+export const Code = (props: Code.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `

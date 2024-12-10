@@ -1,9 +1,11 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export interface PreProps extends React.ComponentPropsWithoutRef<'pre'> {}
+export namespace Pre {
+  export interface Props extends React.ComponentPropsWithoutRef<'pre'> {}
+}
 
-export const Pre = (props: PreProps) => {
+export const Pre = (props: Pre.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `

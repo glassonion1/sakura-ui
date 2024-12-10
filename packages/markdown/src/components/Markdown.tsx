@@ -102,8 +102,8 @@ const Anchor = (props: AnchorProps) => {
 
   if (restProps['data-node'] === 'link-button') {
     return (
-      <Button as="a" variant="secondary" href={href}>
-        {children}
+      <Button variant="secondary" asChild>
+        <a href={href}>{children}</a>
       </Button>
     )
   }
