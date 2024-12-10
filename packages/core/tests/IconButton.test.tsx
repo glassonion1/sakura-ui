@@ -4,8 +4,8 @@ import { render, screen } from '@testing-library/react'
 
 import { IconButton } from '../src'
 
-describe('given a IconButton with Slot', () => {
-  describe('without asChild', () => {
+describe('given a IconButton as anchor tag', () => {
+  describe('The plain version of the icon button', () => {
     it('should render a button with icon', async () => {
       render(<IconButton icon="home">Button with icon</IconButton>)
 
@@ -17,11 +17,11 @@ describe('given a IconButton with Slot', () => {
     })
   })
 
-  describe('with asChild', () => {
+  describe('as anchor', () => {
     it('should render a link with icon', async () => {
       render(
-        <IconButton icon="home" asChild>
-          <a href="https://googl.com">Button with icon</a>
+        <IconButton as="a" icon="home" href="https://googl.com">
+          Button with icon
         </IconButton>
       )
 

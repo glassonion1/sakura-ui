@@ -4,17 +4,17 @@ import { render, screen } from '@testing-library/react'
 
 import { Button } from '../src'
 
-describe('given a Button with Slot', () => {
-  test('without asChild', async () => {
+describe('given Button as anchor tag', () => {
+  test('The plain version of the button', async () => {
     render(<Button>Button</Button>)
 
     const button = screen.getByRole('button')
     expect(button).toBeInTheDocument()
   })
-  test('with asChild', async () => {
+  test('as anchor', async () => {
     render(
-      <Button asChild>
-        <a href="https://example.com">Button</a>
+      <Button as="a" href="https://example.com">
+        Button
       </Button>
     )
 
