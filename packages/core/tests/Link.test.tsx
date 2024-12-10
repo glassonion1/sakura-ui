@@ -10,6 +10,7 @@ describe('Link', () => {
 
     const link = screen.getByRole('link')
     expect(link).toBeInTheDocument()
+    expect(link).not.toHaveAttribute('target')
   })
 
   it('should render a link with icon', async () => {
@@ -17,6 +18,7 @@ describe('Link', () => {
 
     const link = screen.getByRole('link')
     expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('target')
 
     const text = screen.getByText(/open_in_new/)
     expect(text).toBeInTheDocument()
@@ -31,6 +33,7 @@ describe('Link', () => {
 
     const link = screen.getByRole('link')
     expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('target')
 
     const text = screen.getByText(/open_in_new/)
     expect(text).toBeInTheDocument()
