@@ -1,11 +1,11 @@
 import React from 'react'
-import { describe, test, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import { Card, CardBody, CardHeader } from '../src'
 
-describe('should labeled text from Card', () => {
-  test('text', async () => {
+describe('Card', () => {
+  it('should labeled text from Card', async () => {
     render(
       <Card>
         <CardHeader>Card-Header</CardHeader>
@@ -19,7 +19,7 @@ describe('should labeled text from Card', () => {
     const text2 = screen.getByText(/Card-Body/)
     expect(text2).toBeInTheDocument()
   })
-  test('role and id', async () => {
+  it('should set the role and id correctly', async () => {
     render(
       <Card>
         <CardHeader>Card-Header</CardHeader>

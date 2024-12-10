@@ -7,7 +7,7 @@ export namespace Link {
 
 export const Link: ComponentWithAs<'a', Link.Props> = forwardRef(
   (props, ref) => {
-    const { as: Component = 'a', href, className, children, ...rest } = props
+    const { as: Component = 'a', className, children, ...rest } = props
 
     // Make lines break at each word
     const style = `
@@ -21,7 +21,7 @@ export const Link: ComponentWithAs<'a', Link.Props> = forwardRef(
       [overflow-wrap:anywhere]
     `
 
-    if (href?.startsWith('http') || props.target === '_blank') {
+    if (props.href?.startsWith('http') || props.target === '_blank') {
       return (
         <Component
           className={cx(style, className)}
@@ -38,12 +38,7 @@ export const Link: ComponentWithAs<'a', Link.Props> = forwardRef(
       )
     }
     return (
-      <Component
-        className={cx(style, className)}
-        href={href}
-        {...rest}
-        ref={ref}
-      >
+      <Component className={cx(style, className)} {...rest} ref={ref}>
         {children}
       </Component>
     )
