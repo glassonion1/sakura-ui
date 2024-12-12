@@ -102,8 +102,8 @@ const Anchor = (props: AnchorProps) => {
 
   if (restProps['data-node'] === 'link-button') {
     return (
-      <Button variant="secondary" asChild>
-        <a href={href}>{children}</a>
+      <Button as="a" variant="secondary" href={href}>
+        {children}
       </Button>
     )
   }
@@ -230,6 +230,9 @@ const Iframe = (props: IframeProps) => {
   )
 }
 
+const sleep = (time: number) =>
+  new Promise((resolve) => setTimeout(resolve, time))
+
 type Props = {
   tocTitle?: string
   showToc?: boolean
@@ -246,11 +249,6 @@ export const Markdown = ({
   const [toc, setToc] = React.useState<HeadingItem[]>([])
   const [element, setElement] = React.useState(<React.Fragment />)
 
-  React.useEffect(() => {
-    setToc(markdown2Headings(children))
-    setElement(markdown2ReactElements(children))
-  }, [children])
-
   const markdown2Headings = (md: string) => {
     const result: any = remark().use(headingsPlugin).processSync(md)
 
@@ -260,6 +258,24 @@ export const Markdown = ({
 
     return headings
   }
+
+  // Necessary to make in-page links work.
+  const ref = React.useCallback(() => {
+    const scrollToHash = async () => {
+      await sleep(500)
+      if (location.hash) {
+        document
+          .getElementById(decodeURI(location.hash.substring(1)))
+          ?.scrollIntoView()
+      }
+    }
+    scrollToHash()
+  }, [])
+
+  React.useEffect(() => {
+    setToc(markdown2Headings(children))
+    setElement(markdown2ReactElements(children))
+  }, [children])
 
   const rhypeReactOptions = {
     ...production,
@@ -325,7 +341,7 @@ export const Markdown = ({
   `
 
   return (
-    <div className="py-8 flex flex-col gap-8">
+    <div ref={ref} className="py-8 flex flex-col gap-8">
       {showToc && (
         <nav className={style}>
           <h2 className="mb-4 font-bold text-h-xs-m sm:text-h-xs">

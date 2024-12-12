@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/core",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "keywords": [
     "react",
@@ -44,9 +44,6 @@
     "build:scripts": "vite build",
     "build:types": "tsc && tsc-alias",
     "test": "vitest"
-  },
-  "dependencies": {
-    "@sakura-ui/helper": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.2.0",
