@@ -1,7 +1,7 @@
 import React from 'react'
 import { cx, Style } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
-import { InputSize } from './inputStyle'
+import type { InputSize } from './inputStyle'
 
 export namespace FileInput {
   export interface Props

@@ -2,6 +2,7 @@ import { type ComponentWithAs, cx, forwardRef, Style } from '@sakura-ui/helper'
 import { Icon } from './Icon'
 
 export namespace Link {
+  // biome-ignore lint/suspicious/noEmptyInterface: no error
   export interface Props {}
 }
 
