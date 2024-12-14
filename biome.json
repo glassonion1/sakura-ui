@@ -24,9 +24,6 @@
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
-      },
-      "style": {
-        "noNamespace": "error"
       }
     },
     "ignore": [

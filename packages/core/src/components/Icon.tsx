@@ -1,12 +1,14 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export interface IconProps extends React.ComponentPropsWithRef<'span'> {
-  opticalSize?: 16 | 20 | 24 | 40 | 44 | 48
-  altText?: string
+export namespace Icon {
+  export interface Props extends React.ComponentPropsWithRef<'span'> {
+    opticalSize?: 16 | 20 | 24 | 40 | 44 | 48
+    altText?: string
+  }
 }
 
-export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
+export const Icon = React.forwardRef<HTMLElement, Icon.Props>((props, ref) => {
   const { className, altText = '', opticalSize = 24, children, ...rest } = props
 
   const size = {

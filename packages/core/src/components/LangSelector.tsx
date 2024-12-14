@@ -1,27 +1,20 @@
 import React from 'react'
-import {
-  cx,
-  mod,
-  focusableSelector,
-  styleClickable,
-  styleFocusRoundedWithBg,
-  styleHoverUnderline
-} from '@sakura-ui/helper'
+import { cx, mod, focusableSelector, Style } from '@sakura-ui/helper'
 import { Language, LanguageMobile, KeyboadArrowDown } from '@/icons'
 import { PopoverMenu, PopoverMenuItem } from './PopoverMenu'
 
-interface Lang {
-  code: string
-  title: string
-  path: string
-}
-
-// Tailwind 3.4.5 or higher is required to use anchor-name.
-// https://github.com/tailwindlabs/tailwindcss/issues/13818
-export interface LangSelectorProps
-  extends React.ComponentPropsWithRef<'button'> {
-  current: string
-  langs: Lang[]
+export namespace LangSelector {
+  interface Lang {
+    code: string
+    title: string
+    path: string
+  }
+  // Tailwind 3.4.5 or higher is required to use anchor-name.
+  // https://github.com/tailwindlabs/tailwindcss/issues/13818
+  export interface Props extends React.ComponentPropsWithRef<'button'> {
+    current: string
+    langs: Lang[]
+  }
 }
 
 export const LangSelector = ({
@@ -29,7 +22,7 @@ export const LangSelector = ({
   langs,
   className,
   ...restProps
-}: LangSelectorProps) => {
+}: LangSelector.Props) => {
   const styleRoot = `
     relative
     group
@@ -46,10 +39,10 @@ export const LangSelector = ({
     sm:py-3
     text-base
     leading-snug
-    ${styleClickable}
-    ${styleFocusRoundedWithBg}
+    ${Style.clickable}
+    ${Style.focusRoundedWithBg}
+    ${Style.hoverUnderline}
     ${styleAnchorName}
-    ${styleHoverUnderline}
     flex items-center
   `
 
@@ -89,18 +82,18 @@ export const LangSelector = ({
     }
   }
 
-  const handleToggle = () => {
-    const focusable: HTMLElement | null | undefined =
-      menuRef.current?.querySelector(focusableSelector)
-    if (!focusable) return
-    focusable.focus()
-  }
-
   React.useEffect(() => {
+    const handleToggle = () => {
+      const focusable: HTMLElement | null | undefined =
+        menuRef.current?.querySelector(focusableSelector)
+      if (!focusable) return
+      focusable.focus()
+    }
+
     menuRef.current?.addEventListener('toggle', handleToggle)
 
     return () => menuRef.current?.removeEventListener('toggle', handleToggle)
-  }, [menuRef])
+  }, [])
 
   return (
     <div className={cx(className, styleRoot)}>

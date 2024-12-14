@@ -1,11 +1,12 @@
 import React from 'react'
-import { cx } from '@sakura-ui/helper'
+import { cx, Style } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
 
-export interface TextareaProps
-  extends React.ComponentPropsWithRef<'textarea'> {}
+export namespace Textarea {
+  export interface Props extends React.ComponentPropsWithRef<'textarea'> {}
+}
 
-export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+export const Textarea = React.forwardRef<HTMLTextAreaElement, Textarea.Props>(
   (props, ref) => {
     const { id, className, children, onChange, maxLength, ...restProps } = props
 
@@ -32,14 +33,11 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       border
       border-solid
       border-sumi-900
-      outline-offset-2
-      focus:outline
-      focus:outline-2
-      focus:outline-wood-500
       disabled:bg-transparent
       disabled:text-sumi-500
       disabled:border-sumi-500
       aria-invalid:border-sun-800
+      ${Style.focusRect}
     `
 
     return (

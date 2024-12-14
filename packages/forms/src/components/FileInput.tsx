@@ -1,14 +1,16 @@
 import React from 'react'
-import { cx } from '../utils/class'
+import { cx, Style } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
-import { InputSize } from './inputStyle'
+import type { InputSize } from './inputStyle'
 
-export interface FileInputProps
-  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
-  size?: InputSize
+export namespace FileInput {
+  export interface Props
+    extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+    size?: InputSize
+  }
 }
 
-export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
+export const FileInput = React.forwardRef<HTMLInputElement, FileInput.Props>(
   (props, ref) => {
     const { id, className, size = 'lg', ...restProps } = props
     const ctx = React.useContext(ControllerContext)
@@ -34,7 +36,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       file:disabled:cursor-not-allowed
     `
 
-    const secondary = `
+    const outline = `
       file:text-sea-900
       file:hover:text-sea-1000
       file:active:text-sea-1200
@@ -50,10 +52,9 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       text-sumi-900
       rounded-lg
       outline-offset-2
-      focus:outline
-      focus:outline-2
-      focus:outline-wood-600
       aria-invalid:text-sun-800
+      ${Style.hoverUnderline}
+      ${Style.focusRounded}
     `
 
     const sizeStyles: { [key in InputSize]: string } = {
@@ -86,7 +87,7 @@ export const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       <input
         type="file"
         id={id || ctx.id}
-        className={cx(base, secondary, sizeStyles[size], styleInput, className)}
+        className={cx(base, outline, sizeStyles[size], styleInput, className)}
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}

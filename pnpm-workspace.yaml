@@ -1,7 +1,7 @@
 packages:
   - 'packages/**'
+  - 'examples/**'
   - '!**/test/**'
-  - '!examples/**'
 
 catalog:
   '@types/react': ^18.3.5

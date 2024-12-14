@@ -230,6 +230,9 @@ const Iframe = (props: IframeProps) => {
   )
 }
 
+const sleep = (time: number) =>
+  new Promise((resolve) => setTimeout(resolve, time))
+
 type Props = {
   tocTitle?: string
   showToc?: boolean
@@ -246,77 +249,93 @@ export const Markdown = ({
   const [toc, setToc] = React.useState<HeadingItem[]>([])
   const [element, setElement] = React.useState(<React.Fragment />)
 
-  React.useEffect(() => {
-    setToc(markdown2Headings(children))
-    setElement(markdown2ReactElements(children))
-  }, [children])
-
-  const markdown2Headings = (md: string) => {
+  const markdown2Headings = React.useCallback((md: string) => {
     const result: any = remark().use(headingsPlugin).processSync(md)
 
     const headings: HeadingItem[] = result.data.fm.headings.filter(
-      (obj: any) => obj.depth < 3
+      (obj: HeadingItem) => obj.depth < 3
     )
 
     return headings
-  }
+  }, [])
 
-  const rhypeReactOptions = {
-    ...production,
-    components: {
-      a: Anchor,
-      article: Article,
-      button: Button,
-      code: Code,
-      dl: Faq,
-      dt: Question,
-      dd: Answer,
-      h1: H1,
-      h2: H2,
-      h3: H3,
-      h4: H4,
-      h5: H5,
-      h6: H6,
-      iframe: Iframe,
-      img: Img,
-      ul: Ul,
-      ol: Ol,
-      pre: Pre,
-      table: TableContainer,
-      caption: Caption,
-      thead: Thead,
-      tbody: Tbody,
-      th: Th,
-      tr: Tr,
-      td: Td,
-      div: Div
+  const markdown2ReactElements = React.useCallback(
+    (md: string) => {
+      const rhypeReactOptions = {
+        ...production,
+        components: {
+          a: Anchor,
+          article: Article,
+          button: Button,
+          code: Code,
+          dl: Faq,
+          dt: Question,
+          dd: Answer,
+          h1: H1,
+          h2: H2,
+          h3: H3,
+          h4: H4,
+          h5: H5,
+          h6: H6,
+          iframe: Iframe,
+          img: Img,
+          ul: Ul,
+          ol: Ol,
+          pre: Pre,
+          table: TableContainer,
+          caption: Caption,
+          thead: Thead,
+          tbody: Tbody,
+          th: Th,
+          tr: Tr,
+          td: Td,
+          div: Div
+        }
+      }
+
+      const elem = unified()
+        .use(remarkParse) // md    -> mdast     (Markdown Abstract Syntax Tree)
+        .use(remarkGfm) // mdast -> GFM mdast (GitHub Flavored Markdown Abstract Syntax Tree)
+        .use(remarkDirective) // support for directive syntax
+        .use(remarkBreaks)
+        .use(attrPlugin)
+        .use(youtubePlugin)
+        .use(linkButtonPlugin)
+        .use(cellPlugin)
+        .use(cardPlugin)
+        .use(faqPlugin)
+        .use(gridPlugin)
+        .use(remarkRehype, {
+          allowDangerousHtml: true
+        }) // mdast -> hast      (HTML Abstract Syntax Tree)
+        .use(rehypeRaw) // hast  -> hast
+        .use(rehypeExternalLinks, { target: '_blank' }) // hast  -> hast
+        .use(rebypeShiftHeding, { shift: shiftHeding }) // hast  -> hast
+        .use(rehypeSlug)
+        .use(rehypeReact, rhypeReactOptions as any) // hast  -> React Elements
+        .processSync(md).result
+      return elem
+    },
+    [shiftHeding]
+  )
+
+  React.useEffect(() => {
+    setToc(markdown2Headings(children))
+    setElement(markdown2ReactElements(children))
+  }, [children, markdown2Headings, markdown2ReactElements])
+
+  React.useEffect(() => {
+    // Necessary to make in-page links work.
+    const scrollToHash = async () => {
+      await sleep(500)
+      if (location.hash) {
+        document
+          .getElementById(decodeURI(location.hash.substring(1)))
+          ?.scrollIntoView()
+      }
     }
-  }
-
-  const markdown2ReactElements = (md: string) => {
-    const elem = unified()
-      .use(remarkParse) // md    -> mdast     (Markdown Abstract Syntax Tree)
-      .use(remarkGfm) // mdast -> GFM mdast (GitHub Flavored Markdown Abstract Syntax Tree)
-      .use(remarkDirective) // support for directive syntax
-      .use(remarkBreaks)
-      .use(attrPlugin)
-      .use(youtubePlugin)
-      .use(linkButtonPlugin)
-      .use(cellPlugin)
-      .use(cardPlugin)
-      .use(faqPlugin)
-      .use(gridPlugin)
-      .use(remarkRehype, {
-        allowDangerousHtml: true
-      }) // mdast -> hast      (HTML Abstract Syntax Tree)
-      .use(rehypeRaw) // hast  -> hast
-      .use(rehypeExternalLinks, { target: '_blank' }) // hast  -> hast
-      .use(rebypeShiftHeding, { shift: shiftHeding }) // hast  -> hast
-      .use(rehypeSlug)
-      .use(rehypeReact, rhypeReactOptions as any) // hast  -> React Elements
-      .processSync(md).result
-    return elem
-  }
+    scrollToHash()
+  }, [])
 
   const style = `
     rounded-3xl

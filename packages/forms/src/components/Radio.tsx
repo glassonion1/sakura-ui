@@ -1,5 +1,5 @@
 import React from 'react'
-import { cx } from '@sakura-ui/helper'
+import { cx, Style } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
 import {
   type InputSize,
@@ -8,12 +8,14 @@ import {
   iconStyles
 } from './inputStyle'
 
-export interface RadioProps
-  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
-  size?: InputSize
+export namespace Radio {
+  export interface Props
+    extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+    size?: InputSize
+  }
 }
 
-export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+export const Radio = React.forwardRef<HTMLInputElement, Radio.Props>(
   (props, ref) => {
     const { id, className, size = 'lg', children, ...restProps } = props
     const radioId = id || React.useId()
@@ -39,9 +41,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       peer-checked:bg-sea-600
       peer-checked:border-sea-600
       peer-disabled:border-sumi-500
-      peer-focus-visible:ring-2
-      peer-focus-visible:ring-offset-2
-      peer-focus-visible:ring-wood-600
+      ${Style.Peer.focusRect}
     `
 
     const radioSizes: { [key in InputSize]: string } = {

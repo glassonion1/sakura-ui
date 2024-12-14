@@ -1,5 +1,4 @@
-import React, { type ComponentProps } from 'react'
-import { cx } from '@sakura-ui/helper'
+import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
 import {
   type ButtonVariant,
   type ButtonSize,
@@ -7,29 +6,24 @@ import {
   getVariantStyle,
   getSizeStyle
 } from './buttonStyle'
-import { Slot } from './Slot'
 
-export type ButtonProps = {
-  className?: string
-  variant?: ButtonVariant
-  size?: ButtonSize
-} & (
-  | ({ asChild?: false } & ComponentProps<'button'>)
-  | { asChild: true; children: React.ReactNode }
-)
+export namespace Button {
+  export interface Props {
+    variant?: ButtonVariant
+    size?: ButtonSize
+  }
+}
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button: ComponentWithAs<'button', Button.Props> = forwardRef(
   (props, ref) => {
     const {
-      asChild,
+      as: Component = 'button',
       variant = 'solid-fill',
       size = 'lg',
       className,
       children,
       ...restProps
     } = props
-
-    const Component = asChild ? Slot : 'button'
 
     return (
       <Component

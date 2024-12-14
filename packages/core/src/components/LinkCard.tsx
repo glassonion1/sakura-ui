@@ -1,16 +1,17 @@
 import React from 'react'
-import { cx, styleFocusCard } from '@sakura-ui/helper'
+import { cx, Style } from '@sakura-ui/helper'
 import { Card, CardHeader } from './Card'
 import { Icon } from './Icon'
 
 interface LinkContextType {
   href: string
 }
-
 const LinkContext = React.createContext<LinkContextType>({ href: '' })
 
-export interface LinkCardProps extends React.ComponentProps<'article'> {
-  href: string
+export namespace LinkCard {
+  export interface Props extends React.ComponentProps<'article'> {
+    href: string
+  }
 }
 
 export const LinkCard = ({
@@ -18,14 +19,14 @@ export const LinkCard = ({
   className,
   children,
   ...rest
-}: LinkCardProps) => {
+}: LinkCard.Props) => {
   const styleLink = `
     grid
     outline-offset-4
     rounded-2xl
     sm:rounded-3xl
     w-full h-full
-    ${styleFocusCard}
+    ${Style.focusCard}
   `
 
   const styleHover = `

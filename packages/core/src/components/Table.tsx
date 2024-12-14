@@ -1,7 +1,9 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export interface TableProps extends React.ComponentPropsWithoutRef<'table'> {}
+export namespace Table {
+  export interface Props extends React.ComponentPropsWithoutRef<'table'> {}
+}
 
 const styleBorder = `
   border
@@ -9,7 +11,7 @@ const styleBorder = `
   border-solid-grey-420
 `
 
-export const Table = (props: TableProps) => {
+export const Table = (props: Table.Props) => {
   const { className, children, ...restProps } = props
 
   return (
@@ -19,10 +21,11 @@ export const Table = (props: TableProps) => {
   )
 }
 
-export interface CaptionProps
-  extends React.ComponentPropsWithoutRef<'caption'> {}
+export namespace Caption {
+  export interface Props extends React.ComponentPropsWithoutRef<'caption'> {}
+}
 
-export const Caption = (props: CaptionProps) => {
+export const Caption = (props: Caption.Props) => {
   const { className, children, ...restProps } = props
 
   const style = 'text-left'
@@ -33,9 +36,11 @@ export const Caption = (props: CaptionProps) => {
   )
 }
 
-export interface TheadProps extends React.ComponentPropsWithoutRef<'thead'> {}
+export namespace Thead {
+  export interface Props extends React.ComponentPropsWithoutRef<'thead'> {}
+}
 
-export const Thead = (props: TheadProps) => {
+export const Thead = (props: Thead.Props) => {
   const { className, children, ...restProps } = props
 
   return (
@@ -45,9 +50,11 @@ export const Thead = (props: TheadProps) => {
   )
 }
 
-export interface TbodyProps extends React.ComponentPropsWithoutRef<'tbody'> {}
+export namespace Tbody {
+  export interface Props extends React.ComponentPropsWithoutRef<'tbody'> {}
+}
 
-export const Tbody = (props: TbodyProps) => {
+export const Tbody = (props: Tbody.Props) => {
   const { className, children, ...restProps } = props
 
   return (
@@ -57,9 +64,11 @@ export const Tbody = (props: TbodyProps) => {
   )
 }
 
-export interface ThProps extends React.ComponentPropsWithoutRef<'th'> {}
+export namespace Th {
+  export interface Props extends React.ComponentPropsWithoutRef<'th'> {}
+}
 
-export const Th = (props: ThProps) => {
+export const Th = (props: Th.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `
@@ -75,9 +84,11 @@ export const Th = (props: ThProps) => {
   )
 }
 
-export interface TrProps extends React.ComponentPropsWithoutRef<'tr'> {}
+export namespace Tr {
+  export interface Props extends React.ComponentPropsWithoutRef<'tr'> {}
+}
 
-export const Tr = (props: TrProps) => {
+export const Tr = (props: Tr.Props) => {
   const { className, children, ...restProps } = props
 
   const style = ''
@@ -89,9 +100,11 @@ export const Tr = (props: TrProps) => {
   )
 }
 
-export interface TdProps extends React.ComponentPropsWithoutRef<'td'> {}
+export namespace Td {
+  export interface Props extends React.ComponentPropsWithoutRef<'td'> {}
+}
 
-export const Td = (props: TdProps) => {
+export const Td = (props: Td.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `

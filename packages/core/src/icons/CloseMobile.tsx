@@ -4,15 +4,16 @@ export const CloseMobile = (props: IconProps) => {
   const { size, className, ...rest } = props
   return (
     <svg
-      aria-label={`${rest['aria-label'] ?? 'Close'}`}
+      role="img"
+      aria-label={`${rest['aria-label'] ?? 'Language'}`}
       className={className}
       fill="none"
       height={size}
-      role="img"
       viewBox={`0 0 ${size} ${size}`}
       width={size}
       {...rest}
     >
+      <title>Close</title>
       <path
         d="M37.0023 38.8911H32.8164V31.1197H37.0023V32.121H33.941V34.3415H36.8149V35.3319H33.941V37.8789H37.0023V38.8911Z"
         fill="currentColor"

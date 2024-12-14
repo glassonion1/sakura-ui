@@ -1,5 +1,4 @@
-import React, { type ComponentProps } from 'react'
-import { cx } from '@sakura-ui/helper'
+import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
 import {
   base,
   getVariantStyle,
@@ -7,24 +6,21 @@ import {
   type ButtonVariant,
   type ButtonSize
 } from './buttonStyle'
-import { Slot } from './Slot'
 
-export type IconButtonProps = {
-  className?: string
-  variant?: ButtonVariant
-  size?: ButtonSize
-  iconLayout?: 'left' | 'right'
-  icon: string
-  rounded?: string
-} & (
-  | ({ asChild?: false } & ComponentProps<'button'>)
-  | { asChild: true; children: React.ReactNode }
-)
+export namespace IconButton {
+  export interface Props {
+    variant?: ButtonVariant
+    size?: ButtonSize
+    iconLayout?: 'left' | 'right'
+    icon: string
+    rounded?: string
+  }
+}
 
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  (props, ref) => {
+export const IconButton: ComponentWithAs<'button', IconButton.Props> =
+  forwardRef((props, ref) => {
     const {
-      asChild,
+      as: Component = 'button',
       variant = 'solid-fill',
       size = 'lg',
       iconLayout = 'left',
@@ -34,8 +30,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       children,
       ...restProps
     } = props
-
-    const Component = asChild ? Slot : 'button'
 
     const styleFontSize = `${size === 'xs' ? 'scale-105' : 'scale-125'}`
 
@@ -69,16 +63,16 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         <span>
           {iconLayout === 'left' && (
             <span
-              className={cx(styleIcon, styleFontSize)}
+              className={cx(styleIcon, styleFontSize, children && 'mr-1')}
               aria-hidden={ariaHidden}
             >
               {icon}
             </span>
           )}
-          {children && <span className="mx-1">{children}</span>}
+          {children}
           {iconLayout === 'right' && (
             <span
-              className={cx(styleIcon, styleFontSize)}
+              className={cx(styleIcon, styleFontSize, children && 'ml-1')}
               aria-hidden={ariaHidden}
             >
               {icon}
@@ -87,7 +81,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         </span>
       </Component>
     )
-  }
-)
+  })
 
 IconButton.displayName = 'IconButton'

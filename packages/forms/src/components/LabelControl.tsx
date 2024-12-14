@@ -2,18 +2,19 @@ import React from 'react'
 import { cx } from '@sakura-ui/helper'
 import { ControllerContext } from './context'
 
-export interface LabelControlProps
-  extends React.ComponentPropsWithRef<'label'> {
-  labelText: string
-  helperText?: string
-  errorMessage?: string
-  isInvalid?: boolean
-  isRequired?: boolean
+export namespace LabelControl {
+  export interface Props extends React.ComponentPropsWithRef<'label'> {
+    labelText: string
+    helperText?: string
+    errorMessage?: string
+    isInvalid?: boolean
+    isRequired?: boolean
+  }
 }
 
 export const LabelControl = React.forwardRef<
   HTMLLabelElement,
-  LabelControlProps
+  LabelControl.Props
 >((props, ref) => {
   const id = React.useId()
   const {
@@ -45,9 +46,9 @@ export const LabelControl = React.forwardRef<
 
   return (
     <ControllerContext.Provider value={context}>
-      <div className={cx('mb-4', className)}>
+      <div className={cx('flex flex-col items-start gap-2', className)}>
         <label
-          className={cx('block mb-2 text-label', isInvalid && 'text-sun-800')}
+          className={cx('block text-label', isInvalid && 'text-sun-800')}
           htmlFor={context.id}
           ref={ref}
           {...restProps}
@@ -58,16 +59,13 @@ export const LabelControl = React.forwardRef<
           )}
         </label>
         {helperText && (
-          <p id={context.helperTextId} className={cx(styleHelp, 'mb-2')}>
+          <p id={context.helperTextId} className={styleHelp}>
             {helperText}
           </p>
         )}
         {children}
         {isInvalid && (
-          <p
-            id={context.errorMessageId}
-            className={cx(styleError, helperText ? 'mt-1' : 'mt-2')}
-          >
+          <p id={context.errorMessageId} className={styleError}>
             {errorMessage}
           </p>
         )}

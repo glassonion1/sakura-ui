@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/forms",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "",
   "keywords": [],
   "author": "glassonion1",
@@ -37,9 +37,6 @@
     "build:scripts": "vite build",
     "build:types": "tsc && tsc-alias",
     "test": "vitest"
-  },
-  "dependencies": {
-    "@sakura-ui/helper": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.2.0",

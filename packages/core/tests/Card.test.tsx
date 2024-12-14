@@ -1,11 +1,11 @@
 import React from 'react'
-import { describe, test, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import { Card, CardBody, CardHeader } from '../src'
 
-describe('should labeled text from Card', () => {
-  test('text', async () => {
+describe('Card', () => {
+  it('should labeled text from Card', async () => {
     render(
       <Card>
         <CardHeader>Card-Header</CardHeader>
@@ -19,24 +19,29 @@ describe('should labeled text from Card', () => {
     const text2 = screen.getByText(/Card-Body/)
     expect(text2).toBeInTheDocument()
   })
-  test('role and id', async () => {
+  it('should set the role and id correctly', async () => {
     render(
       <Card>
-        <CardHeader>Card-Header</CardHeader>
-        <CardBody>Card-Body</CardBody>
+        <CardHeader data-testid="header">Card-Header</CardHeader>
+        <CardBody data-testid="body">Card-Body</CardBody>
       </Card>
     )
 
     const card = screen.getByRole('article')
     expect(card).toBeInTheDocument()
-    expect(card).toHaveProperty('id')
 
-    const header = screen.getByLabelText('Card-Header')
+    const header = screen.getByTestId('header')
     expect(header).toBeInTheDocument()
-    expect(header).toHaveProperty('id')
+    expect(header).toHaveAttribute('id')
 
-    const body = screen.getByRole('article', { description: 'Card-Body' })
+    const headerText = screen.getByLabelText('Card-Header')
+    expect(headerText).toBeInTheDocument()
+
+    const body = screen.getByTestId('body')
     expect(body).toBeInTheDocument()
-    expect(body).toHaveProperty('id')
+    expect(body).toHaveAttribute('id')
+
+    const bodyText = screen.getByRole('article', { description: 'Card-Body' })
+    expect(bodyText).toBeInTheDocument()
   })
 })

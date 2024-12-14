@@ -7,12 +7,14 @@ import {
   borderedInputSizeStyles
 } from './inputStyle'
 
-export interface InputProps
-  extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
-  size?: InputSize
+export namespace Input {
+  export interface Props
+    extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
+    size?: InputSize
+  }
 }
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement, Input.Props>(
   (props, ref) => {
     const { id, className, size = 'lg', ...restProps } = props
     const ctx = React.useContext(ControllerContext)

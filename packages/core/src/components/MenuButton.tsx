@@ -1,23 +1,17 @@
 import React from 'react'
-import {
-  cx,
-  mod,
-  focusableSelector,
-  styleClickable,
-  styleFocusRoundedWithBg,
-  styleHoverUnderline
-} from '@sakura-ui/helper'
+import { cx, mod, focusableSelector, Style } from '@sakura-ui/helper'
 import { Menu, MenuMobile, Close, CloseMobile } from '@/icons'
 
-export interface MenuButtonProps
-  extends React.ComponentPropsWithRef<'button'> {}
+export namespace MenuButton {
+  export interface Props extends React.ComponentPropsWithRef<'button'> {}
+}
 
 export const MenuButton = ({
   className,
   children,
   onChange,
   ...rest
-}: MenuButtonProps) => {
+}: MenuButton.Props) => {
   // leading 16px * 1.375(snug) + padding top 12px + padding bottom 12px + border * 2 = 48px
   const styleMenuItem = `
     w-fit
@@ -25,9 +19,9 @@ export const MenuButton = ({
     sm:py-3
     text-base
     leading-snug
-    ${styleClickable}
-    ${styleHoverUnderline}
-    ${styleFocusRoundedWithBg}
+    ${Style.clickable}
+    ${Style.hoverUnderline}
+    ${Style.focusRoundedWithBg}
   `
 
   const dialogRef = React.useRef<HTMLDialogElement>(null)
