@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/helper",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "types": "dist/types/index.d.ts",
@@ -29,11 +29,11 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.5",
-    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "happy-dom": "^14.12.0",
+    "happy-dom": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
   }
