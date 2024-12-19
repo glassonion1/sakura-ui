@@ -6,11 +6,11 @@ export const borderedInputBaseStyles = `
   bg-white
   border
   border-solid
-  border-sumi-900
+  border-solid-gray-900
   disabled:bg-transparent
-  disabled:text-sumi-500
-  disabled:border-sumi-500
-  aria-invalid:border-sun-800
+  disabled:text-solid-gray-500
+  disabled:border-solid-gray-500
+  aria-invalid:border-red-800
   ${Style.focusRect}
 `
 

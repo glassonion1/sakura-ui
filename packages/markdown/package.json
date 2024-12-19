@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/markdown",
-  "version": "0.0.17",
+  "version": "0.1.0",
   "description": "",
   "keywords": [
     "markdown"
@@ -41,19 +41,19 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwindcss": "^3.4.5"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.5",
-    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
     "@types/mdast": "^4.0.4",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/unist": "^3.0.2",
     "autoprefixer": "catalog:",
-    "happy-dom": "^14.12.0",
+    "happy-dom": "catalog:",
     "postcss": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

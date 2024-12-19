@@ -1,4 +1,5 @@
-import { type ComponentWithAs, cx, forwardRef } from '@sakura-ui/helper'
+import React, { type ComponentProps } from 'react'
+import { cx } from '@sakura-ui/helper'
 import {
   base,
   getVariantStyle,
@@ -8,7 +9,8 @@ import {
 } from './buttonStyle'
 
 export namespace IconButton {
-  export interface Props {
+  export interface Props<T extends React.ElementType> {
+    as?: T
     variant?: ButtonVariant
     size?: ButtonSize
     iconLayout?: 'left' | 'right'
@@ -17,23 +19,25 @@ export namespace IconButton {
   }
 }
 
-export const IconButton: ComponentWithAs<'button', IconButton.Props> =
-  forwardRef((props, ref) => {
-    const {
-      as: Component = 'button',
-      variant = 'solid-fill',
-      size = 'lg',
-      iconLayout = 'left',
-      icon,
-      rounded,
-      className,
-      children,
-      ...restProps
-    } = props
+export const IconButton = <T extends React.ElementType = 'button'>(
+  props: IconButton.Props<T> &
+    Omit<React.ComponentProps<T>, keyof IconButton.Props<T>>
+) => {
+  const {
+    as: Component = 'button',
+    variant = 'solid-fill',
+    size = 'lg',
+    iconLayout = 'left',
+    icon,
+    rounded,
+    className,
+    children,
+    ...restProps
+  } = props
 
-    const styleFontSize = `${size === 'xs' ? 'scale-105' : 'scale-125'}`
+  const styleFontSize = `${size === 'xs' ? 'scale-105' : 'scale-125'}`
 
-    const styleIcon = `
+  const styleIcon = `
       inline-block
       align-middle
       mb-1
@@ -43,44 +47,43 @@ export const IconButton: ComponentWithAs<'button', IconButton.Props> =
       antialiased
     `
 
-    const styleRounded = `${rounded ? 'aspect-square !rounded-full !py-0' : ''}`
+  const styleRounded = `${rounded ? 'aspect-square !rounded-full !py-0' : ''}`
 
-    // When text is specified on a button, set the 'aria-hidden' attribute of the icon to true.
-    const ariaHidden = !!children
+  // When text is specified on a button, set the 'aria-hidden' attribute of the icon to true.
+  const ariaHidden = !!children
 
-    return (
-      <Component
-        className={cx(
-          base,
-          getVariantStyle(variant),
-          getSizeStyle(size),
-          styleRounded,
-          className
+  return (
+    <Component
+      className={cx(
+        base,
+        getVariantStyle(variant),
+        getSizeStyle(size),
+        styleRounded,
+        className
+      )}
+      {...restProps}
+    >
+      <span>
+        {iconLayout === 'left' && (
+          <span
+            className={cx(styleIcon, styleFontSize)}
+            aria-hidden={ariaHidden}
+          >
+            {icon}
+          </span>
         )}
-        {...restProps}
-        ref={ref}
-      >
-        <span>
-          {iconLayout === 'left' && (
-            <span
-              className={cx(styleIcon, styleFontSize, children && 'mr-1')}
-              aria-hidden={ariaHidden}
-            >
-              {icon}
-            </span>
-          )}
-          {children}
-          {iconLayout === 'right' && (
-            <span
-              className={cx(styleIcon, styleFontSize, children && 'ml-1')}
-              aria-hidden={ariaHidden}
-            >
-              {icon}
-            </span>
-          )}
-        </span>
-      </Component>
-    )
-  })
+        {children && <span className="mx-1">{children}</span>}
+        {iconLayout === 'right' && (
+          <span
+            className={cx(styleIcon, styleFontSize)}
+            aria-hidden={ariaHidden}
+          >
+            {icon}
+          </span>
+        )}
+      </span>
+    </Component>
+  )
+}
 
 IconButton.displayName = 'IconButton'
