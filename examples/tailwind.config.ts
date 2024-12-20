@@ -1,6 +1,7 @@
-const plugin = require('tailwindcss/plugin')
+import type { Config } from 'tailwindcss'
+import sakuraPlugin from '@sakura-ui/tailwind-theme-plugin'
 
-module.exports = {
+const config: Config = {
   //  mode: 'jit',
   content: [
     './index.html',
@@ -8,5 +9,7 @@ module.exports = {
     './node_modules/@sakura-ui/core/**/*.{js,ts,jsx,tsx}',
     './node_modules/@sakura-ui/forms/**/*.{js,ts,jsx,tsx}'
   ],
-  plugins: [require('@sakura-ui/tailwind-theme-plugin')]
+  plugins: [sakuraPlugin]
 }
+
+export default config
