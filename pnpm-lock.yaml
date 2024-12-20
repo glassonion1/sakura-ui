@@ -153,6 +153,10 @@ importers:
         version: 5.4.11(@types/node@22.10.2)
 
   packages/core:
+    dependencies:
+      '@sakura-ui/helper':
+        specifier: workspace:*
+        version: link:../helper
     devDependencies:
       '@testing-library/jest-dom':
         specifier: 'catalog:'
@@ -189,6 +193,10 @@ importers:
         version: 2.1.8(@types/node@22.10.2)(happy-dom@15.11.7)
 
   packages/forms:
+    dependencies:
+      '@sakura-ui/helper':
+        specifier: workspace:*
+        version: link:../helper
     devDependencies:
       '@testing-library/jest-dom':
         specifier: 'catalog:'
@@ -247,6 +255,12 @@ importers:
 
   packages/markdown:
     dependencies:
+      '@sakura-ui/core':
+        specifier: workspace:*
+        version: link:../core
+      '@sakura-ui/helper':
+        specifier: workspace:*
+        version: link:../helper
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
