@@ -27,21 +27,21 @@ export const Radio = (props: Radio.Props) => {
   }
 
   const styleInput = `
-      peer
-      sr-only
-    `
+    peer
+    sr-only
+  `
 
   const styleRadio = `
-      bg-clip-content
-      rounded-full
-      border
-      border-solid
-      border-solid-gray-900
-      peer-checked:bg-blue-600
-      peer-checked:border-blue-600
-      peer-disabled:border-solid-gray-500
-      ${Style.Peer.focusRect}
-    `
+    bg-clip-content
+    rounded-full
+    border
+    border-solid
+    border-solid-gray-900
+    peer-checked:bg-blue-600
+    peer-checked:border-blue-600
+    peer-disabled:border-solid-gray-500
+    ${Style.Peer.focusRect}
+  `
 
   const radioSizes: { [key in InputSize]: string } = {
     lg: 'p-1',

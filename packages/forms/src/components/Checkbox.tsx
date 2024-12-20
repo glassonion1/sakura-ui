@@ -33,23 +33,23 @@ export const Checkbox = (props: Checkbox.Props) => {
   }
 
   const styleInput = `
-      peer
-      sr-only
-    `
+    peer
+    sr-only
+  `
 
   const styleCheck = `
-      bg-clip-content
-      rounded
-      border
-      border-solid
-      border-solid-gray-900
-      fill-transparent
-      peer-checked:fill-white
-      peer-checked:bg-blue-600
-      peer-checked:border-none
-      peer-disabled:border-solid-gray-500
-      ${Style.Peer.focusRect}
-    `
+    bg-clip-content
+    rounded
+    border
+    border-solid
+    border-solid-gray-900
+    fill-transparent
+    peer-checked:fill-white
+    peer-checked:bg-blue-600
+    peer-checked:border-none
+    peer-disabled:border-solid-gray-500
+    ${Style.Peer.focusRect}
+  `
 
   return (
     <label

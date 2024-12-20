@@ -21,21 +21,21 @@ export const Select = (props: Select.Props) => {
   }
 
   const style = `
-      !pr-8
-      peer
-      cursor-pointer
-      appearance-none
-    `
+    !pr-8
+    peer
+    cursor-pointer
+    appearance-none
+  `
 
   const styleArrow = `
-      pointer-events-none
-      absolute
-      right-4
-      top-1/2
-      -translate-y-1/2
-      text-solid-gray-900
-      peer-disabled:text-solid-gray-500
-    `
+    pointer-events-none
+    absolute
+    right-4
+    top-1/2
+    -translate-y-1/2
+    text-solid-gray-900
+    peer-disabled:text-solid-gray-500
+  `
 
   return (
     <div className="inline-block relative">

@@ -2,24 +2,24 @@ import React from 'react'
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
-import { Radio } from '../src'
+import { Checkbox } from '../src'
 
-describe('Radio', () => {
-  it('should render a radio with a value text', async () => {
-    render(<Radio id="test" value="test" />)
+describe('Checkbox', () => {
+  it('should render a checkbox with a label text', async () => {
+    render(<Checkbox>test</Checkbox>)
 
-    const radio = screen.getByRole('radio')
+    const checkbox = screen.getByRole('checkbox')
 
-    expect(radio).toBeInTheDocument()
+    expect(checkbox).toBeInTheDocument()
 
-    expect(screen.getByDisplayValue('test')).toBeInTheDocument()
+    expect(screen.getByText('test')).toBeInTheDocument()
   })
 
-  it('should render two radios with verify checked states', async () => {
+  it('should render two checkbox with verify checked states', async () => {
     render(
       <>
-        <Radio id="test" value="test1" data-testid="checked" checked />
-        <Radio id="test" value="test2" data-testid="not_checked" />
+        <Checkbox id="test" value="test1" data-testid="checked" checked />
+        <Checkbox id="test" value="test2" data-testid="not_checked" />
       </>
     )
 
@@ -37,7 +37,7 @@ describe('Radio', () => {
   it('should pass an object to the ref property', async () => {
     const ref = vi.fn()
 
-    render(<Radio ref={ref} />)
+    render(<Checkbox ref={ref}>test</Checkbox>)
 
     expect(ref).toHaveBeenCalledTimes(1)
   })
