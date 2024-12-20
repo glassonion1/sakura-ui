@@ -45,21 +45,9 @@
     "react-dom": "^19.0.0",
     "tailwindcss": "^3.4.5"
   },
-  "devDependencies": {
-    "@testing-library/jest-dom": "catalog:",
-    "@testing-library/react": "catalog:",
-    "@types/mdast": "^4.0.4",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@types/unist": "^3.0.2",
-    "autoprefixer": "catalog:",
-    "happy-dom": "catalog:",
-    "postcss": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "tailwindcss": "catalog:"
-  },
   "dependencies": {
+    "@sakura-ui/helper": "workspace:*",
+    "@sakura-ui/core": "workspace:*",
     "github-slugger": "^2.0.0",
     "hastscript": "^9.0.0",
     "mdast-util-directive": "^3.0.0",
@@ -77,5 +65,19 @@
     "remark-rehype": "^11.1.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@types/mdast": "^4.0.4",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@types/unist": "^3.0.2",
+    "autoprefixer": "catalog:",
+    "happy-dom": "catalog:",
+    "postcss": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tailwindcss": "catalog:"
   }
 }
