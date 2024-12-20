@@ -9,15 +9,20 @@ Sakura UI - UI components built with Tailwind CSS for React. Sakura UI is an uno
 
 ## Install
 ```
-$ npm install @sakura-ui/sakura-ui
+$ npm install @sakura-ui/core @sakura-ui/forms @sakura-ui/tailwind-theme-plugin @sakura-ui/markdown
 ```
 or
 ```
-$ yarn add @sakura-ui/sakura-ui
+$ yarn add @sakura-ui/core @sakura-ui/forms @sakura-ui/tailwind-theme-plugin @sakura-ui/markdown
 ```
 or
 ```
 $ pnpm add @sakura-ui/core @sakura-ui/forms @sakura-ui/tailwind-theme-plugin @sakura-ui/markdown
+```
+
+### For React 18
+```
+$ pnpm add @sakura-ui/core@0.3.1 @sakura-ui/forms@0.2.2 @sakura-ui/tailwind-theme-plugin@0.2.2 @sakura-ui/markdown@0.0.17
 ```
 
 ## Configuration
