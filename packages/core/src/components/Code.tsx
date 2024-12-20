@@ -9,7 +9,7 @@ export const Code = (props: Code.Props) => {
   const { className, children, ...restProps } = props
 
   const style = `
-    bg-sumi-50
+    bg-solid-gray-50
     font-mono
   `
 

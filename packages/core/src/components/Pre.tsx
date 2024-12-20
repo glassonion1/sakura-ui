@@ -10,7 +10,7 @@ export const Pre = (props: Pre.Props) => {
 
   const style = `
     p-4
-    bg-sumi-50
+    bg-solid-gray-50
     rounded-lg
     whitespace-pre-wrap
     overflow-y-scroll

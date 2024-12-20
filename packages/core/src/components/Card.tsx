@@ -20,10 +20,10 @@ export const Card = (props: Card.Props) => {
   const style = `
     border
     border-solid
-    border-sumi-500
+    border-solid-gray-500
     rounded-2xl
     sm:rounded-3xl
-    text-sumi-900
+    text-solid-gray-900
     overflow-hidden
   `
 

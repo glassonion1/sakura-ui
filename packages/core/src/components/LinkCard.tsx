@@ -30,8 +30,8 @@ export const LinkCard = ({
   `
 
   const styleHover = `
-    hover:text-sea-1000
-    hover:border-sea-1000
+    hover:text-blue-1000
+    hover:border-blue-1000
   `
 
   const isExternal = href?.startsWith('https://')

@@ -30,19 +30,20 @@ jobs:
     defaults:
       run:
         working-directory: examples
-
+    
     steps:
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8.6.2
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Use Node.js v18
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+
+      - run: corepack enable
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - run: pnpm --ignore-workspace install
+          node-version: 20
+          cache: "pnpm"
+          
+      - run: pnpm install
       - run: pnpm build
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
@@ -50,6 +51,7 @@ jobs:
         with:
           # Upload entire repository
           path: examples/dist
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

@@ -21,7 +21,7 @@ export const base = `
   border-blue-900
   hover:border-blue-1000
   active:border-blue-1200
-  disabled:border-sumi-500
+  disabled:border-solid-gray-500
   disabled:cursor-not-allowed
 `
 
@@ -30,7 +30,7 @@ const solidFill = `
   bg-blue-900
   hover:bg-blue-1000
   active:bg-blue-1200
-  disabled:bg-sumi-500
+  disabled:bg-solid-gray-500
   disabled:text-white
   ${Style.hoverUnderline}
   ${Style.focusRounded}
@@ -44,7 +44,7 @@ const outline = `
   hover:bg-blue-200
   active:bg-blue-300
   disabled:bg-transparent
-  disabled:text-sumi-500
+  disabled:text-solid-gray-500
   ${Style.hoverUnderline}
   ${Style.focusRounded}
 `
@@ -57,7 +57,7 @@ const text = `
   hover:bg-blue-200
   active:bg-blue-300
   disabled:bg-transparent
-  disabled:text-sumi-500
+  disabled:text-solid-gray-500
   ${Style.underlineNoDeco}
   ${Style.focusRoundedWithBg}
 `
