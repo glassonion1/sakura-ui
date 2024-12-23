@@ -153,10 +153,6 @@ importers:
         version: 5.4.11(@types/node@22.10.2)
 
   packages/core:
-    dependencies:
-      '@sakura-ui/helper':
-        specifier: workspace:*
-        version: link:../helper
     devDependencies:
       '@testing-library/jest-dom':
         specifier: 'catalog:'
@@ -193,10 +189,6 @@ importers:
         version: 2.1.8(@types/node@22.10.2)(happy-dom@15.11.7)
 
   packages/forms:
-    dependencies:
-      '@sakura-ui/helper':
-        specifier: workspace:*
-        version: link:../helper
     devDependencies:
       '@testing-library/jest-dom':
         specifier: 'catalog:'
@@ -256,11 +248,8 @@ importers:
   packages/markdown:
     dependencies:
       '@sakura-ui/core':
-        specifier: workspace:*
-        version: link:../core
-      '@sakura-ui/helper':
-        specifier: workspace:*
-        version: link:../helper
+        specifier: ^0.3.2
+        version: 0.3.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.10.1)(@types/node@22.10.2)(typescript@5.7.2)))
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -864,6 +853,13 @@ packages:
     resolution: {integrity: sha512-ZvK2jBafvttJjoIdKm/Q/Bh7IJ1Ose9IBOwpOXcOvW3ikGTQGmKDgxTC6oCAzW6PynbkKP8+um1du81XJHZ0JA==}
     cpu: [x64]
     os: [win32]
+
+  '@sakura-ui/core@0.3.2':
+    resolution: {integrity: sha512-hdc3g1iLz8Qz7KhUmexamDdY98C+lyYsKyQ+p46F5xkAHIvqNm6lAbR2uSqis5XL4hukRTMIEDkPKPbnH/C8jA==}
+    peerDependencies:
+      react: ^19.0.0
+      react-dom: ^19.0.0
+      tailwindcss: ^3.4.5
 
   '@swc/core-darwin-arm64@1.10.1':
     resolution: {integrity: sha512-NyELPp8EsVZtxH/mEqvzSyWpfPJ1lugpTQcSlMduZLj1EASLO4sC8wt8hmL1aizRlsbjCX+r0PyL+l0xQ64/6Q==}
@@ -2640,6 +2636,12 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.28.1':
     optional: true
+
+  '@sakura-ui/core@0.3.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.10.1)(@types/node@22.10.2)(typescript@5.7.2)))':
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      tailwindcss: 3.4.16(ts-node@10.9.2(@swc/core@1.10.1)(@types/node@22.10.2)(typescript@5.7.2))
 
   '@swc/core-darwin-arm64@1.10.1':
     optional: true
