@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import { H1, H2, Button, MenuButton, NavigationItem } from '@sakura-ui/core'
+import { H1, H2, MenuButton, NavigationItem } from '@sakura-ui/core'
 import {
   CheckboxGroup,
   Radio,
@@ -17,7 +17,7 @@ import {
 const Forms = () => {
   const style = `
     min-h-screen
-    text-sumi-900
+    text-solid-gray-900
     text-base
   `
 

@@ -45,7 +45,7 @@ const Home = () => {
 
   const style = `
     min-h-screen
-    text-sumi-900
+    text-solid-gray-900
     text-base
   `
 
@@ -133,7 +133,7 @@ const Home = () => {
             <H2>Text</H2>
             <p>
               <Icon
-                className="text-sea-600 !leading-7 align-middle"
+                className="text-blue-600 !leading-7 align-middle"
                 opticalSize={16}
               >
                 home
@@ -143,7 +143,7 @@ const Home = () => {
             <p>
               test1,test2,abcdefghijk
               <Icon
-                className="text-sea-600 !leading-7 align-middle"
+                className="text-blue-600 !leading-7 align-middle"
                 opticalSize={16}
               >
                 shopping_cart
@@ -183,7 +183,7 @@ const Home = () => {
             <H2>Icons</H2>
             <div className="flex gap-4">
               {[16, 20, 24, 40, 44, 48].map((size) => (
-                <div className="inline-flex flex-col items-center">
+                <div key={size} className="inline-flex flex-col items-center">
                   <Icon
                     opticalSize={size}
                     altText="Opens in new tab"

@@ -340,7 +340,7 @@ export const Markdown = ({
   const style = `
     rounded-3xl
     p-10
-    bg-wood-50
+    bg-yellow-50
   `
 
   return (
