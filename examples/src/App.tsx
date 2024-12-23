@@ -1,11 +1,11 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home'
 import Forms from './pages/Forms'
 
 const router = createBrowserRouter([
   {
-    path: 'sakura-ui/',
+    path: 'sakura-ui',
     element: <Home />
   },
   {
