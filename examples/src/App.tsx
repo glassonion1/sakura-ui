@@ -14,7 +14,7 @@ const router = createBrowserRouter(
       element: <Forms />
     }
   ],
-  { basename: '/sakura-ui/' }
+  { basename: '/sakura-ui' }
 )
 
 const App = () => {
