@@ -50,6 +50,9 @@
     "react-dom": "^19.0.0",
     "tailwindcss": "^3.4.5"
   },
+  "dependencies": {
+    "@sakura-ui/helper": "0.0.5"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "catalog:",
     "@testing-library/react": "catalog:",
