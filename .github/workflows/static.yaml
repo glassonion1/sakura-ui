@@ -42,6 +42,7 @@ jobs:
       - run: pnpm install
       - run: pnpm build
 
+      # work around: https://stackoverflow.com/questions/76115927/page-not-found-react-vite-app-not-routing-correctly-on-github-pages
       - name: Copy index.html to 404.html
         run: cp ./examples/dist/index.html ./examples/dist/404.html
 

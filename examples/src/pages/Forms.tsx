@@ -37,7 +37,7 @@ const Forms = () => {
       <header className="max-w-[1120px] mx-auto">
         <div className="p-6 xl:px-0 flex items-center justify-between">
           <div className="text-3xl font-bold">
-            <a className="" href="/">
+            <a className="" href="/sakura-ui/">
               Sakura-UI
             </a>
           </div>
@@ -58,10 +58,14 @@ const Forms = () => {
                     <nav className="p-6 xl:px-0 bg-white flex flex-col sm:flex-row gap-4 sm:gap-10 justify-center">
                       <ul>
                         <li>
-                          <NavigationItem href="/">Home</NavigationItem>
+                          <NavigationItem href="/sakura-ui/">
+                            Home
+                          </NavigationItem>
                         </li>
                         <li>
-                          <NavigationItem href="forms">Forms</NavigationItem>
+                          <NavigationItem href="/sakura-ui/forms">
+                            Forms
+                          </NavigationItem>
                         </li>
                       </ul>
                     </nav>
