@@ -3,16 +3,19 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home'
 import Forms from './pages/Forms'
 
-const router = createBrowserRouter([
-  {
-    path: 'sakura-ui',
-    element: <Home />
-  },
-  {
-    path: 'sakura-ui/forms',
-    element: <Forms />
-  }
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/forms',
+      element: <Forms />
+    }
+  ],
+  { basename: '/sakura-ui/' }
+)
 
 const App = () => {
   return (
