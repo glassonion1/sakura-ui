@@ -44,10 +44,10 @@ const Forms = () => {
           <nav>
             <ul className="flex sm:gap-8">
               <li className={styleSp}>
-                <NavigationItem href="/">Home</NavigationItem>
+                <NavigationItem href="/sakura-ui/">Home</NavigationItem>
               </li>
               <li className={styleSp}>
-                <NavigationItem href="forms">Forms</NavigationItem>
+                <NavigationItem href="/sakura-ui/forms">Forms</NavigationItem>
               </li>
               <li className={clsx(styleSp, 'py-2')} aria-hidden="true">
                 |
