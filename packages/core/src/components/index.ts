@@ -1,7 +1,7 @@
 export { Button } from './Button'
 export { MenuButton } from './MenuButton'
 export { Card, CardImg, CardHeader, CardBody, CardFooter } from './Card'
-export { LinkCard, LinkCardHeader } from './LinkCard'
+export { LinkCard, LinkCardHeader, LinkCardFooter } from './LinkCard'
 export { Code } from './Code'
 export { Faq, Question, Answer } from './Faq'
 export { H1, H2, H3, H4, H5, H6 } from './Heading'

@@ -115,6 +115,11 @@ export namespace CardFooter {
 export const CardFooter = (props: CardFooter.Props) => {
   const { className, children, ...restProps } = props
 
+  const stylePosition = `
+    sticky
+    top-full
+  `
+
   const style = `
     text-base-sm
     leading-[1.85rem]
@@ -125,7 +130,7 @@ export const CardFooter = (props: CardFooter.Props) => {
   `
 
   return (
-    <div className={cx(style, className)} {...restProps}>
+    <div className={cx(stylePosition, style, className)} {...restProps}>
       {children}
     </div>
   )

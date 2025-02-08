@@ -30,6 +30,7 @@ import {
   Td,
   LinkCard,
   LinkCardHeader,
+  LinkCardFooter,
   LangSelector,
   NavigationItem
 } from '@sakura-ui/core'
@@ -253,42 +254,40 @@ const Home = () => {
               </Table>
             </OverflowContainer>
           </div>
-          <div className="sm:w-1/3">
-            <H2>Card</H2>
-            <Card>
-              <CardBody>
-                XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx
-                <br />
-                XXXXXxxxxxxxxxxxxxXXX
-              </CardBody>
-            </Card>
-            <LinkCard href="/">
-              <LinkCardHeader>xxxXXX</LinkCardHeader>
-              <CardBody>xxxxxxxxXXX</CardBody>
-            </LinkCard>
-            <LinkCard href="https://google.com">
-              <LinkCardHeader>xxxXXX</LinkCardHeader>
-              <CardBody>xxxxxxxxXXX</CardBody>
-            </LinkCard>
-            <Card>
-              <CardImg src="bg-mt.webp" className="h-48 w-full" />
-              <CardHeader>Header: XXXxxx</CardHeader>
-              <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
-            </Card>
-            <Card>
-              <CardHeader>Header: XXXxxx</CardHeader>
-              <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
-            </Card>
+          <div>
+            <H2 className="mb-4">Card</H2>
+            <ul className="flex flex-col gap-4">
+              <li>
+                <Card>
+                  <CardBody>
+                    XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx
+                    <br />
+                    XXXXXxxxxxxxxxxxxxXXX
+                  </CardBody>
+                </Card>
+              </li>
+              <li>
+                <Card>
+                  <CardImg src="bg-mt.webp" className="h-48 w-full" />
+                  <CardHeader>Header: XXXxxx</CardHeader>
+                  <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
+                </Card>
+              </li>
+              <li>
+                <Card>
+                  <CardHeader>Header: XXXxxx</CardHeader>
+                  <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
+                </Card>
+              </li>
+            </ul>
           </div>
-          <div className="sm:w-1/3 my-4">
+          <div className="my-4 grid grid-cols-2 gap-4">
             <Card>
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
               <CardHeader>Header:XXXxxx</CardHeader>
               <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
               <CardFooter>Footer:XXXXXXXXXXXXxxxxxxxxxxxxx</CardFooter>
             </Card>
-          </div>
-          <div className="sm:w-1/3 my-4">
             <Card>
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
               <CardHeader>Header:XXXxxx</CardHeader>
@@ -341,6 +340,62 @@ const Home = () => {
                 Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx
               </CardBody>
             </Card>
+          </div>
+          <div className="my-8">
+            <H2 className="mb-4">Link Card</H2>
+            <ul className="flex flex-col gap-4">
+              <li>
+                <LinkCard href="/">
+                  <LinkCardHeader>xxxXXX</LinkCardHeader>
+                  <CardBody>xxxxxxxxXXX</CardBody>
+                  <LinkCardFooter>June 27th, 205</LinkCardFooter>
+                </LinkCard>
+              </li>
+              <li>
+                <LinkCard href="https://google.com">
+                  <LinkCardHeader>xxxXXX</LinkCardHeader>
+                  <CardBody>xxxxxxxxXXX</CardBody>
+                  <LinkCardFooter />
+                </LinkCard>
+              </li>
+            </ul>
+            <div className="my-4 grid grid-cols-3 gap-4">
+              <LinkCard href="/">
+                <LinkCardHeader>xxxXXX</LinkCardHeader>
+                <CardBody>
+                  xxxxxxxxXXX
+                  <br />
+                  xxxxxxxxXXX
+                  <br />
+                  xxxxxxxxXXX
+                </CardBody>
+                <LinkCardFooter>June 27th, 205</LinkCardFooter>
+              </LinkCard>
+              <LinkCard href="/">
+                <LinkCardHeader>xxxXXX</LinkCardHeader>
+                <CardBody>xxxxxxxxXXX</CardBody>
+                <LinkCardFooter>June 27th, 205</LinkCardFooter>
+              </LinkCard>
+              <LinkCard href="/">
+                <LinkCardHeader>xxxXXX</LinkCardHeader>
+                <CardBody>xxxxxxxxXXX</CardBody>
+                <LinkCardFooter>June 27th, 205</LinkCardFooter>
+              </LinkCard>
+              <LinkCard href="/">
+                <LinkCardHeader>xxxXXX</LinkCardHeader>
+                <CardBody>xxxxxxxxXXX</CardBody>
+                <LinkCardFooter>June 27th, 205</LinkCardFooter>
+              </LinkCard>
+              <LinkCard href="/">
+                <LinkCardHeader>xxxXXX</LinkCardHeader>
+                <CardBody>
+                  xxxxxxxxXXX
+                  <br />
+                  xxxxxxxxXXX
+                </CardBody>
+                <LinkCardFooter>June 27th, 205</LinkCardFooter>
+              </LinkCard>
+            </div>
           </div>
           <div className="my-8">
             <H2>Frequently Asked Questions</H2>

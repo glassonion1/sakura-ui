@@ -8,6 +8,7 @@ export {
   CardFooter,
   LinkCard,
   LinkCardHeader,
+  LinkCardFooter,
   Code,
   Faq,
   Question,

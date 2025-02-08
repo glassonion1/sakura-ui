@@ -1,6 +1,6 @@
 import React from 'react'
 import { cx, Style } from '@sakura-ui/helper'
-import { Card, CardHeader } from './Card'
+import { Card, CardFooter, CardHeader } from './Card'
 import { Icon } from './Icon'
 
 interface LinkContextType {
@@ -27,11 +27,14 @@ export const LinkCard = ({
     sm:rounded-3xl
     w-full h-full
     ${Style.focusCard}
+    group
   `
 
   const styleHover = `
-    hover:text-blue-1000
-    hover:border-blue-1000
+    group-hover:outline
+    group-hover:outline-blue-900
+    group-hover:outline-4
+    group-hover:outline-offset-[-1px]
   `
 
   const isExternal = href?.startsWith('https://')
@@ -60,15 +63,19 @@ export const LinkCardHeader = ({
   const { href } = React.useContext(LinkContext)
 
   const styleHeading = `
-    flex
-    justify-between
-    items-center
+    decoration-blue-900
+    underline
+    underline-offset-[calc(3/16*1rem)]
+  `
+  const styleHover = `
+    group-hover:text-blue-900
+    group-hover:decoration-[calc(3/16*1rem)]
   `
 
   const isExternal = href.startsWith('https://')
 
   return (
-    <CardHeader className={cx(className, styleHeading)}>
+    <CardHeader className={cx(className, styleHeading, styleHover)}>
       {href === '' ? (
         children
       ) : (
@@ -83,9 +90,54 @@ export const LinkCardHeader = ({
               ''
             )}
           </span>
-          {isExternal ? '' : <Icon opticalSize={16}>arrow_forward</Icon>}
         </>
       )}
     </CardHeader>
+  )
+}
+
+export interface LinkCardFooterProps extends React.ComponentProps<'div'> {}
+
+export const LinkCardFooter = ({
+  className,
+  children
+}: LinkCardHeaderProps) => {
+  const { href } = React.useContext(LinkContext)
+
+  const style = `
+    flex
+    justify-between
+    items-center
+  `
+
+  const styleIcon = `
+    inline-flex
+    items-center
+    justify-center
+    w-6 h-6
+    text-blue-1000
+    border
+    border-blue-1000
+    rounded-full
+  `
+
+  const styleIconHover = `
+    group-hover:bg-blue-1000
+    group-hover:text-white
+  `
+
+  return (
+    <CardFooter className={cx(className, style)}>
+      {href === '' ? (
+        children
+      ) : (
+        <>
+          <span>{children}</span>
+          <span className={cx(styleIcon, styleIconHover)}>
+            <Icon opticalSize={16}>arrow_forward</Icon>
+          </span>
+        </>
+      )}
+    </CardFooter>
   )
 }

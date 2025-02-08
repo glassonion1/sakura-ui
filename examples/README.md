@@ -1,5 +1,12 @@
 # SakuraUI examples
 
+## Build all packages
+```
+$ cd ../
+$ pnpm build
+$ cd examples
+```
+
 ## Install
 ```
 $ pnpm install
@@ -11,4 +18,4 @@ $ pnpm dev
 ```
 
 ## Browse
-http://localhost:5173/
+http://localhost:5173/sakura-ui/
