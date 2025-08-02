@@ -3,23 +3,27 @@ import { cx, Style } from '@sakura-ui/helper'
 import { Card, CardFooter, CardHeader } from './Card'
 import { Icon } from './Icon'
 
-interface LinkContextType {
-  href: string
-}
-const LinkContext = React.createContext<LinkContextType>({ href: '' })
-
 export namespace LinkCard {
-  export interface Props extends React.ComponentProps<'article'> {
+  export interface Props<T extends React.ElementType>
+    extends React.ComponentProps<'article'> {
     href: string
+    target?: string
+    linkAs?: T
   }
 }
 
-export const LinkCard = ({
-  href,
-  className,
-  children,
-  ...rest
-}: LinkCard.Props) => {
+export const LinkCard = <T extends React.ElementType = 'a'>(
+  props: LinkCard.Props<T>
+) => {
+  const {
+    href,
+    target,
+    linkAs: Component = 'a',
+    className,
+    children,
+    ...rest
+  } = props
+
   const styleLink = `
     grid
     outline-offset-4
@@ -37,31 +41,26 @@ export const LinkCard = ({
     group-hover:outline-offset-[-1px]
   `
 
-  const isExternal = href?.startsWith('https://')
-
   return (
-    <LinkContext.Provider value={{ href: href }}>
-      <a
-        className={cx(styleLink)}
-        href={href}
-        target={isExternal ? '_blank' : ''}
-      >
-        <Card className={cx(styleHover, className)} {...rest}>
-          {children}
-        </Card>
-      </a>
-    </LinkContext.Provider>
+    <Component className={cx(styleLink)} href={href} target={target}>
+      <Card className={cx(styleHover, className)} {...rest}>
+        {children}
+      </Card>
+    </Component>
   )
 }
 
-export interface LinkCardHeaderProps extends React.ComponentProps<'div'> {}
+export namespace LinkCardHeader {
+  export interface Props extends React.ComponentProps<'div'> {
+    target?: string
+  }
+}
 
 export const LinkCardHeader = ({
+  target,
   className,
   children
-}: LinkCardHeaderProps) => {
-  const { href } = React.useContext(LinkContext)
-
+}: LinkCardHeader.Props) => {
   const styleHeading = `
     decoration-blue-900
     underline
@@ -72,38 +71,28 @@ export const LinkCardHeader = ({
     group-hover:decoration-[calc(3/16*1rem)]
   `
 
-  const isExternal = href.startsWith('https://')
-
   return (
     <CardHeader className={cx(className, styleHeading, styleHover)}>
-      {href === '' ? (
-        children
-      ) : (
-        <>
-          <span>
-            {children}
-            {isExternal ? (
-              <Icon opticalSize={16} className="ml-1">
-                open_in_new
-              </Icon>
-            ) : (
-              ''
-            )}
-          </span>
-        </>
-      )}
+      <span>
+        {children}
+        {target === '_blank' && (
+          <Icon opticalSize={16} className="ml-1">
+            open_in_new
+          </Icon>
+        )}
+      </span>
     </CardHeader>
   )
 }
 
-export interface LinkCardFooterProps extends React.ComponentProps<'div'> {}
+export namespace LinkCardFooter {
+  export interface Props extends React.ComponentProps<'div'> {}
+}
 
 export const LinkCardFooter = ({
   className,
   children
-}: LinkCardHeaderProps) => {
-  const { href } = React.useContext(LinkContext)
-
+}: LinkCardFooter.Props) => {
   const style = `
     flex
     justify-between
@@ -128,16 +117,10 @@ export const LinkCardFooter = ({
 
   return (
     <CardFooter className={cx(className, style)}>
-      {href === '' ? (
-        children
-      ) : (
-        <>
-          <span>{children}</span>
-          <span className={cx(styleIcon, styleIconHover)}>
-            <Icon opticalSize={16}>arrow_forward</Icon>
-          </span>
-        </>
-      )}
+      <span>{children}</span>
+      <span className={cx(styleIcon, styleIconHover)}>
+        <Icon opticalSize={16}>arrow_forward</Icon>
+      </span>
     </CardFooter>
   )
 }
