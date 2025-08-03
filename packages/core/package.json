@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/core",
-  "version": "0.3.4",
+  "version": "0.4.0-beta.0",
   "description": "",
   "keywords": [
     "react",
@@ -46,9 +46,9 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "^3.4.5"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.11"
   },
   "dependencies": {
     "@sakura-ui/helper": "0.0.5"
@@ -58,8 +58,9 @@
     "@testing-library/react": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@tailwindcss/vite": "^4.1.11",
     "autoprefixer": "catalog:",
-    "happy-dom": "^15.11.7",
+    "happy-dom": "catalog:",
     "postcss": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
