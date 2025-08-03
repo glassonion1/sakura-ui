@@ -108,6 +108,9 @@ importers:
       '@sakura-ui/forms':
         specifier: workspace:*
         version: link:../packages/forms
+      '@sakura-ui/helper':
+        specifier: workspace:*
+        version: link:../packages/helper
       '@sakura-ui/tailwind-theme-plugin':
         specifier: workspace:*
         version: link:../packages/tailwind-theme-plugin
@@ -155,8 +158,8 @@ importers:
   packages/core:
     dependencies:
       '@sakura-ui/helper':
-        specifier: 0.0.5
-        version: 0.0.5
+        specifier: 0.0.6-beta.0
+        version: 0.0.6-beta.0
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.1.11
@@ -1003,6 +1006,9 @@ packages:
 
   '@sakura-ui/helper@0.0.5':
     resolution: {integrity: sha512-2XSgS3NNx+UUrvdtubWiFZu6AKNncJZovjOCelMOCW3SwriORGpSul60kOC8n1N70BI7R7JM9brUCcvAGzZqXA==}
+
+  '@sakura-ui/helper@0.0.6-beta.0':
+    resolution: {integrity: sha512-VllgPjoMhF3WGeQ2NyIoxCKn8hMCV0l7xaa/x5nGlzed1XNLR4QzRpwevEq9dlGhhzMxIjxa6epqhB3dERUHqg==}
 
   '@swc/core-darwin-arm64@1.10.1':
     resolution: {integrity: sha512-NyELPp8EsVZtxH/mEqvzSyWpfPJ1lugpTQcSlMduZLj1EASLO4sC8wt8hmL1aizRlsbjCX+r0PyL+l0xQ64/6Q==}
@@ -3035,6 +3041,8 @@ snapshots:
       tailwindcss: 4.1.11
 
   '@sakura-ui/helper@0.0.5': {}
+
+  '@sakura-ui/helper@0.0.6-beta.0': {}
 
   '@swc/core-darwin-arm64@1.10.1':
     optional: true
