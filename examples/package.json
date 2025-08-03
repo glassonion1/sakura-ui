@@ -15,9 +15,10 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router": "^7.1.0",
-    "tailwindcss": "catalog:"
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-router-dom": "^5.3.3",

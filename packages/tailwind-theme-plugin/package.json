@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@digital-go-jp/design-tokens": "^1.1.0",
+    "@tailwindcss/vite": "^4.1.11",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",
     "tailwindcss": "catalog:"

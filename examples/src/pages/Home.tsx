@@ -52,9 +52,9 @@ const Home = () => {
 
   const containerStyle = `
     max-w-xs
-    sm:max-w-screen-sm
-    md:max-w-screen-md
-    lg:max-w-screen-lg
+    sm:max-w-(--breakpoint-sm)
+    md:max-w-(--breakpoint-md)
+    lg:max-w-(--breakpoint-lg)
     xl:max-w-[1120px]
     mx-auto
   `
@@ -138,7 +138,7 @@ const Home = () => {
             <H2>Text</H2>
             <p>
               <Icon
-                className="text-blue-600 !leading-7 align-middle"
+                className="text-blue-600 leading-7! align-middle"
                 opticalSize={16}
               >
                 home
@@ -148,7 +148,7 @@ const Home = () => {
             <p>
               test1,test2,abcdefghijk
               <Icon
-                className="text-blue-600 !leading-7 align-middle"
+                className="text-blue-600 leading-7! align-middle"
                 opticalSize={16}
               >
                 shopping_cart
@@ -192,7 +192,7 @@ const Home = () => {
                   <Icon
                     opticalSize={size}
                     altText="Opens in new tab"
-                    className="!leading-7"
+                    className="leading-7!"
                   >
                     open_in_new
                   </Icon>
