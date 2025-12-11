@@ -102,7 +102,7 @@ const params: { [key in ButtonSize]: string } = {
     py-1.5
     my-2
     text-button-sm
-    rounded
+    rounded-sm
   `
 }
 

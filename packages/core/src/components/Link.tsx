@@ -30,7 +30,6 @@ export const Link = <T extends React.ElementType = 'a'>(
       <Component
         className={cx(style, className)}
         target="_blank"
-        rel="noopener noreferrer"
         {...restProps}
       >
         <span>{children}</span>

@@ -23,9 +23,9 @@ const Forms = () => {
 
   const containerStyle = `
     max-w-xs
-    sm:max-w-screen-sm
-    md:max-w-screen-md
-    lg:max-w-screen-lg
+    sm:max-w-(--breakpoint-sm)
+    md:max-w-(--breakpoint-md)
+    lg:max-w-(--breakpoint-lg)
     xl:max-w-[1120px]
     mx-auto
   `

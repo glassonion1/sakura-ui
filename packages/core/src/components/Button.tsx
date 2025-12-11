@@ -17,7 +17,7 @@ export namespace Button {
 }
 
 export const Button = <T extends React.ElementType = 'button'>(
-  props: Button.Props<T> & Omit<React.ComponentProps<T>, keyof Button.Props<T>>
+  props: Button.Props<T> & Omit<ComponentProps<T>, keyof Button.Props<T>>
 ) => {
   const {
     as: Component = 'button',

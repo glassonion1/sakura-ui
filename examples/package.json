@@ -2,6 +2,7 @@
   "name": "examples",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,6 +12,7 @@
     "@sakura-ui/core": "workspace:*",
     "@sakura-ui/forms": "workspace:*",
     "@sakura-ui/tailwind-theme-plugin": "workspace:*",
+    "@sakura-ui/helper": "workspace:*",
     "clsx": "^2.1.0",
     "react": "catalog:",
     "react-dom": "catalog:",
@@ -18,12 +20,13 @@
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react-swc": "^3.7.0",
+    "@vitejs/plugin-react-swc": "catalog:",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",
-    "vite": "^5.4.11"
+    "vite": "catalog:"
   }
 }

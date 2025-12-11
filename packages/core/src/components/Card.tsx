@@ -28,7 +28,7 @@ export const Card = (props: Card.Props) => {
   `
 
   return (
-    <IdContext.Provider value={ctx}>
+    <IdContext value={ctx}>
       <article
         aria-labelledby={ctx.id}
         aria-describedby={`${ctx.id}-desc`}
@@ -37,7 +37,7 @@ export const Card = (props: Card.Props) => {
       >
         {children}
       </article>
-    </IdContext.Provider>
+    </IdContext>
   )
 }
 

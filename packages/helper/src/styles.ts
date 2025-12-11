@@ -14,7 +14,6 @@ export namespace Style {
   `
 
   const focus = `
-    focus-visible:outline
     focus-visible:outline-4
     focus-visible:outline-black
     focus-visible:ring-yellow-300
@@ -40,7 +39,7 @@ export namespace Style {
 
   export const focusRounded = `
     ${focusRect}
-    focus-visible:rounded
+    focus-visible:rounded-sm
   `
 
   export const focusCard = `
@@ -56,7 +55,7 @@ export namespace Style {
 
   export const focusRoundedWithBg = `
     ${focusRectWithBg}
-    focus-visible:rounded
+    focus-visible:rounded-sm
   `
 
   export const hoverUnderline = `
@@ -101,7 +100,6 @@ export namespace Style {
 
   export namespace Peer {
     export const focus = `
-      peer-focus-visible:outline
       peer-focus-visible:outline-4
       peer-focus-visible:outline-black
       peer-focus-visible:ring-yellow-300

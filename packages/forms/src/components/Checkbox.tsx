@@ -39,7 +39,7 @@ export const Checkbox = (props: Checkbox.Props) => {
 
   const styleCheck = `
     bg-clip-content
-    rounded
+    rounded-sm
     border
     border-solid
     border-solid-gray-900
