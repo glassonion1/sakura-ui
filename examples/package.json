@@ -2,6 +2,7 @@
   "name": "examples",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,16 +17,16 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router": "^7.1.0",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.11",
+    "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react-swc": "^3.7.0",
+    "@vitejs/plugin-react-swc": "catalog:",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",
-    "vite": "^5.4.11"
+    "vite": "catalog:"
   }
 }

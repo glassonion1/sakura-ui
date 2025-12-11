@@ -1,7 +1,17 @@
 {
-  "name": "@sakura-ui/helper",
-  "version": "0.0.6",
+  "name": "@sakura-ui/tailwind-theme-plugin",
+  "version": "0.4.0",
+  "description": "",
+  "keywords": [],
+  "author": "glassonion1",
+  "homepage": "https://github.com/glassonion1/sakura-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git",
+    "directory": "packages/config"
+  },
   "license": "MIT",
+  "type": "module",
   "main": "dist/index.cjs.js",
   "types": "dist/types/index.d.ts",
   "exports": {
@@ -20,7 +30,7 @@
   },
   "scripts": {
     "lint": "run-s lint:*",
-    "lint:lint": "biome lint ./",
+    "lint:eslint": "biome lint ./",
     "lint:prettier": "prettier --write --ignore-path .gitignore './src/*.ts'",
     "prebuild": "rimraf dist",
     "build": "run-p build:*",
@@ -28,13 +38,14 @@
     "build:types": "tsc && tsc-alias",
     "test": "vitest"
   },
+  "peerDependencies": {
+    "tailwindcss": "^4.1.17"
+  },
   "devDependencies": {
-    "@testing-library/jest-dom": "catalog:",
-    "@testing-library/react": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "happy-dom": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "@digital-go-jp/design-tokens": "^1.1.0",
+    "@tailwindcss/vite": "catalog:",
+    "autoprefixer": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:"
   }
 }

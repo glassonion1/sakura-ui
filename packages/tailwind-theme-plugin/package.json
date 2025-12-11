@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/tailwind-theme-plugin",
-  "version": "0.4.0-beta.0",
+  "version": "0.4.0",
   "description": "",
   "keywords": [],
   "author": "glassonion1",
@@ -39,11 +39,11 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
-    "@digital-go-jp/design-tokens": "^1.1.0",
-    "@tailwindcss/vite": "^4.1.11",
+    "@digital-go-jp/design-tokens": "^1.1.2",
+    "@tailwindcss/vite": "catalog:",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",
     "tailwindcss": "catalog:"
