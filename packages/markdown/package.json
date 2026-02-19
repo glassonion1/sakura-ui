@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/markdown",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "keywords": [
     "markdown"
@@ -47,7 +47,7 @@
     "@sakura-ui/core": "^0.4.0-beta.0"
   },
   "dependencies": {
-    "@sakura-ui/helper": "0.0.6",
+    "@sakura-ui/helper": "0.0.7",
     "github-slugger": "^2.0.0",
     "hastscript": "^9.0.0",
     "mdast-util-directive": "^3.0.0",
