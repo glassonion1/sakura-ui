@@ -270,6 +270,9 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.1(react@19.2.1)
+      vitest:
+        specifier: 'catalog:'
+        version: 2.1.8(@types/node@24.1.0)(happy-dom@18.0.1)(lightningcss@1.30.2)
 
   packages/markdown:
     dependencies:
@@ -277,8 +280,8 @@ importers:
         specifier: ^0.4.0-beta.0
         version: 0.4.0-beta.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(tailwindcss@4.1.17)
       '@sakura-ui/helper':
-        specifier: 0.0.6
-        version: 0.0.6
+        specifier: 0.0.7
+        version: 0.0.7
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -918,6 +921,9 @@ packages:
 
   '@sakura-ui/helper@0.0.6':
     resolution: {integrity: sha512-Mbr/aYak1azyP4tE/tbvPMCVmg0decAbGTHpS7qxYwgL+dptnxHIZxVJ5h26U46vdFz4UBcJx3afYkP6r2GA1A==}
+
+  '@sakura-ui/helper@0.0.7':
+    resolution: {integrity: sha512-Ns+OG6YDtBJa/gJJSFMDCosnUTJm0DUYdLVnIYw086vV3WkTw687R+RVnoWPqhZnucbmQoo/i5aVYHIm5l5whA==}
 
   '@swc/core-darwin-arm64@1.15.3':
     resolution: {integrity: sha512-AXfeQn0CvcQ4cndlIshETx6jrAM45oeUrK8YeEY6oUZU/qzz0Id0CyvlEywxkWVC81Ajpd8TQQ1fW5yx6zQWkQ==}
@@ -1715,12 +1721,6 @@ packages:
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
-
-  magic-string@0.30.15:
-    resolution: {integrity: sha512-zXeaYRgZ6ldS1RJJUrMrYgNJ4fdwnyI6tVqoiIhyCyv5IVTK9BU8Ic2l253GGETQHxI4HNUwhJ3fjDhKqEoaAw==}
-
-  magic-string@0.30.17:
-    resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -2769,6 +2769,8 @@ snapshots:
 
   '@sakura-ui/helper@0.0.6': {}
 
+  '@sakura-ui/helper@0.0.7': {}
+
   '@swc/core-darwin-arm64@1.15.3':
     optional: true
 
@@ -3010,7 +3012,7 @@ snapshots:
     dependencies:
       '@vitest/spy': 2.1.8
       estree-walker: 3.0.3
-      magic-string: 0.30.17
+      magic-string: 0.30.21
     optionalDependencies:
       vite: 5.4.19(@types/node@24.1.0)(lightningcss@1.30.2)
 
@@ -3026,7 +3028,7 @@ snapshots:
   '@vitest/snapshot@2.1.8':
     dependencies:
       '@vitest/pretty-format': 2.1.8
-      magic-string: 0.30.17
+      magic-string: 0.30.21
       pathe: 1.1.2
 
   '@vitest/spy@2.1.8':
@@ -3548,14 +3550,6 @@ snapshots:
   lru-cache@11.1.0: {}
 
   lz-string@1.5.0: {}
-
-  magic-string@0.30.15:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.4
-
-  magic-string@0.30.17:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.4
 
   magic-string@0.30.21:
     dependencies:
@@ -4472,7 +4466,7 @@ snapshots:
       chai: 5.1.2
       debug: 4.4.0
       expect-type: 1.1.0
-      magic-string: 0.30.15
+      magic-string: 0.30.21
       pathe: 1.1.2
       std-env: 3.8.0
       tinybench: 2.9.0

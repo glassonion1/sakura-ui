@@ -1,7 +1,8 @@
 {
   "name": "@sakura-ui/helper",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
+  "type": "module",
   "main": "dist/index.cjs.js",
   "types": "dist/types/index.d.ts",
   "exports": {
@@ -35,6 +36,7 @@
     "@types/react-dom": "catalog:",
     "happy-dom": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "vitest": "catalog:"
   }
 }

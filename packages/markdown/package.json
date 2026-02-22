@@ -47,7 +47,7 @@
     "@sakura-ui/core": "^0.4.0-beta.0"
   },
   "dependencies": {
-    "@sakura-ui/helper": "0.0.7",
+    "@sakura-ui/helper": "0.0.8",
     "github-slugger": "^2.0.0",
     "hastscript": "^9.0.0",
     "mdast-util-directive": "^3.0.0",
