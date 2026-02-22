@@ -280,8 +280,8 @@ importers:
         specifier: ^0.4.0-beta.0
         version: 0.4.0-beta.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(tailwindcss@4.1.17)
       '@sakura-ui/helper':
-        specifier: 0.0.7
-        version: 0.0.7
+        specifier: 0.0.8
+        version: 0.0.8
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -922,8 +922,8 @@ packages:
   '@sakura-ui/helper@0.0.6':
     resolution: {integrity: sha512-Mbr/aYak1azyP4tE/tbvPMCVmg0decAbGTHpS7qxYwgL+dptnxHIZxVJ5h26U46vdFz4UBcJx3afYkP6r2GA1A==}
 
-  '@sakura-ui/helper@0.0.7':
-    resolution: {integrity: sha512-Ns+OG6YDtBJa/gJJSFMDCosnUTJm0DUYdLVnIYw086vV3WkTw687R+RVnoWPqhZnucbmQoo/i5aVYHIm5l5whA==}
+  '@sakura-ui/helper@0.0.8':
+    resolution: {integrity: sha512-W4G7NRlWa0W4FaiYtcSTDNsXUxXIQFDLx8EbiIYFk+LFfoIOHNTLflODd8IO+FanJA7vmZimjByrMFE+kfJFpQ==}
 
   '@swc/core-darwin-arm64@1.15.3':
     resolution: {integrity: sha512-AXfeQn0CvcQ4cndlIshETx6jrAM45oeUrK8YeEY6oUZU/qzz0Id0CyvlEywxkWVC81Ajpd8TQQ1fW5yx6zQWkQ==}
@@ -2769,7 +2769,7 @@ snapshots:
 
   '@sakura-ui/helper@0.0.6': {}
 
-  '@sakura-ui/helper@0.0.7': {}
+  '@sakura-ui/helper@0.0.8': {}
 
   '@swc/core-darwin-arm64@1.15.3':
     optional: true
