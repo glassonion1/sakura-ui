@@ -192,9 +192,11 @@ const Img = (props: ImgProps) => {
   }
 
   if (restProps['data-node'] === 'cell-img') {
+    // biome-ignore lint/a11y/useAltText: alt is carried by restProps from the markdown image syntax
     return <img className={cx('mb-4', className)} {...restProps} />
   }
 
+  // biome-ignore lint/a11y/useAltText: alt is carried by restProps from the markdown image syntax
   return <img className={className} {...restProps} />
 }
 
@@ -250,6 +252,7 @@ export const Markdown = ({
   const [element, setElement] = React.useState(<React.Fragment />)
 
   const markdown2Headings = React.useCallback((md: string) => {
+    // biome-ignore lint/suspicious/noExplicitAny: remark does not type the data that plugins attach to the VFile
     const result: any = remark().use(headingsPlugin).processSync(md)
 
     const headings: HeadingItem[] = result.data.fm.headings.filter(
@@ -312,6 +315,7 @@ export const Markdown = ({
         .use(rehypeExternalLinks, { target: '_blank' }) // hast  -> hast
         .use(rebypeShiftHeding, { shift: shiftHeding }) // hast  -> hast
         .use(rehypeSlug)
+        // biome-ignore lint/suspicious/noExplicitAny: rehype-react's declared option type rejects the component map it accepts at runtime
         .use(rehypeReact, rhypeReactOptions as any) // hast  -> React Elements
         .processSync(md).result
       return elem

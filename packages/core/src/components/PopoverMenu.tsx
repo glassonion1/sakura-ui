@@ -26,6 +26,7 @@ export const PopoverMenu = React.forwardRef<
   `
 
   return (
+    // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: the WAI-ARIA authoring practices build menus from a ul with role="menu"
     <ul ref={ref} role="menu" className={cx(className, style)} {...rest}>
       {children}
     </ul>
