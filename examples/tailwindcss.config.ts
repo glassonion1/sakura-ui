@@ -1,12 +1,15 @@
 import type { Config } from 'tailwindcss'
-import sakuraPlugin from '@sakura-ui/tailwind-theme-plugin'
+// この config は Tailwind が jiti で直接読み込むため、vite.config.mts の alias が効かない。
+// パッケージ名で import すると dist を要求してしまい、ビルド前は CSS 生成ごと失敗するので、
+// examples が参照している他のパッケージと同様にソースを直接指す。
+import sakuraPlugin from '../packages/tailwind-theme-plugin/src'
 
 const config: Config = {
-  //  mode: 'jit',
   content: [
-    './node_modules/@sakura-ui/core/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@sakura-ui/forms/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@sakura-ui/helper/**/*.{js,ts,jsx,tsx}'
+    './src/**/*.{js,ts,jsx,tsx}',
+    '../packages/core/src/**/*.{js,ts,jsx,tsx}',
+    '../packages/forms/src/**/*.{js,ts,jsx,tsx}',
+    '../packages/helper/src/**/*.{js,ts,jsx,tsx}'
   ],
   plugins: [sakuraPlugin]
 }

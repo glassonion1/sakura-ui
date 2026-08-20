@@ -11,12 +11,12 @@
   "dependencies": {
     "@sakura-ui/core": "workspace:*",
     "@sakura-ui/forms": "workspace:*",
-    "@sakura-ui/tailwind-theme-plugin": "workspace:*",
     "@sakura-ui/helper": "workspace:*",
-    "clsx": "^2.1.0",
+    "@sakura-ui/tailwind-theme-plugin": "workspace:*",
+    "clsx": "^2.1.1",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-router": "^7.1.0",
+    "react-router": "^7.18.2",
     "tailwindcss": "catalog:"
   },
   "devDependencies": {

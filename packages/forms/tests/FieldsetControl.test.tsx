@@ -34,8 +34,14 @@ describe('FieldsetControl', () => {
 
     expect(input).toBeInTheDocument()
 
-    expect(input).toHaveAttribute('aria-describedby', 'helper-text-:r1:')
-    expect(input).toHaveAttribute('aria-errormessage', 'error-message-:r1:')
+    expect(input).toHaveAttribute(
+      'aria-describedby',
+      screen.getByText('helper').id
+    )
+    expect(input).toHaveAttribute(
+      'aria-errormessage',
+      screen.getByText('error').id
+    )
 
     expect(input).toBeInvalid()
     expect(input).toHaveAttribute('aria-invalid', 'true')

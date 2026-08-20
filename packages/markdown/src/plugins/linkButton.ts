@@ -11,7 +11,8 @@ export const linkButtonPlugin = () => {
     visit(tree, isTextDirective, (node: Directives) => {
       if (node.name !== 'link-button') return
 
-      const data = node.data || (node.data = {})
+      node.data ??= {}
+      const data = node.data
       const tagName = 'a'
 
       data.hName = tagName

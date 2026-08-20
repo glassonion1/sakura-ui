@@ -130,3 +130,58 @@ export default App
 
 ## Markdwon extension
 - Markdown
+
+## Development
+
+### Setup
+```
+$ pnpm install
+```
+
+### Run the example app
+`examples` resolves each package to its `src` through Vite aliases, so **no build step is required**. Changes under `packages/*/src` are reflected through HMR.
+
+```
+$ pnpm dev
+```
+
+Then open http://localhost:5173/sakura-ui/
+
+### Build
+```
+$ pnpm build
+```
+
+Builds go through turbo, which resolves the dependency order — `@sakura-ui/helper` is built before `core` / `forms` / `markdown`. To build a single package, use a filter so that its dependencies are built as well.
+
+```
+$ pnpm build --filter @sakura-ui/core
+```
+
+Running `pnpm build` inside a package directory (e.g. `cd packages/core && pnpm build`) fails while `@sakura-ui/helper` has not been built yet.
+
+### Test
+```
+$ pnpm --filter @sakura-ui/core exec vitest run
+```
+
+### Lint
+```
+$ pnpm exec biome lint ./
+```
+
+### Publish
+Bump the `version` field of the packages to release, build them, and publish.
+
+```
+$ pnpm build
+$ pnpm publish -r
+```
+
+`pnpm publish -r` walks the workspace in dependency order and skips versions that are already on npm, so `@sakura-ui/helper` is published before the packages that depend on it. To release a single package:
+
+```
+$ pnpm publish --filter @sakura-ui/core
+```
+
+Use `pnpm publish`, never `npm publish`. The packages depend on each other through the `workspace:*` protocol, and only pnpm expands it to a real version at publish time — `npm publish` would upload `"@sakura-ui/helper": "workspace:*"` as-is and the released package would not install.

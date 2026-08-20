@@ -3,18 +3,29 @@ packages:
   - examples/**
   - '!**/test/**'
 
+# Native binaries required by vite (esbuild) and @vitejs/plugin-react-swc (@swc/core).
+allowBuilds:
+  '@swc/core': true
+  esbuild: true
+
 catalog:
-  '@tailwindcss/vite': ^4.1.17
-  '@testing-library/jest-dom': ^6.6.4
-  '@testing-library/react': ^16.3.0
-  '@types/react': ^19.2.7
-  '@types/react-dom': ^19.2.3
-  '@vitejs/plugin-react-swc': ^4.2.2
-  autoprefixer: ^10.4.21
-  happy-dom: ^18.0.1
-  postcss: ^8.5.6
-  react: ^19.2.1
-  react-dom: ^19.2.1
-  tailwindcss: 4.1.17
-  vite: ^7.2.7
-  vitest: ^3.2.4
+  '@tailwindcss/vite': ^4.3.3
+  '@testing-library/jest-dom': ^7.0.1
+  '@testing-library/react': ^16.3.2
+  '@types/react': ^19.2.18
+  '@types/react-dom': ^19.2.4
+  '@vitejs/plugin-react-swc': ^4.3.3
+  autoprefixer: ^10.5.4
+  happy-dom: ^20.11.6
+  postcss: ^8.5.26
+  react: ^19.2.8
+  react-dom: ^19.2.8
+  tailwindcss: 4.3.3
+  vite: ^7.3.6
+  vitest: ^4.1.11
+
+# pnpm 11 rejects packages published within the last 24 hours (minimumReleaseAge).
+# happy-dom released 20.11.2 through 20.11.6 within a single hour, so the version
+# we resolve to is still inside the window. This entry can be dropped once it ages out.
+minimumReleaseAgeExclude:
+  - happy-dom@20.11.6

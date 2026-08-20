@@ -81,7 +81,12 @@ export const FileInput = (props: FileInput.Props) => {
     `
   }
 
+  // TODO: aria-required is not valid on input[type=file] and role="button" does not
+  // describe a file picker. Both need to be reworked (the required attribute changes
+  // form submission behaviour), so they are tracked separately from this change.
   return (
+    // biome-ignore lint/a11y/useAriaPropsSupportedByRole: see the TODO above
+    // biome-ignore lint/a11y/useSemanticElements: see the TODO above
     <input
       type="file"
       id={id || ctx.id}

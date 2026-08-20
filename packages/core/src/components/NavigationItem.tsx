@@ -1,4 +1,4 @@
-import React, { type ComponentProps } from 'react'
+import React from 'react'
 import { cx, Style } from '@sakura-ui/helper'
 
 export namespace NavigationItem {
