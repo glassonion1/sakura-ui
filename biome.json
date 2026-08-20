@@ -1,7 +1,11 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
-  "organizeImports": {
-    "enabled": false
+  "$schema": "https://biomejs.dev/schemas/2.5.9/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
   },
   "formatter": {
     "enabled": false
@@ -12,7 +16,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "complexity": {
         "noForEach": "off"
       },
@@ -26,18 +30,19 @@
         "noDangerouslySetInnerHtml": "off"
       }
     },
-    "ignore": [
-      "*.d.ts",
-      "dist/**/*",
-      "node_modules/**/*",
-      "build/**/*",
-      "public/**/*",
-      "bundle/**/*",
-      "out/**/*",
-      "generated/**/*",
-      "tests/**/*",
-      "coverage/**/*",
-      ".cache/**/*"
+    "includes": [
+      "**",
+      "!**/*.d.ts",
+      "!**/dist/**/*",
+      "!**/node_modules/**/*",
+      "!**/build/**/*",
+      "!**/public/**/*",
+      "!**/bundle/**/*",
+      "!**/out/**/*",
+      "!**/generated/**/*",
+      "!**/tests/**/*",
+      "!**/coverage/**/*",
+      "!**/.cache/**/*"
     ]
   }
 }
