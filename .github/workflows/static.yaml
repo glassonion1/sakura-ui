@@ -14,6 +14,8 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  # required by actions/deploy-pages since v4
+  actions: read
 
 # Allow one concurrent deployment
 concurrency:
@@ -30,14 +32,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       # workaround for https://github.com/pnpm/pnpm/issues/9029
       - run: npm i -g corepack@latest
       # pnpm has to exist before setup-node, otherwise cache: "pnpm" cannot locate the store.
       # The version comes from the packageManager field, so it matches local development.
       - run: corepack enable
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .tool-versions
           cache: "pnpm"
@@ -50,13 +52,13 @@ jobs:
         run: cp ./examples/dist/index.html ./examples/dist/404.html
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           # Upload entire repository
           path: examples/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
