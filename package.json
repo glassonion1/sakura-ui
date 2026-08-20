@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.9",
-    "@types/node": "^26.2.0",
+    "@types/node": "^24.13.3",
     "@vitejs/plugin-react-swc": "catalog:",
     "npm-run-all2": "^9.0.3",
     "rimraf": "^6.1.3",
