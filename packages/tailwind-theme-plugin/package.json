@@ -7,8 +7,8 @@
   "homepage": "https://github.com/glassonion1/sakura-ui",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git",
-    "directory": "packages/config"
+    "url": "git+https://github.com/glassonion1/sakura-ui.git",
+    "directory": "packages/tailwind-theme-plugin"
   },
   "license": "MIT",
   "type": "module",
