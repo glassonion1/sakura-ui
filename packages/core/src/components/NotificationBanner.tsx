@@ -1,6 +1,6 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
-import { Card, CardHeader } from './Card'
+import { Card } from './Card'
 
 export namespace NotificationBanner {
   export interface Props extends React.ComponentPropsWithoutRef<'article'> {}

@@ -48,8 +48,8 @@ export const MenuButton = ({
       )
       if (focusables.length === 0) return
 
-      const tabIndex = focusables.findIndex(
-        (el) => el === document.activeElement
+      const tabIndex = focusables.indexOf(
+        document.activeElement as HTMLElement
       )
       // If there is no focused element, focus the first element
       if (tabIndex === -1) {

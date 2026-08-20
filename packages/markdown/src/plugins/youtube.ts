@@ -11,7 +11,8 @@ export const youtubePlugin = () => {
       if (node.type === 'containerDirective' || node.type === 'leafDirective') {
         if (node.name !== 'youtube') return
 
-        const data = node.data || (node.data = {})
+        node.data ??= {}
+        const data = node.data
         const attributes = node.attributes || {}
         const id = attributes.id
 

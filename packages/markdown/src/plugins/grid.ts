@@ -20,7 +20,10 @@ export const gridPlugin = () => {
         node.attributes['data-behavior'] = 'list'
       }
 
-      const gridNum: number = Number.parseInt(node.name.split('-').pop() || '1')
+      const gridNum: number = Number.parseInt(
+        node.name.split('-').pop() || '1',
+        10
+      )
 
       // Tailwind doesn't generate CSS for string interpolation
       const gridClass: { [key: number]: string } = {

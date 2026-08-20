@@ -13,7 +13,7 @@ export type HeadingItem = {
 }
 
 export const headingsPlugin = () => {
-  return (tree: Root, vFile: any) => {
+  return (tree: Root, vFile: { data: Record<string, unknown> }) => {
     const headings: Array<HeadingItem> = []
     const slugger = new Slugger()
 
@@ -29,7 +29,10 @@ export const headingsPlugin = () => {
 
     visit(tree, isHeading, getFlatHeadingsList)
 
-    if (!vFile.data.fm) vFile.data.fm = {}
-    vFile.data.fm.headings = treefy(headings)
+    if (!vFile.data.fm) {
+      vFile.data.fm = {}
+    }
+    const fm = vFile.data.fm as { headings?: Array<HeadingItem> }
+    fm.headings = treefy(headings)
   }
 }
