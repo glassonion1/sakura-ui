@@ -1,0 +1,53 @@
+name: Publish
+
+on:
+  release:
+    types: ["published"]
+  # Manual runs default to a dry run so the OIDC setup can be verified safely
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list what would be published"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  # Required for npm trusted publishing (OIDC). Each package must have this
+  # repository and workflow registered as a trusted publisher on npmjs.com.
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # workaround for https://github.com/pnpm/pnpm/issues/9029
+      - run: npm i -g corepack@latest
+      # pnpm has to exist before setup-node, otherwise cache: "pnpm" cannot locate the store
+      - run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .tool-versions
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+          # NODE_AUTH_TOKEN is deliberately not set: authentication goes through OIDC
+
+      - run: pnpm install --frozen-lockfile
+
+      # Every package ships only dist, so it must be built before publishing
+      - run: pnpm build
+
+      - name: Publish
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            pnpm publish -r --access public --no-git-checks --dry-run
+          else
+            pnpm publish -r --access public --no-git-checks
+          fi

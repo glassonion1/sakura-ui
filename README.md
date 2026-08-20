@@ -162,26 +162,32 @@ Running `pnpm build` inside a package directory (e.g. `cd packages/core && pnpm 
 
 ### Test
 ```
-$ pnpm --filter @sakura-ui/core exec vitest run
+$ pnpm test
+```
+
+Runs every package through turbo. To watch a single package while working on it:
+
+```
+$ pnpm --filter @sakura-ui/core test:watch
 ```
 
 ### Lint
 ```
-$ pnpm exec biome lint ./
+$ pnpm lint
 ```
+
+`pnpm lint`, `pnpm build` and `pnpm test` all run on pull requests through the `CI` workflow.
 
 ### Publish
-Bump the `version` field of the packages to release, build them, and publish.
+Releases go through npm trusted publishing (OIDC), so no npm token is stored anywhere.
 
-```
-$ pnpm build
-$ pnpm publish -r
-```
+1. Bump the `version` field of the packages to release and merge that to `main`
+2. Publish a GitHub Release
 
-`pnpm publish -r` walks the workspace in dependency order and skips versions that are already on npm, so `@sakura-ui/helper` is published before the packages that depend on it. To release a single package:
+The `Publish` workflow then builds the packages and runs `pnpm publish -r`, which walks the workspace in dependency order and skips versions that are already on npm — `@sakura-ui/helper` goes out before the packages that depend on it.
 
-```
-$ pnpm publish --filter @sakura-ui/core
-```
+To rehearse without releasing anything, run the workflow manually from the Actions tab: manual runs default to a dry run.
 
-Use `pnpm publish`, never `npm publish`. The packages depend on each other through the `workspace:*` protocol, and only pnpm expands it to a real version at publish time — `npm publish` would upload `"@sakura-ui/helper": "workspace:*"` as-is and the released package would not install.
+Each package needs this repository and `.github/workflows/publish.yaml` registered as its trusted publisher on npmjs.com.
+
+Publishing by hand is not supported. npm requires 2FA for direct publishes, and `npm publish` would upload `"@sakura-ui/helper": "workspace:*"` verbatim, since only pnpm expands the workspace protocol at publish time.
