@@ -51,7 +51,7 @@
     "tailwindcss": "^4.1.17"
   },
   "dependencies": {
-    "@sakura-ui/helper": "0.0.6"
+    "@sakura-ui/helper": "workspace:*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "catalog:",

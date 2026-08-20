@@ -39,7 +39,6 @@
     "@vitejs/plugin-react-swc": "catalog:",
     "npm-run-all2": "^8.0.4",
     "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.16",
     "turbo": "^2.5.5",
     "typescript": "^5.9.2",
