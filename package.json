@@ -6,7 +6,7 @@
   "homepage": "https://github.com/glassonion1/sakura-ui",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:glassonion1/sakura-ui.git"
+    "url": "git+https://github.com/glassonion1/sakura-ui.git"
   },
   "license": "MIT",
   "files": [
