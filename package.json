@@ -19,7 +19,7 @@
     "build": "turbo build",
     "dev": "pnpm --filter examples dev"
   },
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@11.22.0",
   "engines": {
     "pnpm": ">=9.15.1"
   },
