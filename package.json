@@ -17,7 +17,9 @@
   },
   "scripts": {
     "build": "turbo build",
-    "dev": "pnpm --filter examples dev"
+    "dev": "pnpm --filter examples dev",
+    "lint": "biome lint ./",
+    "test": "turbo test"
   },
   "packageManager": "pnpm@11.22.0",
   "engines": {

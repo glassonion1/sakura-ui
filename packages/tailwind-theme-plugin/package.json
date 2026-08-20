@@ -36,7 +36,8 @@
     "build": "run-p build:*",
     "build:scripts": "vite build",
     "build:types": "tsc && tsc-alias",
-    "test": "vitest"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "peerDependencies": {
     "tailwindcss": "^4.1.17"
