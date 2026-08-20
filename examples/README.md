@@ -12,7 +12,7 @@ $ pnpm install
 ## Run
 From the repository root:
 ```
-$ pnpm --filter examples dev
+$ pnpm dev
 ```
 
 or from this directory:

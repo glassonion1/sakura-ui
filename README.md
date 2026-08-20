@@ -142,12 +142,10 @@ $ pnpm install
 `examples` resolves each package to its `src` through Vite aliases, so **no build step is required**. Changes under `packages/*/src` are reflected through HMR.
 
 ```
-$ pnpm --filter examples dev
+$ pnpm dev
 ```
 
 Then open http://localhost:5173/sakura-ui/
-
-Note: `pnpm dev` at the repository root does not work, because the root package has no `dev` script.
 
 ### Build
 ```
