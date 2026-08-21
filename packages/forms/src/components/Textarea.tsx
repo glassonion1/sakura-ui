@@ -47,7 +47,6 @@ export const Textarea = (props: Textarea.Props) => {
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
-        aria-required={ctx.isRequired ?? false}
         onChange={onChangeHandler}
         {...restProps}
       >
