@@ -68,7 +68,6 @@ export const Checkbox = (props: Checkbox.Props) => {
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
           aria-invalid={ctx.isInvalid ?? false}
-          aria-required={ctx.isRequired ?? false}
           {...restProps}
         />
         <span className={cx(styleCheck, iconStyles[size])}>

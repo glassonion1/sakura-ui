@@ -59,8 +59,6 @@ export const Radio = (props: Radio.Props) => {
       )}
     >
       <span className="flex items-center">
-        {/* TODO: aria-required belongs on the radiogroup (FieldsetControl), not on each radio */}
-        {/* biome-ignore lint/a11y/useAriaPropsSupportedByRole: see the TODO above */}
         <input
           id={radioId}
           className={styleInput}
@@ -68,7 +66,6 @@ export const Radio = (props: Radio.Props) => {
           aria-describedby={ctx.helperTextId}
           aria-errormessage={ctx.errorMessageId}
           aria-invalid={ctx.isInvalid ?? false}
-          aria-required={ctx.isRequired ?? false}
           {...restProps}
         />
         <span

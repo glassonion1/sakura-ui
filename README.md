@@ -128,6 +128,16 @@ export default App
 - LabelControl
 - FieldsetControl
 
+Every form control takes its accessible name from the label it is associated with, so wrap it in `LabelControl` — or `FieldsetControl` for a group of radios or checkboxes. A control rendered without a label has no name for assistive technology.
+
+```tsx
+<LabelControl labelText="添付書類" isRequired>
+  <FileInput />
+</LabelControl>
+```
+
+If a visible label is not an option, pass `aria-label` yourself; it is forwarded to the underlying element.
+
 ## Markdwon extension
 - Markdown
 

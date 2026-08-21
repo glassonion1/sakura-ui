@@ -81,12 +81,10 @@ export const FileInput = (props: FileInput.Props) => {
     `
   }
 
-  // TODO: aria-required is not valid on input[type=file] and role="button" does not
-  // describe a file picker. Both need to be reworked (the required attribute changes
-  // form submission behaviour), so they are tracked separately from this change.
+  // The accessible name comes from the associated label (LabelControl, or a label
+  // supplied by the caller). Do not set aria-label here: it would override that name
+  // and every file input on a page would announce the same thing.
   return (
-    // biome-ignore lint/a11y/useAriaPropsSupportedByRole: see the TODO above
-    // biome-ignore lint/a11y/useSemanticElements: see the TODO above
     <input
       type="file"
       id={id || ctx.id}
@@ -94,9 +92,6 @@ export const FileInput = (props: FileInput.Props) => {
       aria-describedby={ctx.helperTextId}
       aria-errormessage={ctx.errorMessageId}
       aria-invalid={ctx.isInvalid ?? false}
-      aria-required={ctx.isRequired ?? false}
-      role="button"
-      aria-label="File Upload"
       {...restProps}
     />
   )

@@ -50,7 +50,6 @@ export const Select = (props: Select.Props) => {
         aria-describedby={ctx.helperTextId}
         aria-errormessage={ctx.errorMessageId}
         aria-invalid={ctx.isInvalid ?? false}
-        aria-required={ctx.isRequired ?? false}
         {...restProps}
       >
         {children}
