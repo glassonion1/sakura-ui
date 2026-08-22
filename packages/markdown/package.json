@@ -38,7 +38,7 @@
     "build": "run-p build:*",
     "build:scripts": "vite build",
     "build:types": "tsc && tsc-alias",
-    "test": "vitest run --passWithNoTests",
+    "test": "tsc -p tsconfig.test.json && vitest run --passWithNoTests",
     "test:watch": "vitest"
   },
   "peerDependencies": {

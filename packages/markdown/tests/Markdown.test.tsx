@@ -17,7 +17,12 @@ import {
  * inside an effect, so the first paint is empty and the result has to be waited
  * for.
  */
-const renderMarkdown = async (md: string, props = {}) => {
+const renderMarkdown = async (
+  md: string,
+  // Typed, so that a prop that no longer exists is a compile error rather than
+  // a test that passes while measuring nothing.
+  props: Omit<React.ComponentProps<typeof Markdown>, 'children'> = {}
+) => {
   const { container } = render(<Markdown {...props}>{md}</Markdown>)
   await waitFor(() => expect(container.firstElementChild?.innerHTML).not.toBe(''))
   return container.innerHTML
@@ -99,7 +104,7 @@ describe('Markdown', () => {
   describe('heading shift', () => {
     it('should move the headings down by the given amount', async () => {
       const html = await renderMarkdown('# 見出し1\n\n## 見出し2', {
-        shiftHeding: 1
+        shiftHeading: 1
       })
       expect(html).toMatchSnapshot()
     })

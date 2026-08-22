@@ -1,0 +1,11 @@
+// tsconfig.json takes in src alone, because that is what the published types
+// are built from. The tests went unchecked as a result, and one of them spent
+// the migration passing a prop that no longer existed, measuring nothing.
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "emitDeclarationOnly": false
+  },
+  "include": ["src", "tests"]
+}

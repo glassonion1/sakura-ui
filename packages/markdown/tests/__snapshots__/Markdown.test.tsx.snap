@@ -61,8 +61,8 @@ exports[`Markdown > directives > should render youtube 1`] = `
 `;
 
 exports[`Markdown > heading shift > should move the headings down by the given amount 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div><h1 id="見出し1" class="text-h-lg-m sm:text-h-lg pt-[2rem] sm:pt-[6.5rem]">見出し1</h1>
-<h2 id="見出し2" class="text-h-med-m sm:text-h-med pt-[4rem] sm:pt-[4.5rem]">見出し2</h2>
+"<div class="py-8 flex flex-col gap-8"><div><h2 id="見出し1" class="text-h-med-m sm:text-h-med pt-[4rem] sm:pt-[4.5rem]">見出し1</h2>
+<h3 id="見出し2" class="text-h-sm-m sm:text-h-sm pt-[4rem] sm:pt-[4.5rem]">見出し2</h3>
 </div></div>"
 `;
 
