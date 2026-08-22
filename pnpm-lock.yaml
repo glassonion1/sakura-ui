@@ -273,9 +273,6 @@ importers:
 
   packages/markdown:
     dependencies:
-      '@sakura-ui/core':
-        specifier: ^0.4.0-beta.0
-        version: 0.4.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tailwindcss@4.3.3)
       '@sakura-ui/helper':
         specifier: workspace:*
         version: link:../helper
@@ -331,6 +328,9 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
     devDependencies:
+      '@sakura-ui/core':
+        specifier: workspace:*
+        version: link:../core
       '@testing-library/jest-dom':
         specifier: 'catalog:'
         version: 7.0.1(@testing-library/dom@10.4.1)(vitest@4.1.11(@types/node@24.13.3)(happy-dom@20.11.6)(vite@7.3.6(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.32.0)))
@@ -794,16 +794,6 @@ packages:
     resolution: {integrity: sha512-zD6NdeWEByGE9QF9vCrlJ5YQB4oq9q91kPZS37Jwj5hOkvR1lTBSpsKhKDw4IJtbQ35LsTS1HD9DZYGKIshU1Q==}
     cpu: [x64]
     os: [win32]
-
-  '@sakura-ui/core@0.4.0':
-    resolution: {integrity: sha512-VvG/zRcK7JxtiU1BMaK5EB7wRgtgH9Mi/6BQexCInpLrh9LM2eFnaWbtdrXQ3R0+PJJluvSuwnR+yaNTFNizNw==}
-    peerDependencies:
-      react: ^19.2.1
-      react-dom: ^19.2.1
-      tailwindcss: ^4.1.17
-
-  '@sakura-ui/helper@0.0.6':
-    resolution: {integrity: sha512-Mbr/aYak1azyP4tE/tbvPMCVmg0decAbGTHpS7qxYwgL+dptnxHIZxVJ5h26U46vdFz4UBcJx3afYkP6r2GA1A==}
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -2438,15 +2428,6 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.62.4':
     optional: true
-
-  '@sakura-ui/core@0.4.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tailwindcss@4.3.3)':
-    dependencies:
-      '@sakura-ui/helper': 0.0.6
-      react: 19.2.8
-      react-dom: 19.2.8(react@19.2.8)
-      tailwindcss: 4.3.3
-
-  '@sakura-ui/helper@0.0.6': {}
 
   '@standard-schema/spec@1.1.0': {}
 

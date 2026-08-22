@@ -68,6 +68,7 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
+    "@sakura-ui/core": "workspace:*",
     "@testing-library/jest-dom": "catalog:",
     "@testing-library/react": "catalog:",
     "@types/mdast": "^4.0.4",

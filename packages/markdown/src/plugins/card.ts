@@ -33,6 +33,9 @@ export const cardPlugin = () => {
 
       node.data.hProperties = h(tagName, node.attributes).properties
 
+      const attributes = node.attributes
+      const isLink = attributes['data-behavior'] === 'link'
+
       node.children.forEach((child) => {
         if (!isDirective(child)) {
           return
@@ -49,6 +52,17 @@ export const cardPlugin = () => {
 
         child.attributes = child.attributes ?? {}
         child.attributes['data-node'] = child.name
+
+        // The title carries the link, so it needs the href of the card. The
+        // footer only needs to know that it belongs to a link card, to render
+        // the arrow. A child cannot read its parent once this is a React tree,
+        // so the marker is copied down here.
+        if (isLink && (child.name === 'card-title' || child.name === 'card-footer')) {
+          child.attributes['data-behavior'] = 'link'
+          if (child.name === 'card-title') {
+            child.attributes['data-href'] = attributes['data-href'] || ''
+          }
+        }
 
         child.data.hProperties = h(tagName, child.attributes).properties
       })

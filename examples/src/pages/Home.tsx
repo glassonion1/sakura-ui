@@ -269,13 +269,13 @@ const Home = () => {
               <li>
                 <Card>
                   <CardImg src="bg-mt.webp" className="h-48 w-full" />
-                  <CardHeader>Header: XXXxxx</CardHeader>
+                  <CardHeader as="h3">Header: XXXxxx</CardHeader>
                   <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
                 </Card>
               </li>
               <li>
                 <Card>
-                  <CardHeader>Header: XXXxxx</CardHeader>
+                  <CardHeader as="h3">Header: XXXxxx</CardHeader>
                   <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
                 </Card>
               </li>
@@ -284,13 +284,13 @@ const Home = () => {
           <div className="my-4 grid grid-cols-2 gap-4">
             <Card>
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
-              <CardHeader>Header:XXXxxx</CardHeader>
+              <CardHeader as="h3">Header:XXXxxx</CardHeader>
               <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
               <CardFooter>Footer:XXXXXXXXXXXXxxxxxxxxxxxxx</CardFooter>
             </Card>
             <Card>
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
-              <CardHeader>Header:XXXxxx</CardHeader>
+              <CardHeader as="h3">Header:XXXxxx</CardHeader>
               <CardBody>Body:XXXXXXXXXXXXxxxxxxxxxxxxx</CardBody>
               <CardFooter>
                 <Button variant="secondary" className="w-full mb-2">
@@ -305,7 +305,7 @@ const Home = () => {
           <div className="my-4 grid grid-cols-3 gap-4">
             <Card className="">
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
-              <CardHeader>Header:XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardHeader>
+              <CardHeader as="h3">Header:XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardHeader>
               <CardBody>
                 Body:XXXXXXXXXXXX
                 <br />
@@ -323,7 +323,7 @@ const Home = () => {
             </Card>
             <Card className="">
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
-              <CardHeader>Header: XXXxxx</CardHeader>
+              <CardHeader as="h3">Header: XXXxxx</CardHeader>
               <CardBody>
                 Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx
               </CardBody>
@@ -335,7 +335,7 @@ const Home = () => {
             </Card>
             <Card className="">
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
-              <CardHeader>Header: XXXxxx</CardHeader>
+              <CardHeader as="h3">Header: XXXxxx</CardHeader>
               <CardBody>
                 Body: XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxx
               </CardBody>
@@ -345,23 +345,23 @@ const Home = () => {
             <H2 className="mb-4">Link Card</H2>
             <ul className="flex flex-col gap-4">
               <li>
-                <LinkCard href="/">
-                  <LinkCardHeader>xxxXXX</LinkCardHeader>
+                <LinkCard>
+                  <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
                   <CardBody>xxxxxxxxXXX</CardBody>
                   <LinkCardFooter>June 27th, 205</LinkCardFooter>
                 </LinkCard>
               </li>
               <li>
-                <LinkCard href="https://google.com">
-                  <LinkCardHeader>xxxXXX</LinkCardHeader>
+                <LinkCard>
+                  <LinkCardHeader as="h3" href="https://google.com" target="_blank">xxxXXX</LinkCardHeader>
                   <CardBody>xxxxxxxxXXX</CardBody>
                   <LinkCardFooter />
                 </LinkCard>
               </li>
             </ul>
             <div className="my-4 grid grid-cols-3 gap-4">
-              <LinkCard href="/">
-                <LinkCardHeader>xxxXXX</LinkCardHeader>
+              <LinkCard>
+                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
                 <CardBody>
                   xxxxxxxxXXX
                   <br />
@@ -371,23 +371,23 @@ const Home = () => {
                 </CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
-              <LinkCard href="/">
-                <LinkCardHeader>xxxXXX</LinkCardHeader>
+              <LinkCard>
+                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
                 <CardBody>xxxxxxxxXXX</CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
-              <LinkCard href="/">
-                <LinkCardHeader>xxxXXX</LinkCardHeader>
+              <LinkCard>
+                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
                 <CardBody>xxxxxxxxXXX</CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
-              <LinkCard href="/">
-                <LinkCardHeader>xxxXXX</LinkCardHeader>
+              <LinkCard>
+                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
                 <CardBody>xxxxxxxxXXX</CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
-              <LinkCard href="/">
-                <LinkCardHeader>xxxXXX</LinkCardHeader>
+              <LinkCard>
+                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
                 <CardBody>
                   xxxxxxxxXXX
                   <br />

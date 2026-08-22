@@ -1,6 +1,7 @@
 export { Button } from './Button'
 export { MenuButton } from './MenuButton'
 export { Card, CardImg, CardHeader, CardBody, CardFooter } from './Card'
+export type { CardHeaderAs } from './Card'
 export { LinkCard, LinkCardHeader, LinkCardFooter } from './LinkCard'
 export { Code } from './Code'
 export { Faq, Question, Answer } from './Faq'

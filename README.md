@@ -25,6 +25,13 @@ $ pnpm add @sakura-ui/core @sakura-ui/forms @sakura-ui/tailwind-theme-plugin @sa
 $ pnpm add @sakura-ui/core@0.3.1 @sakura-ui/forms@0.2.2 @sakura-ui/tailwind-theme-plugin@0.2.2 @sakura-ui/markdown@0.0.17
 ```
 
+### For the Card API before 0.5.0
+`Card` and `LinkCard` changed shape in `@sakura-ui/core` 0.5.0. See
+[Card and LinkCard](#card-and-linkcard) for what to change; to stay on the old API for now:
+```
+$ pnpm add @sakura-ui/core@0.4.1 @sakura-ui/markdown@0.2.2
+```
+
 ## Configuration
 tailwind.config.js
 ```ts
@@ -103,6 +110,40 @@ export default App
 - Link
 - Card
 - LinkCard
+
+### Card and LinkCard
+`CardHeader` needs an `as` property. There is no default: the right level depends on the
+document outline around the card, and a wrong guess breaks heading navigation. Use `p` for
+lists of many cards, where headings would only add noise.
+
+```tsx
+<Card>
+  <CardHeader as="h3">Title</CardHeader>
+  <CardBody>Body</CardBody>
+</Card>
+```
+
+`LinkCard` puts the link in the title, and the link covers the whole card. Because of that a
+link card cannot contain another link, a button or a form control.
+
+```tsx
+<LinkCard>
+  <LinkCardHeader as="h3" href="/readme">Title</LinkCardHeader>
+  <CardBody>Body</CardBody>
+  <LinkCardFooter>June 27th, 2026</LinkCardFooter>
+</LinkCard>
+```
+
+`Card` renders a `div` and carries no ARIA of its own, so nothing can dangle or collide. A
+`div` maps to the generic role, which cannot take an accessible name. When a card really is a
+self-contained composition, name it yourself:
+
+```tsx
+<Card as="article" aria-labelledby="card-title">
+  <CardHeader as="h3" id="card-title">Title</CardHeader>
+  <CardBody>Body</CardBody>
+</Card>
+```
 - Ol
 - Ul
 - Table
