@@ -113,7 +113,9 @@ export function directiveRenderer(
   }
 
   if (name === 'card') {
-    const isLink = attrs.as === 'link'
+    // Not attrs.as: the tokenizer withholds this from a card with no title,
+    // which has no link to give, and so must not look as though it had one.
+    const isLink = Boolean(token.linked)
     const cls = classNames(
       styles.cardStyle,
       isLink && styles.linkCardPositionStyle,

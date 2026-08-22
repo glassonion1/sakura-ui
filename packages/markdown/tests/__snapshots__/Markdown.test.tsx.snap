@@ -55,6 +55,13 @@ exports[`Markdown > directives > should render linkCard 1`] = `
 </div></div>"
 `;
 
+exports[`Markdown > directives > should render linkCardWithoutTitle 1`] = `
+"<div class="py-8 flex flex-col gap-8"><div><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><div class="text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-description">説明</div>
+<div class="sticky top-full text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-footer">2026年8月</div>
+</div>
+</div></div>"
+`;
+
 exports[`Markdown > directives > should render youtube 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div><iframe title="動画タイトル" src="https://www.youtube-nocookie.com/embed/yXdbvBzxeb8" class="aspect-video w-full max-w-[470px]" style="width:560px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" loading="lazy" data-sakura="youtube"></iframe>
 </div></div>"

@@ -64,6 +64,16 @@ describe('Markdown', () => {
         expect(await renderMarkdown(md)).toMatchSnapshot()
       })
     }
+
+    it('should not dress a card as a link when it has no title', async () => {
+      // The link goes on the title, so a card without one has nowhere to put
+      // it. It used to keep the hover and the arrow regardless: a card that
+      // answered the pointer and then did nothing.
+      const html = await renderMarkdown(directives.linkCardWithoutTitle)
+      expect(html).not.toContain('<a')
+      expect(html).not.toContain('hover:bg-solid-gray-50')
+      expect(html).not.toContain('arrow_forward')
+    })
   })
 
   describe('text that only looks like a directive', () => {

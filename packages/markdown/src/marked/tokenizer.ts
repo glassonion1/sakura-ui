@@ -11,6 +11,8 @@ export interface DirectiveToken extends Tokens.Generic {
   raw: string
   /** A link card puts its href on the title; the tokenizer copies it down. */
   inherited?: { behavior: 'link'; href: string }
+  /** Set on a card once it is known to have a title to put its link on. */
+  linked?: boolean
 }
 
 const BLOCK_HEAD = /^(:{2,})([A-Za-z][A-Za-z0-9_-]*)/
@@ -55,10 +57,20 @@ export const inlineStart = (src: string): number | undefined => {
   return m ? m.index : undefined
 }
 
-/** A link card's href belongs on the title, and the footer needs to know it is one. */
+/**
+ * A link card's href belongs on the title, and the footer needs to know it is
+ * one. A card with no title has nowhere to put the link, so it is left as a
+ * plain card rather than dressed as something that answers to a click.
+ */
 const propagateCardLink = (token: DirectiveToken): void => {
   if (token.name !== 'card' || token.attrs.as !== 'link') return
-  for (const child of token.tokens as DirectiveToken[]) {
+  const children = token.tokens as DirectiveToken[]
+  const hasTitle = children.some(
+    (child) => child.type === 'directive' && child.name === 'card-title'
+  )
+  if (!hasTitle) return
+  token.linked = true
+  for (const child of children) {
     if (child.type !== 'directive') continue
     if (child.name === 'card-title' || child.name === 'card-footer') {
       child.inherited = { behavior: 'link', href: token.attrs.href ?? '' }
