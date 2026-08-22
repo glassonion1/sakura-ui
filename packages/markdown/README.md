@@ -294,3 +294,58 @@ written as raw HTML looks like one written with pipes. The class strings come
 from `@sakura-ui/core`, which exports them under a `styles` namespace; keeping a
 copy here would mean the two drifting apart the first time a component is
 restyled.
+
+## Adding a directive
+
+There are no plugins. The pipeline this replaced had one per directive; here it
+is two files, and the tokenizer is shared.
+
+**1. Name it in `registry.ts`.** Nothing outside this list is a directive, which
+is why prose keeps its colons: `HH:MM` stays `HH:MM` because `MM` is not here.
+
+```ts
+const STATIC: Record<string, DirectiveKind[]> = {
+  callout: [CONTAINER],
+  ...
+}
+```
+
+The kinds decide how it is written, and a name may take more than one — `faq-q`
+is both a `LEAF` and a `CONTAINER`, so a short question fits on one line and a
+long one does not have to.
+
+| | Written | |
+|---|---|---|
+| `TEXT` | `:name[label]{attrs}` | Inside a sentence. |
+| `LEAF` | `::name[label]{attrs}` | A line of its own, with nothing inside it. |
+| `CONTAINER` | `:::name{attrs}` … `:::` | Holds Markdown, directives included. |
+
+**2. Render it in `renderer.ts`.** One branch, returning a string.
+
+```ts
+if (name === 'callout') {
+  return `<aside${root({ class: classNames(styles.calloutStyle, attrs.class) })}>${body()}</aside>${nl}`
+}
+```
+
+Three things are to hand, and using them is what keeps a new directive behaving
+like the others:
+
+| | |
+|---|---|
+| `root(…)` | Attributes for the element the directive **is**. Adds the id from `{#name}`, and `data-sakura`, which tells `decorate.ts` the element is dressed already and to leave its classes alone. Headings are the exception: one rendered by a directive still has an id generated for it and still reaches the table of contents, which is how a card title gets there. |
+| `own(…)` | The same without the id, for elements **inside** it. A link card's title is a heading around an anchor; only the heading is the directive. |
+| `body()` | The children, already rendered — inline for a `TEXT` or `LEAF`, block for a `CONTAINER`. |
+
+Classes come from `styles`, never written out here, or the directive stops
+looking like the component the first time that component is restyled. URLs go
+through `cleanUrl` and every attribute through `attrsToHtml`, both in `html.ts`;
+nothing builds an attribute by hand.
+
+**3. Anything a container has to know about its children** belongs in
+`tokenizer.ts`, where they are still separate tokens. Once `renderer.ts` has run
+they are one string with no seams. That is where a card is told it sits in a
+grid of cards, and where a link card's title is handed the href.
+
+Then add it to `tests/fixtures.ts`, which every snapshot test walks, and to the
+document in `examples/src/pages/markdownSample.ts`.
