@@ -49,8 +49,8 @@ export const LangSelector = ({
   const stylePositionBottomRight = `
     absolute
     top-[anchor(--target_bottom)]
-    right-[anchor(--target_right)] 
-    position-try-options:flip-block]
+    right-[anchor(--target_right)]
+    [position-try-fallbacks:flip-block]
     inset-[unset]
   `
 
