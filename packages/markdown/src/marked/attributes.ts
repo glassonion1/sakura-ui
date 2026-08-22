@@ -3,6 +3,20 @@ const ATTR_RE =
 
 export type Attrs = Record<string, string>
 
+/**
+ * Where `{#name}` is kept, apart from anything written as `key=value`.
+ *
+ * A sigil says something about the element itself and means the same on every
+ * directive; an attribute is the directive's own, and each reads the ones it
+ * knows. Keeping them in one place would let a directive that wanted an
+ * attribute called `id` take the anchor's place, which is how the video on a
+ * youtube embed came to be called `id` and stayed that way.
+ *
+ * A key beginning with `#` cannot be written as `key=value`, since an attribute
+ * name has to start with a letter, so there is nowhere for the two to meet.
+ */
+export const ANCHOR = '#id'
+
 /** Parses the inside of `{...}`: `key=value key2="値 2" #id .cls` */
 export const parseAttrs = (body: string | null): Attrs => {
   const out: Attrs = {}
@@ -13,7 +27,7 @@ export const parseAttrs = (body: string | null): Attrs => {
     const [, sigil, key, doubleQuoted, singleQuoted, bare] = m
     const value = doubleQuoted ?? singleQuoted ?? bare
     if (sigil === '#') {
-      out.id = key
+      out[ANCHOR] = key
     } else if (sigil === '.') {
       out.class = out.class ? `${out.class} ${key}` : key
     } else {

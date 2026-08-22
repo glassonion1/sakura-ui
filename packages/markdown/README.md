@@ -95,9 +95,12 @@ it.
 :::
 ```
 
-`{id=name}` says the same thing, as it does in Pandoc. The name is used as
-written and nothing else on the page is given it, so a heading further down that
-would have produced the same one gets `-1` instead.
+`{#name}` is the only spelling. A sigil says something about the element and
+means the same on every directive, while an attribute belongs to whichever
+directive reads it, so `{id=name}` is left for a directive to take if one ever
+wants it. The name is used as written and nothing else on the page is given it,
+so a heading further down that would have produced the same one gets `-1`
+instead.
 
 ### LinkButton
 ```
@@ -106,8 +109,14 @@ would have produced the same one gets `-1` instead.
 <img width="288" alt="スクリーンショット 2024-07-26 23 44 39" src="https://github.com/user-attachments/assets/997ccf27-4d83-4fb5-b173-ae94cd7d76cb">
 
 ### YouTube
+
+The address of the video, as it is copied from the browser. The watch page, the
+share link, a short and an embed are all read; so is the id on its own. The
+label becomes the frame's title, which is the name a screen reader reads out, so
+write one.
+
 ```
-::youtube[title]{video=yXdbvBzxeb8}
+::youtube[Introducing the service]{video=https://www.youtube.com/watch?v=yXdbvBzxeb8}
 ```
 <img width="494" alt="スクリーンショット 2024-07-26 23 48 18" src="https://github.com/user-attachments/assets/a724cf27-a1af-4633-b9a8-27b25b04e3ae">
 

@@ -1,5 +1,6 @@
 import { styles } from '@sakura-ui/core'
 import type { Token } from 'marked'
+import { ANCHOR } from './attributes'
 import { attrsToHtml, classNames, cleanUrl } from './html'
 import { CONTAINER, TEXT } from './registry'
 import type { DirectiveToken } from './tokenizer'
@@ -27,6 +28,24 @@ const GRID_CLASS: Record<number, string> = {
 
 const YOUTUBE_ALLOW =
   'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+
+/**
+ * The video, from its id or from any of the addresses a writer has to hand —
+ * the watch page, the share link, an embed already written, a short. An id is
+ * eleven characters of that alphabet, which is what tells one from the other.
+ *
+ * Anything else is handed on as it came: a video that does not exist says so
+ * where it would have played, and a directive that silently rendered nothing
+ * would not.
+ */
+const YOUTUBE_ID = /^[\w-]{11}$/
+const YOUTUBE_IN_URL = /(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/)([\w-]{11})/
+
+const videoId = (value: string | undefined): string => {
+  if (!value) return ''
+  if (YOUTUBE_ID.test(value)) return value
+  return YOUTUBE_IN_URL.exec(value)?.[1] ?? value
+}
 
 const linkButtonClass = classNames(
   styles.buttonBaseStyle,
@@ -69,7 +88,7 @@ export function directiveRenderer(
   // An id asked for with {#name} goes on the element the directive is, and not
   // on anything nested inside it, which would be the same id twice.
   const root = (values: Parameters<typeof attrsToHtml>[0]) =>
-    own({ ...values, id: attrs.id })
+    own({ ...values, id: attrs[ANCHOR] })
   const body = () =>
     kind === CONTAINER
       ? this.parser.parse(tokens)
@@ -79,12 +98,15 @@ export function directiveRenderer(
     const title = this.parser.parseInline(tokens, this.parser.textRenderer)
     return `<iframe${root({
       title,
-      src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(attrs.video ?? '')}`,
+      src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId(attrs.video))}`,
       class: 'aspect-video w-full max-w-[470px]',
       style: attrs.width ? `width:${attrs.width}px` : undefined,
       frameborder: '0',
-      allow: attrs.allow ?? YOUTUBE_ALLOW,
-      referrerpolicy: attrs.referrerpolicy ?? 'strict-origin-when-cross-origin',
+      // Fixed, not taken from the document: what an embed may reach for and
+      // how much of the address it hands on are the page's to decide, and the
+      // person writing the prose is not the one to be asked.
+      allow: YOUTUBE_ALLOW,
+      referrerpolicy: 'strict-origin-when-cross-origin',
       allowfullscreen: true,
       loading: 'lazy'
     })}></iframe>${nl}`

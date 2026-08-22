@@ -37,16 +37,17 @@ describe('anchors', () => {
     expect(ids(':::card{href=/x}\n::card-title[題]{#top}\n:::')).toEqual(['top'])
   })
 
-  it('should read {id=name} as the same thing', () => {
-    expect(ids(':::cell{id=pricing}\n本文\n:::')).toContain('pricing')
+  it('should not answer to {id=name}', () => {
+    // A sigil says something about the element and means the same everywhere;
+    // an attribute belongs to the directive that reads it. Keeping them apart
+    // is what stopped the video on a youtube embed taking the anchor's place.
+    expect(ids(':::cell{id=pricing}\n本文\n:::')).not.toContain('pricing')
   })
 
-  it('should leave the video id to the video', () => {
-    // The video is `video`, so `id` is free to mean what it means anywhere
-    // else on the page.
-    const out = html('::youtube[題]{#player video=abc123}')
+  it('should leave the video to the video', () => {
+    const out = html('::youtube[題]{#player video=dQw4w9WgXcQ}')
     expect(out).toContain('id="player"')
-    expect(out).toContain('embed/abc123')
+    expect(out).toContain('embed/dQw4w9WgXcQ')
   })
 
   it('should keep a name a heading would otherwise have taken', () => {
@@ -62,5 +63,37 @@ describe('anchors', () => {
     const out = render('<h2 id="概要">前書き</h2>\n\n## 概要')
     const all = Array.from(out.html.matchAll(/ id="([^"]*)"/g)).map((m) => m[1])
     expect(new Set(all).size).toBe(all.length)
+  })
+})
+
+/**
+ * A writer has the address of the video, not its id, so the address is what
+ * the directive takes.
+ */
+describe('the youtube video', () => {
+  const src = (markdown: string) =>
+    /src="([^"]*)"/.exec(render(markdown).html)?.[1]
+
+  const ID = 'dQw4w9WgXcQ'
+  const embed = `https://www.youtube-nocookie.com/embed/${ID}`
+
+  it.each([
+    ['the id itself', ID],
+    ['the watch page', `https://www.youtube.com/watch?v=${ID}`],
+    ['the watch page with more on it', `https://www.youtube.com/watch?v=${ID}&t=42s`],
+    ['the share link', `https://youtu.be/${ID}`],
+    ['a short', `https://www.youtube.com/shorts/${ID}`],
+    ['an embed already written', `https://www.youtube.com/embed/${ID}`]
+  ])('should take %s', (_what, written) => {
+    expect(src(`::youtube[題]{video=${written}}`)).toBe(embed)
+  })
+
+  it('should not let the document decide what the frame may reach for', () => {
+    const out = render(
+      '::youtube[題]{video=dQw4w9WgXcQ allow=camera referrerpolicy=unsafe-url}'
+    ).html
+    expect(out).not.toContain('camera')
+    expect(out).not.toContain('unsafe-url')
+    expect(out).toContain('referrerpolicy="strict-origin-when-cross-origin"')
   })
 })

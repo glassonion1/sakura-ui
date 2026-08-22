@@ -172,7 +172,7 @@ The second cell.
 
 ### Video
 
-::youtube[An introduction]{video=yXdbvBzxeb8}
+::youtube[An introduction]{video=https://www.youtube.com/watch?v=yXdbvBzxeb8}
 
 ## CJK
 
