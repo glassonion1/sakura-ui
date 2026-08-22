@@ -292,7 +292,8 @@ Inside `src/marked/`:
 |---|---|
 | `registry.ts` | The list of directive names. **Adding or removing a directive starts here**; a name that is not in it is left as the text it is. |
 | `tokenizer.ts` | Reads `:::name{attrs}` into tokens. Nesting needs no bookkeeping: the closing fence is the first line of at least as many colons, and an inner directive uses fewer. |
-| `renderer.ts` | Tokens to HTML. Also where a grid of cards wraps each of them in an `<li>`, which is possible here and not later, because the children are still apart. |
+| `renderer.ts` | Builds what a renderer is given, then hands the token to the one that knows it. |
+| `directives/` | The renderers, a file to a feature. `card.ts` holds the card and everything written inside one, `grid.ts` the columns and the cells, and so on. |
 | `attributes.ts` | `{key=value}` and the balanced reader for `[label]`, which may hold brackets of its own. |
 | `html.ts` | Escaping and URL cleaning. Nothing else builds an attribute by hand. |
 | `index.ts` | Registers the block and inline extensions under one name, since marked looks the renderer up by the token type. |
@@ -328,16 +329,21 @@ long one does not have to.
 | `LEAF` | `::name[label]{attrs}` | A line of its own, with nothing inside it. |
 | `CONTAINER` | `:::name{attrs}` … `:::` | Holds Markdown, directives included. |
 
-**2. Render it in `renderer.ts`.** One branch, returning a string.
+**2. Render it in `directives/`.** A file to a feature, each exporting a map
+from name to a function returning a string. Put a new one beside the directive
+it belongs with, or in a file of its own if it belongs with nothing, and add it
+to `directives/index.ts`.
 
 ```ts
-if (name === 'callout') {
-  return `<aside${root({ class: classNames(styles.calloutStyle, attrs.class) })}>${body()}</aside>${nl}`
+// directives/callout.ts
+export const calloutRenderers: Record<string, DirectiveRenderer> = {
+  callout: ({ attrs, root, body, nl }) =>
+    `<aside${root({ class: classNames(styles.calloutStyle, attrs.class) })}>${body()}</aside>${nl}`
 }
 ```
 
-Three things are to hand, and using them is what keeps a new directive behaving
-like the others:
+The renderer is handed a context. Three of its fields do most of the work, and
+using them is what keeps a new directive behaving like the others:
 
 | | |
 |---|---|
@@ -351,7 +357,7 @@ through `cleanUrl` and every attribute through `attrsToHtml`, both in `html.ts`;
 nothing builds an attribute by hand.
 
 **3. Anything a container has to know about its children** belongs in
-`tokenizer.ts`, where they are still separate tokens. Once `renderer.ts` has run
+`tokenizer.ts`, where they are still separate tokens. Once the renderers have run
 they are one string with no seams. That is where a card is told it sits in a
 grid of cards, and where a link card's title is handed the href.
 

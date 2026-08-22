@@ -27,7 +27,8 @@ const STATIC: Record<string, DirectiveKind[]> = {
   'link-button': [TEXT]
 }
 
-const GRID_RE = /^grid-cols-(?:1[0-2]|[1-9])$/
+/** The one directive whose name carries a number. Shared with the renderer. */
+export const GRID_RE = /^grid-cols-(?:1[0-2]|[1-9])$/
 
 export const isKnown = (name: string, kind: DirectiveKind): boolean =>
   GRID_RE.test(name) ? kind === CONTAINER : (STATIC[name] ?? []).includes(kind)
