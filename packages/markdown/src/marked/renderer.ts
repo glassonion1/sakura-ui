@@ -100,21 +100,13 @@ export function directiveRenderer(
       GRID_CLASS[Number(grid[1])],
       'gap-8'
     )
-    if (attrs.as === 'list') {
-      // Wrapping each child asks for the boundary between them, which a pass
-      // over the finished HTML no longer has. Here the tokens are still apart.
-      const items = tokens
-        .filter((t) => t.type !== 'space')
-        .map((t) => `<li class="sm:grid">${this.parser.parse([t])}</li>`)
-        .join('')
-      return `<ul${own({ class: cls })}>${items}</ul>${nl}`
-    }
-    return `<div${own({ class: cls })}>${body()}</div>${nl}`
+    const tag = token.listed ? 'ul' : 'div'
+    return `<${tag}${own({ class: cls })}>${body()}</${tag}>${nl}`
   }
 
   if (name === 'card') {
-    // Not attrs.as: the tokenizer withholds this from a card with no title,
-    // which has no link to give, and so must not look as though it had one.
+    // The tokenizer withholds linked from a card with no title, which has no
+    // link to give and so must not look as though it had one.
     const isLink = Boolean(token.linked)
     const cls = classNames(
       styles.cardStyle,
@@ -123,7 +115,10 @@ export function directiveRenderer(
       isLink && styles.linkCardFocusStyle,
       attrs.class
     )
-    return `<div${own({ class: cls })}>${body()}</div>${nl}`
+    const card = `<div${own({ class: cls })}>${body()}</div>`
+    return token.listed
+      ? `<li class="sm:grid">${card}</li>${nl}`
+      : `${card}${nl}`
   }
 
   if (name === 'card-img') {

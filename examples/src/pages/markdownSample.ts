@@ -125,7 +125,7 @@ Line one<br>line two</br>line three</BR>line four
 ::card-description[What the card is about.]
 :::
 
-:::card{as=link href=/sakura-ui/forms}
+:::card{href=/sakura-ui/forms}
 ::card-title[Link card title]
 ::card-description[The whole card is the link.]
 ::card-footer[22 August 2026]
@@ -150,7 +150,7 @@ Line one<br>line two</br>line three</BR>line four
 
 ### Cells
 
-::::grid-cols-2{as=list}
+::::grid-cols-2
 :::cell
 ::cell-img{src=/sakura-ui/bg-mt.webp alt=A mountain}
 The first cell.

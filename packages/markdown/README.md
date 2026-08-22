@@ -101,25 +101,9 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 ```
 <img width="1143" alt="スクリーンショット 2024-07-26 23 51 46" src="https://github.com/user-attachments/assets/60b813b4-3a8c-451d-99b2-58c1e5b3a3b4">
 
-Add `{as=list}` when the cells are a list of things rather than a layout. The
-grid becomes a `<ul>` and each cell an `<li>`, so a reader is told there are
-three of them.
-
-```
-::::grid-cols-3{as=list}
-:::cell
-![alternative text](https://dummyimage.com/600x400/000/fff)
-Lorem ipsum dolor sit amet.
-:::
-:::cell
-![alternative text](https://dummyimage.com/600x400/000/fff)
-Lorem ipsum dolor sit amet.
-:::
-::::
-```
-
-A Markdown list only ever runs down the page, and there is no way to put a class
-on one from here, so this is how a list gets columns.
+A grid of cells is a layout — prose beside a figure is not two of something — so
+it renders as plain boxes. A grid of cards is a list, and renders as one; see
+below.
 
 Use `::cell-img` in place of a Markdown image when the image is the top of the
 cell; it carries the spacing that separates it from the text underneath.
@@ -153,6 +137,15 @@ Lorem ipsum dolor sit amet.
 ```
 <img width="1133" alt="スクリーンショット 2024-07-26 23 55 37" src="https://github.com/user-attachments/assets/9a6dff6f-7115-451a-9d15-f953ddad78b7">
 
+Cards in a grid are things of one kind, and how many there are is part of what
+the page says, so the grid becomes a `<ul>` and each card an `<li>`: a reader is
+told there are three. Nothing is written to ask for this, the way nothing is
+written to ask a run of `- ` for a list. A grid holding anything but cards is
+left as a layout.
+
+A Markdown list, meanwhile, only ever runs down the page, and there is no way to
+put a class on one from here. This is how a list gets columns.
+
 A card may end with `::card-footer`, for a date or a category — something that
 belongs to the card but is not what it says.
 
@@ -166,10 +159,11 @@ belongs to the card but is not what it says.
 
 ### Card that is a link
 
-Give the card `{as=link href=…}` and the whole of it becomes clickable.
+Give the card an `href` and the whole of it becomes clickable. There is nothing
+else an href on a card could mean, so it is not also asked for by name.
 
 ```
-:::card{as=link href=/services}
+:::card{href=/services}
 ::card-title[Services and applications]
 ::card-description[Lorem ipsum dolor sit amet.]
 ::card-footer[22 August 2026]
@@ -252,7 +246,7 @@ Inside `src/marked/`:
 |---|---|
 | `registry.ts` | The list of directive names. **Adding or removing a directive starts here**; a name that is not in it is left as the text it is. |
 | `tokenizer.ts` | Reads `:::name{attrs}` into tokens. Nesting needs no bookkeeping: the closing fence is the first line of at least as many colons, and an inner directive uses fewer. |
-| `renderer.ts` | Tokens to HTML. Also where `as=list` wraps each child in an `<li>`, which is possible here and not later, because the children are still apart. |
+| `renderer.ts` | Tokens to HTML. Also where a grid of cards wraps each of them in an `<li>`, which is possible here and not later, because the children are still apart. |
 | `attributes.ts` | `{key=value}` and the balanced reader for `[label]`, which may hold brackets of its own. |
 | `html.ts` | Escaping and URL cleaning. Nothing else builds an attribute by hand. |
 | `index.ts` | Registers the block and inline extensions under one name, since marked looks the renderer up by the token type. |

@@ -13,6 +13,8 @@ export interface DirectiveToken extends Tokens.Generic {
   inherited?: { behavior: 'link'; href: string }
   /** Set on a card once it is known to have a title to put its link on. */
   linked?: boolean
+  /** Set on a grid of cards, and on each of the cards in it. */
+  listed?: boolean
 }
 
 const BLOCK_HEAD = /^(:{2,})([A-Za-z][A-Za-z0-9_-]*)/
@@ -58,12 +60,36 @@ export const inlineStart = (src: string): number | undefined => {
 }
 
 /**
- * A link card's href belongs on the title, and the footer needs to know it is
- * one. A card with no title has nowhere to put the link, so it is left as a
- * plain card rather than dressed as something that answers to a click.
+ * A grid of cards is a list. The cards are things of one kind, and how many
+ * there are is part of what the page says; a grid holding anything else, or
+ * cards and something else together, is a layout — prose beside a figure is not
+ * two of something. Nothing is written to ask for this, the way nothing is
+ * written to ask a run of "- " for a <ul>.
+ *
+ * Marked here rather than worked out while rendering, because by then the
+ * children have become one string and the boundaries between them are gone.
+ */
+const markCardList = (token: DirectiveToken): void => {
+  if (!/^grid-cols-\d+$/.test(token.name)) return
+  const children = token.tokens.filter((child) => child.type !== 'space')
+  const cards = children.filter(
+    (child): child is DirectiveToken =>
+      child.type === 'directive' && (child as DirectiveToken).name === 'card'
+  )
+  if (cards.length === 0 || cards.length !== children.length) return
+  token.listed = true
+  for (const card of cards) card.listed = true
+}
+
+/**
+ * A card with an href is a link card; there is nothing else an href on a card
+ * could mean, so it is not also asked for by name. The href belongs on the
+ * title, and the footer needs to know it is one. A card with no title has
+ * nowhere to put the link, so it is left as a plain card rather than dressed as
+ * something that answers to a click.
  */
 const propagateCardLink = (token: DirectiveToken): void => {
-  if (token.name !== 'card' || token.attrs.as !== 'link') return
+  if (token.name !== 'card' || !token.attrs.href) return
   const children = token.tokens as DirectiveToken[]
   const hasTitle = children.some(
     (child) => child.type === 'directive' && child.name === 'card-title'
@@ -122,6 +148,7 @@ export function blockTokenizer(
     close ? body.slice(0, close.contentEnd) : body
   )
   propagateCardLink(token)
+  markCardList(token)
   return token
 }
 

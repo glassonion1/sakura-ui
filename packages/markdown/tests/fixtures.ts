@@ -54,12 +54,17 @@ export const directives = {
   youtube: '::youtube[動画タイトル]{id=yXdbvBzxeb8 width=560 height=315}',
   card: ':::card\n::card-img{src=/a.png alt=図}\n::card-title[タイトル]\n::card-description[説明]\n:::',
   linkCard:
-    ':::card{as=link href=/x}\n::card-title[タイトル]\n::card-description[説明]\n::card-footer[2026年8月]\n:::',
+    ':::card{href=/x}\n::card-title[タイトル]\n::card-description[説明]\n::card-footer[2026年8月]\n:::',
   linkCardWithoutTitle:
-    ':::card{as=link href=/x}\n::card-description[説明]\n::card-footer[2026年8月]\n:::',
+    ':::card{href=/x}\n::card-description[説明]\n::card-footer[2026年8月]\n:::',
+  // Cards throughout, so the grid is a list of them.
   grid: '::::grid-cols-3\n:::card\n::card-title[1つ目]\n:::\n:::card\n::card-title[2つ目]\n:::\n::::',
-  gridAsList:
-    '::::grid-cols-2{as=list}\n:::cell\n![alt](/a.png)\n本文1\n:::\n:::cell\n本文2\n:::\n::::',
+  // Cells: prose beside a figure is a layout, not two of something.
+  gridOfCells:
+    '::::grid-cols-2\n:::cell\n![alt](/a.png)\n本文1\n:::\n:::cell\n本文2\n:::\n::::',
+  // One of each, which is not a list either.
+  gridMixed:
+    '::::grid-cols-2\n:::card\n::card-title[1つ目]\n:::\n:::cell\n本文\n:::\n::::',
   cell: ':::cell\n::cell-img{src=/a.png alt=図}\n本文\n:::',
   faq: ':::faq\n::faq-q[質問は？]\n::faq-a[回答です。]\n::faq-q[二つ目の質問は？]\n::faq-a[二つ目の回答。]\n:::'
 }

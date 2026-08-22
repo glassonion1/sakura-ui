@@ -25,20 +25,29 @@ exports[`Markdown > directives > should render faq 1`] = `
 `;
 
 exports[`Markdown > directives > should render grid 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div><div class="flex flex-col md:grid md:grid-cols-3 gap-8" data-sakura="grid-cols-3"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="1つ目">1つ目</h3>
+"<div class="py-8 flex flex-col gap-8"><div><ul class="flex flex-col md:grid md:grid-cols-3 gap-8" data-sakura="grid-cols-3"><li class="sm:grid"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="1つ目">1つ目</h3>
+</div></li>
+<li class="sm:grid"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="2つ目">2つ目</h3>
+</div></li>
+</ul>
+</div></div>"
+`;
+
+exports[`Markdown > directives > should render gridMixed 1`] = `
+"<div class="py-8 flex flex-col gap-8"><div><div class="flex flex-col md:grid md:grid-cols-2 gap-8" data-sakura="grid-cols-2"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="1つ目">1つ目</h3>
 </div>
-<div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="2つ目">2つ目</h3>
+<div data-sakura="cell"><p>本文</p>
 </div>
 </div>
 </div></div>"
 `;
 
-exports[`Markdown > directives > should render gridAsList 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div><ul class="flex flex-col md:grid md:grid-cols-2 gap-8" data-sakura="grid-cols-2"><li class="sm:grid"><div data-sakura="cell"><p><img src="/a.png" alt="alt"><br>本文1</p>
+exports[`Markdown > directives > should render gridOfCells 1`] = `
+"<div class="py-8 flex flex-col gap-8"><div><div class="flex flex-col md:grid md:grid-cols-2 gap-8" data-sakura="grid-cols-2"><div data-sakura="cell"><p><img src="/a.png" alt="alt"><br>本文1</p>
 </div>
-</li><li class="sm:grid"><div data-sakura="cell"><p>本文2</p>
+<div data-sakura="cell"><p>本文2</p>
 </div>
-</li></ul>
+</div>
 </div></div>"
 `;
 
