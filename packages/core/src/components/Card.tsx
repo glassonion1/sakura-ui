@@ -1,6 +1,16 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
+export const cardStyle = `
+  border
+  border-solid
+  border-solid-gray-500
+  rounded-2xl
+  sm:rounded-3xl
+  text-solid-gray-900
+  overflow-hidden
+`
+
 export namespace Card {
   export interface Props<T extends React.ElementType> {
     as?: T
@@ -12,26 +22,50 @@ export const Card = <T extends React.ElementType = 'div'>(
 ) => {
   const { as: Component = 'div', className, children, ...restProps } = props
 
-  const style = `
-    border
-    border-solid
-    border-solid-gray-500
-    rounded-2xl
-    sm:rounded-3xl
-    text-solid-gray-900
-    overflow-hidden
-  `
-
   // A div cannot carry an accessible name, so no ARIA is set here. See the
   // Accessible names section of the README before adding any.
   return (
-    <Component className={cx(style, className)} {...restProps}>
+    <Component className={cx(cardStyle, className)} {...restProps}>
       {children}
     </Component>
   )
 }
 
 Card.displayName = 'Card'
+
+export const cardImgStyle = `
+  object-cover
+  mb-2
+`
+
+/**
+ * Resets the browser defaults of the heading and paragraph elements, so that
+ * the element CardHeader renders does not change how the card looks.
+ */
+export const cardHeaderStyle = `
+  m-0
+  text-base
+  leading-[2rem]
+  font-medium
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+`
+
+export const cardBodyStyle = `
+  text-base-sm
+  leading-[1.85rem]
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+`
+
+export const cardFooterPositionStyle = `
+  sticky
+  top-full
+`
 
 export namespace CardImg {
   export interface Props extends React.ComponentPropsWithoutRef<'img'> {}
@@ -40,13 +74,8 @@ export namespace CardImg {
 export const CardImg = (props: CardImg.Props) => {
   const { className, ...restProps } = props
 
-  const style = `
-    object-cover
-    mb-2
-  `
-
   // biome-ignore lint/a11y/useAltText: things to check on the user side
-  return <img className={cx(style, className)} {...restProps} />
+  return <img className={cx(cardImgStyle, className)} {...restProps} />
 }
 
 CardImg.displayName = 'CardImg'
@@ -76,21 +105,8 @@ export const CardHeader = (props: CardHeader.Props) => {
     )
   }
 
-  // Reset the browser defaults of the heading and paragraph elements so that the
-  // rendered element does not change how the card looks.
-  const style = `
-    m-0
-    text-base
-    leading-[2rem]
-    font-medium
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  `
-
   return (
-    <Component className={cx(style, className)} {...restProps}>
+    <Component className={cx(cardHeaderStyle, className)} {...restProps}>
       {children}
     </Component>
   )
@@ -105,19 +121,10 @@ export namespace CardBody {
 export const CardBody = (props: CardBody.Props) => {
   const { className, children, ...restProps } = props
 
-  const style = `
-    text-base-sm
-    leading-[1.85rem]
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  `
-
   // No generated id here. Callers that want the body to describe the card pass
   // their own id and point aria-describedby at it.
   return (
-    <div className={cx(style, className)} {...restProps}>
+    <div className={cx(cardBodyStyle, className)} {...restProps}>
       {children}
     </div>
   )
@@ -132,22 +139,11 @@ export namespace CardFooter {
 export const CardFooter = (props: CardFooter.Props) => {
   const { className, children, ...restProps } = props
 
-  const stylePosition = `
-    sticky
-    top-full
-  `
-
-  const style = `
-    text-base-sm
-    leading-[1.85rem]
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  `
-
   return (
-    <div className={cx(stylePosition, style, className)} {...restProps}>
+    <div
+      className={cx(cardFooterPositionStyle, cardBodyStyle, className)}
+      {...restProps}
+    >
       {children}
     </div>
   )

@@ -1,6 +1,24 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
+/**
+ * The nested markers rely on the class being present on the nested list too:
+ * `[&_&]` compiles to a descendant selector of the class with itself. Anything
+ * rendering lists without React has to emit the same class for that to hold.
+ */
+export const ulStyle = `
+  list-disc
+  [&_&]:list-circle
+  [&_&_&]:list-square
+  pl-8
+`
+
+export const olStyle = `
+  list-decimal
+  [&_&]:list-lower-latin
+  pl-8
+`
+
 export namespace Ul {
   export interface Props extends React.ComponentPropsWithoutRef<'ul'> {}
 }
@@ -8,14 +26,8 @@ export namespace Ul {
 export const Ul = (props: Ul.Props) => {
   const { className, children, ...restProps } = props
 
-  const style = `
-    list-disc
-    [&_&]:list-circle
-    [&_&_&]:list-square
-    pl-8
-  `
   return (
-    <ul className={cx(style, className)} {...restProps}>
+    <ul className={cx(ulStyle, className)} {...restProps}>
       {children}
     </ul>
   )
@@ -28,13 +40,8 @@ export namespace Ol {
 export const Ol = (props: Ol.Props) => {
   const { className, children, ...restProps } = props
 
-  const style = `
-    list-decimal
-    [&_&]:list-lower-latin
-    pl-8
-  `
   return (
-    <ol className={cx(style, className)} {...restProps}>
+    <ol className={cx(olStyle, className)} {...restProps}>
       {children}
     </ol>
   )

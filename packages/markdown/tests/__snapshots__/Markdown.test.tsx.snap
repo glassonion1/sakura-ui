@@ -2,72 +2,72 @@
 
 exports[`Markdown > directives > should render card 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div class="
-    border
-    border-solid
-    border-solid-gray-500
-    rounded-2xl
-    sm:rounded-3xl
-    text-solid-gray-900
-    overflow-hidden
-  "><img class="
-    object-cover
-    mb-2
-   w-full aspect-[352/226]" alt="図" data-node="card-img" src="/a.png"><h3 class="
-    m-0
-    text-base
-    leading-[2rem]
-    font-medium
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  ">タイトル</h3><div class="
-    text-base-sm
-    leading-[1.85rem]
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  ">説明</div></div></div>"
+  border
+  border-solid
+  border-solid-gray-500
+  rounded-2xl
+  sm:rounded-3xl
+  text-solid-gray-900
+  overflow-hidden
+"><img class="
+  object-cover
+  mb-2
+ w-full aspect-[352/226]" alt="図" data-node="card-img" src="/a.png"><h3 class="
+  m-0
+  text-base
+  leading-[2rem]
+  font-medium
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+">タイトル</h3><div class="
+  text-base-sm
+  leading-[1.85rem]
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+">説明</div></div></div>"
 `;
 
 exports[`Markdown > directives > should render cell 1`] = `"<div class="py-8 flex flex-col gap-8"><div data-node="cell"><img class="mb-4" alt="図" data-node="cell-img" src="/a.png"><p>本文</p></div></div>"`;
 
 exports[`Markdown > directives > should render faq 1`] = `
 "<div class="py-8 flex flex-col gap-8"><dl class="
-    flex
-    flex-col
-    gap-8
-  "><dt class="
-    flex
-    flex-row
-    gap-8
-    mt-8
-   
+  flex
+  flex-col
+  gap-8
+"><dt class="
+  flex
+  flex-row
+  gap-8
+  mt-8
+ 
   text-h-med-m
   sm:text-h-med
 "><span aria-hidden="true">Q</span><span>質問は？</span></dt><dd class="
-    flex
-    flex-row
-    items-start
-    gap-8
-  "><span class="
+  flex
+  flex-row
+  items-start
+  gap-8
+"><span class="
   text-h-med-m
   sm:text-h-med
  !leading-none" aria-hidden="true">A</span><span>回答です。</span></dd><dt class="
-    flex
-    flex-row
-    gap-8
-    mt-8
-   
+  flex
+  flex-row
+  gap-8
+  mt-8
+ 
   text-h-med-m
   sm:text-h-med
 "><span aria-hidden="true">Q</span><span>二つ目の質問は？</span></dt><dd class="
-    flex
-    flex-row
-    items-start
-    gap-8
-  "><span class="
+  flex
+  flex-row
+  items-start
+  gap-8
+"><span class="
   text-h-med-m
   sm:text-h-med
  !leading-none" aria-hidden="true">A</span><span>二つ目の回答。</span></dd></dl></div>"
@@ -75,40 +75,40 @@ exports[`Markdown > directives > should render faq 1`] = `
 
 exports[`Markdown > directives > should render grid 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div class="flex flex-col md:grid md:grid-cols-3 gap-8"><div class="
-    border
-    border-solid
-    border-solid-gray-500
-    rounded-2xl
-    sm:rounded-3xl
-    text-solid-gray-900
-    overflow-hidden
-  "><h3 class="
-    m-0
-    text-base
-    leading-[2rem]
-    font-medium
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  ">1つ目</h3></div><div class="
-    border
-    border-solid
-    border-solid-gray-500
-    rounded-2xl
-    sm:rounded-3xl
-    text-solid-gray-900
-    overflow-hidden
-  "><h3 class="
-    m-0
-    text-base
-    leading-[2rem]
-    font-medium
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  ">2つ目</h3></div></div></div>"
+  border
+  border-solid
+  border-solid-gray-500
+  rounded-2xl
+  sm:rounded-3xl
+  text-solid-gray-900
+  overflow-hidden
+"><h3 class="
+  m-0
+  text-base
+  leading-[2rem]
+  font-medium
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+">1つ目</h3></div><div class="
+  border
+  border-solid
+  border-solid-gray-500
+  rounded-2xl
+  sm:rounded-3xl
+  text-solid-gray-900
+  overflow-hidden
+"><h3 class="
+  m-0
+  text-base
+  leading-[2rem]
+  font-medium
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+">2つ目</h3></div></div></div>"
 `;
 
 exports[`Markdown > directives > should render gridAsList 1`] = `
@@ -168,92 +168,92 @@ exports[`Markdown > directives > should render linkButton 1`] = `
 
 exports[`Markdown > directives > should render linkCard 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div class="
-    border
-    border-solid
-    border-solid-gray-500
-    rounded-2xl
-    sm:rounded-3xl
-    text-solid-gray-900
-    overflow-hidden
-   
-    relative
-    z-0
-    group
-   
-    hover:outline
-    hover:outline-2
-    hover:outline-black
-    hover:bg-solid-gray-50
-   
-    has-[a:focus-visible]:outline
-    has-[a:focus-visible]:outline-4
-    has-[a:focus-visible]:outline-black
-    has-[a:focus-visible]:outline-offset-[calc(2/16*1rem)]
-    has-[a:focus-visible]:ring-[calc(2/16*1rem)]
-    has-[a:focus-visible]:ring-yellow-300
-  "><h3 class="
-    m-0
-    text-base
-    leading-[2rem]
-    font-medium
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-   
-    decoration-blue-900
-    underline
-    underline-offset-[calc(3/16*1rem)]
-   
-    group-hover:text-blue-900
-    group-hover:decoration-[calc(3/16*1rem)]
-  "><a class="
-    after:content-['']
-    after:absolute
-    after:inset-0
-    after:z-10
-    focus-visible:outline-none
-  " href="/x">タイトル</a></h3><div class="
-    text-base-sm
-    leading-[1.85rem]
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-  ">説明</div><div class="
-    sticky
-    top-full
-   
-    text-base-sm
-    leading-[1.85rem]
-    first:pt-4
-    pt-2
-    last:pb-4
-    px-6
-   
-    flex
-    justify-between
-    items-center
-  "><span>2026年8月</span><span class="
-    inline-flex
-    items-center
-    justify-center
-    w-6 h-6
-    text-blue-1000
-    border
-    border-blue-1000
-    rounded-full
-   
-    group-hover:bg-blue-1000
-    group-hover:text-white
-  "><span aria-hidden="true" class="!text-[16px] 
-    font-icon
-    font-light
-    inline-block
-    leading-none
-    align-middle
-    whitespace-nowrap
-  ">arrow_forward</span><span class="sr-only"></span></span></div></div></div>"
+  border
+  border-solid
+  border-solid-gray-500
+  rounded-2xl
+  sm:rounded-3xl
+  text-solid-gray-900
+  overflow-hidden
+ 
+  relative
+  z-0
+  group
+ 
+  hover:outline
+  hover:outline-2
+  hover:outline-black
+  hover:bg-solid-gray-50
+ 
+  has-[a:focus-visible]:outline
+  has-[a:focus-visible]:outline-4
+  has-[a:focus-visible]:outline-black
+  has-[a:focus-visible]:outline-offset-[calc(2/16*1rem)]
+  has-[a:focus-visible]:ring-[calc(2/16*1rem)]
+  has-[a:focus-visible]:ring-yellow-300
+"><h3 class="
+  m-0
+  text-base
+  leading-[2rem]
+  font-medium
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+ 
+  decoration-blue-900
+  underline
+  underline-offset-[calc(3/16*1rem)]
+
+  group-hover:text-blue-900
+  group-hover:decoration-[calc(3/16*1rem)]
+"><a class="
+  after:content-['']
+  after:absolute
+  after:inset-0
+  after:z-10
+  focus-visible:outline-none
+" href="/x">タイトル</a></h3><div class="
+  text-base-sm
+  leading-[1.85rem]
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+">説明</div><div class="
+  sticky
+  top-full
+ 
+  text-base-sm
+  leading-[1.85rem]
+  first:pt-4
+  pt-2
+  last:pb-4
+  px-6
+ 
+  flex
+  justify-between
+  items-center
+"><span>2026年8月</span><span class="
+  inline-flex
+  items-center
+  justify-center
+  w-6 h-6
+  text-blue-1000
+  border
+  border-blue-1000
+  rounded-full
+ 
+  group-hover:bg-blue-1000
+  group-hover:text-white
+"><span aria-hidden="true" class="!text-[16px] 
+  font-icon
+  font-light
+  inline-block
+  leading-none
+  align-middle
+  whitespace-nowrap
+">arrow_forward</span><span class="sr-only"></span></span></div></div></div>"
 `;
 
 exports[`Markdown > directives > should render youtube 1`] = `
@@ -338,9 +338,9 @@ exports[`Markdown > headings > should render withCode 1`] = `
     pt-[4rem]
     sm:pt-[4.5rem]
   " id="code-を含む見出し"><code class="
-    bg-solid-gray-50
-    font-mono
-  ">code</code> を含む見出し</h2></div>"
+  bg-solid-gray-50
+  font-mono
+">code</code> を含む見出し</h2></div>"
 `;
 
 exports[`Markdown > headings > should render withImage 1`] = `
@@ -365,11 +365,11 @@ exports[`Markdown > malformed html > should recover from closingBr 1`] = `"<div 
 
 exports[`Markdown > malformed html > should recover from crossedNesting 1`] = `
 "<div class="py-8 flex flex-col gap-8"><ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  ">
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+">
 <details>
 <summary>まとめ</summary>
 中身
@@ -379,12 +379,12 @@ exports[`Markdown > malformed html > should recover from crossedNesting 1`] = `
 
 exports[`Markdown > malformed html > should recover from mistypedClose 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div class="
-    w-full
-    overflow-x-auto
-    whitespace-nowrap
-    print:overflow-visible
-    print:whitespace-normal
-  "><table class="
+  w-full
+  overflow-x-auto
+  whitespace-nowrap
+  print:overflow-visible
+  print:whitespace-normal
+"><table class="
   border
   border-collapse
   border-solid-gray-420
@@ -393,9 +393,9 @@ exports[`Markdown > malformed html > should recover from mistypedClose 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -404,12 +404,12 @@ exports[`Markdown > malformed html > should recover from mistypedClose 1`] = `
 
 exports[`Markdown > malformed html > should recover from unclosedCell 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div class="
-    w-full
-    overflow-x-auto
-    whitespace-nowrap
-    print:overflow-visible
-    print:whitespace-normal
-  "><table class="
+  w-full
+  overflow-x-auto
+  whitespace-nowrap
+  print:overflow-visible
+  print:whitespace-normal
+"><table class="
   border
   border-collapse
   border-solid-gray-420
@@ -418,9 +418,9 @@ exports[`Markdown > malformed html > should recover from unclosedCell 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -429,9 +429,9 @@ exports[`Markdown > malformed html > should recover from unclosedCell 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -452,36 +452,36 @@ exports[`Markdown > plain markdown > should render cjkSoftBreak 1`] = `
 
 exports[`Markdown > plain markdown > should render codeFence 1`] = `
 "<div class="py-8 flex flex-col gap-8"><pre class="
-    p-4
-    bg-solid-gray-50
-    rounded-lg
-    whitespace-pre-wrap
-    overflow-y-scroll
-  "><code class="
-    bg-solid-gray-50
-    font-mono
-   language-sh">echo "hello"
+  p-4
+  bg-solid-gray-50
+  rounded-lg
+  whitespace-pre-wrap
+  overflow-y-scroll
+"><code class="
+  bg-solid-gray-50
+  font-mono
+ language-sh">echo "hello"
 </code></pre>
 <pre class="
-    p-4
-    bg-solid-gray-50
-    rounded-lg
-    whitespace-pre-wrap
-    overflow-y-scroll
-  "><code class="
-    bg-solid-gray-50
-    font-mono
-  ">言語指定なし
+  p-4
+  bg-solid-gray-50
+  rounded-lg
+  whitespace-pre-wrap
+  overflow-y-scroll
+"><code class="
+  bg-solid-gray-50
+  font-mono
+">言語指定なし
 </code></pre></div>"
 `;
 
 exports[`Markdown > plain markdown > should render footnote 1`] = `
 "<div class="py-8 flex flex-col gap-8"><p>本文<sup><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -496,14 +496,14 @@ exports[`Markdown > plain markdown > should render footnote 1`] = `
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
 <section data-footnotes="" class="footnotes"><h2 class="
     text-h-med-m
     sm:text-h-med
@@ -511,17 +511,17 @@ exports[`Markdown > plain markdown > should render footnote 1`] = `
     sm:pt-[4.5rem]
    sr-only" id="footnote-label">Footnotes</h2>
 <ol class="
-    list-decimal
-    [&amp;_&amp;]:list-lower-latin
-    pl-8
-  ">
+  list-decimal
+  [&amp;_&amp;]:list-lower-latin
+  pl-8
+">
 <li id="user-content-fn-1">
 <p>脚注の中身 <a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -536,14 +536,14 @@ exports[`Markdown > plain markdown > should render footnote 1`] = `
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-   data-footnote-backref" href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1">↩</a></p>
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+ data-footnote-backref" href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1">↩</a></p>
 </li>
 </ol>
 </section></div>"
@@ -568,12 +568,12 @@ exports[`Markdown > plain markdown > should render gfmTable 1`] = `
 
 
 <div class="
-    w-full
-    overflow-x-auto
-    whitespace-nowrap
-    print:overflow-visible
-    print:whitespace-normal
-  "><table class="
+  w-full
+  overflow-x-auto
+  whitespace-nowrap
+  print:overflow-visible
+  print:whitespace-normal
+"><table class="
   border
   border-collapse
   border-solid-gray-420
@@ -582,20 +582,20 @@ exports[`Markdown > plain markdown > should render gfmTable 1`] = `
   border-collapse
   border-solid-gray-420
 "><th class="
-    p-2
-    bg-[#f8f8fb]
-    text-label
-    text-left
-   
+  p-2
+  bg-[#f8f8fb]
+  text-label
+  text-left
+ 
   border
   border-collapse
   border-solid-gray-420
 ">見出し</th><th class="
-    p-2
-    bg-[#f8f8fb]
-    text-label
-    text-left
-   
+  p-2
+  bg-[#f8f8fb]
+  text-label
+  text-left
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -604,16 +604,16 @@ exports[`Markdown > plain markdown > should render gfmTable 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
 ">あ</td><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -622,16 +622,16 @@ exports[`Markdown > plain markdown > should render gfmTable 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
 ">い</td><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -669,38 +669,11 @@ exports[`Markdown > plain markdown > should render image 1`] = `"<div class="py-
 
 exports[`Markdown > plain markdown > should render links 1`] = `
 "<div class="py-8 flex flex-col gap-8"><p><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
-    
-    
-    
-    focus-visible:outline-4
-    focus-visible:outline-black
-    focus-visible:ring-yellow-300
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
   
-    focus-visible:outline-offset-[calc(2/16*1rem)]
-    focus-visible:ring-[calc(2/16*1rem)]
-  
-    focus-visible:bg-yellow-300
-  
-    focus-visible:rounded-sm
-  
-    
-    underline
-    underline-offset-[calc(3/16*1rem)]
-    hover:decoration-[calc(3/16*1rem)]
-  
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " href="/foo">内部</a> と <a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
     
     
     
@@ -715,26 +688,19 @@ exports[`Markdown > plain markdown > should render links 1`] = `
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " target="_blank" href="https://example.com" rel="nofollow"><span>外部</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
-    font-icon
-    font-light
-    inline-block
-    leading-none
-    align-middle
-    whitespace-nowrap
-  ">open_in_new</span><span class="sr-only">Opens in new tab</span></a> と <a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" href="/foo">内部</a> と <a class="
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -749,45 +715,79 @@ exports[`Markdown > plain markdown > should render links 1`] = `
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " target="_blank" href="https://example.com/bare" rel="nofollow"><span>https://example.com/bare</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
-    font-icon
-    font-light
-    inline-block
-    leading-none
-    align-middle
-    whitespace-nowrap
-  ">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p></div>"
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" target="_blank" href="https://example.com" rel="nofollow"><span>外部</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
+  font-icon
+  font-light
+  inline-block
+  leading-none
+  align-middle
+  whitespace-nowrap
+">open_in_new</span><span class="sr-only">Opens in new tab</span></a> と <a class="
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
+    
+    
+    
+    focus-visible:outline-4
+    focus-visible:outline-black
+    focus-visible:ring-yellow-300
+  
+    focus-visible:outline-offset-[calc(2/16*1rem)]
+    focus-visible:ring-[calc(2/16*1rem)]
+  
+    focus-visible:bg-yellow-300
+  
+    focus-visible:rounded-sm
+  
+  
+    underline
+    underline-offset-[calc(3/16*1rem)]
+    hover:decoration-[calc(3/16*1rem)]
+  
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" target="_blank" href="https://example.com/bare" rel="nofollow"><span>https://example.com/bare</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
+  font-icon
+  font-light
+  inline-block
+  leading-none
+  align-middle
+  whitespace-nowrap
+">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p></div>"
 `;
 
 exports[`Markdown > plain markdown > should render list 1`] = `
 "<div class="py-8 flex flex-col gap-8"><ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  ">
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+">
 <li>項目1</li>
 <li>項目2
 <ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  ">
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+">
 <li>入れ子
 <ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  ">
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+">
 <li>さらに</li>
 </ul>
 </li>
@@ -795,10 +795,10 @@ exports[`Markdown > plain markdown > should render list 1`] = `
 </li>
 </ul>
 <ol class="
-    list-decimal
-    [&amp;_&amp;]:list-lower-latin
-    pl-8
-  ">
+  list-decimal
+  [&amp;_&amp;]:list-lower-latin
+  pl-8
+">
 <li>one</li>
 <li>two</li>
 </ol></div>"
@@ -806,9 +806,9 @@ exports[`Markdown > plain markdown > should render list 1`] = `
 
 exports[`Markdown > plain markdown > should render paragraph 1`] = `
 "<div class="py-8 flex flex-col gap-8"><p>段落です。<strong>強調</strong> と <em>斜体</em> と <code class="
-    bg-solid-gray-50
-    font-mono
-  ">コード</code> と <del>取り消し</del>。</p></div>"
+  bg-solid-gray-50
+  font-mono
+">コード</code> と <del>取り消し</del>。</p></div>"
 `;
 
 exports[`Markdown > plain markdown > should render rule 1`] = `"<div class="py-8 flex flex-col gap-8"><hr></div>"`;
@@ -817,11 +817,11 @@ exports[`Markdown > raw html > should render details 1`] = `
 "<div class="py-8 flex flex-col gap-8"><details>
 <summary>詳細はこちら</summary>
 <ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  ">
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+">
 <li>リスト項目</li>
 </ul>
 
@@ -838,12 +838,12 @@ exports[`Markdown > raw html > should render details 1`] = `
 
 
 <div class="
-    w-full
-    overflow-x-auto
-    whitespace-nowrap
-    print:overflow-visible
-    print:whitespace-normal
-  "><table class="
+  w-full
+  overflow-x-auto
+  whitespace-nowrap
+  print:overflow-visible
+  print:whitespace-normal
+"><table class="
   border
   border-collapse
   border-solid-gray-420
@@ -852,20 +852,20 @@ exports[`Markdown > raw html > should render details 1`] = `
   border-collapse
   border-solid-gray-420
 "><th class="
-    p-2
-    bg-[#f8f8fb]
-    text-label
-    text-left
-   
+  p-2
+  bg-[#f8f8fb]
+  text-label
+  text-left
+ 
   border
   border-collapse
   border-solid-gray-420
 ">表</th><th class="
-    p-2
-    bg-[#f8f8fb]
-    text-label
-    text-left
-   
+  p-2
+  bg-[#f8f8fb]
+  text-label
+  text-left
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -874,16 +874,16 @@ exports[`Markdown > raw html > should render details 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
 ">a</td><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -893,11 +893,11 @@ exports[`Markdown > raw html > should render details 1`] = `
 
 exports[`Markdown > raw html > should render externalAnchor 1`] = `
 "<div class="py-8 flex flex-col gap-8"><p><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -912,21 +912,21 @@ exports[`Markdown > raw html > should render externalAnchor 1`] = `
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " target="_blank" href="https://example.com" rel="nofollow"><span>外部リンク</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
-    font-icon
-    font-light
-    inline-block
-    leading-none
-    align-middle
-    whitespace-nowrap
-  ">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p></div>"
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" target="_blank" href="https://example.com" rel="nofollow"><span>外部リンク</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
+  font-icon
+  font-light
+  inline-block
+  leading-none
+  align-middle
+  whitespace-nowrap
+">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p></div>"
 `;
 
 exports[`Markdown > raw html > should render inlineTags 1`] = `"<div class="py-8 flex flex-col gap-8"><p>本文に <strong>太字</strong> と <u>下線</u> と <sup>（※1）</sup> と <small>小</small>。</p></div>"`;
@@ -941,12 +941,12 @@ exports[`Markdown > raw html > should render styledImg 1`] = `"<div class="py-8 
 
 exports[`Markdown > raw html > should render tableSpan 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div class="
-    w-full
-    overflow-x-auto
-    whitespace-nowrap
-    print:overflow-visible
-    print:whitespace-normal
-  "><table class="
+  w-full
+  overflow-x-auto
+  whitespace-nowrap
+  print:overflow-visible
+  print:whitespace-normal
+"><table class="
   border
   border-collapse
   border-solid-gray-420
@@ -955,11 +955,11 @@ exports[`Markdown > raw html > should render tableSpan 1`] = `
   border-collapse
   border-solid-gray-420
 "><th class="
-    p-2
-    bg-[#f8f8fb]
-    text-label
-    text-left
-   
+  p-2
+  bg-[#f8f8fb]
+  text-label
+  text-left
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -968,16 +968,16 @@ exports[`Markdown > raw html > should render tableSpan 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
 " rowspan="2" style="vertical-align: top;">結合</td><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -986,9 +986,9 @@ exports[`Markdown > raw html > should render tableSpan 1`] = `
   border-collapse
   border-solid-gray-420
 "><td class="
-    p-2
-    text-label
-   
+  p-2
+  text-label
+ 
   border
   border-collapse
   border-solid-gray-420
@@ -1001,48 +1001,16 @@ exports[`Markdown > table of contents > should render the table of contents when
     p-10
     bg-yellow-50
   "><h2 class="mb-4 font-bold text-h-xs-m sm:text-h-xs">目次</h2><ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  "><li><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
-    
-    
-    
-    focus-visible:outline-4
-    focus-visible:outline-black
-    focus-visible:ring-yellow-300
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+"><li><a class="
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
   
-    focus-visible:outline-offset-[calc(2/16*1rem)]
-    focus-visible:ring-[calc(2/16*1rem)]
-  
-    focus-visible:bg-yellow-300
-  
-    focus-visible:rounded-sm
-  
-    
-    underline
-    underline-offset-[calc(3/16*1rem)]
-    hover:decoration-[calc(3/16*1rem)]
-  
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " href="#章1">章1</a><ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  "><li><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
     
     
     
@@ -1057,24 +1025,24 @@ exports[`Markdown > table of contents > should render the table of contents when
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " href="#節1">節1</a><ul class="
-    list-disc
-    [&amp;_&amp;]:list-circle
-    [&amp;_&amp;_&amp;]:list-square
-    pl-8
-  "><li><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" href="#章1">章1</a><ul class="
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+"><li><a class="
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -1089,19 +1057,24 @@ exports[`Markdown > table of contents > should render the table of contents when
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " href="#項1">項1</a></li></ul></li><li><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" href="#節1">節1</a><ul class="
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+"><li><a class="
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -1116,19 +1089,19 @@ exports[`Markdown > table of contents > should render the table of contents when
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " href="#節2">節2</a></li></ul></li><li><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" href="#項1">項1</a></li></ul></li><li><a class="
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -1143,14 +1116,41 @@ exports[`Markdown > table of contents > should render the table of contents when
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " href="#章2">章2</a></li></ul></nav><h1 class="
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" href="#節2">節2</a></li></ul></li><li><a class="
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
+    
+    
+    
+    focus-visible:outline-4
+    focus-visible:outline-black
+    focus-visible:ring-yellow-300
+  
+    focus-visible:outline-offset-[calc(2/16*1rem)]
+    focus-visible:ring-[calc(2/16*1rem)]
+  
+    focus-visible:bg-yellow-300
+  
+    focus-visible:rounded-sm
+  
+  
+    underline
+    underline-offset-[calc(3/16*1rem)]
+    hover:decoration-[calc(3/16*1rem)]
+  
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" href="#章2">章2</a></li></ul></nav><h1 class="
     text-h-lg-m
     sm:text-h-lg
     pt-[2rem]
@@ -1192,11 +1192,11 @@ exports[`Markdown > text that only looks like a directive > should leave functio
 
 exports[`Markdown > text that only looks like a directive > should leave linkLabel alone 1`] = `
 "<div class="py-8 flex flex-col gap-8"><p><a class="
-    cursor-pointer
-    text-blue-1000
-    active:text-orange-700
-    visited:text-magenta-900
-    
+  cursor-pointer
+  text-blue-1000
+  active:text-orange-700
+  visited:text-magenta-900
+  
     
     
     
@@ -1211,21 +1211,21 @@ exports[`Markdown > text that only looks like a directive > should leave linkLab
   
     focus-visible:rounded-sm
   
-    
+  
     underline
     underline-offset-[calc(3/16*1rem)]
     hover:decoration-[calc(3/16*1rem)]
   
-    disabled:border-solid-gray-500
-    [overflow-wrap:anywhere]
-  " target="_blank" href="https://example.com" rel="nofollow"><span>AWSドキュメント<aws></aws> PrivateLink</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
-    font-icon
-    font-light
-    inline-block
-    leading-none
-    align-middle
-    whitespace-nowrap
-  ">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p></div>"
+  disabled:border-solid-gray-500
+  [overflow-wrap:anywhere]
+" target="_blank" href="https://example.com" rel="nofollow"><span>AWSドキュメント<aws></aws> PrivateLink</span><span aria-hidden="true" class="ml-0.5 !text-[16px] 
+  font-icon
+  font-light
+  inline-block
+  leading-none
+  align-middle
+  whitespace-nowrap
+">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p></div>"
 `;
 
 exports[`Markdown > text that only looks like a directive > should leave ratio alone 1`] = `"<div class="py-8 flex flex-col gap-8"><p>比率は 16:9 です。</p></div>"`;

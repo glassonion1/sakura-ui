@@ -1,21 +1,40 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-export namespace Table {
-  export interface Props extends React.ComponentPropsWithoutRef<'table'> {}
-}
-
-const styleBorder = `
+/**
+ * Table classes are exported separately, in the order the components combine
+ * them, so that anything rendering a table without React produces the same
+ * class attribute.
+ */
+export const tableBorderStyle = `
   border
   border-collapse
   border-solid-gray-420
 `
 
+export const captionStyle = 'text-left'
+
+export const thStyle = `
+  p-2
+  bg-[#f8f8fb]
+  text-label
+  text-left
+`
+
+export const tdStyle = `
+  p-2
+  text-label
+`
+
+export namespace Table {
+  export interface Props extends React.ComponentPropsWithoutRef<'table'> {}
+}
+
 export const Table = (props: Table.Props) => {
   const { className, children, ...restProps } = props
 
   return (
-    <table className={cx(styleBorder, className)} {...restProps}>
+    <table className={cx(tableBorderStyle, className)} {...restProps}>
       {children}
     </table>
   )
@@ -28,9 +47,8 @@ export namespace Caption {
 export const Caption = (props: Caption.Props) => {
   const { className, children, ...restProps } = props
 
-  const style = 'text-left'
   return (
-    <caption className={cx(style, className)} {...restProps}>
+    <caption className={cx(captionStyle, className)} {...restProps}>
       {children}
     </caption>
   )
@@ -71,14 +89,8 @@ export namespace Th {
 export const Th = (props: Th.Props) => {
   const { className, children, ...restProps } = props
 
-  const style = `
-    p-2
-    bg-[#f8f8fb]
-    text-label
-    text-left
-  `
   return (
-    <th className={cx(style, styleBorder, className)} {...restProps}>
+    <th className={cx(thStyle, tableBorderStyle, className)} {...restProps}>
       {children}
     </th>
   )
@@ -91,10 +103,8 @@ export namespace Tr {
 export const Tr = (props: Tr.Props) => {
   const { className, children, ...restProps } = props
 
-  const style = ''
-
   return (
-    <tr className={cx(style, styleBorder, className)} {...restProps}>
+    <tr className={cx(tableBorderStyle, className)} {...restProps}>
       {children}
     </tr>
   )
@@ -107,13 +117,8 @@ export namespace Td {
 export const Td = (props: Td.Props) => {
   const { className, children, ...restProps } = props
 
-  const style = `
-    p-2
-    text-label
-  `
-
   return (
-    <td className={cx(style, styleBorder, className)} {...restProps}>
+    <td className={cx(tdStyle, tableBorderStyle, className)} {...restProps}>
       {children}
     </td>
   )
