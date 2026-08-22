@@ -1,5 +1,6 @@
 import { styles } from '@sakura-ui/core'
 import type { Token } from 'marked'
+import { ANCHOR } from './attributes'
 import { attrsToHtml, classNames, cleanUrl } from './html'
 import { CONTAINER, TEXT } from './registry'
 import type { DirectiveToken } from './tokenizer'
@@ -66,6 +67,10 @@ export function directiveRenderer(
   // rest of the document leaves it alone.
   const own = (values: Parameters<typeof attrsToHtml>[0]) =>
     attrsToHtml({ ...values, 'data-sakura': name })
+  // An id asked for with {#name} goes on the element the directive is, and not
+  // on anything nested inside it, which would be the same id twice.
+  const root = (values: Parameters<typeof attrsToHtml>[0]) =>
+    own({ ...values, id: attrs[ANCHOR] })
   const body = () =>
     kind === CONTAINER
       ? this.parser.parse(tokens)
@@ -73,7 +78,7 @@ export function directiveRenderer(
 
   if (name === 'youtube') {
     const title = this.parser.parseInline(tokens, this.parser.textRenderer)
-    return `<iframe${own({
+    return `<iframe${root({
       title,
       src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(attrs.id ?? '')}`,
       class: 'aspect-video w-full max-w-[470px]',
@@ -87,7 +92,7 @@ export function directiveRenderer(
   }
 
   if (name === 'link-button') {
-    return `<a${own({
+    return `<a${root({
       class: linkButtonClass,
       href: cleanUrl(attrs.href)
     })}>${body()}</a>`
@@ -101,7 +106,7 @@ export function directiveRenderer(
       'gap-8'
     )
     const tag = token.listed ? 'ul' : 'div'
-    return `<${tag}${own({ class: cls })}>${body()}</${tag}>${nl}`
+    return `<${tag}${root({ class: cls })}>${body()}</${tag}>${nl}`
   }
 
   if (name === 'card') {
@@ -115,14 +120,14 @@ export function directiveRenderer(
       isLink && styles.linkCardFocusStyle,
       attrs.class
     )
-    const card = `<div${own({ class: cls })}>${body()}</div>`
+    const card = `<div${root({ class: cls })}>${body()}</div>`
     return token.listed
       ? `<li class="sm:grid">${card}</li>${nl}`
       : `${card}${nl}`
   }
 
   if (name === 'card-img') {
-    return `<img${own({
+    return `<img${root({
       class: classNames(cardImgClass, attrs.class),
       src: cleanUrl(attrs.src),
       alt: attrs.alt ?? ''
@@ -130,7 +135,7 @@ export function directiveRenderer(
   }
 
   if (name === 'cell-img') {
-    return `<img${own({
+    return `<img${root({
       class: classNames('mb-4', attrs.class),
       src: cleanUrl(attrs.src),
       alt: attrs.alt ?? ''
@@ -141,20 +146,20 @@ export function directiveRenderer(
     const tag = options.cardHeadingLevel
     const href = token.inherited ? cleanUrl(token.inherited.href) : undefined
     if (href) {
-      return `<${tag}${own({
+      return `<${tag}${root({
         class: classNames(styles.cardHeaderStyle, styles.linkCardHeadingStyle)
       })}><a${own({
         class: classNames(styles.linkCardOverlayStyle),
         href
       })}>${body()}</a></${tag}>${nl}`
     }
-    return `<${tag}${own({
+    return `<${tag}${root({
       class: classNames(styles.cardHeaderStyle, attrs.class)
     })}>${body()}</${tag}>${nl}`
   }
 
   if (name === 'card-description') {
-    return `<div${own({
+    return `<div${root({
       class: classNames(styles.cardBodyStyle, attrs.class)
     })}>${body()}</div>${nl}`
   }
@@ -172,27 +177,27 @@ export function directiveRenderer(
         styles.linkCardArrowStyle,
         styles.linkCardArrowHoverStyle
       )}">${iconHtml('arrow_forward', '')}</span>`
-      return `<div${own({ class: cls })}><span>${body()}</span>${arrow}</div>${nl}`
+      return `<div${root({ class: cls })}><span>${body()}</span>${arrow}</div>${nl}`
     }
-    return `<div${own({ class: cls })}>${body()}</div>${nl}`
+    return `<div${root({ class: cls })}>${body()}</div>${nl}`
   }
 
   if (name === 'cell') {
-    return `<div${own({ class: attrs.class })}>${body()}</div>${nl}`
+    return `<div${root({ class: attrs.class })}>${body()}</div>${nl}`
   }
 
   if (name === 'faq') {
-    return `<dl${own({ class: classNames(styles.faqStyle) })}>${body()}</dl>${nl}`
+    return `<dl${root({ class: classNames(styles.faqStyle) })}>${body()}</dl>${nl}`
   }
 
   if (name === 'faq-q') {
-    return `<dt${own({
+    return `<dt${root({
       class: classNames(styles.questionStyle, styles.faqMarkerStyle)
     })}><span aria-hidden="true">Q</span><span>${body()}</span></dt>${nl}`
   }
 
   if (name === 'faq-a') {
-    return `<dd${own({
+    return `<dd${root({
       class: classNames(styles.answerStyle)
     })}><span class="${classNames(
       styles.faqMarkerStyle,

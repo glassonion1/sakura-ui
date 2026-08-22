@@ -118,7 +118,11 @@ export const decorate = (
     // the table of contents then linked to anchors that were not there.
     if (HEADINGS.has(tag)) {
       const text = element.textContent ?? ''
-      const id = element.getAttribute('id') || slugger.slug(text)
+      const asked = element.getAttribute('id')
+      // An id the author asked for is kept as written, but still handed to the
+      // slugger, so that a heading further down does not generate the same one.
+      if (asked) slugger.slug(asked)
+      const id = asked || slugger.slug(text)
       element.setAttribute('id', id)
       flat.push({ id, depth: Number(tag[1]) - shiftHeading, value: text })
     }
