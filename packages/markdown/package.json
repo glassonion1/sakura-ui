@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/markdown",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "",
   "keywords": [
     "markdown"
@@ -42,7 +42,7 @@
     "test:watch": "vitest"
   },
   "peerDependencies": {
-    "@sakura-ui/core": "^0.4.0-beta.0",
+    "@sakura-ui/core": "^0.5.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "tailwindcss": "^4.1.17"
@@ -68,6 +68,7 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
+    "@sakura-ui/core": "workspace:*",
     "@testing-library/jest-dom": "catalog:",
     "@testing-library/react": "catalog:",
     "@types/mdast": "^4.0.4",

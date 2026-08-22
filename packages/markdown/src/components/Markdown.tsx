@@ -38,10 +38,13 @@ import {
   Button,
   Card,
   CardImg,
+  CardHeader,
   CardBody,
   CardFooter,
   LinkCard,
   LinkCardHeader,
+  LinkCardFooter,
+  type CardHeaderAs,
   OverflowContainer
 } from '@sakura-ui/core'
 import {
@@ -125,14 +128,9 @@ const Article = (props: ArticleProps) => {
   const node = restProps['data-node']
 
   if (node === 'card') {
+    // The href now lives on the title, which is what carries the link.
     if (restProps['data-behavior'] === 'link') {
-      const href = restProps['data-href'] as string
-
-      return (
-        <LinkCard href={href} className={cx(className)}>
-          {children}
-        </LinkCard>
-      )
+      return <LinkCard className={cx(className)}>{children}</LinkCard>
     }
     return <Card className={cx(className)}>{children}</Card>
   }
@@ -144,20 +142,36 @@ const Article = (props: ArticleProps) => {
   )
 }
 
-interface DivProps extends React.ComponentPropsWithoutRef<'div'>, DataProps {}
+interface DivProps extends React.ComponentPropsWithoutRef<'div'>, DataProps {
+  headingLevel?: CardHeaderAs
+}
 
 const Div = (props: DivProps) => {
-  const { children, ...restProps } = props
+  const { children, headingLevel = 'h3', ...restProps } = props
 
   const node = restProps['data-node']
+  const isLink = restProps['data-behavior'] === 'link'
 
   if (node === 'card-title') {
-    return <LinkCardHeader>{children}</LinkCardHeader>
+    if (isLink) {
+      return (
+        <LinkCardHeader
+          as={headingLevel}
+          href={restProps['data-href'] as string}
+        >
+          {children}
+        </LinkCardHeader>
+      )
+    }
+    return <CardHeader as={headingLevel}>{children}</CardHeader>
   }
   if (node === 'card-description') {
     return <CardBody>{children}</CardBody>
   }
   if (node === 'card-footer') {
+    if (isLink) {
+      return <LinkCardFooter>{children}</LinkCardFooter>
+    }
     return <CardFooter>{children}</CardFooter>
   }
 
@@ -264,6 +278,14 @@ export const Markdown = ({
 
   const markdown2ReactElements = React.useCallback(
     (md: string) => {
+      // Card titles sit in the body of the document, so h3 is the natural base.
+      // rehype-shift-heading cannot reach them because they are still divs when
+      // it runs, so the same shift is applied here.
+      const cardHeadingLevel = `h${Math.min(
+        6,
+        Math.max(1, 3 + shiftHeding)
+      )}` as CardHeaderAs
+
       const rhypeReactOptions = {
         ...production,
         components: {
@@ -292,7 +314,9 @@ export const Markdown = ({
           th: Th,
           tr: Tr,
           td: Td,
-          div: Div
+          div: (props: DivProps) => (
+            <Div {...props} headingLevel={cardHeadingLevel} />
+          )
         }
       }
 

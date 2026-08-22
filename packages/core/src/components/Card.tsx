@@ -1,21 +1,16 @@
 import React from 'react'
 import { cx } from '@sakura-ui/helper'
 
-interface IdContextType {
-  id: string
-}
-
-const IdContext = React.createContext<IdContextType>({ id: '' })
-
 export namespace Card {
-  export interface Props extends React.ComponentPropsWithoutRef<'article'> {}
+  export interface Props<T extends React.ElementType> {
+    as?: T
+  }
 }
 
-export const Card = (props: Card.Props) => {
-  const { className, children, ...restProps } = props
-
-  const id = React.useId()
-  const ctx: IdContextType = { id: id }
+export const Card = <T extends React.ElementType = 'div'>(
+  props: Card.Props<T> & Omit<React.ComponentProps<T>, keyof Card.Props<T>>
+) => {
+  const { as: Component = 'div', className, children, ...restProps } = props
 
   const style = `
     border
@@ -27,19 +22,16 @@ export const Card = (props: Card.Props) => {
     overflow-hidden
   `
 
+  // A div cannot carry an accessible name, so no ARIA is set here. See the
+  // Accessible names section of the README before adding any.
   return (
-    <IdContext value={ctx}>
-      <article
-        aria-labelledby={ctx.id}
-        aria-describedby={`${ctx.id}-desc`}
-        className={cx(style, className)}
-        {...restProps}
-      >
-        {children}
-      </article>
-    </IdContext>
+    <Component className={cx(style, className)} {...restProps}>
+      {children}
+    </Component>
   )
 }
+
+Card.displayName = 'Card'
 
 export namespace CardImg {
   export interface Props extends React.ComponentPropsWithoutRef<'img'> {}
@@ -57,16 +49,37 @@ export const CardImg = (props: CardImg.Props) => {
   return <img className={cx(style, className)} {...restProps} />
 }
 
+CardImg.displayName = 'CardImg'
+
+export type CardHeaderAs = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
+
 export namespace CardHeader {
-  export interface Props extends React.ComponentPropsWithoutRef<'div'> {}
+  export interface Props extends React.ComponentPropsWithoutRef<'h3'> {
+    /**
+     * The element to render the title as. Required on purpose: the right level
+     * depends on the surrounding document outline, so the library must not pick
+     * one. Use 'p' for lists of many cards, where headings would add noise.
+     */
+    as: CardHeaderAs
+  }
 }
 
 export const CardHeader = (props: CardHeader.Props) => {
-  const { className, children, ...restProps } = props
+  const { as: Component, className, children, ...restProps } = props
 
-  const ctx = React.useContext(IdContext)
+  if (!Component) {
+    // Without this, React reports an invalid element type and suggests a missing
+    // export, which says nothing about the property that was actually left out.
+    throw new Error(
+      'CardHeader: the "as" property is required. Pass the heading level that ' +
+        'fits the outline around the card, or "p" for lists of many cards.'
+    )
+  }
 
+  // Reset the browser defaults of the heading and paragraph elements so that the
+  // rendered element does not change how the card looks.
   const style = `
+    m-0
     text-base
     leading-[2rem]
     font-medium
@@ -77,11 +90,13 @@ export const CardHeader = (props: CardHeader.Props) => {
   `
 
   return (
-    <div id={ctx.id} className={cx(style, className)} {...restProps}>
+    <Component className={cx(style, className)} {...restProps}>
       {children}
-    </div>
+    </Component>
   )
 }
+
+CardHeader.displayName = 'CardHeader'
 
 export namespace CardBody {
   export interface Props extends React.ComponentPropsWithoutRef<'div'> {}
@@ -89,8 +104,6 @@ export namespace CardBody {
 
 export const CardBody = (props: CardBody.Props) => {
   const { className, children, ...restProps } = props
-
-  const ctx = React.useContext(IdContext)
 
   const style = `
     text-base-sm
@@ -101,12 +114,16 @@ export const CardBody = (props: CardBody.Props) => {
     px-6
   `
 
+  // No generated id here. Callers that want the body to describe the card pass
+  // their own id and point aria-describedby at it.
   return (
-    <div id={`${ctx.id}-desc`} className={cx(style, className)} {...restProps}>
+    <div className={cx(style, className)} {...restProps}>
       {children}
     </div>
   )
 }
+
+CardBody.displayName = 'CardBody'
 
 export namespace CardFooter {
   export interface Props extends React.ComponentPropsWithoutRef<'div'> {}
@@ -135,3 +152,5 @@ export const CardFooter = (props: CardFooter.Props) => {
     </div>
   )
 }
+
+CardFooter.displayName = 'CardFooter'

@@ -18,18 +18,12 @@ export const Faq = (props: Faq.Props) => {
     flex-col
     gap-8
   `
+  // No schema.org FAQPage markup here. Google discontinued the FAQ rich result
+  // in May 2026, so it is not implemented.
   return (
-    <article itemScope itemType="https://schema.org/FAQPage">
-      <dl
-        className={cx(style, className)}
-        itemScope
-        itemProp="mainEntity"
-        itemType="https://schema.org/Question"
-        {...restProps}
-      >
-        {children}
-      </dl>
-    </article>
+    <dl className={cx(style, className)} {...restProps}>
+      {children}
+    </dl>
   )
 }
 
@@ -47,11 +41,7 @@ export const Question = (props: Question.Props) => {
     mt-8
   `
   return (
-    <dt
-      className={cx(style, headingStyle, className)}
-      itemProp="name"
-      {...restProps}
-    >
+    <dt className={cx(style, headingStyle, className)} {...restProps}>
       <span aria-hidden="true">Q</span>
       <span>{children}</span>
     </dt>
@@ -72,17 +62,11 @@ export const Answer = (props: Answer.Props) => {
     gap-8
   `
   return (
-    <dd
-      className={cx(style, className)}
-      itemScope
-      itemProp="acceptedAnswer"
-      itemType="https://schema.org/Answer"
-      {...restProps}
-    >
+    <dd className={cx(style, className)} {...restProps}>
       <span className={cx(headingStyle, '!leading-none')} aria-hidden="true">
         A
       </span>
-      <span itemProp="text">{children}</span>
+      <span>{children}</span>
     </dd>
   )
 }

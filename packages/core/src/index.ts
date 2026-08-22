@@ -38,3 +38,5 @@ export {
   PopoverMenu,
   PopoverMenuItem
 } from './components'
+
+export type { CardHeaderAs } from './components'
