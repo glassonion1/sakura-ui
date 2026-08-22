@@ -115,7 +115,14 @@ const Home = () => {
       </header>
       <main className={containerStyle}>
         <div className="text-sumi-900 text-base p-8">
-          <Link href="./forms">Form examples</Link>
+          <ul className="flex gap-8">
+            <li>
+              <Link href="./forms">Form examples</Link>
+            </li>
+            <li>
+              <Link href="./markdown">Markdown examples</Link>
+            </li>
+          </ul>
           <IconButton
             className="mr-2 fixed bottom-4 right-4"
             icon="arrow_upward"
