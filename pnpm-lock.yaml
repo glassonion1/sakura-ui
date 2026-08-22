@@ -117,6 +117,9 @@ importers:
       '@sakura-ui/helper':
         specifier: workspace:*
         version: link:../packages/helper
+      '@sakura-ui/markdown':
+        specifier: workspace:*
+        version: link:../packages/markdown
       '@sakura-ui/tailwind-theme-plugin':
         specifier: workspace:*
         version: link:../packages/tailwind-theme-plugin

@@ -12,6 +12,7 @@
     "@sakura-ui/core": "workspace:*",
     "@sakura-ui/forms": "workspace:*",
     "@sakura-ui/helper": "workspace:*",
+    "@sakura-ui/markdown": "workspace:*",
     "@sakura-ui/tailwind-theme-plugin": "workspace:*",
     "clsx": "^2.1.1",
     "react": "catalog:",
