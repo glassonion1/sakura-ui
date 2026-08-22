@@ -17,6 +17,14 @@ or
 $ pnpm add @sakura-ui/markdown
 ```
 
+## Client only
+
+This renders in the browser and nowhere else. Sanitising and styling both walk
+the DOM, so the conversion runs in an effect: on the server it produces nothing,
+and the markup appears once the page is live.
+
+With Next.js, load it through `next/dynamic` with `ssr: false`.
+
 ## Usage
 When using libraries such as Gatsby or Next.js, please use them in combination with React Suspense.
 ```ts
