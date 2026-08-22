@@ -34,9 +34,10 @@ export const LinkCard = <T extends React.ElementType = 'div'>(
     hover:bg-solid-gray-50
   `
 
-  // The focus ring is drawn on the card itself rather than on the <a>, so that it
-  // surrounds the whole card. An element's own outline is not clipped by its own
-  // overflow-hidden, which the ::after overlay inside it would be.
+  // The focus ring goes on the card itself, not on the <a>, so that it surrounds
+  // the whole card. The card sets overflow-hidden, which would cut off a ring
+  // drawn on the ::after overlay inside it. An element never clips its own
+  // outline, so the ring survives here.
   const styleFocus = `
     has-[a:focus-visible]:outline
     has-[a:focus-visible]:outline-4
