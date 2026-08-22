@@ -121,6 +121,16 @@ Lorem ipsum dolor sit amet.
 A Markdown list only ever runs down the page, and there is no way to put a class
 on one from here, so this is how a list gets columns.
 
+Use `::cell-img` in place of a Markdown image when the image is the top of the
+cell; it carries the spacing that separates it from the text underneath.
+
+```
+:::cell
+::cell-img{src=https://dummyimage.com/600x400/000/fff alt=alternative_text}
+Lorem ipsum dolor sit amet.
+:::
+```
+
 ### Multi column layout with card
 ```
 ::::grid-cols-3
@@ -142,6 +152,37 @@ on one from here, so this is how a list gets columns.
 ::::
 ```
 <img width="1133" alt="スクリーンショット 2024-07-26 23 55 37" src="https://github.com/user-attachments/assets/9a6dff6f-7115-451a-9d15-f953ddad78b7">
+
+A card may end with `::card-footer`, for a date or a category — something that
+belongs to the card but is not what it says.
+
+```
+:::card
+::card-title[Card title]
+::card-description[Lorem ipsum dolor sit amet.]
+::card-footer[22 August 2026]
+:::
+```
+
+### Card that is a link
+
+Give the card `{as=link href=…}` and the whole of it becomes clickable.
+
+```
+:::card{as=link href=/services}
+::card-title[Services and applications]
+::card-description[Lorem ipsum dolor sit amet.]
+::card-footer[22 August 2026]
+:::
+```
+
+The link itself goes on the title, and covers the card from there; the footer
+grows an arrow. Only the title is read out as the name of the link, so write one
+that says where it goes — a screen reader user meets it on its own, out of the
+order the page is in.
+
+That also means a link card wants a title. Without one there is no link, and the
+card is only a box.
 
 ### FAQ
 ```
