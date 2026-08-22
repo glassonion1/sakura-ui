@@ -25,6 +25,17 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    setupFiles: 'tests/vitest.setup.ts'
+    setupFiles: 'tests/vitest.setup.ts',
+    environmentOptions: {
+      // The youtube directive renders an iframe, and happy-dom would otherwise
+      // go and fetch it.
+      happyDOM: {
+        settings: {
+          disableIframePageLoading: true,
+          disableJavaScriptFileLoading: true,
+          disableCSSFileLoading: true
+        }
+      }
+    }
   }
 })
