@@ -121,6 +121,21 @@ describe('LinkCard', () => {
     expect(screen.getByTestId('card')).toBeInTheDocument()
   })
 
+  it('should say which property is missing when as is left out', async () => {
+    const Header = LinkCardHeader as unknown as React.ComponentType<{
+      href: string
+      children: React.ReactNode
+    }>
+
+    expect(() =>
+      render(
+        <LinkCard>
+          <Header href="/readme">Link-Card-Header</Header>
+        </LinkCard>
+      )
+    ).toThrow(/LinkCardHeader: the "as" property is required/)
+  })
+
   it('should pass an object to the ref property', async () => {
     const ref = vi.fn()
     render(

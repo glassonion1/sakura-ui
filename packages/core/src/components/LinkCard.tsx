@@ -90,6 +90,13 @@ export const LinkCardHeader = <T extends React.ElementType = 'a'>(
     ...restProps
   } = props
 
+  if (!as) {
+    throw new Error(
+      'LinkCardHeader: the "as" property is required. Pass the heading level ' +
+        'that fits the outline around the card, or "p" for lists of many cards.'
+    )
+  }
+
   const styleHeading = `
     decoration-blue-900
     underline

@@ -113,6 +113,22 @@ describe('Card', () => {
     expect(card).toHaveAccessibleName('')
   })
 
+  it('should say which property is missing when as is left out', async () => {
+    // React would otherwise report an invalid element type and suggest a missing
+    // export, which points nowhere near the actual mistake.
+    const Header = CardHeader as unknown as React.ComponentType<{
+      children: React.ReactNode
+    }>
+
+    expect(() =>
+      render(
+        <Card>
+          <Header>Card-Header</Header>
+        </Card>
+      )
+    ).toThrow(/CardHeader: the "as" property is required/)
+  })
+
   it('should pass unknown properties through to the elements', async () => {
     render(
       <Card>

@@ -69,6 +69,15 @@ export namespace CardHeader {
 export const CardHeader = (props: CardHeader.Props) => {
   const { as: Component, className, children, ...restProps } = props
 
+  if (!Component) {
+    // Without this, React reports an invalid element type and suggests a missing
+    // export, which says nothing about the property that was actually left out.
+    throw new Error(
+      'CardHeader: the "as" property is required. Pass the heading level that ' +
+        'fits the outline around the card, or "p" for lists of many cards.'
+    )
+  }
+
   // Reset the browser defaults of the heading and paragraph elements so that the
   // rendered element does not change how the card looks.
   const style = `
