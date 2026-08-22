@@ -7,22 +7,11 @@ export const PopoverMenu = React.forwardRef<
   React.ComponentProps<'ul'>
 >((props, ref) => {
   const { className, children, ...rest } = props
-  const stylePopover = `
-    min-w-fit
-    w-auto
-    py-2
-    bg-white
-    shadow-1
-    rounded-lg
-    border
-    border-solid-grey-420
-    has-[>:nth-child(7)]:rounded-r-none
-  `
 
   const style = `
     font-normal
     whitespace-nowrap
-    ${stylePopover}
+    ${Style.popover}
   `
 
   return (
@@ -46,7 +35,7 @@ export const PopoverMenuItem = React.forwardRef<
     flex
     items-center
     gap-x-1.5
-    hover:bg-solid-grey-50
+    hover:bg-solid-gray-50
     ${Style.focusRectCondensedWithBg}
   `
 

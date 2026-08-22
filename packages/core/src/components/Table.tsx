@@ -8,7 +8,7 @@ export namespace Table {
 const styleBorder = `
   border
   border-collapse
-  border-solid-grey-420
+  border-solid-gray-420
 `
 
 export const Table = (props: Table.Props) => {
