@@ -1,6 +1,5 @@
 import { styles } from '@sakura-ui/core'
 import type { Token } from 'marked'
-import { ANCHOR } from './attributes'
 import { attrsToHtml, classNames, cleanUrl } from './html'
 import { CONTAINER, TEXT } from './registry'
 import type { DirectiveToken } from './tokenizer'
@@ -70,7 +69,7 @@ export function directiveRenderer(
   // An id asked for with {#name} goes on the element the directive is, and not
   // on anything nested inside it, which would be the same id twice.
   const root = (values: Parameters<typeof attrsToHtml>[0]) =>
-    own({ ...values, id: attrs[ANCHOR] })
+    own({ ...values, id: attrs.id })
   const body = () =>
     kind === CONTAINER
       ? this.parser.parse(tokens)
@@ -80,7 +79,7 @@ export function directiveRenderer(
     const title = this.parser.parseInline(tokens, this.parser.textRenderer)
     return `<iframe${root({
       title,
-      src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(attrs.id ?? '')}`,
+      src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(attrs.video ?? '')}`,
       class: 'aspect-video w-full max-w-[470px]',
       style: attrs.width ? `width:${attrs.width}px` : undefined,
       frameborder: '0',

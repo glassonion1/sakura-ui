@@ -3,13 +3,6 @@ const ATTR_RE =
 
 export type Attrs = Record<string, string>
 
-/**
- * Where `{#name}` is kept. Not `id`, which youtube already uses for the video,
- * so the two would overwrite each other. A key beginning with `#` cannot be
- * written as `key=value`, since an attribute name has to start with a letter.
- */
-export const ANCHOR = '#id'
-
 /** Parses the inside of `{...}`: `key=value key2="値 2" #id .cls` */
 export const parseAttrs = (body: string | null): Attrs => {
   const out: Attrs = {}
@@ -20,7 +13,7 @@ export const parseAttrs = (body: string | null): Attrs => {
     const [, sigil, key, doubleQuoted, singleQuoted, bare] = m
     const value = doubleQuoted ?? singleQuoted ?? bare
     if (sigil === '#') {
-      out[ANCHOR] = key
+      out.id = key
     } else if (sigil === '.') {
       out.class = out.class ? `${out.class} ${key}` : key
     } else {

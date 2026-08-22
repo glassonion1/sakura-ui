@@ -51,7 +51,7 @@ export const malformedHtml = {
 export const directives = {
   linkButton:
     'ご案内です。:link-button[サービス一覧]{href=/services} をどうぞ。',
-  youtube: '::youtube[動画タイトル]{id=yXdbvBzxeb8 width=560 height=315}',
+  youtube: '::youtube[動画タイトル]{video=yXdbvBzxeb8 width=560 height=315}',
   card: ':::card\n::card-img{src=/a.png alt=図}\n::card-title[タイトル]\n::card-description[説明]\n:::',
   linkCard:
     ':::card{href=/x}\n::card-title[タイトル]\n::card-description[説明]\n::card-footer[2026年8月]\n:::',

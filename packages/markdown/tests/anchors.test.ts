@@ -37,9 +37,14 @@ describe('anchors', () => {
     expect(ids(':::card{href=/x}\n::card-title[題]{#top}\n:::')).toEqual(['top'])
   })
 
+  it('should read {id=name} as the same thing', () => {
+    expect(ids(':::cell{id=pricing}\n本文\n:::')).toContain('pricing')
+  })
+
   it('should leave the video id to the video', () => {
-    // youtube reads `id` as the video, so `{#name}` is kept apart from it.
-    const out = html('::youtube[題]{#player id=abc123}')
+    // The video is `video`, so `id` is free to mean what it means anywhere
+    // else on the page.
+    const out = html('::youtube[題]{#player video=abc123}')
     expect(out).toContain('id="player"')
     expect(out).toContain('embed/abc123')
   })

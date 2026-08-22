@@ -114,7 +114,7 @@ describe('sanitize', () => {
 
   describe('frames', () => {
     it('should keep the video the youtube directive embeds', () => {
-      const out = html('::youtube[題]{id=abc123}')
+      const out = html('::youtube[題]{video=abc123}')
       expect(out).toContain('www.youtube-nocookie.com/embed/abc123')
     })
 

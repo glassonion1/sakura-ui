@@ -95,9 +95,9 @@ it.
 :::
 ```
 
-The name is used as written and nothing else on the page is given it, so a
-heading further down that would have produced the same one gets `-1` instead.
-`youtube` reads `id` as the video, and `{#name}` stays out of its way.
+`{id=name}` says the same thing, as it does in Pandoc. The name is used as
+written and nothing else on the page is given it, so a heading further down that
+would have produced the same one gets `-1` instead.
 
 ### LinkButton
 ```
@@ -107,7 +107,7 @@ heading further down that would have produced the same one gets `-1` instead.
 
 ### YouTube
 ```
-::youtube[title]{id=yXdbvBzxeb8}
+::youtube[title]{video=yXdbvBzxeb8}
 ```
 <img width="494" alt="スクリーンショット 2024-07-26 23 48 18" src="https://github.com/user-attachments/assets/a724cf27-a1af-4633-b9a8-27b25b04e3ae">
 
