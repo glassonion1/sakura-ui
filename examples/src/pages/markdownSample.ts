@@ -1,101 +1,100 @@
 /**
- * One document covering everything the guide this package renders puts in front
- * of it, so that a change to the pipeline can be looked at rather than guessed
- * about.
+ * One document exercising everything the renderer handles, so that a change to
+ * the pipeline can be looked at rather than guessed about.
  *
- * The proportions follow what was measured across its 509 documents: raw HTML
- * in 40% of them, 1,733 inline styles, 637 details blocks, 265 stray closing
- * br tags, and tables that need cells to span.
+ * It leans on what long-lived documentation tends to accumulate rather than on
+ * what Markdown allows: raw HTML mixed into the prose, inline styles, tables
+ * with cells that span, disclosure blocks holding Markdown, and closing tags
+ * that were never valid.
  */
-export const markdownSample = `# 見出し1 マークダウンの見本
+export const markdownSample = `# Heading 1
 
-この段落には **強調** と *斜体* と \`インラインコード\` と ~~取り消し線~~ が入っています。
-日本語のソフト改行はこの行のあとで
-\`<br>\` になります。
+A paragraph with **bold**, *italic*, \`inline code\` and ~~strikethrough~~.
 
-記法に見えるだけの文字も壊れないこと: 開始時刻は HH:MM 形式、スコープは chat:write、
-属性は xml:lang、比率は 16:9、第1章:はじめに。
+Text that only looks like a directive has to survive: the format is HH:MM,
+the scope is chat:write, the attribute is xml:lang, the ratio is 16:9.
 
-## 見出し2 リンク
+## Heading 2, links
 
-[内部リンク](/sakura-ui/) と [外部リンク](https://www.digital.go.jp/) と裸の URL https://design.digital.go.jp/ 。
+An [internal link](/sakura-ui/), an [external one](https://www.digital.go.jp/)
+and a bare URL https://design.digital.go.jp/ .
 
-:link-button[リンクボタン]{href=/sakura-ui/forms}
+:link-button[Link button]{href=/sakura-ui/forms}
 
-### 見出し3 リスト
+### Heading 3, lists
 
-- 第一項目
-- 第二項目
-  - 入れ子の項目
-    - さらに入れ子
-- 第三項目
+- First item
+- Second item
+  - Nested
+    - Nested again
+- Third item
 
-1. 番号つき
-2. その二
-3. その三
+1. One
+2. Two
+3. Three
 
-#### 見出し4 引用とコード
+#### Heading 4, quotes and code
 
-> 引用文です。
-> 二行目も引用です。
+> A quotation.
+> Its second line.
 
 \`\`\`sh
 $ pnpm --filter @sakura-ui/markdown test
 \`\`\`
 
 \`\`\`
-言語指定のないコードブロック
+A fence with no language.
 \`\`\`
 
-##### 見出し5 GFM の表
+##### Heading 5, a table
 
-| 項番 | 分類 | 目的 |
+| No. | Area | Purpose |
 | --- | --- | --- |
-| 1 | 可用性 | 単一障害点をなくす |
-| 2 | 運用性 | 手順を減らす |
+| 1 | Availability | Remove single points of failure |
+| 2 | Operability | Cut the number of steps |
 
-###### 見出し6 画像
+###### Heading 6, an image
 
-![富士山の写真](/sakura-ui/bg-mt.webp)
+![A mountain at sunrise](/sakura-ui/bg-mt.webp)
 
-## 生 HTML
+## Raw HTML
 
-HTML の表は、セルの結合や列幅の指定が必要なときに使われています。
+Tables are written in HTML when cells have to span or columns need a width.
 
 <table>
-<caption>表:01 セルを結合した表</caption>
+<caption>Table 1. Cells that span</caption>
 <colgroup><col style="width: 20%;"><col style="width: 40%;"><col style="width: 40%;"></colgroup>
 <thead>
-<tr><th rowspan="2" style="vertical-align: top;">区分</th><th colspan="2" style="text-align:center;">内容</th></tr>
-<tr><th>項目</th><th>説明</th></tr>
+<tr><th rowspan="2" style="vertical-align: top;">Group</th><th colspan="2" style="text-align:center;">Detail</th></tr>
+<tr><th>Item</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td rowspan="2" style="vertical-align: top; white-space: nowrap;">共通</td><td>認証</td><td>利用者の確認を行う<br>多要素認証を必須とする</td></tr>
-<tr><td>監査</td><td>操作の記録を残す</td></tr>
+<tr><td rowspan="2" style="vertical-align: top; white-space: nowrap;">Common</td><td>Sign-in</td><td>Confirms who is asking<br>Requires a second factor</td></tr>
+<tr><td>Audit</td><td>Keeps a record of what was done</td></tr>
 </tbody>
 </table>
 
 <div style="background-color: #E8F1FE; padding: 12px 16px; border-radius: 8px; margin: 0 24px;">
-コールアウト。<code>style</code> 属性で色と余白を指定しています。
+A callout, coloured and spaced with a <code>style</code> attribute.
 </div>
 
-<img src="/sakura-ui/bg-mt.webp" alt="幅を指定した画像" style="width: 320px;color-scheme: light;">
+<img src="/sakura-ui/bg-mt.webp" alt="The same mountain, narrower" style="width: 320px;color-scheme: light;">
 
-本文中の <strong>太字</strong> と <u>下線</u> と <sup>（※1）</sup> と <small>注記</small> 。
+Inline <strong>bold</strong>, <u>underline</u>, <sup>(*1)</sup> and <small>small print</small>.
 
-<a href="https://www.digital.go.jp/" target="_blank">生 HTML の外部リンク</a>
+<a href="https://www.digital.go.jp/" target="_blank">An external link written in HTML</a>
 
-### 折りたたみ
+### Disclosure
 
 <details>
-<summary>詳細はこちら</summary>
+<summary>Open for more</summary>
 
-中に Markdown を書けます。
+Markdown goes inside.
 
-- 箇条書き
-- もうひとつ
+- A list
+- And another item
 
-| 列A | 列B |
+| A | B |
 | --- | --- |
 | 1 | 2 |
 
@@ -103,85 +102,94 @@ HTML の表は、セルの結合や列幅の指定が必要なときに使われ
 
 <ul>
 <details>
-<summary>ul で囲んだ折りたたみ（インデント目的の書き方）</summary>
-入れ子にした場合の見え方を確認します。<br>この書き方は 12 ファイルで使われています。
+<summary>Wrapped in a ul, which people do to get an indent</summary>
+It is not valid, and it still has to render.
 </details>
 </ul>
 
-### 壊れた HTML
+### HTML that is wrong
 
-書き手が間違えた形も、崩れずに表示されること。
+Mistakes the writers make, which still have to come out looking like something.
 
-一行目<br>二行目</br>三行目</BR>四行目
+Line one<br>line two</br>line three</BR>line four
 
-<table><tbody><tr><td>閉じタグの打ち間違い</d></tr></tbody></table>
+<table><tbody><tr><td>A closing tag with a typo</d></tr></tbody></table>
 
-## 独自記法
+## Directives
 
-### カード
+### Card
 
 :::card
-::card-img{src=/sakura-ui/bg-mt.webp alt=カードの画像}
-::card-title[カードのタイトル]
-::card-description[カードの説明文です。]
+::card-img{src=/sakura-ui/bg-mt.webp alt=A mountain}
+::card-title[Card title]
+::card-description[What the card is about.]
 :::
 
 :::card{as=link href=/sakura-ui/forms}
-::card-title[リンクカードのタイトル]
-::card-description[カード全体が押せます。]
-::card-footer[2026年8月22日]
+::card-title[Link card title]
+::card-description[The whole card is the link.]
+::card-footer[22 August 2026]
 :::
 
-### グリッド
+### Grid
 
 ::::grid-cols-3
 :::card
-::card-title[ひとつ目]
-::card-description[説明。]
+::card-title[First]
+::card-description[Something.]
 :::
 :::card
-::card-title[ふたつ目]
-::card-description[説明。]
+::card-title[Second]
+::card-description[Something else.]
 :::
 :::card
-::card-title[みっつ目]
-::card-description[説明。]
+::card-title[Third]
+::card-description[One more.]
 :::
 ::::
 
-### セル
+### Cells
 
 ::::grid-cols-2{as=list}
 :::cell
-::cell-img{src=/sakura-ui/bg-mt.webp alt=セルの画像}
-セルの本文です。
+::cell-img{src=/sakura-ui/bg-mt.webp alt=A mountain}
+The first cell.
 :::
 :::cell
-::cell-img{src=/sakura-ui/bg-mt.webp alt=セルの画像}
-ふたつ目のセルです。
+::cell-img{src=/sakura-ui/bg-mt.webp alt=A mountain}
+The second cell.
 :::
 ::::
 
-### よくある質問
+### Questions
 
 :::faq
-::faq-q[この記法はどこで使われていますか。]
-::faq-a[README に載っている記法です。]
-::faq-q[生 HTML は書けますか。]
-::faq-a[書けます。サニタイズを通したうえで表示されます。]
+::faq-q[Where is this syntax used?]
+::faq-a[It is the syntax the README documents.]
+::faq-q[Can I write HTML?]
+::faq-a[Yes. It is sanitised on the way through.]
 :::
 
-### 動画
+### Video
 
-::youtube[デジタル庁の紹介動画]{id=yXdbvBzxeb8}
+::youtube[An introduction]{id=yXdbvBzxeb8}
 
-## 見出しの重複
+## CJK
 
-同じ見出しが続いたときに id が衝突しないこと。
+Japanese wraps and breaks differently, and the heading ids keep the characters.
 
-## 見出しの重複
+日本語のソフト改行はこの行のあとで
+\`<br>\` になります。開始時刻は HH:MM 形式、第1章:はじめに。
 
-ふたつ目です。
+### はじめに（概要）
 
-## 記号を含む見出し（概要）／A/B テスト
+全角の括弧は id から落ちます。
+
+### A/B テスト
+
+## Repeated heading
+
+## Repeated heading
+
+The second one gets a suffix so the anchors stay apart.
 `

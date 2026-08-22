@@ -96,12 +96,13 @@ const Markdown = () => {
         <div>
           <h1 className="text-label-b">Markdown</h1>
           <p className="text-label text-solid-gray-700">
-            ガイドで使う書き方をひととおり入れてあります。書き換えて試せます。
+            One document exercising everything the renderer handles. Edit it and
+            see.
           </p>
         </div>
         <div className="flex gap-4 items-center">
           <p aria-live="polite" className="text-label text-solid-gray-700">
-            {dirty ? '未反映の変更があります' : '反映済み'}
+            {dirty ? 'Unapplied changes' : 'Up to date'}
           </p>
           <Button
             size="sm"
@@ -111,10 +112,10 @@ const Markdown = () => {
               setSource(markdownSample)
             }}
           >
-            元に戻す
+            Reset
           </Button>
           <Button size="sm" onClick={() => setSource(draft)}>
-            反映する
+            Apply
           </Button>
         </div>
       </div>
@@ -124,7 +125,7 @@ const Markdown = () => {
           className={clsx(paneStyle, 'lg:border-r lg:border-solid-gray-420')}
         >
           <h2 id="markdown-editor-label" className={paneHeaderStyle}>
-            編集
+            Editor
           </h2>
           <Textarea
             aria-labelledby="markdown-editor-label"
@@ -136,7 +137,7 @@ const Markdown = () => {
         </section>
 
         <section className={paneStyle}>
-          <h2 className={paneHeaderStyle}>プレビュー</h2>
+          <h2 className={paneHeaderStyle}>Preview</h2>
           <div className="flex-1 lg:overflow-auto px-6">
             <MarkdownRenderer showToc shiftHeading={2}>
               {source}
