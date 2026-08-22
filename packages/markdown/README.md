@@ -101,6 +101,26 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 ```
 <img width="1143" alt="スクリーンショット 2024-07-26 23 51 46" src="https://github.com/user-attachments/assets/60b813b4-3a8c-451d-99b2-58c1e5b3a3b4">
 
+Add `{as=list}` when the cells are a list of things rather than a layout. The
+grid becomes a `<ul>` and each cell an `<li>`, so a reader is told there are
+three of them.
+
+```
+::::grid-cols-3{as=list}
+:::cell
+![alternative text](https://dummyimage.com/600x400/000/fff)
+Lorem ipsum dolor sit amet.
+:::
+:::cell
+![alternative text](https://dummyimage.com/600x400/000/fff)
+Lorem ipsum dolor sit amet.
+:::
+::::
+```
+
+A Markdown list only ever runs down the page, and there is no way to put a class
+on one from here, so this is how a list gets columns.
+
 ### Multi column layout with card
 ```
 ::::grid-cols-3
