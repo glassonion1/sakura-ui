@@ -22,10 +22,8 @@ export const Card = <T extends React.ElementType = 'div'>(
     overflow-hidden
   `
 
-  // No ARIA here on purpose. A div maps to the generic role, which prohibits an
-  // accessible name, so aria-labelledby would be ignored anyway. Callers that
-  // genuinely need a named region pass as="article" together with their own
-  // aria-labelledby and put a matching id on CardHeader.
+  // A div cannot carry an accessible name, so no ARIA is set here. See the
+  // Accessible names section of the README before adding any.
   return (
     <Component className={cx(style, className)} {...restProps}>
       {children}

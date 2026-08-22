@@ -18,11 +18,8 @@ export const Faq = (props: Faq.Props) => {
     flex-col
     gap-8
   `
-  // No schema.org markup here. It put the scope for Question on this list, so a
-  // parser read every pair as one question with several names. Describing the
-  // list correctly would take a component per pair, to hold a scope each.
-  // Google withdrew the FAQ rich result in May 2026, so that work now buys
-  // nothing, and the markup is dropped instead of restructured.
+  // No schema.org FAQPage markup here. Google discontinued the FAQ rich result
+  // in May 2026, so it is not implemented.
   return (
     <dl className={cx(style, className)} {...restProps}>
       {children}
