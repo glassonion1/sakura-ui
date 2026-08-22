@@ -5,7 +5,7 @@ export namespace Style {
     border
     border-transparent
     rounded-lg
-    hover:bg-solid-grey-50
+    hover:bg-solid-gray-50
   `
 
   export const selected = `
@@ -82,7 +82,7 @@ export namespace Style {
     shadow-1
     rounded-lg
     border
-    border-solid-grey-420
+    border-solid-gray-420
     has-[>:nth-child(7)]:rounded-r-none
   `
 

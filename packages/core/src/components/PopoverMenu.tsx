@@ -15,7 +15,7 @@ export const PopoverMenu = React.forwardRef<
     shadow-1
     rounded-lg
     border
-    border-solid-grey-420
+    border-solid-gray-420
     has-[>:nth-child(7)]:rounded-r-none
   `
 
@@ -46,7 +46,7 @@ export const PopoverMenuItem = React.forwardRef<
     flex
     items-center
     gap-x-1.5
-    hover:bg-solid-grey-50
+    hover:bg-solid-gray-50
     ${Style.focusRectCondensedWithBg}
   `
 
