@@ -9,8 +9,6 @@ const ESCAPES: Record<string, string> = {
 export const escapeHtml = (value: unknown): string =>
   String(value).replace(/[&<>"']/g, (c) => ESCAPES[c] ?? c)
 
-const DATA_IMAGE = /^data:image\/(png|gif|jpe?g|webp|avif);/i
-
 /**
  * Takes control characters out by code point rather than by pattern. A tab or a
  * newline placed between the letters hides the scheme from a reader while the
@@ -33,7 +31,10 @@ export const cleanUrl = (href: string | undefined): string | undefined => {
   if (href == null || href === '') return undefined
   const trimmed = stripControl(String(href)).trim()
   if (/^(?:javascript|vbscript|file):/i.test(trimmed)) return undefined
-  if (/^data:/i.test(trimmed) && !DATA_IMAGE.test(trimmed)) return undefined
+  // Images written as data: used to be kept here and dropped nowhere, since
+  // DOMPurify allows the scheme on an img whatever ALLOWED_URI_REGEXP says. The
+  // content has no use for it, so both this and the sanitiser refuse it now.
+  if (/^data:/i.test(trimmed)) return undefined
   return trimmed
 }
 

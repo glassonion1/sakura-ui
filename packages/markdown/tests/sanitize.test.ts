@@ -1,3 +1,4 @@
+import sharedDOMPurify from 'dompurify'
 import { describe, expect, it } from 'vitest'
 import { render } from '../src/render'
 
@@ -34,6 +35,47 @@ describe('sanitize', () => {
       expect(html('<a href="javascript:alert(1)">click</a>')).not.toContain(
         'javascript:'
       )
+    })
+  })
+
+  describe('the shared DOMPurify', () => {
+    // DOMPurify's default export is one object for the whole page. A hook put
+    // on it runs for everyone, and anyone calling removeAllHooks takes it back
+    // off again — while sanitize goes on returning a fragment, so nothing says
+    // the filters have gone.
+    it('should not be given this package hooks', () => {
+      html('<div style="position: fixed">x</div>')
+      expect(
+        sharedDOMPurify.sanitize('<div style="position: fixed">x</div>')
+      ).toContain('position: fixed')
+    })
+
+    it('should not be able to take this package filters away', () => {
+      html('<div style="position: fixed">x</div>')
+      sharedDOMPurify.removeAllHooks()
+      expect(html('<div style="position: fixed">x</div>')).not.toContain(
+        'position: fixed'
+      )
+    })
+  })
+
+  describe('data URLs', () => {
+    // The URL cleaner used to let images through while ALLOWED_URI_REGEXP took
+    // them out a step later. Nothing in the content uses one; these say which
+    // of the two was meant.
+    const PIXEL =
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=='
+
+    it('should drop one written as an image', () => {
+      expect(html(`![点](${PIXEL})`)).not.toContain('data:')
+    })
+
+    it('should drop one written as a directive', () => {
+      expect(html(`::card-img{src=${PIXEL} alt=点}`)).not.toContain('data:')
+    })
+
+    it('should drop one written in raw HTML', () => {
+      expect(html(`<img src="${PIXEL}" alt="点">`)).not.toContain('data:')
     })
   })
 

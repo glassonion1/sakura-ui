@@ -1,4 +1,4 @@
-import DOMPurify from 'dompurify'
+import createDOMPurify, { type DOMPurify } from 'dompurify'
 
 /**
  * Markdown is allowed to carry raw HTML, so the output is sanitised before it
@@ -102,22 +102,42 @@ const filterStyle = (style: string): string =>
       const [rawProperty, ...rest] = declaration.split(':')
       const property = rawProperty.trim().toLowerCase()
       const value = rest.join(':').trim().toLowerCase()
+      // url(), expression() and @import never appear in the content, and each
+      // is a way back out of the sanitiser. Asked before the property is looked
+      // at, so that a property added to RESTRICTED_VALUES later does not slip
+      // past it.
+      if (/url\(|expression\(|@import|behavior:/i.test(value)) return false
       if (!ALLOWED_CSS_PROPERTIES.has(property)) {
         return Boolean(RESTRICTED_VALUES[property]?.has(value))
       }
-      // url(), expression() and @import never appear in the content, and each is
-      // a way back out of the sanitiser.
-      return !/url\(|expression\(|@import|behavior:/i.test(value)
+      return true
     })
     .map((declaration) => `${declaration};`)
     .join(' ')
 
-let hooked = false
+/**
+ * Whitespace and control characters taken out, so that a scheme spelt with a
+ * tab in the middle of it is read the way the browser will read it. Written by
+ * code point because the linter refuses a regular expression holding them.
+ */
+const withoutBlanks = (value: string): string =>
+  Array.from(value)
+    .filter((char) => (char.codePointAt(0) ?? 0) > 0x20)
+    .join('')
+    .toLowerCase()
 
-const install = () => {
-  if (hooked) return
-  hooked = true
-  DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+let instance: DOMPurify | null = null
+
+/**
+ * An instance of our own, not the shared default export. A hook added to that
+ * one runs for every other caller on the page, and any of them calling
+ * removeAllHooks would take the iframe check and the style filter away with it
+ * — silently, since sanitize would go on returning a fragment either way.
+ */
+const purifier = (): DOMPurify => {
+  if (instance) return instance
+  instance = createDOMPurify(window)
+  instance.addHook('afterSanitizeAttributes', (node) => {
     const element = node as Element
     if (!element.getAttribute) return
 
@@ -125,6 +145,17 @@ const install = () => {
       if (!isAllowedIframe(element.getAttribute('src'))) {
         element.remove()
         return
+      }
+    }
+
+    // DOMPurify allows data: on an img src whatever ALLOWED_URI_REGEXP says,
+    // through its own list of tags that may carry one. The content has no use
+    // for it, and leaving it would make raw HTML the loose way in while the
+    // directives refused the same URL.
+    for (const name of ['src', 'href']) {
+      const value = element.getAttribute(name)
+      if (value && withoutBlanks(value).startsWith('data:')) {
+        element.removeAttribute(name)
       }
     }
 
@@ -142,6 +173,7 @@ const install = () => {
       element.setAttribute('rel', 'noopener noreferrer')
     }
   })
+  return instance
 }
 
 /**
@@ -150,8 +182,7 @@ const install = () => {
  * throw away what has just been built.
  */
 export const sanitize = (html: string): DocumentFragment => {
-  install()
-  return DOMPurify.sanitize(html, {
+  return purifier().sanitize(html, {
     ADD_TAGS,
     ADD_ATTR,
     RETURN_DOM_FRAGMENT: true,
