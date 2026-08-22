@@ -7,22 +7,11 @@ export const PopoverMenu = React.forwardRef<
   React.ComponentProps<'ul'>
 >((props, ref) => {
   const { className, children, ...rest } = props
-  const stylePopover = `
-    min-w-fit
-    w-auto
-    py-2
-    bg-white
-    shadow-1
-    rounded-lg
-    border
-    border-solid-gray-420
-    has-[>:nth-child(7)]:rounded-r-none
-  `
 
   const style = `
     font-normal
     whitespace-nowrap
-    ${stylePopover}
+    ${Style.popover}
   `
 
   return (
