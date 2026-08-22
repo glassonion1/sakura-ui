@@ -76,6 +76,11 @@ const Home = () => {
               <li className={styleSp}>
                 <NavigationItem href="/sakura-ui/forms">Forms</NavigationItem>
               </li>
+              <li className={styleSp}>
+                <NavigationItem href="/sakura-ui/markdown">
+                  Markdown
+                </NavigationItem>
+              </li>
               <li className={clsx(styleSp, 'py-2')} aria-hidden="true">
                 |
               </li>
@@ -94,6 +99,11 @@ const Home = () => {
                             Forms
                           </NavigationItem>
                         </li>
+                        <li>
+                          <NavigationItem href="/sakura-ui/markdown">
+                            Markdown
+                          </NavigationItem>
+                        </li>
                       </ul>
                     </nav>
                   </div>
@@ -105,7 +115,14 @@ const Home = () => {
       </header>
       <main className={containerStyle}>
         <div className="text-sumi-900 text-base p-8">
-          <Link href="./forms">Form examples</Link>
+          <ul className="flex gap-8">
+            <li>
+              <Link href="./forms">Form examples</Link>
+            </li>
+            <li>
+              <Link href="./markdown">Markdown examples</Link>
+            </li>
+          </ul>
           <IconButton
             className="mr-2 fixed bottom-4 right-4"
             icon="arrow_upward"

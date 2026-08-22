@@ -1,6 +1,6 @@
 {
   "name": "@sakura-ui/markdown",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "",
   "keywords": [
     "markdown"
@@ -38,34 +38,20 @@
     "build": "run-p build:*",
     "build:scripts": "vite build",
     "build:types": "tsc && tsc-alias",
-    "test": "vitest run --passWithNoTests",
+    "test": "tsc -p tsconfig.test.json && vitest run --passWithNoTests",
     "test:watch": "vitest"
   },
   "peerDependencies": {
-    "@sakura-ui/core": "^0.5.0",
+    "@sakura-ui/core": "^0.5.2",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "tailwindcss": "^4.1.17"
   },
   "dependencies": {
     "@sakura-ui/helper": "workspace:*",
+    "dompurify": "^3.2.7",
     "github-slugger": "^2.0.0",
-    "hastscript": "^9.0.1",
-    "mdast-util-directive": "^3.1.0",
-    "mdast-util-to-string": "^4.0.0",
-    "rehype-external-links": "^3.0.0",
-    "rehype-raw": "^7.0.0",
-    "rehype-react": "^8.0.0",
-    "rehype-shift-heading": "^2.0.0",
-    "rehype-slug": "^6.0.0",
-    "remark": "^15.0.1",
-    "remark-breaks": "^4.0.0",
-    "remark-directive": "^3.0.1",
-    "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "unified": "^11.0.5",
-    "unist-util-visit": "^5.1.0"
+    "marked": "^18.0.10"
   },
   "devDependencies": {
     "@sakura-ui/core": "workspace:*",
@@ -77,6 +63,7 @@
     "@types/unist": "^3.0.3",
     "autoprefixer": "catalog:",
     "happy-dom": "catalog:",
+    "jsdom": "^30.0.1",
     "postcss": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

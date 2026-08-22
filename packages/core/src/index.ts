@@ -40,3 +40,5 @@ export {
 } from './components'
 
 export type { CardHeaderAs } from './components'
+
+export { styles } from './components'

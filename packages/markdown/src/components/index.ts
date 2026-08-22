@@ -1,1 +1,1 @@
-export { Markdown } from './Markdown'
+export { Markdown, TableOfContents } from './Markdown'

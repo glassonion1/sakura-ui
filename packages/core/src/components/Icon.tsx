@@ -8,43 +8,43 @@ export namespace Icon {
   }
 }
 
+export const iconSizeStyle = {
+  16: '!text-[16px]',
+  20: '!text-[20px]',
+  24: '!text-[24px]',
+  40: '!text-[40px]',
+  44: '!text-[44px]',
+  48: '!text-[48px]'
+} as const
+
+// @see: https://developers.google.com/fonts/docs/material_symbols
+//.material-symbols-outlined {
+//  font-family: 'Material Symbols Outlined';
+//  font-weight: normal;
+//  font-style: normal;
+//  font-size: 24px;  /* Preferred icon size */
+//  display: inline-block;
+//  line-height: 1;
+//  text-transform: none;
+//  letter-spacing: normal;
+//  word-wrap: normal;
+//  white-space: nowrap;
+//  direction: ltr;
+//}
+export const iconStyle = `
+  font-icon
+  font-light
+  inline-block
+  leading-none
+  align-middle
+  whitespace-nowrap
+`
+
 export const Icon = React.forwardRef<HTMLElement, Icon.Props>((props, ref) => {
   const { className, altText = '', opticalSize = 24, children, ...rest } = props
 
-  const size = {
-    16: '!text-[16px]',
-    20: '!text-[20px]',
-    24: '!text-[24px]',
-    40: '!text-[40px]',
-    44: '!text-[44px]',
-    48: '!text-[48px]'
-  }
-
-  const fontSize = size[opticalSize]
-
-  // @see: https://developers.google.com/fonts/docs/material_symbols
-  //.material-symbols-outlined {
-  //  font-family: 'Material Symbols Outlined';
-  //  font-weight: normal;
-  //  font-style: normal;
-  //  font-size: 24px;  /* Preferred icon size */
-  //  display: inline-block;
-  //  line-height: 1;
-  //  text-transform: none;
-  //  letter-spacing: normal;
-  //  word-wrap: normal;
-  //  white-space: nowrap;
-  //  direction: ltr;
-  //}
-
-  const style = `
-    font-icon
-    font-light
-    inline-block
-    leading-none
-    align-middle
-    whitespace-nowrap
-  `
+  const fontSize = iconSizeStyle[opticalSize]
+  const style = iconStyle
 
   return (
     <>

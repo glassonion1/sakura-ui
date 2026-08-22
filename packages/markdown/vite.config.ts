@@ -24,7 +24,11 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'happy-dom',
+    // jsdom rather than happy-dom, which the rest of the repository uses:
+    // DOMPurify drops the first top-level element under happy-dom, so <p>段落</p>
+    // sanitises to 段落 and a table loses the container it scrolls inside. The
+    // same input is left alone under jsdom, and in a browser.
+    environment: 'jsdom',
     setupFiles: 'tests/vitest.setup.ts'
   }
 })

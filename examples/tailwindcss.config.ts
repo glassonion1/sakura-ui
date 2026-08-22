@@ -9,7 +9,10 @@ const config: Config = {
     './src/**/*.{js,ts,jsx,tsx}',
     '../packages/core/src/**/*.{js,ts,jsx,tsx}',
     '../packages/forms/src/**/*.{js,ts,jsx,tsx}',
-    '../packages/helper/src/**/*.{js,ts,jsx,tsx}'
+    '../packages/helper/src/**/*.{js,ts,jsx,tsx}',
+    // The markdown package writes class names into the HTML it builds, so its
+    // source has to be scanned like a component's.
+    '../packages/markdown/src/**/*.{js,ts,jsx,tsx}'
   ],
   plugins: [sakuraPlugin]
 }
