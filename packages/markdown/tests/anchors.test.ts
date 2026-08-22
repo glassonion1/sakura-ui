@@ -37,6 +37,15 @@ describe('anchors', () => {
     expect(ids(':::card{href=/x}\n::card-title[題]{#top}\n:::')).toEqual(['top'])
   })
 
+  it('should be reachable from a link in the prose', () => {
+    // The point of naming one. decorate.ts marks up links that leave the page,
+    // and a link to a name on this one must not be taken for one of those.
+    const out = html('[料金へ](#pricing)\n\n:::cell{#pricing}\n本文\n:::')
+    expect(out).toContain('href="#pricing"')
+    expect(out).toContain('id="pricing"')
+    expect(out).not.toContain('target="_blank"')
+  })
+
   it('should not answer to {id=name}', () => {
     // A sigil says something about the element and means the same everywhere;
     // an attribute belongs to the directive that reads it. Keeping them apart

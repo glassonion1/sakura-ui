@@ -117,6 +117,10 @@ Line one<br>line two</br>line three</BR>line four
 
 ## Directives
 
+Anything written with \`{#name}\` can be linked to from elsewhere on the page:
+[the questions](#questions), [the video](#video), or
+[the card that is a link](#link-card).
+
 ### Card
 
 :::card
@@ -125,7 +129,7 @@ Line one<br>line two</br>line three</BR>line four
 ::card-description[What the card is about.]
 :::
 
-:::card{href=/sakura-ui/forms}
+:::card{#link-card href=/sakura-ui/forms}
 ::card-title[Link card title]
 ::card-description[The whole card is the link.]
 ::card-footer[22 August 2026]
@@ -163,7 +167,7 @@ The second cell.
 
 ### Questions
 
-:::faq
+:::faq{#questions}
 ::faq-q[Where is this syntax used?]
 ::faq-a[It is the syntax the README documents.]
 ::faq-q[Can I write HTML?]
@@ -172,7 +176,9 @@ The second cell.
 
 ### Video
 
-::youtube[An introduction]{video=https://www.youtube.com/watch?v=yXdbvBzxeb8}
+The address is written the way it is copied from the browser.
+
+::youtube[An introduction]{#video video=https://www.youtube.com/watch?v=yXdbvBzxeb8}
 
 ## CJK
 
