@@ -1,6 +1,13 @@
 import { H2, Link, Ul } from '@sakura-ui/core'
 import React from 'react'
-import { type HeadingItem, render } from '../render'
+import { type HeadingItem, render, type RenderResult } from '../render'
+
+/**
+ * What the server, and the first render in the browser, have to show. The
+ * pipeline sanitises and styles through the DOM, so it cannot run where there
+ * is no document.
+ */
+const NOTHING_YET: RenderResult = { html: '', headings: [] }
 
 interface TocProps {
   items: HeadingItem[]
@@ -42,10 +49,17 @@ export const Markdown = ({
   shiftHeading = 0,
   tocMaxDepth = 2
 }: Markdown.Props) => {
-  const { html, headings } = React.useMemo(
-    () => render(children, { shiftHeading, tocMaxDepth }),
-    [children, shiftHeading, tocMaxDepth]
-  )
+  // Converted in an effect, not while rendering. useMemo runs on the server as
+  // well, and the pipeline reaches for document, so rendering there threw
+  // instead of producing the empty output the caller could recover from. This
+  // way the server and the first render in the browser agree, and the markup
+  // arrives once the effect has run.
+  const [{ html, headings }, setResult] =
+    React.useState<RenderResult>(NOTHING_YET)
+
+  React.useEffect(() => {
+    setResult(render(children, { shiftHeading, tocMaxDepth }))
+  }, [children, shiftHeading, tocMaxDepth])
 
   React.useEffect(() => {
     // The browser looked for the anchor before this markup existed, so the jump
