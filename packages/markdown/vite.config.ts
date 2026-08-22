@@ -24,18 +24,11 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'happy-dom',
-    setupFiles: 'tests/vitest.setup.ts',
-    environmentOptions: {
-      // The youtube directive renders an iframe, and happy-dom would otherwise
-      // go and fetch it.
-      happyDOM: {
-        settings: {
-          disableIframePageLoading: true,
-          disableJavaScriptFileLoading: true,
-          disableCSSFileLoading: true
-        }
-      }
-    }
+    // jsdom rather than happy-dom, which the rest of the repository uses:
+    // DOMPurify drops the first top-level element under happy-dom, so <p>段落</p>
+    // sanitises to 段落 and a table loses the container it scrolls inside. The
+    // same input is left alone under jsdom, and in a browser.
+    environment: 'jsdom',
+    setupFiles: 'tests/vitest.setup.ts'
   }
 })

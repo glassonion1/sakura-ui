@@ -46,6 +46,29 @@ export const MyPage = () => {
 }
 ```
 
+## Properties
+
+| Property | Default | |
+|---|---|---|
+| `children` | — | The Markdown to render. |
+| `showToc` | `false` | Puts a table of contents above the document. |
+| `tocTitle` | `目次` | The heading of that table of contents. |
+| `shiftHeading` | `0` | Moves every heading down by this many levels, so that a document starting at `#` can sit under a page title. |
+| `tocMaxDepth` | `2` | How deep the table of contents goes. Headings below it are still rendered. |
+
+`shiftHeading` was called `shiftHeding` before 0.4.0.
+
+## Raw HTML
+
+Markdown may contain HTML, and it is sanitised before it reaches the page:
+script, event handlers, and `javascript:` URLs never survive. Inline `style` is
+kept, but only the properties the design system expects — `position: fixed`, for
+instance, is dropped, since a transparent box over the page takes every click
+aimed at what is underneath it.
+
+An `iframe` is allowed only for the video the `youtube` directive embeds. One
+pointing anywhere else is removed.
+
 ## Syntax
 ### LinkButton
 ```

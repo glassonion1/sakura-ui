@@ -1,63 +1,6 @@
-import React, { Children } from 'react'
-import * as production from 'react/jsx-runtime'
-import { remark } from 'remark'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkGfm from 'remark-gfm'
-import remarkDirective from 'remark-directive'
-import remarkRehype from 'remark-rehype'
-import remarkBreaks from 'remark-breaks'
-import rehypeRaw from 'rehype-raw'
-import rehypeExternalLinks from 'rehype-external-links'
-import rebypeShiftHeding from 'rehype-shift-heading'
-import rehypeReact from 'rehype-react'
-import rehypeSlug from 'rehype-slug'
-import { cx } from '@sakura-ui/helper'
-import {
-  Link,
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  Table,
-  Caption,
-  Thead,
-  Tbody,
-  Th,
-  Tr,
-  Td,
-  Ul,
-  Ol,
-  Pre,
-  Code,
-  Faq,
-  Question,
-  Answer,
-  Button,
-  Card,
-  CardImg,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  LinkCard,
-  LinkCardHeader,
-  LinkCardFooter,
-  type CardHeaderAs,
-  OverflowContainer
-} from '@sakura-ui/core'
-import {
-  attrPlugin,
-  youtubePlugin,
-  linkButtonPlugin,
-  gridPlugin,
-  cellPlugin,
-  cardPlugin,
-  faqPlugin,
-  headingsPlugin,
-  type HeadingItem
-} from '../plugins'
+import { H2, Link, Ul } from '@sakura-ui/core'
+import React from 'react'
+import { type HeadingItem, render } from '../render'
 
 interface TocProps {
   items: HeadingItem[]
@@ -80,310 +23,51 @@ export const TableOfContents = ({ items }: TocProps) => {
   )
 }
 
-interface TableContainerProps extends React.ComponentPropsWithoutRef<'table'> {}
-
-const TableContainer = (props: TableContainerProps) => {
-  const { className, children, ...restProps } = props
-
-  return (
-    <OverflowContainer>
-      <Table className={cx(className)} {...restProps}>
-        {children}
-      </Table>
-    </OverflowContainer>
-  )
-}
-
-interface DataProps {
-  [key: `data-${string}`]: unknown
-}
-
-interface AnchorProps extends React.ComponentPropsWithoutRef<'a'>, DataProps {}
-
-const Anchor = (props: AnchorProps) => {
-  const { children, href, ...restProps } = props
-
-  if (restProps['data-node'] === 'link-button') {
-    return (
-      <Button as="a" variant="secondary" href={href}>
-        {children}
-      </Button>
-    )
+export namespace Markdown {
+  export interface Props {
+    tocTitle?: string
+    showToc?: boolean
+    /** Moves every heading down by this many levels. */
+    shiftHeading?: number
+    /** How deep the table of contents goes. Defaults to 2. */
+    tocMaxDepth?: number
+    children: string
   }
-
-  return (
-    <Link href={href} {...restProps}>
-      {children}
-    </Link>
-  )
-}
-
-interface ArticleProps
-  extends React.ComponentPropsWithoutRef<'article'>,
-    DataProps {}
-
-const Article = (props: ArticleProps) => {
-  const { children, className, ...restProps } = props
-
-  const node = restProps['data-node']
-
-  if (node === 'card') {
-    // The href now lives on the title, which is what carries the link.
-    if (restProps['data-behavior'] === 'link') {
-      return <LinkCard className={cx(className)}>{children}</LinkCard>
-    }
-    return <Card className={cx(className)}>{children}</Card>
-  }
-
-  return (
-    <article className={className} {...restProps}>
-      {children}
-    </article>
-  )
-}
-
-interface DivProps extends React.ComponentPropsWithoutRef<'div'>, DataProps {
-  headingLevel?: CardHeaderAs
-}
-
-const Div = (props: DivProps) => {
-  const { children, headingLevel = 'h3', ...restProps } = props
-
-  const node = restProps['data-node']
-  const isLink = restProps['data-behavior'] === 'link'
-
-  if (node === 'card-title') {
-    if (isLink) {
-      return (
-        <LinkCardHeader
-          as={headingLevel}
-          href={restProps['data-href'] as string}
-        >
-          {children}
-        </LinkCardHeader>
-      )
-    }
-    return <CardHeader as={headingLevel}>{children}</CardHeader>
-  }
-  if (node === 'card-description') {
-    return <CardBody>{children}</CardBody>
-  }
-  if (node === 'card-footer') {
-    if (isLink) {
-      return <LinkCardFooter>{children}</LinkCardFooter>
-    }
-    return <CardFooter>{children}</CardFooter>
-  }
-
-  if (restProps['data-behavior'] === 'list') {
-    // Set the css class configured for cells to the ul tag
-    return (
-      <ul className={restProps.className}>
-        {Children.map(children, (child) => (
-          <li className="sm:grid" key={Math.random()}>
-            {child}
-          </li>
-        ))}
-      </ul>
-    )
-  }
-
-  return <div {...restProps}>{children}</div>
-}
-
-interface ImgProps extends React.ComponentPropsWithoutRef<'img'>, DataProps {}
-
-const Img = (props: ImgProps) => {
-  const { children, className, ...restProps } = props
-
-  if (restProps['data-node'] === 'card-img') {
-    return (
-      <CardImg
-        className={cx('w-full aspect-[352/226]', className)}
-        {...restProps}
-      />
-    )
-  }
-
-  if (restProps['data-node'] === 'cell-img') {
-    // biome-ignore lint/a11y/useAltText: alt is carried by restProps from the markdown image syntax
-    return <img className={cx('mb-4', className)} {...restProps} />
-  }
-
-  // biome-ignore lint/a11y/useAltText: alt is carried by restProps from the markdown image syntax
-  return <img className={className} {...restProps} />
-}
-
-interface IframeProps extends React.ComponentPropsWithoutRef<'iframe'> {}
-
-const Iframe = (props: IframeProps) => {
-  const { className, children, ...restProps } = props
-
-  const styleMargin = `
-    my-8
-  `
-
-  let style = `
-    aspect-video
-    w-full
-    max-w-[470px]
-  `
-
-  if (props.width || props.height) {
-    style = `
-      aspect-video
-      w-full
-      lg:aspect-auto
-      lg:w-[${props.width}px]
-      lg:h-[${props.height}px]
-    `
-  }
-
-  return (
-    <iframe className={cx(styleMargin, style, className)} {...restProps}>
-      {children}
-    </iframe>
-  )
-}
-
-const sleep = (time: number) =>
-  new Promise((resolve) => setTimeout(resolve, time))
-
-type Props = {
-  tocTitle?: string
-  showToc?: boolean
-  shiftHeding?: number
-  children: string
 }
 
 export const Markdown = ({
   children,
   showToc,
   tocTitle = '目次',
-  shiftHeding = 0
-}: Props) => {
-  const [toc, setToc] = React.useState<HeadingItem[]>([])
-  const [element, setElement] = React.useState(<React.Fragment />)
-
-  const markdown2Headings = React.useCallback((md: string) => {
-    // biome-ignore lint/suspicious/noExplicitAny: remark does not type the data that plugins attach to the VFile
-    const result: any = remark().use(headingsPlugin).processSync(md)
-
-    const headings: HeadingItem[] = result.data.fm.headings.filter(
-      (obj: HeadingItem) => obj.depth < 3
-    )
-
-    return headings
-  }, [])
-
-  const markdown2ReactElements = React.useCallback(
-    (md: string) => {
-      // Card titles sit in the body of the document, so h3 is the natural base.
-      // rehype-shift-heading cannot reach them because they are still divs when
-      // it runs, so the same shift is applied here.
-      const cardHeadingLevel = `h${Math.min(
-        6,
-        Math.max(1, 3 + shiftHeding)
-      )}` as CardHeaderAs
-
-      const rhypeReactOptions = {
-        ...production,
-        components: {
-          a: Anchor,
-          article: Article,
-          button: Button,
-          code: Code,
-          dl: Faq,
-          dt: Question,
-          dd: Answer,
-          h1: H1,
-          h2: H2,
-          h3: H3,
-          h4: H4,
-          h5: H5,
-          h6: H6,
-          iframe: Iframe,
-          img: Img,
-          ul: Ul,
-          ol: Ol,
-          pre: Pre,
-          table: TableContainer,
-          caption: Caption,
-          thead: Thead,
-          tbody: Tbody,
-          th: Th,
-          tr: Tr,
-          td: Td,
-          div: (props: DivProps) => (
-            <Div {...props} headingLevel={cardHeadingLevel} />
-          )
-        }
-      }
-
-      const elem = unified()
-        .use(remarkParse) // md    -> mdast     (Markdown Abstract Syntax Tree)
-        .use(remarkGfm) // mdast -> GFM mdast (GitHub Flavored Markdown Abstract Syntax Tree)
-        .use(remarkDirective) // support for directive syntax
-        .use(remarkBreaks)
-        .use(attrPlugin)
-        .use(youtubePlugin)
-        .use(linkButtonPlugin)
-        .use(cellPlugin)
-        .use(cardPlugin)
-        .use(faqPlugin)
-        .use(gridPlugin)
-        .use(remarkRehype, {
-          allowDangerousHtml: true
-        }) // mdast -> hast      (HTML Abstract Syntax Tree)
-        .use(rehypeRaw) // hast  -> hast
-        .use(rehypeExternalLinks, { target: '_blank' }) // hast  -> hast
-        .use(rebypeShiftHeding, { shift: shiftHeding }) // hast  -> hast
-        .use(rehypeSlug)
-        // biome-ignore lint/suspicious/noExplicitAny: rehype-react's declared option type rejects the component map it accepts at runtime
-        .use(rehypeReact, rhypeReactOptions as any) // hast  -> React Elements
-        .processSync(md).result
-      return elem
-    },
-    [shiftHeding]
+  shiftHeading = 0,
+  tocMaxDepth = 2
+}: Markdown.Props) => {
+  const { html, headings } = React.useMemo(
+    () => render(children, { shiftHeading, tocMaxDepth }),
+    [children, shiftHeading, tocMaxDepth]
   )
 
   React.useEffect(() => {
-    setToc(markdown2Headings(children))
-    setElement(markdown2ReactElements(children))
-  }, [children, markdown2Headings, markdown2ReactElements])
-
-  React.useEffect(() => {
-    // Necessary to make in-page links work.
-    const scrollToHash = async () => {
-      await sleep(500)
-      if (location.hash) {
-        document
-          .getElementById(decodeURI(location.hash.substring(1)))
-          ?.scrollIntoView()
-      }
-    }
-    scrollToHash()
-  }, [])
-
-  const style = `
-    rounded-3xl
-    p-10
-    bg-yellow-50
-  `
+    // The browser looked for the anchor before this markup existed, so the jump
+    // is made again once it does.
+    if (!html) return
+    const id = decodeURI(window.location.hash.slice(1))
+    if (!id) return
+    document.getElementById(id)?.scrollIntoView()
+  }, [html])
 
   return (
     <div className="py-8 flex flex-col gap-8">
-      {showToc && (
-        <nav className={style}>
-          <h2 className="mb-4 font-bold text-h-xs-m sm:text-h-xs">
-            {tocTitle}
-          </h2>
+      {showToc && headings.length > 0 && (
+        <nav className="rounded-3xl p-10 bg-yellow-50">
+          <H2 className="pt-0">{tocTitle}</H2>
           <Ul>
-            <TableOfContents items={toc} />
+            <TableOfContents items={headings} />
           </Ul>
         </nav>
       )}
-      {element}
+      {/* The markup is sanitised in src/sanitize.ts before it gets here. */}
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   )
 }

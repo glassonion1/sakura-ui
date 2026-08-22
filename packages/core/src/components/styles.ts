@@ -10,6 +10,11 @@
  */
 
 export {
+  base as buttonBaseStyle,
+  getVariantStyle as getButtonVariantStyle,
+  getSizeStyle as getButtonSizeStyle
+} from './buttonStyle'
+export {
   cardStyle,
   cardImgStyle,
   cardHeaderStyle,
