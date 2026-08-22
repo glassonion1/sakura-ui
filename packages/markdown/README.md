@@ -150,3 +150,54 @@ You can contact the apprenticeship office through our official phone hotline abo
 ::::
 ```
 <img width="1133" alt="スクリーンショット 2024-07-26 23 59 50" src="https://github.com/user-attachments/assets/0f6b51fb-068e-4173-8011-f782c1b894f6">
+
+## How it is put together
+
+Markdown becomes HTML in three steps, and each of them owns one thing.
+
+```
+markdown
+   │
+   │  src/render.ts          builds a Marked for this call and runs the three steps
+   ▼
+marked ── src/marked/        the ::: syntax, as a marked extension
+   │
+   ▼
+HTML string
+   │
+   │  src/sanitize.ts        takes out what must not reach the DOM
+   ▼
+DocumentFragment
+   │
+   │  src/decorate.ts        puts the design system on it, collects the headings
+   ▼
+HTML string + headings
+   │
+   │  src/components/Markdown.tsx   renders it, draws the table of contents
+   ▼
+page
+```
+
+| | |
+|---|---|
+| `render.ts` | The entry point. A fresh `Marked` per call, so `marked.use()` never reaches another caller. |
+| `sanitize.ts` | The DOMPurify configuration: which tags, which attributes, which CSS properties. Returns a fragment rather than a string, since the next step has to walk it. |
+| `decorate.ts` | Runs over the finished document. Adds the classes, wraps tables so they scroll, marks up links that leave the page, generates the heading ids and collects them for the table of contents. |
+| `components/Markdown.tsx` | The React side: the table of contents, the markup, and the jump to the anchor in the URL. |
+
+Inside `src/marked/`:
+
+| | |
+|---|---|
+| `registry.ts` | The list of directive names. **Adding or removing a directive starts here**; a name that is not in it is left as the text it is. |
+| `tokenizer.ts` | Reads `:::name{attrs}` into tokens. Nesting needs no bookkeeping: the closing fence is the first line of at least as many colons, and an inner directive uses fewer. |
+| `renderer.ts` | Tokens to HTML. Also where `as=list` wraps each child in an `<li>`, which is possible here and not later, because the children are still apart. |
+| `attributes.ts` | `{key=value}` and the balanced reader for `[label]`, which may hold brackets of its own. |
+| `html.ts` | Escaping and URL cleaning. Nothing else builds an attribute by hand. |
+| `index.ts` | Registers the block and inline extensions under one name, since marked looks the renderer up by the token type. |
+
+Styling happens in `decorate.ts` rather than in `renderer.ts` so that a table
+written as raw HTML looks like one written with pipes. The class strings come
+from `@sakura-ui/core`, which exports them under a `styles` namespace; keeping a
+copy here would mean the two drifting apart the first time a component is
+restyled.
