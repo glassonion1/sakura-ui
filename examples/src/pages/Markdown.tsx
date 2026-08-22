@@ -1,10 +1,16 @@
-import { H1, H2, MenuButton, NavigationItem } from '@sakura-ui/core'
+import { Button, H1, H2, MenuButton, NavigationItem } from '@sakura-ui/core'
+import { LabelControl, Textarea } from '@sakura-ui/forms'
 import { Markdown as MarkdownRenderer } from '@sakura-ui/markdown'
 import clsx from 'clsx'
 import React from 'react'
 import { markdownSample } from './markdownSample'
 
 const Markdown = () => {
+  const [draft, setDraft] = React.useState(markdownSample)
+  const [source, setSource] = React.useState(markdownSample)
+
+  const dirty = draft !== source
+
   const style = `
     min-h-screen
     text-solid-gray-900
@@ -13,13 +19,15 @@ const Markdown = () => {
 
   const styleSp = 'hidden sm:block'
 
-  // The source sits still while the rendered document scrolls past it, so the
-  // two can be read against each other.
+  // The editor stays put while the document scrolls past it, so the two can be
+  // read against each other. It is a column of its own height so that the text
+  // area takes what is left and the buttons stay in view.
   const paneStyle = `
     lg:sticky
     lg:top-0
     lg:h-screen
-    lg:overflow-auto
+    lg:flex
+    lg:flex-col
     py-8
   `
 
@@ -72,24 +80,51 @@ const Markdown = () => {
 
       <main className="px-6">
         <H1 className="pt-8">Markdown</H1>
-        <p className="pt-4 pb-4">
-          左が書いたもの、右が出たものです。ガイドが実際に使っている書き方を
-          ひととおり並べてあるので、パイプラインに手を入れたらここを見て
-          崩れていないか確かめてください。
+        <p className="pt-4">
+          左を書き換えて「表示する」を押すと、右がその通りに変わります。
+          はじめから入っているのは、ガイドが実際に使っている書き方をひととおり
+          並べたものです。パイプラインに手を入れたらここを見て、崩れていないか
+          確かめてください。
         </p>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <section className={paneStyle}>
-            <H2 className="pt-0">書いたもの</H2>
-            <pre className="mt-4 p-4 bg-solid-gray-50 rounded-lg text-code font-code whitespace-pre-wrap [overflow-wrap:anywhere]">
-              {markdownSample}
-            </pre>
+            <H2 className="pt-0">書く</H2>
+            <div className="mt-4 flex flex-col gap-4 lg:flex-1 lg:min-h-0">
+              <LabelControl
+                labelText="Markdown"
+                className="lg:flex-1 lg:min-h-0 w-full"
+              >
+                <Textarea
+                  className="w-full font-code text-code lg:h-full"
+                  rows={16}
+                  spellCheck={false}
+                  value={draft}
+                  onChange={(e) => setDraft(e.target.value)}
+                />
+              </LabelControl>
+              <div className="flex gap-4 items-center">
+                <Button onClick={() => setSource(draft)}>表示する</Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setDraft(markdownSample)
+                    setSource(markdownSample)
+                  }}
+                >
+                  元に戻す
+                </Button>
+                <p aria-live="polite" className="text-base-sm">
+                  {dirty ? '未反映の変更があります' : ''}
+                </p>
+              </div>
+            </div>
           </section>
 
           <section className="py-8">
             <H2 className="pt-0">出たもの</H2>
             <MarkdownRenderer showToc shiftHeading={2}>
-              {markdownSample}
+              {source}
             </MarkdownRenderer>
           </section>
         </div>
