@@ -70,6 +70,35 @@ An `iframe` is allowed only for the video the `youtube` directive embeds. One
 pointing anywhere else is removed.
 
 ## Syntax
+
+A directive is a name, then an optional `[label]`, then optional `{attributes}`,
+in that order.
+
+```
+:link-button[Services and applications]{href=/services}
+```
+
+Quote a value that has a space in it. Without the quotes the value stops at the
+first one, and the rest is read as another attribute and dropped — which is how
+alternative text ends up as one long word.
+
+```
+::card-img{src=/photo.jpg alt="A field at dawn"}
+```
+
+Write `{#name}` to name the element, so that a link somewhere else can point at
+it.
+
+```
+:::card{#pricing}
+::card-title[What it costs]
+:::
+```
+
+The name is used as written and nothing else on the page is given it, so a
+heading further down that would have produced the same one gets `-1` instead.
+`youtube` reads `id` as the video, and `{#name}` stays out of its way.
+
 ### LinkButton
 ```
 :link-button[Services and applications]{href=/services}
@@ -110,7 +139,7 @@ cell; it carries the spacing that separates it from the text underneath.
 
 ```
 :::cell
-::cell-img{src=https://dummyimage.com/600x400/000/fff alt=alternative_text}
+::cell-img{src=https://dummyimage.com/600x400/000/fff alt="A field at dawn"}
 Lorem ipsum dolor sit amet.
 :::
 ```
@@ -119,17 +148,17 @@ Lorem ipsum dolor sit amet.
 ```
 ::::grid-cols-3
 :::card
-::card-img{alt=alternative_text src=https://dummyimage.com/600x400/000/fff}
+::card-img{alt="A field at dawn" src=https://dummyimage.com/600x400/000/fff}
 ::card-title[Card title]
 ::card-description[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
 :::
 :::card
-::card-img{alt=alternative_text src=https://dummyimage.com/600x400/000/fff}
+::card-img{alt="A field at dawn" src=https://dummyimage.com/600x400/000/fff}
 ::card-title[Card title]
 ::card-description[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
 :::
 :::card
-::card-img{alt=alternative_text src=https://dummyimage.com/600x400/000/fff}
+::card-img{alt="A field at dawn" src=https://dummyimage.com/600x400/000/fff}
 ::card-title[Card title]
 ::card-description[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
 :::
