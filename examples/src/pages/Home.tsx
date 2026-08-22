@@ -66,9 +66,7 @@ const Home = () => {
       <header className="max-w-[1120px] mx-auto">
         <div className="p-6 xl:px-0 flex items-center justify-between">
           <div className="text-3xl font-bold">
-            <a className="" href="/sakura-ui/">
-              Sakura-UI
-            </a>
+            <a href="/sakura-ui/">Sakura-UI</a>
           </div>
           <nav>
             <ul className="flex sm:gap-8">
@@ -267,9 +265,13 @@ const Home = () => {
                 </Card>
               </li>
               <li>
-                <Card>
+                {/* Card renders a div and carries no ARIA on its own. A card that is
+                    self-contained content, rather than a link to it, says so itself. */}
+                <Card as="article" aria-labelledby="card-1-title">
                   <CardImg src="bg-mt.webp" className="h-48 w-full" />
-                  <CardHeader as="h3">Header: XXXxxx</CardHeader>
+                  <CardHeader as="h3" id="card-1-title">
+                    Header: XXXxxx
+                  </CardHeader>
                   <CardBody>Body: XXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxx</CardBody>
                 </Card>
               </li>
@@ -303,9 +305,11 @@ const Home = () => {
             </Card>
           </div>
           <div className="my-4 grid grid-cols-3 gap-4">
-            <Card className="">
+            <Card>
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
-              <CardHeader as="h3">Header:XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardHeader>
+              <CardHeader as="h3">
+                Header:XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+              </CardHeader>
               <CardBody>
                 Body:XXXXXXXXXXXX
                 <br />
@@ -321,7 +325,7 @@ const Home = () => {
                 </Button>
               </CardFooter>
             </Card>
-            <Card className="">
+            <Card>
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
               <CardHeader as="h3">Header: XXXxxx</CardHeader>
               <CardBody>
@@ -333,7 +337,7 @@ const Home = () => {
                 </Button>
               </CardFooter>
             </Card>
-            <Card className="">
+            <Card>
               <CardImg src="bg-mt.webp" className="h-48 w-full" />
               <CardHeader as="h3">Header: XXXxxx</CardHeader>
               <CardBody>
@@ -346,14 +350,22 @@ const Home = () => {
             <ul className="flex flex-col gap-4">
               <li>
                 <LinkCard>
-                  <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
+                  <LinkCardHeader as="h3" href="/">
+                    xxxXXX
+                  </LinkCardHeader>
                   <CardBody>xxxxxxxxXXX</CardBody>
                   <LinkCardFooter>June 27th, 205</LinkCardFooter>
                 </LinkCard>
               </li>
               <li>
                 <LinkCard>
-                  <LinkCardHeader as="h3" href="https://google.com" target="_blank">xxxXXX</LinkCardHeader>
+                  <LinkCardHeader
+                    as="h3"
+                    href="https://google.com"
+                    target="_blank"
+                  >
+                    xxxXXX
+                  </LinkCardHeader>
                   <CardBody>xxxxxxxxXXX</CardBody>
                   <LinkCardFooter />
                 </LinkCard>
@@ -361,7 +373,9 @@ const Home = () => {
             </ul>
             <div className="my-4 grid grid-cols-3 gap-4">
               <LinkCard>
-                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
+                <LinkCardHeader as="h3" href="/">
+                  xxxXXX
+                </LinkCardHeader>
                 <CardBody>
                   xxxxxxxxXXX
                   <br />
@@ -372,22 +386,30 @@ const Home = () => {
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
               <LinkCard>
-                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
+                <LinkCardHeader as="h3" href="/">
+                  xxxXXX
+                </LinkCardHeader>
                 <CardBody>xxxxxxxxXXX</CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
               <LinkCard>
-                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
+                <LinkCardHeader as="h3" href="/">
+                  xxxXXX
+                </LinkCardHeader>
                 <CardBody>xxxxxxxxXXX</CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
               <LinkCard>
-                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
+                <LinkCardHeader as="h3" href="/">
+                  xxxXXX
+                </LinkCardHeader>
                 <CardBody>xxxxxxxxXXX</CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
               <LinkCard>
-                <LinkCardHeader as="h3" href="/">xxxXXX</LinkCardHeader>
+                <LinkCardHeader as="h3" href="/">
+                  xxxXXX
+                </LinkCardHeader>
                 <CardBody>
                   xxxxxxxxXXX
                   <br />
