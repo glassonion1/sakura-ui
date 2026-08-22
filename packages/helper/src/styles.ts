@@ -86,18 +86,6 @@ export namespace Style {
     has-[>:nth-child(7)]:rounded-r-none
   `
 
-  export const popoverPositionBottomRight = `
-    absolute
-    top-11
-    right-0
-  `
-
-  export const popoverPositionBottomLeft = `
-    absolute
-    top-11
-    left-0
-  `
-
   export namespace Peer {
     export const focus = `
       peer-focus-visible:outline-4
