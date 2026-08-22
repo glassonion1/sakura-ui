@@ -182,6 +182,42 @@ If a visible label is not an option, pass `aria-label` yourself; it is forwarded
 ## Markdwon extension
 - Markdown
 
+## Accessible names
+
+A note for anyone working on these components, rather than for people using them.
+
+Whether an element can be named at all is decided by its role, not by the attribute
+you write. Every ARIA role declares where its name may come from:
+
+| Name from | Meaning | Roles |
+|---|---|---|
+| author, contents | `aria-label`, `aria-labelledby`, **or the text inside** | `button`, `link`, `heading`, `cell`, `option`, `tab`, `menuitem` |
+| author | `aria-label`, `aria-labelledby` or `title` **only** | `article`, `region`, `dialog`, `img`, `table`, `form` |
+| prohibited | cannot be named; the attribute is ignored | `generic` (a bare `<div>` or `<span>`), `paragraph` |
+
+Two consequences catch people out.
+
+**A `<div>` cannot be given a name.** It maps to `generic`, where naming is prohibited,
+so `<div aria-label="Card">` does nothing at all. Reaching for a name means reaching for
+a different element, which is why dropping `aria-labelledby` from `Card` and dropping its
+`<article>` were the same decision.
+
+**An `<article>` does not take its name from a heading inside it.** It is named by the
+author only, so `<article><h3>Title</h3></article>` has no accessible name. A `<button>`
+or an `<a>` would be named "Title" here, because those are named from their contents.
+Mixing the two up is what made `LinkCard` produce a link with no name: an `<a>` wrapping
+an `<article>` never reached the title, because Chrome does not descend into a role that
+is named by its author.
+
+So, in practice:
+
+- Leave it a `<div>` and give it no name. A list and the headings inside it already tell
+  the reader where they are.
+- Use `<section>` only with a name. A `<section>` becomes a `region` **because** it has one;
+  without a name it is no different from a `<div>`.
+- Use `<article>` only for something that stands on its own, and name it when you do.
+  Naming it is recommended by the APG so that readers can tell one article from the next.
+
 ## Development
 
 ### Setup
