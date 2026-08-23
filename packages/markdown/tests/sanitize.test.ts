@@ -135,6 +135,23 @@ describe('sanitize', () => {
       expect(out).toContain('rel="noopener noreferrer"')
     })
 
+    it('should keep a rel the document asked for as well', () => {
+      const out = html(
+        '<a href="https://example.com" target="_blank" rel="nofollow">外部</a>'
+      )
+      const rel = /rel="([^"]*)"/.exec(out)?.[1].split(' ')
+      expect(rel).toContain('noopener')
+      expect(rel).toContain('noreferrer')
+      expect(rel).toContain('nofollow')
+    })
+
+    it('should not repeat a rel the document already asked for', () => {
+      const out = html(
+        '<a href="https://example.com" target="_blank" rel="noopener">外部</a>'
+      )
+      expect(out).toContain('rel="noopener noreferrer"')
+    })
+
     it('should say that the link opens elsewhere', () => {
       const out = html('[外部](https://example.com)')
       expect(out).toContain('Opens in new tab')

@@ -40,6 +40,20 @@ const CLASS_BY_TAG: Record<string, string> = {
 const isDirectiveOutput = (element: Element) =>
   element.hasAttribute('data-styled')
 
+/**
+ * A link that opens elsewhere must not hand the opener to the page it opens.
+ * Merged with what the document asked for rather than replacing it, so a
+ * `rel="nofollow"` does not take `noopener` away with it.
+ */
+const externalRel = (rel: string | null): string =>
+  Array.from(
+    new Set([
+      'noopener',
+      'noreferrer',
+      ...(rel ?? '').split(/\s+/).filter(Boolean)
+    ])
+  ).join(' ')
+
 const addClass = (element: Element, value: string) => {
   const merged = classNames(element.getAttribute('class') ?? '', value)
   if (merged) element.setAttribute('class', merged)
@@ -131,9 +145,7 @@ export const decorate = (
         element.getAttribute('target') === '_blank'
       ) {
         element.setAttribute('target', '_blank')
-        // The content writes target="_blank" 41 times and rel not once, which
-        // leaves the opened page holding a handle on this one.
-        element.setAttribute('rel', 'noopener noreferrer')
+        element.setAttribute('rel', externalRel(element.getAttribute('rel')))
         appendNewTabIcon(element, document)
       }
     }
