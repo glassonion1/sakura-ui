@@ -20,6 +20,7 @@ const STATIC: Record<string, DirectiveKind[]> = {
   'faq-a': [LEAF, CONTAINER],
   cell: [CONTAINER],
   'cell-img': [LEAF],
+  img: [LEAF],
   youtube: [LEAF, CONTAINER],
   'link-button': [TEXT]
 }

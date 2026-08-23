@@ -116,6 +116,22 @@ instead.
 ```
 <img width="288" alt="スクリーンショット 2024-07-26 23 44 39" src="https://github.com/user-attachments/assets/997ccf27-4d83-4fb5-b173-ae94cd7d76cb">
 
+### Image
+
+`![alt](src)` has nowhere to put a size, so `::img` takes one. `width` and
+`height` are pixels; either on its own leaves the other to follow the
+proportions of the image.
+
+```
+::img{src=/photo.jpg alt="A field at dawn" width=520}
+```
+
+A width also caps the image at the width of its column, so a number larger than
+the screen shrinks rather than overflowing.
+
+Write `alt` for anything a reader would miss without it. An image that only
+decorates takes `alt=""`, which tells a screen reader to skip it.
+
 ### YouTube
 
 The address of the video, as it is copied from the browser. The watch page, the

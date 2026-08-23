@@ -40,10 +40,23 @@ export const cleanUrl = (href: string | undefined): string | undefined => {
 
 export type AttrValue = string | boolean | undefined | null
 
+/**
+ * Attributes where an empty value says something, and so is written out. On an
+ * image an empty alt marks it as decoration; leaving the attribute off instead
+ * makes a screen reader read the file name.
+ */
+const KEEP_WHEN_EMPTY = new Set(['alt'])
+
 /** `{a: 'x', b: true, c: undefined}` becomes ` a="x" b` */
 export const attrsToHtml = (attrs: Record<string, AttrValue>): string =>
   Object.entries(attrs)
-    .filter(([, v]) => v !== undefined && v !== null && v !== false && v !== '')
+    .filter(
+      ([k, v]) =>
+        v !== undefined &&
+        v !== null &&
+        v !== false &&
+        (v !== '' || KEEP_WHEN_EMPTY.has(k))
+    )
     .map(([k, v]) => (v === true ? ` ${k}` : ` ${k}="${escapeHtml(v)}"`))
     .join('')
 
