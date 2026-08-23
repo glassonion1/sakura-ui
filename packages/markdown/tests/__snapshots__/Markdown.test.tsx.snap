@@ -269,12 +269,7 @@ exports[`Markdown > raw html > should render tableSpan 1`] = `
 `;
 
 exports[`Markdown > table of contents > should render the table of contents when asked for it 1`] = `
-"<div class="py-8 flex flex-col gap-8"><nav class="rounded-3xl p-10 bg-yellow-50"><h2 class="
-    text-h-med-m
-    sm:text-h-med
-    pt-[4rem]
-    sm:pt-[4.5rem]
-   pt-0">目次</h2><ul class="
+"<div class="py-8 flex flex-col gap-8"><nav class="rounded-3xl p-10 bg-yellow-50"><h2 class="mb-4 font-bold text-h-xs-m sm:text-h-xs">目次</h2><ul class="
   list-disc
   [&amp;_&amp;]:list-circle
   [&amp;_&amp;_&amp;]:list-square

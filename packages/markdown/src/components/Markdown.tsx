@@ -1,4 +1,4 @@
-import { H2, Link, Ul } from '@sakura-ui/core'
+import { Link, Ul } from '@sakura-ui/core'
 import React from 'react'
 import { type HeadingItem, render, type RenderResult } from '../render'
 
@@ -74,7 +74,15 @@ export const Markdown = ({
     <div className="py-8 flex flex-col gap-8">
       {showToc && headings.length > 0 && (
         <nav className="rounded-3xl p-10 bg-yellow-50">
-          <H2 className="pt-0">{tocTitle}</H2>
+          {/*
+            A plain h2 rather than core's H2. That one is built for a heading in
+            a document: it is sized to be read as one, and carries the space
+            that separates it from the text above it. This is the label on a
+            box, at the top of it, with nothing above to separate it from.
+          */}
+          <h2 className="mb-4 font-bold text-h-xs-m sm:text-h-xs">
+            {tocTitle}
+          </h2>
           <Ul>
             <TableOfContents items={headings} />
           </Ul>
