@@ -363,7 +363,7 @@ using them is what keeps a new directive behaving like the others:
 
 | | |
 |---|---|
-| `root(…)` | Attributes for the element the directive **is**. Adds the id from `{#name}`, and `data-sakura`, which tells `decorate.ts` the element is dressed already and to leave its classes alone. Headings are the exception: one rendered by a directive still has an id generated for it and still reaches the table of contents, which is how a card title gets there. |
+| `root(…)` | Attributes for the element the directive **is**. Adds the id from `{#name}`, and `data-styled`, which tells `decorate.ts` the element is dressed already and to leave its classes alone. Headings are the exception: one rendered by a directive still has an id generated for it and still reaches the table of contents, which is how a card title gets there. |
 | `own(…)` | The same without the id, for elements **inside** it. A link card's title is a heading around an anchor; only the heading is the directive. |
 | `body()` | The children, already rendered — inline for a `TEXT` or `LEAF`, block for a `CONTAINER`. |
 
