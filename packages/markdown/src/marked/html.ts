@@ -31,9 +31,9 @@ export const cleanUrl = (href: string | undefined): string | undefined => {
   if (href == null || href === '') return undefined
   const trimmed = stripControl(String(href)).trim()
   if (/^(?:javascript|vbscript|file):/i.test(trimmed)) return undefined
-  // Images written as data: used to be kept here and dropped nowhere, since
-  // DOMPurify allows the scheme on an img whatever ALLOWED_URI_REGEXP says. The
-  // content has no use for it, so both this and the sanitiser refuse it now.
+  // Refused here and in the sanitiser both: DOMPurify allows the scheme on an
+  // img whatever ALLOWED_URI_REGEXP says, so this is the only place a directive
+  // writing one is turned back.
   if (/^data:/i.test(trimmed)) return undefined
   return trimmed
 }

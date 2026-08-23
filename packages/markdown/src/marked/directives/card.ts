@@ -12,8 +12,8 @@ const iconHtml = (name: string, altText: string): string =>
 
 export const cardRenderers: Record<string, DirectiveRenderer> = {
   card: ({ token, attrs, root, body, nl }) => {
-    // The tokenizer withholds linked from a card with no title, which has no
-    // link to give and so must not look as though it had one.
+    // Set by the tokenizer, and only when the card has a title to put the
+    // link on. A card without one must not look as though it were clickable.
     const isLink = Boolean(token.linked)
     const cls = classNames(
       styles.cardStyle,

@@ -6,14 +6,11 @@ export type Attrs = Record<string, string>
 /**
  * Where `{#name}` is kept, apart from anything written as `key=value`.
  *
- * A sigil says something about the element itself and means the same on every
- * directive; an attribute is the directive's own, and each reads the ones it
- * knows. Keeping them in one place would let a directive that wanted an
- * attribute called `id` take the anchor's place, which is how the video on a
- * youtube embed came to be called `id` and stayed that way.
- *
+ * A sigil describes the element and means the same on every directive; an
+ * attribute belongs to whichever directive reads it. Held apart so that a
+ * directive wanting an attribute called `id` cannot take the anchor's place.
  * A key beginning with `#` cannot be written as `key=value`, since an attribute
- * name has to start with a letter, so there is nowhere for the two to meet.
+ * name has to start with a letter.
  */
 export const ANCHOR = '#id'
 

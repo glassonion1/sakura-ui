@@ -6,11 +6,8 @@ export type DirectiveKind = typeof CONTAINER | typeof LEAF | typeof TEXT
 
 /**
  * The whitelist. A name that is not here is not a directive, and the text
- * carrying it is left alone.
- *
- * The remark pipeline this replaces turned any name into a tag of the same
- * name, so ordinary prose lost characters: "HH:MM" rendered as "HH", and
- * "chat:write" as "chat".
+ * carrying it is left alone — which is what keeps "HH:MM" and "chat:write"
+ * intact in the prose.
  */
 const STATIC: Record<string, DirectiveKind[]> = {
   card: [CONTAINER],
