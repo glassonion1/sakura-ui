@@ -116,6 +116,22 @@ instead.
 ```
 <img width="288" alt="スクリーンショット 2024-07-26 23 44 39" src="https://github.com/user-attachments/assets/997ccf27-4d83-4fb5-b173-ae94cd7d76cb">
 
+### Image
+
+`![alt](src)` has nowhere to put a size, so `::img` takes one. `width` and
+`height` are pixels; either on its own leaves the other to follow the
+proportions of the image.
+
+```
+::img{src=/photo.jpg alt="A field at dawn" width=520}
+```
+
+A width also caps the image at the width of its column, so a number larger than
+the screen shrinks rather than overflowing.
+
+Write `alt` for anything a reader would miss without it. An image that only
+decorates takes `alt=""`, which tells a screen reader to skip it.
+
 ### YouTube
 
 The address of the video, as it is copied from the browser. The watch page, the
@@ -347,7 +363,7 @@ using them is what keeps a new directive behaving like the others:
 
 | | |
 |---|---|
-| `root(…)` | Attributes for the element the directive **is**. Adds the id from `{#name}`, and `data-sakura`, which tells `decorate.ts` the element is dressed already and to leave its classes alone. Headings are the exception: one rendered by a directive still has an id generated for it and still reaches the table of contents, which is how a card title gets there. |
+| `root(…)` | Attributes for the element the directive **is**. Adds the id from `{#name}`, and `data-styled`, which tells `decorate.ts` the element is dressed already and to leave its classes alone. Headings are the exception: one rendered by a directive still has an id generated for it and still reaches the table of contents, which is how a card title gets there. |
 | `own(…)` | The same without the id, for elements **inside** it. A link card's title is a heading around an anchor; only the heading is the directive. |
 | `body()` | The children, already rendered — inline for a `TEXT` or `LEAF`, block for a `CONTAINER`. |
 

@@ -2,6 +2,7 @@ import { GRID_RE } from '../registry'
 import { cardRenderers } from './card'
 import type { DirectiveRenderer } from './context'
 import { faqRenderers } from './faq'
+import { imageRenderers } from './image'
 import { cellRenderers, grid } from './grid'
 import { linkButtonRenderers } from './linkButton'
 import { youtubeRenderers } from './youtube'
@@ -10,6 +11,7 @@ const BY_NAME: Record<string, DirectiveRenderer> = {
   ...cardRenderers,
   ...cellRenderers,
   ...faqRenderers,
+  ...imageRenderers,
   ...youtubeRenderers,
   ...linkButtonRenderers
 }

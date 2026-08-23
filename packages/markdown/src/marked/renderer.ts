@@ -24,10 +24,10 @@ export function directiveRenderer(
   const { name, kind, attrs, tokens } = token
   const nl = kind === TEXT ? '' : '\n'
 
-  // Marks what the directive dressed itself, so that the pass which styles the
-  // rest of the document leaves it alone.
+  // Marks the element as dressed, so that the pass which styles the rest of
+  // the document leaves it alone. The value names the directive it came from.
   const own: DirectiveContext['own'] = (values) =>
-    attrsToHtml({ ...values, 'data-sakura': name })
+    attrsToHtml({ ...values, 'data-styled': name })
 
   const context: DirectiveContext = {
     token,

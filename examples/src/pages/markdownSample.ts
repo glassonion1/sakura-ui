@@ -174,6 +174,10 @@ The second cell.
 ::faq-a[Yes. It is sanitised on the way through.]
 :::
 
+### Sized image
+
+::img{src=/sakura-ui/bg-mt.webp alt="The mountain again, at 320px" width=320}
+
 ### Video
 
 The address is written the way it is copied from the browser.

@@ -1,78 +1,78 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Markdown > directives > should render card 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><img class="object-cover mb-2 w-full aspect-[352/226]" src="/a.png" alt="図" data-sakura="card-img">
-<h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="タイトル">タイトル</h3>
-<div class="text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-description">説明</div>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-styled="card"><img class="object-cover mb-2 w-full aspect-[352/226]" src="/a.png" alt="図" data-styled="card-img">
+<h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-title" id="タイトル">タイトル</h3>
+<div class="text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-description">説明</div>
 </div>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render cell 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div data-sakura="cell"><img class="mb-4" src="/a.png" alt="図" data-sakura="cell-img">
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div data-styled="cell"><img class="mb-4" src="/a.png" alt="図" data-styled="cell-img">
 <p>本文</p>
 </div>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render faq 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><dl class="flex flex-col gap-8" data-sakura="faq"><dt class="flex flex-row gap-8 mt-8 text-h-med-m sm:text-h-med" data-sakura="faq-q"><span aria-hidden="true">Q</span><span>質問は？</span></dt>
-<dd class="flex flex-row items-start gap-8" data-sakura="faq-a"><span class="text-h-med-m sm:text-h-med !leading-none" aria-hidden="true">A</span><span>回答です。</span></dd>
-<dt class="flex flex-row gap-8 mt-8 text-h-med-m sm:text-h-med" data-sakura="faq-q"><span aria-hidden="true">Q</span><span>二つ目の質問は？</span></dt>
-<dd class="flex flex-row items-start gap-8" data-sakura="faq-a"><span class="text-h-med-m sm:text-h-med !leading-none" aria-hidden="true">A</span><span>二つ目の回答。</span></dd>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><dl class="flex flex-col gap-8" data-styled="faq"><dt class="flex flex-row gap-8 mt-8 text-h-med-m sm:text-h-med" data-styled="faq-q"><span aria-hidden="true">Q</span><span>質問は？</span></dt>
+<dd class="flex flex-row items-start gap-8" data-styled="faq-a"><span class="text-h-med-m sm:text-h-med !leading-none" aria-hidden="true">A</span><span>回答です。</span></dd>
+<dt class="flex flex-row gap-8 mt-8 text-h-med-m sm:text-h-med" data-styled="faq-q"><span aria-hidden="true">Q</span><span>二つ目の質問は？</span></dt>
+<dd class="flex flex-row items-start gap-8" data-styled="faq-a"><span class="text-h-med-m sm:text-h-med !leading-none" aria-hidden="true">A</span><span>二つ目の回答。</span></dd>
 </dl>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render grid 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><ul class="flex flex-col md:grid md:grid-cols-3 gap-8" data-sakura="grid-cols-3"><li class="sm:grid"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="1つ目">1つ目</h3>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><ul class="flex flex-col md:grid md:grid-cols-3 gap-8" data-styled="grid-cols-3"><li class="sm:grid"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-styled="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-title" id="1つ目">1つ目</h3>
 </div></li>
-<li class="sm:grid"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="2つ目">2つ目</h3>
+<li class="sm:grid"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-styled="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-title" id="2つ目">2つ目</h3>
 </div></li>
 </ul>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render gridMixed 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="flex flex-col md:grid md:grid-cols-2 gap-8" data-sakura="grid-cols-2"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-title" id="1つ目">1つ目</h3>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="flex flex-col md:grid md:grid-cols-2 gap-8" data-styled="grid-cols-2"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-styled="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-title" id="1つ目">1つ目</h3>
 </div>
-<div data-sakura="cell"><p>本文</p>
+<div data-styled="cell"><p>本文</p>
 </div>
 </div>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render gridOfCells 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="flex flex-col md:grid md:grid-cols-2 gap-8" data-sakura="grid-cols-2"><div data-sakura="cell"><p><img src="/a.png" alt="alt"><br>本文1</p>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="flex flex-col md:grid md:grid-cols-2 gap-8" data-styled="grid-cols-2"><div data-styled="cell"><p><img src="/a.png" alt="alt"><br>本文1</p>
 </div>
-<div data-sakura="cell"><p>本文2</p>
+<div data-styled="cell"><p>本文2</p>
 </div>
 </div>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render linkButton 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p>ご案内です。<a class="inline-block text-button text-center cursor-pointer select-none touch-manipulation whitespace-nowrap outline-offset-2 border border-solid border-blue-900 hover:border-blue-1000 active:border-blue-1200 disabled:border-solid-gray-500 disabled:cursor-not-allowed text-blue-900 hover:text-blue-1000 active:text-blue-1200 bg-transparent hover:bg-blue-200 active:bg-blue-300 disabled:bg-transparent disabled:text-solid-gray-500 hover:underline hover:underline-offset-[calc(3/16*1rem)] focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:rounded-sm p-4 text-button leading-snug rounded-lg" href="/services" data-sakura="link-button">サービス一覧</a> をどうぞ。</p>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p>ご案内です。<a class="inline-block text-button text-center cursor-pointer select-none touch-manipulation whitespace-nowrap outline-offset-2 border border-solid border-blue-900 hover:border-blue-1000 active:border-blue-1200 disabled:border-solid-gray-500 disabled:cursor-not-allowed text-blue-900 hover:text-blue-1000 active:text-blue-1200 bg-transparent hover:bg-blue-200 active:bg-blue-300 disabled:bg-transparent disabled:text-solid-gray-500 hover:underline hover:underline-offset-[calc(3/16*1rem)] focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:rounded-sm p-4 text-button leading-snug rounded-lg" href="/services" data-styled="link-button">サービス一覧</a> をどうぞ。</p>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render linkCard 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden relative z-0 group hover:outline hover:outline-2 hover:outline-black hover:bg-solid-gray-50 has-[a:focus-visible]:outline has-[a:focus-visible]:outline-4 has-[a:focus-visible]:outline-black has-[a:focus-visible]:outline-offset-[calc(2/16*1rem)] has-[a:focus-visible]:ring-[calc(2/16*1rem)] has-[a:focus-visible]:ring-yellow-300" data-sakura="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6 decoration-blue-900 underline underline-offset-[calc(3/16*1rem)] group-hover:text-blue-900 group-hover:decoration-[calc(3/16*1rem)]" data-sakura="card-title" id="タイトル"><a class="after:content-[''] after:absolute after:inset-0 after:z-10 focus-visible:outline-none" href="/x" data-sakura="card-title">タイトル</a></h3>
-<div class="text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-description">説明</div>
-<div class="sticky top-full text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6 flex justify-between items-center" data-sakura="card-footer"><span>2026年8月</span><span class="inline-flex items-center justify-center w-6 h-6 text-blue-1000 border border-blue-1000 rounded-full group-hover:bg-blue-1000 group-hover:text-white"><span aria-hidden="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap">arrow_forward</span><span class="sr-only"></span></span></div>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden relative z-0 group hover:outline hover:outline-2 hover:outline-black hover:bg-solid-gray-50 has-[a:focus-visible]:outline has-[a:focus-visible]:outline-4 has-[a:focus-visible]:outline-black has-[a:focus-visible]:outline-offset-[calc(2/16*1rem)] has-[a:focus-visible]:ring-[calc(2/16*1rem)] has-[a:focus-visible]:ring-yellow-300" data-styled="card"><h3 class="m-0 text-base leading-[2rem] font-medium first:pt-4 pt-2 last:pb-4 px-6 decoration-blue-900 underline underline-offset-[calc(3/16*1rem)] group-hover:text-blue-900 group-hover:decoration-[calc(3/16*1rem)]" data-styled="card-title" id="タイトル"><a class="after:content-[''] after:absolute after:inset-0 after:z-10 focus-visible:outline-none" href="/x" data-styled="card-title">タイトル</a></h3>
+<div class="text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-description">説明</div>
+<div class="sticky top-full text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6 flex justify-between items-center" data-styled="card-footer"><span>2026年8月</span><span class="inline-flex items-center justify-center w-6 h-6 text-blue-1000 border border-blue-1000 rounded-full group-hover:bg-blue-1000 group-hover:text-white"><span aria-hidden="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap">arrow_forward</span><span class="sr-only"></span></span></div>
 </div>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render linkCardWithoutTitle 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-sakura="card"><div class="text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-description">説明</div>
-<div class="sticky top-full text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-sakura="card-footer">2026年8月</div>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="border border-solid border-solid-gray-500 rounded-2xl sm:rounded-3xl text-solid-gray-900 overflow-hidden" data-styled="card"><div class="text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-description">説明</div>
+<div class="sticky top-full text-base-sm leading-[1.85rem] first:pt-4 pt-2 last:pb-4 px-6" data-styled="card-footer">2026年8月</div>
 </div>
 </div></div>"
 `;
 
 exports[`Markdown > directives > should render youtube 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><iframe title="動画タイトル" src="https://www.youtube-nocookie.com/embed/yXdbvBzxeb8" class="aspect-video w-full max-w-[470px]" style="width:560px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" loading="lazy" data-sakura="youtube"></iframe>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><iframe title="動画タイトル" src="https://www.youtube-nocookie.com/embed/yXdbvBzxeb8" class="aspect-video w-full max-w-[470px]" style="width:560px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" loading="lazy" data-styled="youtube"></iframe>
 </div></div>"
 `;
 
@@ -126,9 +126,9 @@ exports[`Markdown > malformed html > should recover from crossedNesting 1`] = `
 </ul></div></div>"
 `;
 
-exports[`Markdown > malformed html > should recover from mistypedClose 1`] = `"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-sakura-table-container="true"><table class="border border-collapse border-solid-gray-420"><tbody><tr class="border border-collapse border-solid-gray-420"><td class="p-2 text-label border border-collapse border-solid-gray-420">値</td></tr></tbody></table></div></div></div>"`;
+exports[`Markdown > malformed html > should recover from mistypedClose 1`] = `"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-table-container="true"><table class="border border-collapse border-solid-gray-420"><tbody><tr class="border border-collapse border-solid-gray-420"><td class="p-2 text-label border border-collapse border-solid-gray-420">値</td></tr></tbody></table></div></div></div>"`;
 
-exports[`Markdown > malformed html > should recover from unclosedCell 1`] = `"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-sakura-table-container="true"><table class="border border-collapse border-solid-gray-420"><tbody><tr class="border border-collapse border-solid-gray-420"><td class="p-2 text-label border border-collapse border-solid-gray-420">閉じ忘れ</td></tr><tr class="border border-collapse border-solid-gray-420"><td class="p-2 text-label border border-collapse border-solid-gray-420">次の行</td></tr></tbody></table></div></div></div>"`;
+exports[`Markdown > malformed html > should recover from unclosedCell 1`] = `"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-table-container="true"><table class="border border-collapse border-solid-gray-420"><tbody><tr class="border border-collapse border-solid-gray-420"><td class="p-2 text-label border border-collapse border-solid-gray-420">閉じ忘れ</td></tr><tr class="border border-collapse border-solid-gray-420"><td class="p-2 text-label border border-collapse border-solid-gray-420">次の行</td></tr></tbody></table></div></div></div>"`;
 
 exports[`Markdown > plain markdown > should render blockquote 1`] = `
 "<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><blockquote>
@@ -156,7 +156,7 @@ exports[`Markdown > plain markdown > should render footnote 1`] = `
 `;
 
 exports[`Markdown > plain markdown > should render gfmTable 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-sakura-table-container="true"><table class="border border-collapse border-solid-gray-420">
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-table-container="true"><table class="border border-collapse border-solid-gray-420">
 <thead>
 <tr class="border border-collapse border-solid-gray-420">
 <th class="p-2 bg-[#f8f8fb] text-label text-left border border-collapse border-solid-gray-420">見出し</th>
@@ -189,7 +189,7 @@ exports[`Markdown > plain markdown > should render image 1`] = `
 `;
 
 exports[`Markdown > plain markdown > should render links 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p><a href="/foo" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">内部</a> と <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">外部<span aria-hidden="true" data-sakura-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a> と <a href="https://example.com/bare" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">https://example.com/bare<span aria-hidden="true" data-sakura-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p><a href="/foo" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">内部</a> と <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">外部<span aria-hidden="true" data-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a> と <a href="https://example.com/bare" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">https://example.com/bare<span aria-hidden="true" data-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p>
 </div></div>"
 `;
 
@@ -226,7 +226,7 @@ exports[`Markdown > raw html > should render details 1`] = `
 <summary>詳細はこちら</summary><ul class="list-disc [&amp;_&amp;]:list-circle [&amp;_&amp;_&amp;]:list-square pl-8">
 <li>リスト項目</li>
 </ul>
-<div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-sakura-table-container="true"><table class="border border-collapse border-solid-gray-420">
+<div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-table-container="true"><table class="border border-collapse border-solid-gray-420">
 <thead>
 <tr class="border border-collapse border-solid-gray-420">
 <th class="p-2 bg-[#f8f8fb] text-label text-left border border-collapse border-solid-gray-420">表</th>
@@ -242,7 +242,7 @@ exports[`Markdown > raw html > should render details 1`] = `
 `;
 
 exports[`Markdown > raw html > should render externalAnchor 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p><a href="https://example.com" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">外部リンク<span aria-hidden="true" data-sakura-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p><a href="https://example.com" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">外部リンク<span aria-hidden="true" data-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p>
 </div></div>"
 `;
 
@@ -260,7 +260,7 @@ exports[`Markdown > raw html > should render styledBlock 1`] = `
 exports[`Markdown > raw html > should render styledImg 1`] = `"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><img src="/images/a.png" alt="図" style="width: 800px; color-scheme: light;"></div></div>"`;
 
 exports[`Markdown > raw html > should render tableSpan 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-sakura-table-container="true"><table class="border border-collapse border-solid-gray-420">
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><div class="w-full overflow-x-auto whitespace-nowrap print:overflow-visible print:whitespace-normal" data-table-container="true"><table class="border border-collapse border-solid-gray-420">
 <caption class="text-left">表:01 キャプション</caption>
 <colgroup><col style="width: 15%;"><col style="width: auto;"></colgroup>
 <thead><tr class="border border-collapse border-solid-gray-420"><th colspan="2" class="p-2 bg-[#f8f8fb] text-label text-left border border-collapse border-solid-gray-420">見出し</th></tr></thead>
@@ -411,7 +411,7 @@ exports[`Markdown > text that only looks like a directive > should leave functio
 `;
 
 exports[`Markdown > text that only looks like a directive > should leave linkLabel alone 1`] = `
-"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p><a href="https://example.com" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">AWSドキュメント:AWS PrivateLink<span aria-hidden="true" data-sakura-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p>
+"<div class="py-8 flex flex-col gap-8"><div class="flex flex-col gap-8"><p><a href="https://example.com" target="_blank" rel="noopener noreferrer" class="cursor-pointer text-blue-1000 active:text-orange-700 visited:text-magenta-900 focus-visible:outline-4 focus-visible:outline-black focus-visible:ring-yellow-300 focus-visible:outline-offset-[calc(2/16*1rem)] focus-visible:ring-[calc(2/16*1rem)] focus-visible:bg-yellow-300 focus-visible:rounded-sm underline underline-offset-[calc(3/16*1rem)] hover:decoration-[calc(3/16*1rem)] disabled:border-solid-gray-500 [overflow-wrap:anywhere]">AWSドキュメント:AWS PrivateLink<span aria-hidden="true" data-new-tab="true" class="!text-[16px] font-icon font-light inline-block leading-none align-middle whitespace-nowrap ml-0.5">open_in_new</span><span class="sr-only">Opens in new tab</span></a></p>
 </div></div>"
 `;
 

@@ -20,6 +20,22 @@ export namespace Link {
   }
 }
 
+/**
+ * A link that opens elsewhere must not hand the opener to the page it opens.
+ * Merged with what the caller asked for rather than replacing it, so a
+ * `rel="nofollow"` does not take `noopener` away with it.
+ */
+const externalRel = (rel: unknown): string =>
+  Array.from(
+    new Set([
+      'noopener',
+      'noreferrer',
+      ...String(rel ?? '')
+        .split(/\s+/)
+        .filter(Boolean)
+    ])
+  ).join(' ')
+
 export const Link = <T extends React.ElementType = 'a'>(
   props: Link.Props<T> & Omit<React.ComponentProps<T>, keyof Link.Props<T>>
 ) => {
@@ -32,6 +48,7 @@ export const Link = <T extends React.ElementType = 'a'>(
         className={cx(style, className)}
         target="_blank"
         {...restProps}
+        rel={externalRel(restProps.rel)}
       >
         <span>{children}</span>
         <Icon opticalSize={16} altText="Opens in new tab" className="ml-0.5">

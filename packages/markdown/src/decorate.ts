@@ -38,7 +38,21 @@ const CLASS_BY_TAG: Record<string, string> = {
 
 /** Elements a directive rendered are already dressed; leave them be. */
 const isDirectiveOutput = (element: Element) =>
-  element.hasAttribute('data-sakura')
+  element.hasAttribute('data-styled')
+
+/**
+ * A link that opens elsewhere must not hand the opener to the page it opens.
+ * Merged with what the document asked for rather than replacing it, so a
+ * `rel="nofollow"` does not take `noopener` away with it.
+ */
+const externalRel = (rel: string | null): string =>
+  Array.from(
+    new Set([
+      'noopener',
+      'noreferrer',
+      ...(rel ?? '').split(/\s+/).filter(Boolean)
+    ])
+  ).join(' ')
 
 const addClass = (element: Element, value: string) => {
   const merged = classNames(element.getAttribute('class') ?? '', value)
@@ -53,10 +67,10 @@ const HEADINGS = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
  * the Icon component does.
  */
 const appendNewTabIcon = (anchor: Element, document: Document) => {
-  if (anchor.querySelector('[data-sakura-new-tab]')) return
+  if (anchor.querySelector('[data-new-tab]')) return
   const glyph = document.createElement('span')
   glyph.setAttribute('aria-hidden', 'true')
-  glyph.setAttribute('data-sakura-new-tab', 'true')
+  glyph.setAttribute('data-new-tab', 'true')
   glyph.setAttribute(
     'class',
     classNames(styles.iconSizeStyle[16], styles.iconStyle, 'ml-0.5')
@@ -131,9 +145,7 @@ export const decorate = (
         element.getAttribute('target') === '_blank'
       ) {
         element.setAttribute('target', '_blank')
-        // The content writes target="_blank" 41 times and rel not once, which
-        // leaves the opened page holding a handle on this one.
-        element.setAttribute('rel', 'noopener noreferrer')
+        element.setAttribute('rel', externalRel(element.getAttribute('rel')))
         appendNewTabIcon(element, document)
       }
     }
@@ -145,10 +157,10 @@ export const decorate = (
   // A wide table scrolls inside its own box rather than pushing the page.
   for (const table of Array.from(root.querySelectorAll('table'))) {
     const parent = table.parentElement
-    if (parent?.dataset?.sakuraTableContainer === 'true') continue
+    if (parent?.dataset?.tableContainer === 'true') continue
     const container = document.createElement('div')
     container.setAttribute('class', classNames(styles.overflowContainerStyle))
-    container.dataset.sakuraTableContainer = 'true'
+    container.dataset.tableContainer = 'true'
     table.replaceWith(container)
     container.appendChild(table)
   }

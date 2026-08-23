@@ -168,9 +168,16 @@ const purifier = (): DOMPurify => {
         element.removeAttribute('style')
       }
     }
-    // A link that opens elsewhere must not hand the opener over with it.
+    // A link that opens elsewhere must not hand the opener over with it. What
+    // the document asked for is kept alongside rather than replaced.
     if (element.getAttribute('target') === '_blank') {
-      element.setAttribute('rel', 'noopener noreferrer')
+      const asked = (element.getAttribute('rel') ?? '').split(/\s+/)
+      element.setAttribute(
+        'rel',
+        Array.from(
+          new Set(['noopener', 'noreferrer', ...asked.filter(Boolean)])
+        ).join(' ')
+      )
     }
   })
   return instance

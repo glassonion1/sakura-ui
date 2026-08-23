@@ -39,6 +39,47 @@ describe('Link', () => {
     expect(text).toBeInTheDocument()
   })
 
+  it('should not hand the opener to the page it opens', async () => {
+    render(<Link href="https://example.com">Button</Link>)
+
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'rel',
+      'noopener noreferrer'
+    )
+  })
+
+  it('should keep the rel the caller asked for as well', async () => {
+    render(
+      <Link href="https://example.com" rel="nofollow">
+        Button
+      </Link>
+    )
+
+    const rel = screen.getByRole('link').getAttribute('rel')?.split(' ')
+    expect(rel).toContain('noopener')
+    expect(rel).toContain('noreferrer')
+    expect(rel).toContain('nofollow')
+  })
+
+  it('should not repeat a rel the caller already asked for', async () => {
+    render(
+      <Link href="https://example.com" rel="noopener">
+        Button
+      </Link>
+    )
+
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'rel',
+      'noopener noreferrer'
+    )
+  })
+
+  it('should leave a link that stays on the page without a rel', async () => {
+    render(<Link href="/">Button</Link>)
+
+    expect(screen.getByRole('link')).not.toHaveAttribute('rel')
+  })
+
   it('should labeled text from Button', async () => {
     render(<Link href="/">here</Link>)
 
