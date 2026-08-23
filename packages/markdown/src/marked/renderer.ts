@@ -10,13 +10,11 @@ import {
 } from './directives'
 
 /**
- * Builds what a directive renderer is given, then hands the token to the one
- * that knows it. The renderers themselves live in `directives/`, a file to a
- * feature: `card.ts` holds the card and everything written inside one, because
- * a title has to know whether the card gave it an href.
+ * Builds the context, then hands the token to the renderer that knows its name.
+ * The renderers live in `directives/`, a file to a feature, so that a card and
+ * everything written inside one stay together.
  *
- * A name with no renderer falls through to its own children, which is what a
- * directive the registry allows but nobody has drawn yet looks like.
+ * A name with no renderer falls through to its own children.
  */
 export function directiveRenderer(
   this: { parser: Parser },

@@ -5,11 +5,8 @@ import { classNames } from './marked/html'
 /**
  * Applies the look of the design system to the finished document.
  *
- * This runs over the sanitised DOM rather than inside the markdown renderer so
- * that a table written as raw HTML — 56 of the guide's documents do — is styled
- * the same as one written with pipes. The pipeline this replaces had the same
- * property, because rehype-raw turned the raw HTML into real nodes before the
- * tag to component mapping ran.
+ * Runs over the sanitised DOM rather than inside the markdown renderer, so that
+ * a table written as raw HTML is styled the same as one written with pipes.
  */
 
 export type HeadingItem = {
@@ -113,9 +110,7 @@ export const decorate = (
     const tag = element.tagName.toLowerCase()
 
     // One id, generated once, for headings from markdown and from raw HTML
-    // alike. The pipeline this replaces generated them in two passes that
-    // disagreed whenever a heading held an image, raw HTML or a directive, and
-    // the table of contents then linked to anchors that were not there.
+    // alike, so the table of contents and the body cannot disagree.
     if (HEADINGS.has(tag)) {
       const text = element.textContent ?? ''
       const asked = element.getAttribute('id')

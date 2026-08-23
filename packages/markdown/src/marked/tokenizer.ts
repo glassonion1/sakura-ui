@@ -60,14 +60,12 @@ export const inlineStart = (src: string): number | undefined => {
 }
 
 /**
- * A grid of cards is a list. The cards are things of one kind, and how many
- * there are is part of what the page says; a grid holding anything else, or
- * cards and something else together, is a layout — prose beside a figure is not
- * two of something. Nothing is written to ask for this, the way nothing is
- * written to ask a run of "- " for a <ul>.
+ * A grid of cards is a list: the cards are things of one kind, and how many
+ * there are is part of what the page says. A grid holding anything else, or
+ * cards mixed with something else, is a layout.
  *
- * Marked here rather than worked out while rendering, because by then the
- * children have become one string and the boundaries between them are gone.
+ * Marked here rather than while rendering, because by then the children are one
+ * string with no boundaries between them.
  */
 const markCardList = (token: DirectiveToken): void => {
   if (!/^grid-cols-\d+$/.test(token.name)) return
