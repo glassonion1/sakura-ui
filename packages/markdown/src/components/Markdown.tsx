@@ -75,10 +75,8 @@ export const Markdown = ({
       {showToc && headings.length > 0 && (
         <nav className="rounded-3xl p-10 bg-yellow-50">
           {/*
-            A plain h2 rather than core's H2. That one is built for a heading in
-            a document: it is sized to be read as one, and carries the space
-            that separates it from the text above it. This is the label on a
-            box, at the top of it, with nothing above to separate it from.
+            The label on a box, not a heading in the document, so it does not
+            use core's H2 and its heading size and spacing.
           */}
           <h2 className="mb-4 font-bold text-h-xs-m sm:text-h-xs">
             {tocTitle}
@@ -88,8 +86,16 @@ export const Markdown = ({
           </Ul>
         </nav>
       )}
-      {/* The markup is sanitised in src/sanitize.ts before it gets here. */}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      {/*
+        The document's blocks are children of this element, not of the wrapper,
+        so the space between them is set here.
+
+        The markup is sanitised in src/sanitize.ts before it gets here.
+      */}
+      <div
+        className="flex flex-col gap-8"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   )
 }
