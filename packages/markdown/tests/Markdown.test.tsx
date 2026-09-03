@@ -101,6 +101,23 @@ describe('Markdown', () => {
       expect(html).toMatchSnapshot()
     })
 
+    // The nesting is read from the DOM rather than left to the snapshot, so a
+    // return to one flat list says which shape was lost.
+    it('should put a heading under the one it belongs to', async () => {
+      render(<Markdown showToc>{'# 章1\n\n## 節1\n\n## 節2\n\n# 章2'}</Markdown>)
+      const toc = await screen.findByRole('navigation')
+
+      const chapters = toc.querySelectorAll(':scope > ul > li')
+      expect(
+        Array.from(chapters, (li) => li.querySelector('a')?.textContent)
+      ).toEqual(['章1', '章2'])
+
+      const sections = chapters[0].querySelectorAll(':scope > ul > li')
+      expect(
+        Array.from(sections, (li) => li.querySelector('a')?.textContent)
+      ).toEqual(['節1', '節2'])
+    })
+
     it('should use the given title', async () => {
       render(
         <Markdown showToc tocTitle="もくじ">
