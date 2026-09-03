@@ -301,7 +301,12 @@ exports[`Markdown > table of contents > should render the table of contents when
   
   disabled:border-solid-gray-500
   [overflow-wrap:anywhere]
-" href="#章1">章1</a></li><li><a class="
+" href="#章1">章1</a><ul class="
+  list-disc
+  [&amp;_&amp;]:list-circle
+  [&amp;_&amp;_&amp;]:list-square
+  pl-8
+"><li><a class="
   cursor-pointer
   text-blue-1000
   active:text-orange-700
@@ -355,7 +360,7 @@ exports[`Markdown > table of contents > should render the table of contents when
   
   disabled:border-solid-gray-500
   [overflow-wrap:anywhere]
-" href="#節2">節2</a></li><li><a class="
+" href="#節2">節2</a></li></ul></li><li><a class="
   cursor-pointer
   text-blue-1000
   active:text-orange-700

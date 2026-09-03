@@ -1,4 +1,5 @@
 import { styles } from '@sakura-ui/core'
+import { treefy } from '@sakura-ui/helper'
 import Slugger from 'github-slugger'
 import { classNames } from './marked/html'
 
@@ -165,7 +166,10 @@ export const decorate = (
     container.appendChild(table)
   }
 
+  // Nested, so that the table of contents can show a heading under the one it
+  // belongs to. Cut to depth before nesting: filtering the tree afterwards
+  // would only reach the headings sitting at its root.
   return {
-    headings: flat.filter((h) => h.depth <= tocMaxDepth) as HeadingItem[]
+    headings: treefy(flat.filter((h) => h.depth <= tocMaxDepth))
   }
 }
