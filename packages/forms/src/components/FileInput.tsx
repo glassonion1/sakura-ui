@@ -30,8 +30,8 @@ export const FileInput = (props: FileInput.Props) => {
     file:border-blue-900
     file:hover:border-blue-1000
     file:active:border-blue-1200
-    file:disabled:border-solid-gray-500
-    file:disabled:cursor-not-allowed
+    disabled:file:border-solid-gray-500
+    disabled:file:cursor-not-allowed
   `
 
   const outline = `
@@ -41,8 +41,8 @@ export const FileInput = (props: FileInput.Props) => {
     file:bg-transparent
     file:hover:bg-blue-200
     file:active:bg-blue-300
-    file:disabled:text-solid-gray-500
-    file:disabled:bg-transparent
+    disabled:file:text-solid-gray-500
+    disabled:file:bg-transparent
   `
 
   const styleInput = `
