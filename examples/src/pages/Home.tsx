@@ -31,9 +31,18 @@ import {
   LinkCard,
   LinkCardHeader,
   LinkCardFooter,
+  NotificationBanner,
   LangSelector,
   NavigationItem
 } from '@sakura-ui/core'
+
+const notificationBanners = [
+  { type: 'success', title: '登録手続きは全て完了しました' },
+  { type: 'error', title: '入力された内容に誤りがあります' },
+  { type: 'warning', title: '受付期間の終了が近づいています' },
+  { type: 'info1', title: 'システムメンテナンスのお知らせ' },
+  { type: 'info2', title: '関連する制度が改正されました' }
+] as const
 
 const Home = () => {
   const [count, setCount] = useState<number>(0)
@@ -434,6 +443,36 @@ const Home = () => {
                 </CardBody>
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
+            </div>
+          </div>
+          <div className="my-8">
+            <H2>Notification Banner</H2>
+            <H3>Standard</H3>
+            <div className="flex flex-col gap-4">
+              {notificationBanners.map((banner) => (
+                <NotificationBanner
+                  key={banner.type}
+                  type={banner.type}
+                  title={banner.title}
+                  headingLevel="h4"
+                >
+                  ダミーテキストは、デザインの作成時に使用される仮の文章です。
+                </NotificationBanner>
+              ))}
+            </div>
+            <H3>Color chip</H3>
+            <div className="flex flex-col gap-4">
+              {notificationBanners.map((banner) => (
+                <NotificationBanner
+                  key={banner.type}
+                  type={banner.type}
+                  title={banner.title}
+                  bannerStyle="color-chip"
+                  headingLevel="h4"
+                >
+                  ダミーテキストは、デザインの作成時に使用される仮の文章です。
+                </NotificationBanner>
+              ))}
             </div>
           </div>
           <div className="my-8">

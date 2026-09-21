@@ -3,6 +3,12 @@ export { MenuButton } from './MenuButton'
 export { Card, CardImg, CardHeader, CardBody, CardFooter } from './Card'
 export type { CardHeaderAs } from './Card'
 export { LinkCard, LinkCardHeader, LinkCardFooter } from './LinkCard'
+export { NotificationBanner } from './NotificationBanner'
+export type {
+  NotificationBannerHeadingLevel,
+  NotificationBannerStyle,
+  NotificationBannerType
+} from './NotificationBanner'
 export { Code } from './Code'
 export { Faq, Question, Answer } from './Faq'
 export { H1, H2, H3, H4, H5, H6 } from './Heading'

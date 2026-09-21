@@ -37,6 +37,17 @@ export {
   linkCardArrowHoverStyle
 } from './LinkCard'
 export { ulStyle, olStyle } from './List'
+export {
+  base as notificationBannerBaseStyle,
+  bodyStyle as notificationBannerBodyStyle,
+  headingStyle as notificationBannerHeadingStyle,
+  headingTextStyle as notificationBannerHeadingTextStyle,
+  iconStyle as notificationBannerIconStyle,
+  getNotificationBannerStyle,
+  getNotificationBannerBorderStyle,
+  getNotificationBannerChipStyle,
+  getNotificationBannerIconStyle
+} from './notificationBannerStyle'
 export { overflowContainerStyle } from './OverflowContainer'
 export { preStyle } from './Pre'
 export { tableBorderStyle, captionStyle, thStyle, tdStyle } from './Table'
