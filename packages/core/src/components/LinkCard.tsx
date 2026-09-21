@@ -155,7 +155,7 @@ export const LinkCardHeader = <T extends React.ElementType = 'a'>(
       <Component className={linkCardOverlayStyle} {...restProps}>
         {children}
         {restProps.target === '_blank' && (
-          <Icon opticalSize={16} className="ml-1" altText="新しいタブで開きます">
+          <Icon opticalSize={16} className="ml-1" altText="Opens in new tab">
             open_in_new
           </Icon>
         )}

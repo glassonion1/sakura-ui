@@ -44,23 +44,28 @@ describe('NotificationBanner', () => {
     const { rerender } = render(
       <NotificationBanner type="success" title="Banner-Title" />
     )
-    expect(screen.getByRole('img', { name: '成功' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Success' })).toBeInTheDocument()
 
     rerender(<NotificationBanner type="error" title="Banner-Title" />)
-    expect(screen.getByRole('img', { name: 'エラー' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Error' })).toBeInTheDocument()
 
     rerender(<NotificationBanner type="warning" title="Banner-Title" />)
-    expect(screen.getByRole('img', { name: '警告' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Warning' })).toBeInTheDocument()
 
     rerender(<NotificationBanner type="info1" title="Banner-Title" />)
-    expect(
-      screen.getByRole('img', { name: 'インフォメーション' })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Information' })).toBeInTheDocument()
 
     rerender(<NotificationBanner type="info2" title="Banner-Title" />)
-    expect(
-      screen.getByRole('img', { name: 'インフォメーション' })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Information' })).toBeInTheDocument()
+  })
+
+  it('should let the caller replace the icon label for another language', async () => {
+    render(
+      <NotificationBanner type="success" title="Banner-Title" iconLabel="成功" />
+    )
+
+    expect(screen.getByRole('img', { name: '成功' })).toBeInTheDocument()
+    expect(screen.queryByRole('img', { name: 'Success' })).toBeNull()
   })
 
   it('should let the caller set a live region role', async () => {

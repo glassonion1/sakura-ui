@@ -21,16 +21,26 @@ export type {
   NotificationBannerType
 } from './notificationBannerStyle'
 
-type BannerIconProps = React.ComponentProps<'svg'>
+type BannerIconProps = React.ComponentProps<'svg'> & { label: string }
+
+// The labels the icons fall back to. They are in English like the rest of the
+// library, and iconLabel replaces them for a site written in another language.
+const defaultIconLabels: { [key in NotificationBannerType]: string } = {
+  success: 'Success',
+  error: 'Error',
+  warning: 'Warning',
+  info1: 'Information',
+  info2: 'Information'
+}
 
 // These carry meaning rather than decoration, so unlike the icons in src/icons
 // they are labelled instead of hidden: the type is otherwise only conveyed by
 // colour. The shapes are filled with currentcolor to follow the type's text
 // colour, and the cut-outs use the Canvas system colour so they keep showing
 // the background even when the user forces their own colours.
-const InfoIcon = (props: BannerIconProps) => (
+const InfoIcon = ({ label, ...props }: BannerIconProps) => (
   <svg
-    aria-label="インフォメーション"
+    aria-label={label}
     fill="none"
     height="24"
     role="img"
@@ -44,9 +54,9 @@ const InfoIcon = (props: BannerIconProps) => (
   </svg>
 )
 
-const WarningIcon = (props: BannerIconProps) => (
+const WarningIcon = ({ label, ...props }: BannerIconProps) => (
   <svg
-    aria-label="警告"
+    aria-label={label}
     fill="none"
     height="24"
     role="img"
@@ -60,9 +70,9 @@ const WarningIcon = (props: BannerIconProps) => (
   </svg>
 )
 
-const ErrorIcon = (props: BannerIconProps) => (
+const ErrorIcon = ({ label, ...props }: BannerIconProps) => (
   <svg
-    aria-label="エラー"
+    aria-label={label}
     fill="none"
     height="24"
     role="img"
@@ -81,9 +91,9 @@ const ErrorIcon = (props: BannerIconProps) => (
   </svg>
 )
 
-const SuccessIcon = (props: BannerIconProps) => (
+const SuccessIcon = ({ label, ...props }: BannerIconProps) => (
   <svg
-    aria-label="成功"
+    aria-label={label}
     fill="none"
     height="24"
     role="img"
@@ -122,6 +132,9 @@ export namespace NotificationBanner {
     title: string
     bannerStyle?: NotificationBannerStyle
     headingLevel?: NotificationBannerHeadingLevel
+    // What a screen reader reads for the icon. It defaults to English, so a
+    // site written in another language passes its own wording here.
+    iconLabel?: string
   }
 }
 
@@ -131,6 +144,7 @@ export const NotificationBanner = (props: NotificationBanner.Props) => {
     title,
     bannerStyle = 'standard',
     headingLevel,
+    iconLabel,
     className,
     children,
     ...restProps
@@ -158,6 +172,7 @@ export const NotificationBanner = (props: NotificationBanner.Props) => {
       <Heading className={headingStyle}>
         <BannerIcon
           type={type}
+          label={iconLabel ?? defaultIconLabels[type]}
           className={cx(iconStyle, getNotificationBannerIconStyle(type))}
         />
         <span className={headingTextStyle}>{title}</span>
