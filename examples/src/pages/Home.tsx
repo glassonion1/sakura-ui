@@ -37,11 +37,11 @@ import {
 } from '@sakura-ui/core'
 
 const notificationBanners = [
-  { type: 'success', title: '登録手続きは全て完了しました' },
-  { type: 'error', title: '入力された内容に誤りがあります' },
-  { type: 'warning', title: '受付期間の終了が近づいています' },
-  { type: 'info1', title: 'システムメンテナンスのお知らせ' },
-  { type: 'info2', title: '関連する制度が改正されました' }
+  { type: 'success', title: 'Your registration is complete' },
+  { type: 'error', title: 'There is a problem with what you entered' },
+  { type: 'warning', title: 'The deadline is approaching' },
+  { type: 'info1', title: 'Scheduled maintenance' },
+  { type: 'info2', title: 'A related rule has changed' }
 ] as const
 
 const Home = () => {
@@ -456,7 +456,8 @@ const Home = () => {
                   title={banner.title}
                   headingLevel="h4"
                 >
-                  ダミーテキストは、デザインの作成時に使用される仮の文章です。
+                  Dummy text stands in for the real wording while the design is
+                  being put together.
                 </NotificationBanner>
               ))}
             </div>
@@ -470,7 +471,8 @@ const Home = () => {
                   bannerStyle="color-chip"
                   headingLevel="h4"
                 >
-                  ダミーテキストは、デザインの作成時に使用される仮の文章です。
+                  Dummy text stands in for the real wording while the design is
+                  being put together.
                 </NotificationBanner>
               ))}
             </div>
