@@ -13,12 +13,15 @@ export type NotificationBannerHeadingLevel = 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 // the icon so the title lines up with it however short the title is.
 // The column widths, paddings and the 48rem breakpoint (md here) come from the
 // DADS spec.
+//
+// No background is set. The spec asks for one where the banner would not
+// otherwise stand out, and cx does not merge, so a bg-* here would win over
+// whatever the caller passes in className and there would be no way to add it.
 export const base = `
   grid
   grid-cols-[calc(24/16*1rem)_1fr_auto]
   grid-rows-[minmax(calc(36/16*1rem),auto)]
   gap-4
-  bg-white
   px-4
   pt-2
   pb-6

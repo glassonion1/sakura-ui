@@ -476,6 +476,21 @@ const Home = () => {
                 </NotificationBanner>
               ))}
             </div>
+            <H3>With a background</H3>
+            <p className="mb-4">
+              The spec asks for a background where the banner would not
+              otherwise stand out. It is not set by the component, so pass one
+              in className.
+            </p>
+            <NotificationBanner
+              type="success"
+              title="Your registration is complete"
+              headingLevel="h4"
+              className="bg-green-50"
+            >
+              Dummy text stands in for the real wording while the design is
+              being put together.
+            </NotificationBanner>
           </div>
           <div className="my-8">
             <H2>Frequently Asked Questions</H2>
