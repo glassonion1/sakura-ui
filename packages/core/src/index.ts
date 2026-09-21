@@ -9,6 +9,7 @@ export {
   LinkCard,
   LinkCardHeader,
   LinkCardFooter,
+  NotificationBanner,
   Code,
   Faq,
   Question,
@@ -40,5 +41,11 @@ export {
 } from './components'
 
 export type { CardHeaderAs } from './components'
+
+export type {
+  NotificationBannerHeadingLevel,
+  NotificationBannerStyle,
+  NotificationBannerType
+} from './components'
 
 export { styles } from './components'

@@ -63,9 +63,7 @@ describe('LinkCard', () => {
 
     // The icon itself is aria-hidden, so without the alternative text the fact
     // that the link opens elsewhere reached sighted users only.
-    expect(screen.getByRole('link')).toHaveAccessibleName(
-      /新しいタブで開きます/
-    )
+    expect(screen.getByRole('link')).toHaveAccessibleName(/Opens in new tab/)
   })
 
   it('should not tell about a new tab for a link that stays in the tab', async () => {

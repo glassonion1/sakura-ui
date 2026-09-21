@@ -31,9 +31,18 @@ import {
   LinkCard,
   LinkCardHeader,
   LinkCardFooter,
+  NotificationBanner,
   LangSelector,
   NavigationItem
 } from '@sakura-ui/core'
+
+const notificationBanners = [
+  { type: 'success', title: 'Your registration is complete' },
+  { type: 'error', title: 'There is a problem with what you entered' },
+  { type: 'warning', title: 'The deadline is approaching' },
+  { type: 'info1', title: 'Scheduled maintenance' },
+  { type: 'info2', title: 'A related rule has changed' }
+] as const
 
 const Home = () => {
   const [count, setCount] = useState<number>(0)
@@ -435,6 +444,53 @@ const Home = () => {
                 <LinkCardFooter>June 27th, 205</LinkCardFooter>
               </LinkCard>
             </div>
+          </div>
+          <div className="my-8">
+            <H2>Notification Banner</H2>
+            <H3>Standard</H3>
+            <div className="flex flex-col gap-4">
+              {notificationBanners.map((banner) => (
+                <NotificationBanner
+                  key={banner.type}
+                  type={banner.type}
+                  title={banner.title}
+                  headingLevel="h4"
+                >
+                  Dummy text stands in for the real wording while the design is
+                  being put together.
+                </NotificationBanner>
+              ))}
+            </div>
+            <H3>Color chip</H3>
+            <div className="flex flex-col gap-4">
+              {notificationBanners.map((banner) => (
+                <NotificationBanner
+                  key={banner.type}
+                  type={banner.type}
+                  title={banner.title}
+                  bannerStyle="color-chip"
+                  headingLevel="h4"
+                >
+                  Dummy text stands in for the real wording while the design is
+                  being put together.
+                </NotificationBanner>
+              ))}
+            </div>
+            <H3>With a background</H3>
+            <p className="mb-4">
+              The spec asks for a background where the banner would not
+              otherwise stand out. It is not set by the component, so pass one
+              in className.
+            </p>
+            <NotificationBanner
+              type="success"
+              title="Your registration is complete"
+              headingLevel="h4"
+              className="bg-green-50"
+            >
+              Dummy text stands in for the real wording while the design is
+              being put together.
+            </NotificationBanner>
           </div>
           <div className="my-8">
             <H2>Frequently Asked Questions</H2>
